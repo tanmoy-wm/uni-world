@@ -24,7 +24,7 @@ class LoginController extends Controller
                 return redirect()->route('admins.dashboard');
             }
         } else {
-            return back()->withErrors(['password' => 'Wrong Password']);
+            return back()->withErrors(['password' => 'Wrong Credintial']);
         }
 
         return redirect()->route('admin.dashboard');

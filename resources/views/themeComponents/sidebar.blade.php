@@ -8,8 +8,8 @@
                     <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                    <span class="font-weight-bold mb-2">David Grey. H</span>
-                    <span class="text-secondary text-small">Project Manager</span>
+                    <span class="font-weight-bold mb-2">Admin Name</span>
+                    <!-- <span class="text-secondary text-small">Project Manager</span> -->
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
@@ -21,43 +21,168 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="index.html">
+                <span class="menu-title">Student</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">
+                <span class="menu-title">Agents</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">
+                <span class="menu-title">Staff</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">
+                <span class="menu-title">University</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Basic UI Elements</span>
+                <span class="menu-title">Cources</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Add Courses</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">View Courses</a></li>
                 </ul>
             </div>
         </li>
+
+
+
         <li class="nav-item">
             <a class="nav-link" href="pages/icons/mdi.html">
-                <span class="menu-title">Icons</span>
+                <span class="menu-title">Manage Category</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
             </a>
         </li>
+ 
         <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-                <span class="menu-title">Forms</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#applications" aria-expanded="false" aria-controls="applications">
+                <span class="menu-title">Applications</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
+            <div class="collapse" id="applications">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">No of applications</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">No of pending applications</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">No of rejects applications</a></li>
+
+                </ul>
+            </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-                <span class="menu-title">Charts</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-            </a>
-        </li>
+       
         <li class="nav-item">
             <a class="nav-link" href="pages/tables/basic-table.html">
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Paper Applications</span>
                 <i class="mdi mdi-table-large menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+                <span class="menu-title">Payments</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#settings" aria-expanded="false" aria-controls="settings">
+                <span class="menu-title">Settings</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+            </a>
+            <div class="collapse" id="settings">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">General Settings</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Locations</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Preferances</a></li>
+
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#reports" aria-expanded="false" aria-controls="reports">
+                <span class="menu-title">Reports</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+            </a>
+            <div class="collapse" id="reports">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Student</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Agents</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Staff</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Payments</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Applications</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+                <span class="menu-title">Countries</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+                <span class="menu-title">Letter Request</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+                <span class="menu-title">Change Passwords</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#fees" aria-expanded="false" aria-controls="fees">
+                <span class="menu-title">Fees</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+            </a>
+            <div class="collapse" id="fees">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Total Fees Paid</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Total Pending Fees</a></li>
+                   
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#resources" aria-expanded="false" aria-controls="resources">
+                <span class="menu-title">Reports</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+            </a>
+            <div class="collapse" id="resources">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List of Courses</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">View Details</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Filters</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Video Courses & Chapters</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Online Payments</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Reports</a></li>
+
+                </ul>
+            </div>
+        </li>
+      
+       
+
+
+        <!-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
                 <span class="menu-title">Sample Pages</span>
                 <i class="menu-arrow"></i>
@@ -72,8 +197,8 @@
                     <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
                 </ul>
             </div>
-        </li>
-        <li class="nav-item sidebar-actions">
+        </li> -->
+        <li class="nav-item sidebar-actions" style="display:none;">
       <span class="nav-link">
         <div class="border-bottom">
           <h6 class="font-weight-normal mb-3">Projects</h6>
