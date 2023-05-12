@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::view('/test', 'pages.test');
-
-Route::view('/login', 'pages.auth.login');
-Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
-Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
+Route::view('/auth/login', 'pages.auth.login');
+Route::post('/auth/login', [LoginController::class, 'login'])->name('login');
+Route::get('/auth/logout', [LogoutController::class, 'logout'])->name('auth.logout');
 
 Route::group([
     'as'         => 'admins.',
