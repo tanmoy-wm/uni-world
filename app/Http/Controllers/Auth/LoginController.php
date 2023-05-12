@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,21 +12,21 @@ class LoginController extends Controller
 {
     public function login(LoginRequest $request): RedirectResponse
     {
-        $credentials = $request->validated();
-        // dd($credentials);
-        $remember_token = $request->has('remember_token') ? true : false;
+        $request->authenticate();
 
-        if (Auth::attempt($credentials, $remember_token)) {
-            if (
-                Auth::user()->profile_type === 'App\Models\Admin' &&
-                Auth::user()->profile_id === 1
-            ) {
-                return redirect()->route('admins.dashboard');
-            }
-        } else {
-            return back()->withErrors(['password' => 'Wrong Credintial']);
+        $request->session()->regenerate();
+
+        User::query()->update([
+            'last_login_at' => now(),
+            'last_login_ip' => $request->getClientIp(),
+        ]);
+
+        // dd(auth()->user()->profile_type);
+        $user = Auth::user();
+
+        // dd($user);
+        if ($user->profile_type === 'App\Models\Admin') {
+            return redirect()->route('admins.dashboard');
         }
-
-        return redirect()->route('admin.dashboard');
     }
 }
