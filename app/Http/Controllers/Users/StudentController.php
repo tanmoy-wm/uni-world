@@ -22,7 +22,7 @@ class StudentController extends Controller
         return $this->service->create();
     }
 
-    public function destroy($id): JsonResponse
+    public function destroy($id): View
     {
         return $this->service->destroy($id);
     }
@@ -47,9 +47,9 @@ class StudentController extends Controller
         return $this->service->store($request);
     }
 
-    public function trashed($id): JsonResponse
+    public function trashed($id): RedirectResponse
     {
-        return $this->service->trashed($request);
+        return $this->service->trashed($id);
     }
 
     public function update($request, $id): JsonResponse

@@ -25,20 +25,19 @@ class StudentService
         return view('pages.backend.student.create');
     }
 
-    public function destroy($id): JsonResponse
+    public function destroy($id): View
     {
-        if (!$student = Student::withTrashed()->find($id)) {
-            return $this->handleError([], 'Student Not Found.', 404);
-        }
+        $student = Student::query()->findOrFail($id);
 
-        $student->forceDeleted();
+        $student->forceDelete();
 
-        return $this->handleResponse([], '', 200);
+        return view('pages.backend.student.index');
     }
 
     public function index($request): View
     {
-        return view('pages.backend.student.index');
+        $students = Student::all();
+        return view('pages.backend.student.index', compact('students'));
     }
 
     public function restore($id): JsonResponse
@@ -95,27 +94,16 @@ class StudentService
         return redirect()->route('students.index');
     }
 
-    public function trashed($id): JsonResponse
+    public function trashed($id): RedirectResponse
     {
-        if (!$student = Student::withTrashed()->find($id)) {
-            return $this->handleError([], 'Student Not Found.', 404);
-        }
+        DB::transaction(function () use ($id) {
+            $student = Student::query()->findOrFail($id);
+            $student->user->delete();
+            $student->delete();
+        });
 
-        if ($student->onlyTrashed()->find($id)) {
-            return $this->handleError([], 'Selected Student already in Trashed.', 404);
-        }
 
-        $deleted_by = Auth::id();
-        $student->delete();
-
-        $data = [
-            'deleted_by' => $deleted_by,
-            'is_active'  => 0
-        ];
-
-        $trashed_student = tap($student)->update($data);
-
-        return $this->handleResponse($trashed_student, 'Student Trashed Successfully.', 200);
+        return redirect()->route('students.index');
     }
 
     public function update($request, $id): JsonResponse
