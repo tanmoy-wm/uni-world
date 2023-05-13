@@ -1,27 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
-
-use App\Http\Requests\Backend\Users\StoreUniversityRequest;
-use App\Services\Backend\UniversityService;
+use App\Http\Requests\Backend\Users\StoreAgentRequest;
+use App\Services\Users\AgentService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
-
-class UniversityController extends Controller
+class AgentController extends Controller
 {
-    public function __construct(public UniversityService $service)
+    public function __construct(public AgentService $service)
     {
     }
-    public function create(Request $request){
-        
-        return $this->service->create($request);
-      
-    }
 
+    public function create(Request $request){
+        return $this->service->create($request);
+    }
     public function destroy($id): JsonResponse
     {
         return $this->service->destroy($id);
@@ -42,12 +38,12 @@ class UniversityController extends Controller
         return $this->service->show($id);
     }
 
-    public function store(StoreUniversityRequest $request): RedirectResponse
+   
+    public function store(StoreAgentRequest $request): RedirectResponse
     {
-
         return $this->service->store($request);
     }
- 
+
     public function trashed($id): JsonResponse
     {
         return $this->service->trashed($request);

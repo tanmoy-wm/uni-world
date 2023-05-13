@@ -2,14 +2,17 @@
 
 namespace App\Services\Backend;
 
+use App\Http\Actions\CreateUserAction;
 use App\Http\Actions\FiltersQuery;
 use App\Models\University;
 use App\Services\BaseService;
 
+use Illuminate\Support\Facades\DB;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Http\RedirectResponse;
 
 class UniversityService 
 {
@@ -57,26 +60,44 @@ class UniversityService
         return $this->handleResponse($data, '', 200);
     }
 
-    public function store($request)
+    public function store($request): RedirectResponse
     {
-
-     
         try {
-            $university = University::create([
-                'name'            => $validated_request['uniname'],
-                'slug'            => $slug,
-                'is_active'       => $validated_request['is_active'],
-                'created_by'      => $created_by,
-                'updated_by'      => $created_by,
-            ]);
-             
+                $validated_request = $request->validated();
 
+                // dd($validated_request);
+                DB::transaction(function () use ($validated_request) {
+                    $data = university::create([
+                        'name'    => $validated_request['name'],
+                        'username'   => $validated_request['username'],
+                        'email'      => $validated_request['email'],
+                        'password'   => $validated_request['password'],
+                        'country_code'  => $validated_request['country_code'],
+                        'mobile_number' => $validated_request['mobile_number'],
+                        'alt_country_code'  => $validated_request['alt_country_code'],
+                        'alt_mobile_number' => $validated_request['alt_mobile_number'],
+                        'address'  => $validated_request['address'],
+                        'city' => $validated_request['city'],
+                        'country'  => $validated_request['country'],
+                        'pincode' => $validated_request['pincode'],
+                        'status'  => 'Pending',
+                        'website' => $validated_request['website'],
+                        'linkedin'  => 'linkedin',
+                        'facebook' => 'facebook',
+                        'instagram'  =>'instagram',
+                        'twitter' => 'twitter',
+                    ]); 
+                
+                    CreateUserAction::execute($data, $validated_request['password']);
+                });
 
+                // Mail::to($data->email)->send((new UserWelcomeMail($data, $validated_request['password']))->afterCommit());
+              
         } catch (Exception $exception) {
-            return back()->with('error');
+            return redirect()->back()->withErrors($exception->getMessage());
         }
 
-        return $this->handleResponse($university, 'University Created Successfully.', 201);
+        return redirect()->route('universities.index');
     }
 
     public function trashed($id): JsonResponse

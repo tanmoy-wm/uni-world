@@ -3,14 +3,6 @@
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-              
->>>>>>> 354f8f1 (universitystore)
-=======
-              
->>>>>>> 354f8f1ee1b19a57ca9c5f35d5b5020d5b823583
                     <img src="{{ asset('assets/images/faces/face1.jpg') }}" alt="profile">
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
@@ -23,27 +15,19 @@
             </a>
         </li>
         <li class="nav-item">
-<<<<<<< HEAD
-<<<<<<< HEAD
             <a class="nav-link" href="{{ route('admins.dashboard') }}">
-=======
-            <a class="nav-link" href="{{route('admins.dashboard')}}">
->>>>>>> 354f8f1 (universitystore)
-=======
-            <a class="nav-link" href="{{route('admins.dashboard')}}">
->>>>>>> 354f8f1ee1b19a57ca9c5f35d5b5020d5b823583
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('students.index') }}">
+            <a class="nav-link" href="">
                 <span class="menu-title">Student</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('agents.index') }}">
                 <span class="menu-title">Agents</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
