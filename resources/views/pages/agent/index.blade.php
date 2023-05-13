@@ -5,13 +5,13 @@
             <h3 class="page-title">
             <span class="page-title-icon bg-gradient-primary text-white me-2">
             <i class="mdi mdi-home"></i>
-            </span> University
+            </span> Agent
             </h3>
             <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
-                  <a href="{{ route('universities.create') }}" class="btn btn-gradient-primary btn-icon-text">
-                            <i class="mdi mdi-account-multiple-plus"></i> Add University </a>
+                  <a href="{{ route('agents.create') }}" class="btn btn-gradient-primary btn-icon-text">
+                            <i class="mdi mdi-account-multiple-plus"></i> Add Agent </a>
                     <!-- <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i> -->
                   </li>
                 </ul>

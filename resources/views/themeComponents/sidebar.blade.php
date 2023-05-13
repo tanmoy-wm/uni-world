@@ -16,19 +16,19 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('admins.dashboard')}}">
+            <a class="nav-link" href="{{ route('admins.dashboard') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('students.index') }}">
+            <a class="nav-link" href="">
                 <span class="menu-title">Student</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('agents.index') }}">
                 <span class="menu-title">Agents</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>

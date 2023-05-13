@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name', 255)->index();
             $table->string('username', 255)->index()->unique();
             $table->string('email', 255)->index()->unique();
+            $table->string('password', 255)->index();
+         
             $table->string('country_code', 255)->index();
             $table->string('mobile_number', 255)->index();
             $table->string('alt_country_code', 255)->index();

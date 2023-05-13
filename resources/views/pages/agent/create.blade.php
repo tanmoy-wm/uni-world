@@ -4,43 +4,61 @@
    <h3 class="page-title">
       <span class="page-title-icon bg-gradient-primary text-white me-2">
       <i class="mdi mdi-home"></i>
-      </span> University
+      </span> Agent
    </h3>
-   <nav aria-label="breadcrumb">
+   <!-- <nav aria-label="breadcrumb">
       <ul class="breadcrumb">
          <li class="breadcrumb-item active" aria-current="page">
             <a href="{{ route('universities.create') }}" class="btn btn-gradient-primary btn-icon-text">
-            <i class="mdi mdi-account-multiple-plus"></i> Add University </a>
-            <!-- <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i> -->
-         </li>
+            <i class="mdi mdi-account-multiple-plus"></i> Add Agent </a>
+            <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i> -->
+         <!-- </li>
       </ul>
-   </nav>
+   </nav> -->
 </div>
 <div class="col-12">
    <div class="card">
       <div class="card-body">
-         <h4 class="card-title">New University</h4>
+         <h4 class="card-title">New Agent</h4>
          <br>
-         <form class="form-sample" action="{{ route('universities.store') }}" method="POST">
+         <form class="form-sample" action="{{ route('agents.store') }}" method="POST">
             <!-- <p class="card-description"> Personal info </p> -->
-            @csrf
+                @csrf
                     @if ($errors->any())
                         @include('themeComponents.errors', ['errors' => $errors])
                     @endif
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group row">
-                     <label class="col-sm-3 col-form-label">University Name</label>
+                     <label class="col-sm-3 col-form-label">Business Certificate</label>
                      <div class="col-sm-9">
-                        <input type="text" name="name" class="form-control" required />
+                        <input type="file" name="business_certificate" class="form-control" required />
                      </div>
                   </div>
                </div>
                <div class="col-md-6">
                   <div class="form-group row">
-                     <label class="col-sm-3 col-form-label">User Name</label>
+                     <label class="col-sm-3 col-form-label">First Name</label>
                      <div class="col-sm-9">
-                        <input type="text" name="username" class="form-control" required />
+                        <input type="text" name="first_name" class="form-control" required />
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group row">
+                     <label class="col-sm-3 col-form-label">Middle Name</label>
+                     <div class="col-sm-9">
+                        <input type="text" name="middle_name" class="form-control" required />
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="form-group row">
+                     <label class="col-sm-3 col-form-label">Last Name</label>
+                     <div class="col-sm-9">
+                        <input type="text" name="last_name" class="form-control" required />
                      </div>
                   </div>
                </div>
@@ -83,17 +101,10 @@
                </div>
                <div class="col-md-6">
                   <div class="form-group row">
-                     <label class="col-sm-3 col-form-label">Alternate Phone Number</label>
+                     <label class="col-sm-3 col-form-label">Business Logo</label>
                      <div class="col-sm-9">
                      <div class="input-group">
-                           <div class="input-group-prepend">
-                           <select name="alt_country_code" class="form-control" required>
-                                <option value="">Select</option>
-                                <option value="91">+ 91</option>
-                                <option value="92">+ 92</option>
-                              </select>
-                           </div>
-                           <input type="text" name="alt_mobile_number" class="form-control" aria-label="Text input with dropdown button" required>
+                           <input type="file" name="business_logo" class="form-control" aria-label="Text input with dropdown button" required>
                         </div>
                      </div>
                   </div>
@@ -141,9 +152,9 @@
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group row">
-                     <label class="col-sm-3 col-form-label">Website</label>
+                     <label class="col-sm-3 col-form-label">Student Source Country </label>
                      <div class="col-sm-9">
-                        <input name="website"  type="text" class="form-control" required />
+                        <input name="student_source_country "  type="text" class="form-control" required />
                      </div>
                   </div>
                </div>

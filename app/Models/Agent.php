@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class University extends Model
+class Agent extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -20,28 +19,10 @@ class University extends Model
         'deleted_by' => 'int',
         'updated_by' => 'int',
     ];
-   
-    
 
     protected $fillable = [
         'name',
-        'username' ,
-        'email' ,
-        'password',
-        'country_code',
-        'mobile_number',
-        'alt_country_code',
-        'alt_mobile_number' ,
-        'address',
-        'city',
-        'country',
-        'pincode',
-        'status',
-        'website',
-        'linkedin',
-        'facebook',
-        'instagram',
-        'twitter',
+        'slug',
         'is_active',
         'created_by',
         'updated_by',
@@ -62,11 +43,6 @@ class University extends Model
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');
-    }
-
-    public function user(): MorphOne
-    {
-        return $this->morphOne(User::class, 'profile');
     }
     //------------------- Relationships -------------------//
 
