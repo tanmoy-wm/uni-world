@@ -36,6 +36,9 @@ Route::group([
     'prefix'     => '/students'
 ], function () {
     Route::get('/create', 'create')->name('create');
+    Route::get('/{id}', 'edit')->name('edit');
     Route::get('/', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
+    Route::get('/{id}/trashed', 'trashed')->name('trashed');
+    Route::put('/{id}', 'update')->name('update');
 });

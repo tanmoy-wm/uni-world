@@ -11,9 +11,10 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Create Student</h4>
-                <form class="form-sample" action={{ route('students.store') }} method="POST">
+                <h4 class="card-title">Edit Student</h4>
+                <form class="form-sample" action={{ route('students.update', ['id' => $student->id]) }} method="POST">
                     @csrf
+                    @method('PUT')
                     @if ($errors->any())
                         @include('themeComponents.errors', ['errors' => $errors])
                     @endif
@@ -25,7 +26,7 @@
                                 <label class="col-sm-3 col-form-label">First Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="first_name"
-                                        value="{{ old('first_name') }}" required />
+                                        value="{{ old('first_name') ?? $student->first_name }}" required />
                                 </div>
                             </div>
                         </div>
@@ -35,7 +36,7 @@
                                 <label class="col-sm-3 col-form-label">Middle Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="middle_name"
-                                        value="{{ old('middle_name') }}" />
+                                        value="{{ old('middle_name') ?? $student->middle_name }}" />
                                 </div>
                             </div>
                         </div>
@@ -47,7 +48,7 @@
                                 <label class="col-sm-3 col-form-label">Last Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="last_name"
-                                        value="{{ old('last_name') }}" required />
+                                        value="{{ old('last_name') ?? $student->last_name }}" required />
                                 </div>
                             </div>
                         </div>
@@ -56,8 +57,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}"
-                                        required />
+                                    <input type="email" class="form-control" name="email"
+                                        value="{{ old('email') ?? $student->email }}" required />
                                 </div>
                             </div>
                         </div>
@@ -106,7 +107,7 @@
                                 <label class="col-sm-3 col-form-label">Mobile Number</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="number" name="mobile_number"
-                                        value="{{ old('mobile_number') }}" required />
+                                        value="{{ old('mobile_number') ?? $student->mobile_number }}" required />
                                 </div>
                             </div>
                         </div>
@@ -137,28 +138,6 @@
                                         <option>Russia</option>
                                         <option>Britain</option>
                                     </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Password</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="password" name="password"
-                                        value="{{ old('password') }}" required />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Confirm Password</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="password" name="password_confirmation"
-                                        value="{{ old('password_confirmation') }}" required />
                                 </div>
                             </div>
                         </div>

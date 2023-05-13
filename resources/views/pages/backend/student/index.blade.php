@@ -9,8 +9,10 @@
         <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a href="{{ route('students.create') }}" class="btn btn-gradient-primary btn-icon">
-                        <i class="mdi mdi-account-plus"></i>
+                    <a href="{{ route('students.create') }}">
+                        <button class="btn btn-gradient-primary btn-icon">
+                            <i class="mdi mdi-account-plus"></i>
+                        </button>
                     </a>
                 </li>
             </ul>
@@ -20,52 +22,70 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Hoverable Table</h4>
-                <p class="card-description"> Add class <code>.table-hover</code>
-                </p>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>User</th>
-                            <th>Product</th>
-                            <th>Sale</th>
-                            <th>Status</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Mobile Number</th>
+                            <th>Country</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Photoshop</td>
-                            <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                        </tr>
-                        <tr>
-                            <td>Messsy</td>
-                            <td>Flash</td>
-                            <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                        <tr>
-                            <td>John</td>
-                            <td>Premier</td>
-                            <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                        </tr>
-                        <tr>
-                            <td>Peter</td>
-                            <td>After effects</td>
-                            <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                        </tr>
-                        <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
+                        @forelse ($students as $student)
+                            <tr>
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $student->email }}</td>
+                                <td class="text-danger"> {{ $student->mobile_number }}</td>
+                                <td>{{ $student->country }}</td>
+                                <td>
+                                    <a href="{{ route('students.edit', ['id' => $student->id]) }}">
+                                        <button class="btn btn-primary btn-icon" type="button">
+                                            <i class="mdi mdi-pencil"></i>
+                                        </button>
+                                    </a>
+
+                                    <a href="{{ route('students.trashed', ['id' => $student->id]) }}"
+                                        onclick="confirmDelete(event)">
+                                        <button class="btn btn-danger btn-icon btndata" id="{{ $student->id }}"
+                                            type="button">
+                                            <i class="mdi mdi-delete"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center">No Data To Show</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        function confirmDelete(e) {
+            e.preventDefault();
+
+            let urlToRedirect = e.currentTarget.getAttribute('href');
+
+            swal({
+                title: "Are you sure you want to delete the record?",
+                text: "Once deleted, you will not be able to recover this record!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willCancel) => {
+                if (willCancel) {
+                    window.location.href = urlToRedirect;
+                }
+            });
+        }
+    </script>
 @endsection
