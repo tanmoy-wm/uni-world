@@ -3,10 +3,7 @@
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-<<<<<<< HEAD
-=======
               
->>>>>>> 354f8f1 (universitystore)
                     <img src="{{ asset('assets/images/faces/face1.jpg') }}" alt="profile">
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
@@ -19,11 +16,7 @@
             </a>
         </li>
         <li class="nav-item">
-<<<<<<< HEAD
-            <a class="nav-link" href="{{ route('admins.dashboard') }}">
-=======
             <a class="nav-link" href="{{route('admins.dashboard')}}">
->>>>>>> 354f8f1 (universitystore)
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
