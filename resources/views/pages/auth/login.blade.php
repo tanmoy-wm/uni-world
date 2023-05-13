@@ -32,7 +32,7 @@
                             </div>
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Sign in to continue.</h6>
-                            <form class="pt-3" action="{{ route('login') }}" method='POST'>
+                            <form class="pt-3" action="" method='POST'>
                                 @csrf
                                 @if ($errors->any())
                                     @include('themeComponents.errors', ['errors' => $errors])
