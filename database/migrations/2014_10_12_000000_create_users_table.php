@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('last_name', 255);
             $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->boolean('is_active')->index();
+            $table->boolean('is_active')->index()->nullable();
             $table->string('password');
             $table->string('avatar')->nullable();
             $table->dateTime('last_login_at')->nullable();

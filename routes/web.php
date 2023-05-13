@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Backend\UniversityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/auth/login', 'pages.auth.login');
-Route::post('/auth/login', [LoginController::class, 'login'])->name('login');
-Route::get('/auth/logout', [LogoutController::class, 'logout'])->name('auth.logout');
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::view('/test', 'pages.test');
+Route::view('/login', 'pages.auth.login');
+Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
+      
 Route::group([
     'as'         => 'admins.',
     'controller' => AdminController::class,
@@ -28,3 +33,15 @@ Route::group([
 ], function () {
     Route::view('/', 'pages.admin.dashboard')->name('dashboard');
 });
+
+    
+Route::group([
+    'as'         => 'universities.',
+    'controller' => UniversityController::class,
+    'prefix'     => '/universities'
+], function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+});
+
