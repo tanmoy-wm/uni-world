@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Users\StoreStudentRequest;
+use App\Http\Requests\Backend\Users\UpdateStudentRequest;
 use App\Services\Users\StudentService;
 
 use Illuminate\Http\JsonResponse;
@@ -27,6 +28,11 @@ class StudentController extends Controller
         return $this->service->destroy($id);
     }
 
+    public function edit($id): View
+    {
+        return $this->service->edit($id);
+    }
+
     public function index(Request $request): View
     {
         return $this->service->index($request);
@@ -37,7 +43,7 @@ class StudentController extends Controller
         return $this->service->restore($id);
     }
 
-    public function show($id): JsonResponse
+    public function show($id): View
     {
         return $this->service->show($id);
     }
@@ -52,8 +58,8 @@ class StudentController extends Controller
         return $this->service->trashed($id);
     }
 
-    public function update($request, $id): JsonResponse
+    public function update($id, UpdateStudentRequest $request): RedirectResponse
     {
-        return $this->service->update($request);
+        return $this->service->update($request, $id);
     }
 }

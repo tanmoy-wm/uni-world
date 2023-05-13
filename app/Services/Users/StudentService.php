@@ -4,6 +4,7 @@ namespace App\Services\Users;
 
 use App\Http\Actions\CreateUserAction;
 use App\Http\Actions\FiltersQuery;
+use App\Http\Actions\UpdateUserAction;
 use App\Http\Requests\Backend\Users\StoreStudentRequest;
 use App\Mail\UserWelcomeMail;
 use App\Models\Student;
@@ -34,6 +35,13 @@ class StudentService
         return view('pages.backend.student.index');
     }
 
+    public function edit($id): View
+    {
+        $student = Student::query()->findOrFail($id);
+
+        return view('pages.backend.student.edit', compact('student'));
+    }
+
     public function index($request): View
     {
         $students = Student::all();
@@ -51,17 +59,11 @@ class StudentService
         return $this->handleResponse($restored_student, 'Student Restored Successfully.', 200);
     }
 
-    public function show($id): JsonResponse
+    public function show($id): View
     {
-        $student = Student::query();
+        $student = Student::query()->findOrFail($id);
 
-        if (!$student->withTrashed()->find($id)) {
-            return $this->handleError([], 'Student Not Found.', 404);
-        }
-
-        $data = $student->with(['createdBy', 'deletedBy', 'updatedBy'])->first();
-
-        return $this->handleResponse($data, '', 200);
+        return view('pages.backend.student.show', compact('student'));
     }
 
     public function store(StoreStudentRequest $request): RedirectResponse
@@ -106,29 +108,42 @@ class StudentService
         return redirect()->route('students.index');
     }
 
-    public function update($request, $id): JsonResponse
+    public function update($request, $id): RedirectResponse
     {
-        if (!$student = Student::withTrashed()->find($id)) {
-            return $this->handleError([], 'Student Not Found.', 404);
-        }
+        // $data = $request->validate([
+        //     'name'        => ['required', 'string'],
+        //     'status'      => ['required', 'boolean'],
+        //     'description' => ['required', 'string']
+        // ]);
 
+        // $project = Project::findOrfail($id);
+        // $project->update($data);
+        // return redirect()->route('students.index');
         try {
-            $validated_request = $request->validated();
-            $updated_by = Auth::id();
-            $slug = Str::slug($validated_request['slug']);
+            DB::transaction(function () use ($request, $id) {
+                $student = Student::query()->findOrFail($id);
+                $validated_request = $request->validated();
 
-            $data = [
-                'name'            => $validated_request['name'],
-                'slug'            => $slug,
-                'is_active'       => $validated_request['is_active'],
-                'updated_by'      => $updated_by,
-            ];
+                // $data = [
+                //     'first_name'    => $validated_request['first_name'],
+                //     'middle_name'   => $validated_request['middle_name'],
+                //     'last_name'     => $validated_request['last_name'],
+                //     'email'         => $validated_request['email'],
+                //     'country_code'  => $validated_request['country_code'],
+                //     'mobile_number' => $validated_request['mobile_number'],
+                //     'state'         => $validated_request['state'],
+                //     'country'       => $validated_request['country'],
+                //     'dob'           => $validated_request['dob'],
+                // ];
 
-            $updated_student = tap($student)->update($data);
+                $student->update($validated_request);
+
+                UpdateUserAction::execute($student, $validated_request);
+            });
         } catch (Exception $exception) {
-            return $this->handleException($exception);
+            return redirect()->back()->withErrors($exception->getMessage());
         }
 
-        return $this->handleResponse($updated_student, 'Student Updated Successfully.', 200);
+        return redirect()->route('students.index');
     }
 }

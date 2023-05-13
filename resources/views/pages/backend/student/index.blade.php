@@ -9,8 +9,10 @@
         <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a href="{{ route('students.create') }}" class="btn btn-gradient-primary btn-icon">
-                        <i class="mdi mdi-account-plus"></i>
+                    <a href="{{ route('students.create') }}">
+                        <button class="btn btn-gradient-primary btn-icon">
+                            <i class="mdi mdi-account-plus"></i>
+                        </button>
                     </a>
                 </li>
             </ul>
@@ -38,16 +40,11 @@
                                 <td class="text-danger"> {{ $student->mobile_number }}</td>
                                 <td>{{ $student->country }}</td>
                                 <td>
-                                    <a href="#" data-bs-toggle="tooltip" title="Edit">
+                                    <a href="{{ route('students.edit', ['id' => $student->id]) }}">
                                         <button class="btn btn-primary btn-icon" type="button">
                                             <i class="mdi mdi-pencil"></i>
                                         </button>
                                     </a>
-
-                                    {{-- <button class="btn btn-danger btn-icon btndata" id="{{ $student->id }}" type="button"
-                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                        <i class="mdi mdi-delete"></i>
-                                    </button> --}}
 
                                     <a href="{{ route('students.trashed', ['id' => $student->id]) }}"
                                         onclick="confirmDelete(event)">
@@ -69,30 +66,6 @@
         </div>
     </div>
 
-    {{-- Modal Start --}}
-
-    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" value="" id="delete-id">
-                    <h6>Are You Sure To Delete The Record....?</h6>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-danger">Yes</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
         integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
