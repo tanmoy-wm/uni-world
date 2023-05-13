@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Admin extends Model
+class Student extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -22,9 +22,16 @@ class Admin extends Model
     ];
 
     protected $fillable = [
-        'name',
-        'slug',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'email',
+        'country_code',
+        'mobile_number',
+        'country',
+        'state',
         'is_active',
+        'meta',
         'created_by',
         'updated_by',
         'deleted_by'
@@ -61,7 +68,6 @@ class Admin extends Model
             set: fn ($value) => strtolower($value)
         );
     }
-
     protected function middleName(): Attribute
     {
         return new Attribute(
@@ -69,7 +75,6 @@ class Admin extends Model
             set: fn ($value) => strtolower($value)
         );
     }
-
     protected function lastName(): Attribute
     {
         return new Attribute(
@@ -87,34 +92,4 @@ class Admin extends Model
         return $this->first_name . ' ' . $this->last_name;
     }
     //--------------------- Attributes --------------------//
-
-
-    //---------------------- Methods ----------------------//
-    public static function sorted($direction)
-    {
-        switch ($direction) {
-            case 'newest':
-                $data = self::latest();
-                break;
-            case 'asc':
-                $data = self::orderBy('id', 'ASC');
-                break;
-            default:
-                $data = self::orderBy('id', 'DESC');
-                break;
-        }
-
-        return $data;
-    }
-
-    public static function search($data, $search_term): object
-    {
-        $data->withTrashed()->where(function ($q) use ($search_term) {
-            $q->where('name', 'LIKE', '%' . $search_term . '%')
-                ->orWhere('slug', 'LIKE', '%' . $search_term . '%');
-        });
-
-        return $data;
-    }
-    //---------------------- Methods ----------------------//
 }
