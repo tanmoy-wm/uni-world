@@ -145,7 +145,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Website</label>
                                 <div class="col-sm-9">
-                                    <input name="website" type="text" class="form-control" required />
+                                    <input name="website" type="url" class="form-control" required />
                                 </div>
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Facebook</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="facebook"
+                                    <input class="form-control" type="url" name="facebook"
                                         value="{{ old('facebook') }}" />
                                 </div>
                             </div>
@@ -193,8 +193,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">LnekdIn</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="linekdin"
-                                        value="{{ old('linekdin') }}" />
+                                    <input class="form-control" type="url" name="linkedin"
+                                        value="{{ old('linkedin') }}" />
                                 </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Twitter</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="twitter"
+                                    <input class="form-control" type="url" name="twitter"
                                         value="{{ old('twitter') }}" />
                                 </div>
                             </div>
@@ -215,7 +215,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Instagram</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="instagram"
+                                    <input class="form-control" type="url" name="instagram"
                                         value="{{ old('instgram') }}" />
                                 </div>
                             </div>

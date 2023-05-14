@@ -27,7 +27,7 @@ class UniversityWelcomeMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'university-welcome-mail',
+            view: 'mails.university-welcome-mail',
             with: [
                 'university' => $this->university,
                 'password' => $this->password,

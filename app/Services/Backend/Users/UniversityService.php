@@ -54,32 +54,33 @@ class UniversityService
                     'password'          => $validated_request['password'],
                     'country_code'      => $validated_request['country_code'],
                     'mobile_number'     => $validated_request['mobile_number'],
-                    'alt_country_code'  => $validated_request['alt_country_code'],
-                    'alt_mobile_number' => $validated_request['alt_mobile_number'],
+                    'alt_country_code'  => $validated_request['alt_country_code'] ?? null,
+                    'alt_mobile_number' => $validated_request['alt_mobile_number'] ?? null,
                     'address'           => $validated_request['address'],
                     'city'              => $validated_request['city'],
                     'country'           => $validated_request['country'],
                     'pincode'           => $validated_request['pincode'],
                     'status'            => $validated_request['status'],
-                    'website'           => $validated_request['website'],
-                    'linkedin'          => $validated_request['linkedin'],
-                    'facebook'          => $validated_request['facebook'],
-                    'instagram'         => $validated_request['instagram'],
-                    'twitter'           => $validated_request['twitter'],
+                    'website'           => $validated_request['website'] ?? null,
+                    'linkedin'          => $validated_request['linkedin'] ?? null,
+                    'facebook'          => $validated_request['facebook'] ?? null,
+                    'instagram'         => $validated_request['instagram'] ?? null,
+                    'twitter'           => $validated_request['twitter'] ?? null,
                 ]);
 
-                CreateUserAction::execute($data, $validated_request['password']);
+                $user = CreateUserAction::execute($data, $validated_request['password']);
 
+                dd($user);
                 Mail::to($data->email)->send((new UniversityWelcomeMail($data, $validated_request['password']))->afterCommit());
             });
         } catch (Exception $exception) {
             if (app()->environment('local')) {
                 return redirect()->back()->withErrors($exception->getMessage());
             } else {
-                return redirect()->back()->withErrors('Something went wrong');
+                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
             }
         }
-
+        
         return redirect()->route('universities.index');
     }
 

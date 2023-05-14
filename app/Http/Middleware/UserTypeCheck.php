@@ -19,21 +19,20 @@ class UserTypeCheck
     {
         $user = Auth::user();
 
-        // dd($user)
         if ($role == 'Admin' && $user->profile_type == 'App\Models\Admin') {
             return $next($request);
-        } elseif ($role == 'Moderator' && $user->profile_type == 'App\Models\Moderator') {
+        } elseif ($role == 'Moderator' && $user->profile_type === 'App\Models\Moderator') {
             return $next($request);
-        } elseif ($role == 'University' && $user->profile_type == 'App\Models\University') {
+        } elseif ($role == 'University' && $user->profile_type === 'App\Models\University') {
             return $next($request);
-        } elseif ($role == 'Staff' && $user->profile_type == 'App\Models\Staff') {
+        } elseif ($role == 'Staff' && $user->profile_type === 'App\Models\Staff') {
             return $next($request);
-        } elseif ($role == 'Agent' && $user->profile_type == 'App\Models\Agent') {
+        } elseif ($role == 'Agent' && $user->profile_type === 'App\Models\Agent') {
             return $next($request);
-        } elseif ($role == 'Student' && $user->profile_type == 'App\Models\Student') {
+        } elseif ($role == 'Student' && $user->profile_type === 'App\Models\Student') {
             return $next($request);
         } else {
-            return redirect()->route('auth.login');
+            return redirect()->route('login');
         }
         return $next($request);
     }

@@ -321,7 +321,7 @@
             <div>
                 <img class="mail-image" alt="top image" src="http://imgur.com/jc0kp97" width="">
             </div>
-            <h1 class="h1-font">Email Confirmation<h1>
+            <h1 class="h1-font">Welcome Email <h1>
                     <p class="p-font">Hey {{ $user->first_name }}, you're almost ready to start enjoying
                         <b>Oni World</b>.
                         Simply click the BIG yellow button below to Login.
@@ -364,8 +364,10 @@
                         </a>
                     </div>
 
-                    <p class="p-footer">Email sent by Elephantry.com <br>
-                        Copyright © 2017 Elephantry Inc. All rights reserved</p>
+                    <p class="p-footer">Email sent by uniworld.com <br>
+                        Copyright © 2017 UniWorld Inc. All rights reserved. <br>
+                        Made With Love By WbMantra Tech In INDIA.
+                    </p>
         </div>
     </div>
 

@@ -10,23 +10,19 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function login(LoginRequest $request): RedirectResponse
+    public function login(LoginRequest $request)
     {
 
         $credentials = $request->validated();
-        // dd($credentials);
         $remember_token = $request->has('remember_token') ? true : false;
         if (Auth::attempt($credentials, $remember_token)) {
-            if (
-                Auth::user()->profile_type === 'App\Models\Admin' &&
-                Auth::user()->profile_id === 1
-            ) {
+            if (Auth::user()->profile_type === 'App\Models\Admin') {
                 return redirect()->route('admins.dashboard');
+            } elseif (Auth::user()->profile_type === 'App\Models\Student') {
+                return redirect()->route('test');
             }
-        } else {    
-            return back()->withErrors(['password' => 'Wrong Credintial']);
+        } else {
+            return back()->withErrors(['password' => 'Wrong Credentials']);
         }
-        return redirect()->route('admin.dashboard');
-        
     }
 }
