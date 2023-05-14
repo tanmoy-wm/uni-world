@@ -9,29 +9,29 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class UserWelcomeMail extends Mailable implements ShouldQueue
+class UniversityWelcomeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public $user, public $password)
+    public function __construct(public $university, public $password)
     {
     }
 
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'User Welcome Mail',
+            subject: 'University Welcome Mail',
         );
     }
 
     public function content(): Content
     {
         return new Content(
-            view: 'mails.welcome',
+            view: 'university-welcome-mail',
             with: [
-                $this->user,
-                $this->password,
-            ]
+                'university' => $this->university,
+                'password' => $this->password,
+            ],
         );
     }
 

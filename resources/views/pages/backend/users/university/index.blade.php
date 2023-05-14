@@ -3,52 +3,53 @@
     <div class="page-header">
         <h3 class="page-title">
             <span class="page-title-icon bg-gradient-primary text-white me-2">
-                <i class="mdi mdi-account-multiple-outline"></i>
-            </span> Students
+                <i class="mdi mdi-home"></i>
+            </span> University
         </h3>
         <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a href="{{ route('students.create') }}">
-                        <button class="btn btn-gradient-primary btn-icon">
-                            <i class="mdi mdi-account-plus"></i>
-                        </button>
-                    </a>
+                    <a href="{{ route('universities.create') }}" class="btn btn-gradient-primary btn-icon-text">
+                        <i class="mdi mdi-account-multiple-plus"></i> Add University </a>
+                    <!-- <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i> -->
                 </li>
             </ul>
         </nav>
     </div>
-
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Mobile Number</th>
-                            <th>Country</th>
-                            <th>Actions</th>
+                            <th> # </th>
+                            <th> Name </th>
+                            <th> Username </th>
+                            <th> Email </th>
+                            <th> Mobile Number </th>
+                            <th> Country </th>
+                            <th> Actions </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($students as $student)
+                        @forelse ($universities as $university)
                             <tr>
-                                <td>{{ $student->name }}</td>
-                                <td>{{ $student->email }}</td>
-                                <td class="text-danger"> {{ $student->mobile_number }}</td>
-                                <td>{{ $student->country }}</td>
+                                <td> {{ $loop->iteration }} </td>
+                                <td> {{ $university->name }} </td>
+                                <td> {{ $university->username }} </td>
+                                <td> {{ $university->email }} </td>
+                                <td> {{ $university->mobile_number }} </td>
+                                <td> {{ $university->country }} </td>
                                 <td>
-                                    <a href="{{ route('students.edit', ['id' => $student->id]) }}">
+                                    <a href="{{ route('universities.edit', ['id' => $university->id]) }}">
                                         <button class="btn btn-primary btn-icon" type="button">
                                             <i class="mdi mdi-pencil"></i>
                                         </button>
                                     </a>
 
-                                    <a href="{{ route('students.trashed', ['id' => $student->id]) }}"
+                                    <a href="{{ route('universities.trashed', ['id' => $university->id]) }}"
                                         onclick="confirmDelete(event)">
-                                        <button class="btn btn-danger btn-icon btndata" id="{{ $student->id }}"
+                                        <button class="btn btn-danger btn-icon btndata" id="{{ $university->id }}"
                                             type="button">
                                             <i class="mdi mdi-delete"></i>
                                         </button>
@@ -57,7 +58,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="text-center">No Data To Show</td>
+                                <td colspan="6" class="text-center"> No Universities Found </td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -66,9 +67,6 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript">
         function confirmDelete(e) {
             e.preventDefault();

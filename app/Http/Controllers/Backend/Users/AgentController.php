@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Agent;
+namespace App\Http\Controllers\Backend\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Users\StoreAgentRequest;
-use App\Services\Users\AgentService;
+use App\Services\Backend\Users\AgentService;
+
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -15,7 +16,8 @@ class AgentController extends Controller
     {
     }
 
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         return $this->service->create($request);
     }
     public function destroy($id): JsonResponse
@@ -38,7 +40,7 @@ class AgentController extends Controller
         return $this->service->show($id);
     }
 
-   
+
     public function store(StoreAgentRequest $request): RedirectResponse
     {
         return $this->service->store($request);
@@ -46,11 +48,11 @@ class AgentController extends Controller
 
     public function trashed($id): JsonResponse
     {
-        return $this->service->trashed($request);
+        return $this->service->trashed($id);
     }
 
     public function update($request, $id): JsonResponse
     {
-        return $this->service->update($request);
+        return $this->service->update($request, $id);
     }
 }

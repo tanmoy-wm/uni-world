@@ -1,993 +1,378 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
-    xmlns:o="urn:schemas-microsoft-com:office:office">
+<html lang="en">
 
 <head>
-    <!--[if (gte mso 9)|(IE)]>
-    <xml>
-        <o:OfficeDocumentSettings>
-            <o:AllowPNG/>
-            <o:PixelsPerInch>96</o:PixelsPerInch>
-        </o:OfficeDocumentSettings>
-    </xml>
-    <![endif]-->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- So that mobile will display zoomed in -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- enable media queries for windows phone 8 -->
-    <meta name="format-detection" content="telephone=no"> <!-- disable auto telephone linking in iOS -->
-    <meta name="format-detection" content="date=no"> <!-- disable auto date linking in iOS -->
-    <meta name="format-detection" content="address=no"> <!-- disable auto address linking in iOS -->
-    <meta name="format-detection" content="email=no"> <!-- disable auto email linking in iOS -->
-    <meta name="author" content="Simple-Pleb.com">
-    <title>{{ __('pleb.mail.Welcome Title') }} | {{ config('app.name') }}</title>
+    <!-- If you delete this tag, the sky will fall on your head -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Email Sample</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="cailon.css" />
+    <link rel="stylesheet" href="css/robotonewfont.css" />
+    <!--Text-->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-    <style type="text/css">
-        /*Basics*/
+    <style>
+        .form {
+            background: rgb(243, 243, 243);
+            padding: 40px;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .form-small {
+            background: white;
+            padding: 40px;
+            max-width: 600px;
+            margin: 10px auto;
+        }
+
+        .h1-font {
+            font-family: Lobster;
+            text-align: center;
+        }
+
+        .contact-font {
+            font-family: Indie Flower;
+            font-style: italic;
+            text-align: center;
+            color: rgb(111, 111, 111);
+        }
+
+        .p-font {
+            margin: 20px 10px 20px;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+
+        .p-footer {
+            margin: 20px 10px 20px;
+            padding: 10px 50px 0px;
+            font-size: 11px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        /* .mail-image {
+ padding: 0px;
+ max-width:600px;
+ margin:10px auto;
+} */
+
+        /* Button */
+        :root {
+            --bg: rgb(243, 243, 243);
+            --color: rgb(255, 178, 0);
+            --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .wrapper {
+            padding: 20px 150px 40px;
+            filter: url('#goo');
+        }
+
+        .button {
+            display: inline-block;
+            text-align: center;
+            background: var(--color);
+            color: var(--bg);
+            font-weight: bold;
+            padding: 1.18em 1.32em 1.03em;
+            line-height: 1;
+            border-radius: 1em;
+            position: relative;
+            min-width: 8.23em;
+            text-decoration: none;
+            font-family: var(--font);
+            font-size: 1.75rem;
+        }
+
+        .button:before,
+        .button:after {
+            width: 4.4em;
+            height: 2.95em;
+            position: absolute;
+            content: "";
+            display: inline-block;
+            background: var(--color);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            transform: scale(0);
+            z-index: -1;
+        }
+
+        .button:before {
+            top: -25%;
+            left: 20%;
+        }
+
+        .button:after {
+            bottom: -25%;
+            right: 20%;
+        }
+
+        .button:hover:before,
+        .button:hover:after {
+            transform: none;
+        }
+
+
+        /* Demo styles */
+
         body {
-            margin: 0px !important;
-            padding: 0px !important;
-            display: block !important;
-            min-width: 100% !important;
-            width: 100% !important;
-            -webkit-text-size-adjust: none;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg)
         }
 
-        table {
-            border-spacing: 0;
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-        }
+        /* End Button */
 
-        table td {
-            border-collapse: collapse;
-            mso-line-height-rule: exactly;
-        }
 
-        td img {
-            -ms-interpolation-mode: bicubic;
-            width: auto;
-            max-width: auto;
-            height: auto;
+        /* Icon Social */
+
+
+
+        /* Base Styles */
+
+
+
+        .social-buttons {
             margin: auto;
-            display: block !important;
-            border: 0px;
+            font-size: 0;
+            text-align: center;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
 
-        td p {
-            margin: 0;
-            padding: 0;
+        .social-button {
+            display: inline-block;
+            background-color: #fff;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            margin: 0 10px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: .99;
+            border-radius: 50%;
+            box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.05);
+            -webkit-transition: all 0.35s cubic-bezier(0.31, -0.105, 0.43, 1.59);
+            transition: all 0.35s cubic-bezier(0.31, -0.105, 0.43, 1.59);
         }
 
-        td div {
-            margin: 0;
-            padding: 0;
+        .social-button:before {
+            content: '';
+            background-color: #000;
+            width: 120%;
+            height: 120%;
+            position: absolute;
+            top: 90%;
+            left: -110%;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-transition: all 0.35s cubic-bezier(0.31, -0.105, 0.43, 1.59);
+            transition: all 0.35s cubic-bezier(0.31, -0.105, 0.43, 1.59);
         }
 
-        td a {
-            text-decoration: none;
-            color: inherit;
+        .social-button .fa {
+            font-size: 38px;
+            vertical-align: middle;
+            -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+            -webkit-transition: all 0.35s cubic-bezier(0.31, -0.105, 0.43, 1.59);
+            transition: all 0.35s cubic-bezier(0.31, -0.105, 0.43, 1.59);
         }
 
-        /*Outlook*/
-        .ExternalClass {
-            width: 100%;
+        /* //Facbook */
+        .social-button.facebook:before {
+            background-color: #3B5998;
         }
 
-        .ExternalClass,
-        .ExternalClass p,
-        .ExternalClass span,
-        .ExternalClass font,
-        .ExternalClass td,
-        .ExternalClass div {
-            line-height: inherit;
+        .social-button.facebook .fa {
+            color: #3B5998;
         }
 
-        .ReadMsgBody {
-            width: 100%;
-            background-color: #ffffff;
+        /* //Twitter */
+        .social-button.twitter:before {
+            background-color: #55acee;
         }
 
-        /* iOS BLUE LINKS */
-        a[x-apple-data-detectors] {
-            color: inherit !important;
-            text-decoration: none !important;
-            font-size: inherit !important;
-            font-family: inherit !important;
-            font-weight: inherit !important;
-            line-height: inherit !important;
+        .social-button.twitter .fa {
+            color: #55acee;
         }
 
-        /*Gmail blue links*/
-        u+#body a {
-            color: inherit;
-            text-decoration: none;
-            font-size: inherit;
-            font-family: inherit;
-            font-weight: inherit;
-            line-height: inherit;
+        /* //Google Plus */
+        .social-button.google:before {
+            background-color: #dd4b39;
         }
 
-        /*Buttons fix*/
-        .undoreset a,
-        .undoreset a:hover {
-            text-decoration: none !important;
+        .social-button.google .fa {
+            color: #dd4b39;
         }
 
-        .yshortcuts a {
-            border-bottom: none !important;
+        .social-button:focus:before,
+        .social-button:hover:before {
+            top: -10%;
+            left: -10%;
         }
 
-        .ios-footer a {
-            color: #aaaaaa !important;
-            text-decoration: none;
+        .social-button:focus .fa,
+        .social-button:hover .fa {
+            color: #fff;
+            -webkit-transform: scale(1);
+            transform: scale(1);
         }
 
-        /*Responsive*/
-        @media screen and (max-width: 799px) {
-            table.row {
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-
-            td.row {
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-
-            .img-responsive img {
-                width: 100% !important;
-                max-width: 100% !important;
-                height: auto !important;
-                margin: auto;
-            }
-
-            .center-float {
-                float: none !important;
-                margin: auto !important;
-            }
-
-            .center-text {
-                text-align: center !important;
-            }
-
-            .container-padding {
-                width: 100% !important;
-                padding-left: 15px !important;
-                padding-right: 15px !important;
-            }
-
-            .container-padding10 {
-                width: 100% !important;
-                padding-left: 10px !important;
-                padding-right: 10px !important;
-            }
-
-            .hide-mobile {
-                display: none !important;
-            }
-
-            .menu-container {
-                text-align: center !important;
-            }
-
-            .autoheight {
-                height: auto !important;
-            }
-
-            .m-padding-10 {
-                margin: 10px 0 !important;
-            }
-
-            .m-padding-15 {
-                margin: 15px 0 !important;
-            }
-
-            .m-padding-20 {
-                margin: 20px 0 !important;
-            }
-
-            .m-padding-30 {
-                margin: 30px 0 !important;
-            }
-
-            .m-padding-40 {
-                margin: 40px 0 !important;
-            }
-
-            .m-padding-50 {
-                margin: 50px 0 !important;
-            }
-
-            .m-padding-60 {
-                margin: 60px 0 !important;
-            }
-
-            .m-padding-top10 {
-                margin: 30px 0 0 0 !important;
-            }
-
-            .m-padding-top15 {
-                margin: 15px 0 0 0 !important;
-            }
-
-            .m-padding-top20 {
-                margin: 20px 0 0 0 !important;
-            }
-
-            .m-padding-top30 {
-                margin: 30px 0 0 0 !important;
-            }
-
-            .m-padding-top40 {
-                margin: 40px 0 0 0 !important;
-            }
-
-            .m-padding-top50 {
-                margin: 50px 0 0 0 !important;
-            }
-
-            .m-padding-top60 {
-                margin: 60px 0 0 0 !important;
-            }
-
-            .m-height10 {
-                font-size: 10px !important;
-                line-height: 10px !important;
-                height: 10px !important;
-            }
-
-            .m-height15 {
-                font-size: 15px !important;
-                line-height: 15px !important;
-                height: 15px !important;
-            }
-
-            .m-height20 {
-                font-size: 20px !important;
-                line-height: 20px !important;
-                height: 20px !important;
-            }
-
-            .m-height25 {
-                font-size: 25px !important;
-                line-height: 25px !important;
-                height: 25px !important;
-            }
-
-            .m-height30 {
-                font-size: 30px !important;
-                line-height: 30px !important;
-                height: 30px !important;
-            }
-
-            .rwd-on-mobile {
-                display: inline-block !important;
-                padding: 5px;
-            }
-
-            .center-on-mobile {
-                text-align: center !important;
-            }
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 4em;
+            font-weight: 400;
+            float: left;
+            padding: 5px;
+            margin-top: 25px;
         }
+
+        /* Transitions */
+
+        header,
+        .logo {
+            -webkit-transition: all 1s;
+            transition: all 1s;
+        }
+
+        /* End Icon Social */
+
+
+        /* cyrillic */
+        @font-face {
+            font-family: 'Lobster';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Lobster'), local('Lobster-Regular'), url(https://fonts.gstatic.com/s/lobster/v18/c28rH3kclCLEuIsGhOg7evY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* vietnamese */
+        @font-face {
+            font-family: 'Lobster';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Lobster'), local('Lobster-Regular'), url(https://fonts.gstatic.com/s/lobster/v18/RdfS2KomDWXvet4_dZQehvY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Lobster';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Lobster'), local('Lobster-Regular'), url(https://fonts.gstatic.com/s/lobster/v18/9NqNYV_LP7zlAF8jHr7f1vY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Lobster';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Lobster'), local('Lobster-Regular'), url(https://fonts.gstatic.com/s/lobster/v18/cycBf3mfbGkh66G5NhszPQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Indie Flower';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Indie Flower'), local('IndieFlower'), url(https://fonts.gstatic.com/s/indieflower/v8/10JVD_humAd5zP2yrFqw6ugdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+        }
+
+        /* --------------------- */
     </style>
 
 </head>
 
-<body
-    style="margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;"
-    bgcolor="#f0f0f0">
+<body style="background-color: rgb(136,189,191)">
+    <div class="form">
+        <div>
+            <img class="" alt="logo" src="http://imgur.com/VCdfPKq" width="10%">
+        </div>
 
-    <span class="preheader-text"
-        style="color: transparent; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; visibility: hidden; width: 0; display: none; mso-hide: all;"></span>
+        <div class="form-small"; style="padding: 0px">
+            <div>
+                <img class="mail-image" alt="top image" src="http://imgur.com/jc0kp97" width="">
+            </div>
+            <h1 class="h1-font">Email Confirmation<h1>
+                    <p class="p-font">Hey {{ $user->first_name }}, you're almost ready to start enjoying
+                        <b>Oni World</b>.
+                        Simply click the BIG yellow button below to Login.
+                    </p>
+                    <div class="wrapper">
+                        <a class="button" href="{{ route('login') }}">Login</a>
+                    </div>
 
-    <div
-        style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">
+                    <!-- Filter: https://css-tricks.com/gooey-effect/ -->
+                    <svg style="visibility: hidden; position: absolute;" width="0" height="0"
+                        xmlns="http://www.w3.org/2000/svg" version="1.1">
+                        <defs>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                            </filter>
+                        </defs>
+                    </svg>
+        </div>
+
+        <div>
+            <h3 class="contact-font">Stay in touch<h3>
+
+                    <div class="social-buttons">
+                        <a class="social-button facebook" href="#">
+                            <i class="fa fa-facebook">
+                            </i>
+                        </a>
+
+                        <a class="social-button twitter" href="#">
+                            <i class="fa fa-twitter">
+                            </i>
+                        </a>
+
+                        <a class="social-button google" href="#">
+                            <i class="fa fa-google">
+                            </i>
+                        </a>
+                    </div>
+
+                    <p class="p-footer">Email sent by Elephantry.com <br>
+                        Copyright © 2017 Elephantry Inc. All rights reserved</p>
+        </div>
     </div>
 
-    <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%"
-        style="width:100%;max-width:100%;">
-        <tr>
-            <!-- Outer Table -->
-            <td align="center" bgcolor="#f0f0f0" data-composer>
-
-                <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation" width="100%"
-                    style="width:100%;max-width:100%;">
-                    <!-- lotus-header-1 -->
-                    <tr>
-                        <td align="center" bgcolor="#343e9e" class="container-padding">
-
-                            <!-- Content -->
-                            <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation"
-                                class="row" width="580" style="width:580px;max-width:580px;">
-                                <tr>
-                                    <td height="40" style="font-size:40px;line-height:40px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <!-- Logo & Webview -->
-                                        <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                            role="presentation" width="100%" style="width:100%;max-width:100%;">
-                                            <tr>
-                                                <td align="center" class="container-padding">
-
-                                                    <!--[if (gte mso 9)|(IE)]><table border="0" cellpadding="0" cellspacing="0" dir="rtl"><tr><td><![endif]-->
-
-                                                    <!-- column -->
-                                                    {{-- <table border="0" align="right" cellpadding="0" cellspacing="0" role="presentation" class="row" width="280" style="width:280px;max-width:280px;">
-                                                <tr>
-                                                    <td class="center-text" align="right" height="22" style="height: 22px;">
-                                                        <a href="#"  style="font-family:'Poppins',Arial,Helvetica,sans-serif;font-size:12px;line-height:16px;font-style:italic;font-weight:400;color:#b5beff;text-decoration:none;letter-spacing:0px;">View this email in your browser</a>
-                                                    </td>
-                                                </tr>
-                                            </table> --}}
-                                                    <!-- column -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-
-                                                    <!-- gap -->
-                                                    <table border="0" align="right" cellpadding="0" cellspacing="0"
-                                                        role="presentation" class="row" width="20"
-                                                        style="width:20px;max-width:20px;">
-                                                        <tr>
-                                                            <td height="20" style="font-size:20px;line-height:20px;">
-                                                                &nbsp;</td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- gap -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-
-                                                    <!-- column -->
-                                                    <table border="0" align="right" cellpadding="0" cellspacing="0"
-                                                        role="presentation" class="row" width="280"
-                                                        style="width:280px;max-width:280px;">
-                                                        <tr>
-                                                            <td align="left" class="center-text">
-                                                                <a href="{{ url('/') }}"><img
-                                                                        style="width:72px;border:0px;display: inline!important;"
-                                                                        src="{{ config('pleb.mail.top_logo') }}"
-                                                                        width="72" border="0"
-                                                                        alt="logo"></a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- column -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
-
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <!-- Logo & Webview -->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="40" style="font-size:40px;line-height:40px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" class="center-text">
-                                        <img style="width:190px;border:0px;display: inline!important;"
-                                            src="{{ asset('assets/img/emails/Email-1_Intro.png') }}" width="190"
-                                            border="0" alt="intro">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="40" style="font-size:40px;line-height:40px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="center-text" align="center"
-                                        style="font-family:'Roboto Slab',Arial,Helvetica,sans-serif;font-size:42px;line-height:52px;font-weight:400;font-style:normal;color:#FFFFFF;text-decoration:none;letter-spacing:0px;">
-
-                                        <div>
-                                            {{ __('pleb.mail.Welcome') }}
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="20" style="font-size:20px;line-height:20px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="center-text" align="center"
-                                        style="font-family:'Poppins',Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;font-weight:300;font-style:normal;color:#FFFFFF;text-decoration:none;letter-spacing:0px;">
-
-                                        <div>
-                                            {{ __('pleb.mail.Welcome Paragraph') }}
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="40" style="font-size:40px;line-height:40px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <!-- Header Button -->
-                                        <table border="0" cellspacing="0" cellpadding="0" role="presentation"
-                                            align="center" class="center-float">
-                                            <tr>
-                                                <td align="center" bgcolor="#d6df58" style="border-radius: 6px;">
-                                                    <!--[if (gte mso 9)|(IE)]>
-                                                <table border="0" cellpadding="0" cellspacing="0" align="center">
-                                                    <tr>
-                                                        <td align="center" width="50"></td>
-                                                        <td align="center" height="50" style="height:50px;">
-                                                <![endif]-->
-
-                                                    <a href="{{ config('pleb.mail.welcome_url') }}" target="_blank"
-                                                        style="font-family:'Roboto Slab',Arial,Helvetica,sans-serif;font-size:16px;line-height:19px;font-weight:700;font-style:normal;color:#000000;text-decoration:none;letter-spacing:0px;padding: 20px 50px 20px 50px;display: inline-block;"><span>{{ __('pleb.mail.action_button') }}</span></a>
-
-                                                    <!--[if (gte mso 9)|(IE)]>
-                                                </td>
-                                                <td align="center" width="50"></td>
-                                                </tr>
-                                                </table>
-                                                <![endif]-->
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <!-- Header Button -->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="40" style="font-size:40px;line-height:40px;">&nbsp;</td>
-                                </tr>
-                            </table>
-                            <!-- Content -->
-
-                        </td>
-                    </tr>
-                </table>
-
-                <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation"
-                    width="100%" style="width:100%;max-width:100%;">
-                    <!-- lotus-arrow-divider -->
-                    <tr>
-                        <td align="center" bgcolor="#FFFFFF">
-                            <img style="width:50px;border:0px;display: inline!important;"
-                                src="{{ asset('assets/img/emails/Arrow.png') }}" width="50" border="0"
-                                alt="arrow">
-                        </td>
-                    </tr>
-                </table>
-
-                <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation"
-                    width="100%" style="width:100%;max-width:100%;">
-                    <!-- lotus-content-1-1 -->
-                    <tr>
-                        <td align="center" bgcolor="#FFFFFF" class="container-padding">
-
-                            <!-- Content -->
-                            <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                role="presentation" class="row" width="580"
-                                style="width:580px;max-width:580px;">
-                                <tr>
-                                    <td height="50" style="font-size:50px;line-height:50px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="center-text" align="center"
-                                        style="font-family:'Roboto Slab',Arial,Helvetica,sans-serif;font-size:32px;line-height:42px;font-weight:400;font-style:normal;color:#282828;text-decoration:none;letter-spacing:0px;">
-
-                                        <div>
-                                            {{ __('What\'s Next') }}
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <!-- 2-columns -->
-                                        <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                            role="presentation" width="100%" style="width:100%;max-width:100%;">
-                                            <tr>
-                                                <td align="center">
-
-                                                    <!--[if (gte mso 9)|(IE)]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
-
-                                                    <!-- column -->
-                                                    <table border="0" align="left" cellpadding="0"
-                                                        cellspacing="0" role="presentation" class="row"
-                                                        width="70" style="width:70px;max-width:70px;">
-                                                        <tr>
-                                                            <td align="center">
-                                                                <img style="display:block;width:100%;max-width:70px;border:0px;"
-                                                                    width="70"
-                                                                    src="{{ __('pleb.mail.icon_one') }}"
-                                                                    border="0" alt="icon">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- column -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-
-                                                    <!-- gap -->
-                                                    <table border="0" align="left" cellpadding="0"
-                                                        cellspacing="0" role="presentation" class="row"
-                                                        width="30" style="width:30px;max-width:30px;">
-                                                        <tr>
-                                                            <td height="20"
-                                                                style="font-size:20px;line-height:20px;"></td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- gap -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-
-                                                    <!-- column -->
-                                                    <table border="0" align="left" cellpadding="0"
-                                                        cellspacing="0" role="presentation" class="row"
-                                                        width="480" style="width:480px;max-width:480px;">
-                                                        <tr>
-                                                            <td class="center-text" align="left"
-                                                                style="font-family:'Roboto Slab',Arial,Helvetica,sans-serif;font-size:20px;line-height:28px;font-weight:400;font-style:normal;color:#343e9e;text-decoration:none;letter-spacing:0px;">
-
-                                                                <div>
-                                                                    {{ __('pleb.mail.Headline One') }}
-                                                                </div>
-
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td height="5" style="font-size:5px;line-height:5px;">
-                                                                &nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="center-text container-padding" align="left"
-                                                                style="font-family:'Poppins',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#6e6e6e;text-decoration:none;letter-spacing:0px;">
-
-                                                                <div>
-                                                                    {{ __('pleb.mail.Paragraph One') }}
-                                                                </div>
-
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- column -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
-
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <!-- 2-columns -->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="15" style="font-size:15px;line-height:15px;">&nbsp;</td>
-                                </tr>
-                            </table>
-                            <!-- Content -->
-
-                        </td>
-                    </tr>
-                </table>
-
-                <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation"
-                    width="100%" style="width:100%;max-width:100%;">
-                    <!-- lotus-content-1-2 -->
-                    <tr>
-                        <td align="center" bgcolor="#FFFFFF" class="container-padding">
-
-                            <!-- Content -->
-                            <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                role="presentation" class="row" width="580"
-                                style="width:580px;max-width:580px;">
-                                <tr>
-                                    <td height="15" style="font-size:15px;line-height:15px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <!-- 2-columns -->
-                                        <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                            role="presentation" width="100%" style="width:100%;max-width:100%;">
-                                            <tr>
-                                                <td align="center">
-
-                                                    <!--[if (gte mso 9)|(IE)]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
-
-                                                    <!-- column -->
-                                                    <table border="0" align="left" cellpadding="0"
-                                                        cellspacing="0" role="presentation" class="row"
-                                                        width="70" style="width:70px;max-width:70px;">
-                                                        <tr>
-                                                            <td align="center">
-                                                                <img style="display:block;width:100%;max-width:70px;border:0px;"
-                                                                    width="70"
-                                                                    src="{{ __('pleb.mail.icon_two') }}"
-                                                                    border="0" alt="icon">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- column -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-
-                                                    <!-- gap -->
-                                                    <table border="0" align="left" cellpadding="0"
-                                                        cellspacing="0" role="presentation" class="row"
-                                                        width="30" style="width:30px;max-width:30px;">
-                                                        <tr>
-                                                            <td height="20"
-                                                                style="font-size:20px;line-height:20px;"></td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- gap -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-
-                                                    <!-- column -->
-                                                    <table border="0" align="left" cellpadding="0"
-                                                        cellspacing="0" role="presentation" class="row"
-                                                        width="480" style="width:480px;max-width:480px;">
-                                                        <tr>
-                                                            <td class="center-text" align="left"
-                                                                style="font-family:'Roboto Slab',Arial,Helvetica,sans-serif;font-size:20px;line-height:28px;font-weight:400;font-style:normal;color:#343e9e;text-decoration:none;letter-spacing:0px;">
-
-                                                                <div>
-                                                                    {{ __('pleb.mail.Headline Two') }}
-                                                                </div>
-
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td height="5" style="font-size:5px;line-height:5px;">
-                                                                &nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="center-text container-padding" align="left"
-                                                                style="font-family:'Poppins',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#6e6e6e;text-decoration:none;letter-spacing:0px;">
-
-                                                                <div>
-                                                                    {{ __('pleb.mail.Paragraph Two') }}
-                                                                </div>
-
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- column -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
-
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <!-- 2-columns -->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="15" style="font-size:15px;line-height:15px;">&nbsp;</td>
-                                </tr>
-                            </table>
-                            <!-- Content -->
-
-                        </td>
-                    </tr>
-                </table>
-
-                <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation"
-                    width="100%" style="width:100%;max-width:100%;">
-                    <!-- lotus-content-1-3 -->
-                    <tr>
-                        <td align="center" bgcolor="#FFFFFF" class="container-padding">
-
-                            <!-- Content -->
-                            <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                role="presentation" class="row" width="580"
-                                style="width:580px;max-width:580px;">
-                                <tr>
-                                    <td height="15" style="font-size:15px;line-height:15px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <!-- 2-columns -->
-                                        <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                            role="presentation" width="100%" style="width:100%;max-width:100%;">
-                                            <tr>
-                                                <td align="center">
-
-                                                    <!--[if (gte mso 9)|(IE)]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
-
-                                                    <!-- column -->
-                                                    <table border="0" align="left" cellpadding="0"
-                                                        cellspacing="0" role="presentation" class="row"
-                                                        width="70" style="width:70px;max-width:70px;">
-                                                        <tr>
-                                                            <td align="center">
-                                                                <img style="display:block;width:100%;max-width:70px;border:0px;"
-                                                                    width="70"
-                                                                    src="{{ __('pleb.mail.icon_three') }}"
-                                                                    border="0" alt="icon">
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- column -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-
-                                                    <!-- gap -->
-                                                    <table border="0" align="left" cellpadding="0"
-                                                        cellspacing="0" role="presentation" class="row"
-                                                        width="30" style="width:30px;max-width:30px;">
-                                                        <tr>
-                                                            <td height="20"
-                                                                style="font-size:20px;line-height:20px;"></td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- gap -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td><td><![endif]-->
-
-                                                    <!-- column -->
-                                                    <table border="0" align="left" cellpadding="0"
-                                                        cellspacing="0" role="presentation" class="row"
-                                                        width="480" style="width:480px;max-width:480px;">
-                                                        <tr>
-                                                            <td class="center-text" align="left"
-                                                                style="font-family:'Roboto Slab',Arial,Helvetica,sans-serif;font-size:20px;line-height:28px;font-weight:400;font-style:normal;color:#343e9e;text-decoration:none;letter-spacing:0px;">
-
-                                                                <div>
-                                                                    {{ __('pleb.mail.Headline Three') }}
-                                                                </div>
-
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td height="5" style="font-size:5px;line-height:5px;">
-                                                                &nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="center-text container-padding" align="left"
-                                                                style="font-family:'Poppins',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#6e6e6e;text-decoration:none;letter-spacing:0px;">
-
-                                                                <div>
-                                                                    {{ __('pleb.mail.Paragraph Three') }}
-                                                                </div>
-
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!-- column -->
-
-                                                    <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
-
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <!-- 2-columns -->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="50" style="font-size:50px;line-height:50px;">&nbsp;</td>
-                                </tr>
-                            </table>
-                            <!-- Content -->
-
-                        </td>
-                    </tr>
-                </table>
-
-                <table border="0" align="center" cellpadding="0" cellspacing="0" role="presentation"
-                    width="100%" style="width:100%;max-width:100%;">
-                    <!-- lotus-footer-1 -->
-                    <tr>
-                        <td align="center" bgcolor="#f0f0f0" class="container-padding">
-
-                            <!-- Content -->
-                            <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                role="presentation" class="row" width="580"
-                                style="width:580px;max-width:580px;">
-                                <tr>
-                                    <td height="50" style="font-size:50px;line-height:50px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <!-- Social Icons -->
-                                        <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                            role="presentation" width="100%" style="width:100%;max-width:100%;">
-                                            <tr>
-                                                <td align="center">
-                                                    <table border="0" align="center" cellpadding="0"
-                                                        cellspacing="0" role="presentation">
-                                                        <tr>
-                                                            <td class="rwd-on-mobile" align="center" valign="middle"
-                                                                height="36" style="height: 36px;">
-                                                                @if (config('pleb.mail.instagram_url') != '')
-                                                                    <table border="0" align="center"
-                                                                        cellpadding="0" cellspacing="0"
-                                                                        role="presentation">
-                                                                        <tr>
-                                                                            <td width="10"></td>
-                                                                            <td align="center">
-                                                                                <a
-                                                                                    href="{{ config('pleb.mail.facebook_url') }}"><img
-                                                                                        style="width:36px;border:0px;display: inline!important;"
-                                                                                        src="{{ asset('assets/img/emails/Facebook.png') }}"
-                                                                                        width="36" border="0"
-                                                                                        alt="icon"></a>
-                                                                            </td>
-                                                                            <td width="10"></td>
-                                                                        </tr>
-                                                                    </table>
-                                                                @endif
-                                                            </td>
-                                                            <td class="rwd-on-mobile" align="center" valign="middle"
-                                                                height="36" style="height: 36px;">
-                                                                @if (config('pleb.mail.instagram_url') != '')
-                                                                    <table border="0" align="center"
-                                                                        cellpadding="0" cellspacing="0"
-                                                                        role="presentation">
-                                                                        <tr>
-                                                                            <td width="10"></td>
-                                                                            <td align="center">
-                                                                                <a
-                                                                                    href="{{ config('pleb.mail.instagram_url') }}"><img
-                                                                                        style="width:36px;border:0px;display: inline!important;"
-                                                                                        src="{{ asset('assets/img/emails/Instagram.png') }}"
-                                                                                        width="36" border="0"
-                                                                                        alt="icon"></a>
-                                                                            </td>
-                                                                            <td width="10"></td>
-                                                                        </tr>
-                                                                    </table>
-                                                                @endif
-                                                            </td>
-                                                            <td class="rwd-on-mobile" align="center" valign="middle"
-                                                                height="36" style="height: 36px;">
-                                                                @if (config('pleb.mail.twitter_url') != '')
-                                                                    <table border="0" align="center"
-                                                                        cellpadding="0" cellspacing="0"
-                                                                        role="presentation">
-                                                                        <tr>
-                                                                            <td width="10"></td>
-                                                                            <td align="center">
-                                                                                <a
-                                                                                    href="{{ config('pleb.mail.twitter_url') }}"><img
-                                                                                        style="width:36px;border:0px;display: inline!important;"
-                                                                                        src="{{ asset('assets/img/emails/Twitter.png') }}"
-                                                                                        width="36" border="0"
-                                                                                        alt="icon"></a>
-                                                                            </td>
-                                                                            <td width="10"></td>
-                                                                        </tr>
-                                                                    </table>
-                                                                @endif
-                                                            </td>
-                                                            <td class="rwd-on-mobile" align="center" valign="middle"
-                                                                height="36" style="height: 36px;">
-                                                                @if (config('pleb.mail.pinterest_url') != '')
-                                                                    <table border="0" align="center"
-                                                                        cellpadding="0" cellspacing="0"
-                                                                        role="presentation">
-                                                                        <tr>
-                                                                            <td width="10"></td>
-                                                                            <td align="center">
-                                                                                <a
-                                                                                    href="{{ config('pleb.mail.pinterest_url') }}"><img
-                                                                                        style="width:36px;border:0px;display: inline!important;"
-                                                                                        src="{{ asset('assets/img/emails/Pinterest.png') }}"
-                                                                                        width="36" border="0"
-                                                                                        alt="icon"></a>
-                                                                            </td>
-                                                                            <td width="10"></td>
-                                                                        </tr>
-                                                                    </table>
-                                                                @endif
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <!-- Social Icons -->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="center-text" align="center"
-                                        style="font-family:'Poppins',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#6e6e6e;text-decoration:none;letter-spacing:0px;">
-
-                                        <div>
-                                            {{ config('pleb.mail.street_address') }}
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="center-text" align="center"
-                                        style="font-family:'Poppins',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#6e6e6e;text-decoration:none;letter-spacing:0px;">
-
-                                        <a href="tel:{{ config('pleb.mail.phone_number') }}"
-                                            style="color:#6e6e6e;"><span>{{ config('pleb.mail.phone_number') }}</span></a>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="center-text" align="center"
-                                        style="font-family:'Poppins',Arial,Helvetica,sans-serif;font-size:14px;line-height:24px;font-weight:400;font-style:normal;color:#6e6e6e;text-decoration:none;letter-spacing:0px;">
-
-                                        <a href="mailto:{{ config('pleb.mail.info_email') }}"
-                                            style="color:#6e6e6e;"><span>{{ config('pleb.mail.info_email') }}</span></a>
-                                        - <a href="{{ url('/') }}"
-                                            style="color:#6e6e6e;"><span>{{ url('/') }}</span></a>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        @if (config('pleb.mail.play_url') != '' || config('pleb.mail.ios_url') != '')
-                                            <!-- Buttons -->
-                                            <table border="0" align="center" cellpadding="0" cellspacing="0"
-                                                role="presentation" class="row" width="100%"
-                                                style="width:100%;max-width:100%;">
-                                                <tr>
-                                                    <td align="center">
-                                                        <!-- column -->
-                                                        <table border="0" align="center" cellpadding="0"
-                                                            cellspacing="0" role="presentation">
-                                                            <tr>
-                                                                <td align="center">
-                                                                    <a href="{{ config('pleb.mail.ios_url') }}"><img
-                                                                            style="display:block;width:100%;max-width:117px;border:0px;"
-                                                                            width="117"
-                                                                            src="{{ asset('assets/img/emails/App-Store.png') }}"
-                                                                            border="0" alt="icon"></a>
-                                                                </td>
-                                                                <td width="10" style="width: 10px;"></td>
-                                                                <td align="center">
-                                                                    <a href="{{ config('pleb.mail.play_url') }}"><img
-                                                                            style="display:block;width:100%;max-width:117px;border:0px;"
-                                                                            width="117"
-                                                                            src="{{ asset('assets/img/emails/Google-play.png') }}"
-                                                                            border="0" alt="icon"></a>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                        <!-- column -->
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <!-- Buttons -->
-                                        @endif
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="30" style="font-size:30px;line-height:30px;">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="50" style="font-size:50px;line-height:50px;">&nbsp;</td>
-                                </tr>
-                            </table>
-                            <!-- Content -->
-
-                        </td>
-                    </tr>
-                </table>
-
-            </td>
-        </tr><!-- Outer-Table -->
-    </table>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
