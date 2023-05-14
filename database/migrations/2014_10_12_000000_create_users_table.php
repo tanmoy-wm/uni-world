@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('first_name', 255)->index()->nullable();
             $table->string('middle_name', 255)->index()->nullable();
             $table->string('last_name', 255)->index()->nullable();
-            $table->string('name', 255)->index()->nullable()->comment('we store only university name'); 
+            $table->string('university_name', 255)->index()->nullable()->comment('we store only university name');
             $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('is_active')->index()->nullable();

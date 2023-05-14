@@ -1,29 +1,24 @@
 <?php
 
-namespace App\Services\Users;
+namespace App\Services\Backend\Users;
 
 use App\Http\Actions\CreateUserAction;
-use App\Http\Actions\FiltersQuery;
 use App\Http\Actions\UpdateUserAction;
 use App\Http\Requests\Backend\Users\StoreStudentRequest;
 use App\Mail\UserWelcomeMail;
 use App\Models\Student;
-use App\Services\BaseService;
 
 use Exception;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class StudentService
 {
     public function create(): View
     {
-        return view('pages.backend.student.create');
+        return view('pages.backend.users.student.create');
     }
 
     public function destroy($id): View
@@ -32,38 +27,32 @@ class StudentService
 
         $student->forceDelete();
 
-        return view('pages.backend.student.index');
+        return view('pages.backend.users.student.index');
     }
 
     public function edit($id): View
     {
         $student = Student::query()->findOrFail($id);
 
-        return view('pages.backend.student.edit', compact('student'));
+        return view('pages.backend.users.student.edit', compact('student'));
     }
 
     public function index($request): View
     {
         $students = Student::all();
-        return view('pages.backend.student.index', compact('students'));
+        return view('pages.backend.users.student.index', compact('students'));
     }
 
-    public function restore($id): JsonResponse
+    public function restore($id)
     {
-        if (!$student = Student::withTrashed()->find($id)) {
-            return $this->handleError([], 'Student Not Found.', 404);
-        }
-
-        $restored_student = $student->restore();
-
-        return $this->handleResponse($restored_student, 'Student Restored Successfully.', 200);
+        # code...
     }
 
     public function show($id): View
     {
         $student = Student::query()->findOrFail($id);
 
-        return view('pages.backend.student.show', compact('student'));
+        return view('pages.backend.users.student.show', compact('student'));
     }
 
     public function store(StoreStudentRequest $request): RedirectResponse

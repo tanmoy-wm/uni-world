@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Services\Users;
-use App\Http\Actions\FiltersQuery;
+namespace App\Services\Backend\Users;
+
 use App\Models\Agent;
-use App\Services\BaseService;
 
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
-class AgentService 
-{ 
+class AgentService
+{
 
     public function create(): View
     {
@@ -57,25 +58,24 @@ class AgentService
         return $this->handleResponse($data, '', 200);
     }
 
-    public function store($request): JsonResponse
+    public function store($request): RedirectResponse
     {
         try {
-            $created_by = Auth::id();
-            $validated_request = $request->validated();
-            $slug = Str::slug($validated_request['slug']);
+            DB::transaction(function () use ($request) {
+                $created_by = Auth::id();
+                $validated_request = $request->validated();
 
-            $agent = Agent::create([
-                'name'            => $validated_request['name'],
-                'slug'            => $slug,
-                'is_active'       => $validated_request['is_active'],
-                'created_by'      => $created_by,
-                'updated_by'      => $created_by,
-            ]);
+                $agent = Agent::create([
+                    'name'            => $validated_request['name'],
+                    'created_by'      => $created_by,
+                    'updated_by'      => $created_by,
+                ]);
+            });
         } catch (Exception $exception) {
-            return $this->handleException($exception);
+            return redirect()->back()->with('error', $exception->getMessage());
         }
 
-        return $this->handleResponse($agent, 'Agent Created Successfully.', 201);
+        return redirect()->route('agents.index');
     }
 
     public function trashed($id): JsonResponse

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers\Backend\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Users\StoreStudentRequest;
 use App\Http\Requests\Backend\Users\UpdateStudentRequest;
-use App\Services\Users\StudentService;
+use App\Services\Backend\Users\StudentService;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -38,7 +38,7 @@ class StudentController extends Controller
         return $this->service->index($request);
     }
 
-    public function restore($id): JsonResponse
+    public function restore($id)
     {
         return $this->service->restore($id);
     }
