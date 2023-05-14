@@ -110,33 +110,24 @@ class StudentService
 
     public function update($request, $id): RedirectResponse
     {
-        // $data = $request->validate([
-        //     'name'        => ['required', 'string'],
-        //     'status'      => ['required', 'boolean'],
-        //     'description' => ['required', 'string']
-        // ]);
-
-        // $project = Project::findOrfail($id);
-        // $project->update($data);
-        // return redirect()->route('students.index');
         try {
             DB::transaction(function () use ($request, $id) {
                 $student = Student::query()->findOrFail($id);
                 $validated_request = $request->validated();
 
-                // $data = [
-                //     'first_name'    => $validated_request['first_name'],
-                //     'middle_name'   => $validated_request['middle_name'],
-                //     'last_name'     => $validated_request['last_name'],
-                //     'email'         => $validated_request['email'],
-                //     'country_code'  => $validated_request['country_code'],
-                //     'mobile_number' => $validated_request['mobile_number'],
-                //     'state'         => $validated_request['state'],
-                //     'country'       => $validated_request['country'],
-                //     'dob'           => $validated_request['dob'],
-                // ];
+                $data = [
+                    'first_name'    => $validated_request['first_name'],
+                    'middle_name'   => $validated_request['middle_name'],
+                    'last_name'     => $validated_request['last_name'],
+                    'email'         => $validated_request['email'],
+                    'country_code'  => $validated_request['country_code'],
+                    'mobile_number' => $validated_request['mobile_number'],
+                    'state'         => $validated_request['state'],
+                    'country'       => $validated_request['country'],
+                    'dob'           => $validated_request['dob'],
+                ];
 
-                $student->update($validated_request);
+                $student->update($data);
 
                 UpdateUserAction::execute($student, $validated_request);
             });

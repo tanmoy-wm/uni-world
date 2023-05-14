@@ -28,7 +28,7 @@ Route::view('/test', 'pages.test');
 Route::view('/login', 'pages.auth.login');
 Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
 Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
-      
+
 Route::group([
     'as'         => 'admins.',
     'controller' => AdminController::class,
@@ -43,18 +43,23 @@ Route::group([
     'prefix'     => '/students'
 ], function () {
     Route::get('/create', 'create')->name('create');
+    Route::get('/{id}', 'edit')->name('edit');
     Route::get('/', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
+    Route::get('/{id}/trashed', 'trashed')->name('trashed');
+    Route::put('/{id}', 'update')->name('update');
 });
-    
+
 Route::group([
     'as'         => 'universities.',
     'controller' => UniversityController::class,
     'prefix'     => '/universities'
 ], function () {
-    Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
+    Route::get('/', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
+    Route::get('/{id}/trashed', 'trashed')->name('trashed');
+    Route::put('/{id}', 'update')->name('update');
 });
 
 Route::group([
@@ -65,6 +70,4 @@ Route::group([
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
     Route::post('/store', 'store')->name('store');
- 
 });
-
