@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Agent extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $appends = [];
+    protected $appends = ['name'];
 
     protected $casts = [
         'created_by' => 'int',
@@ -21,16 +22,27 @@ class Agent extends Model
     ];
 
     protected $fillable = [
-        'name',
-        'slug',
-        'is_active',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'email',
+        'country_code',
+        'mobile_number',
+        'address',
+        'city',
+        'state',
+        'pincode',
+        'country',
+        'student_source_country',
+        'business_certificate',
+        'business_logo',
         'created_by',
+        'deleted_by',
         'updated_by',
-        'deleted_by'
     ];
 
     //------------------- Relationships -------------------//
-     public function createdBy(): BelongsTo
+    public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
@@ -44,16 +56,44 @@ class Agent extends Model
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
+
+    public function user(): MorphOne
+    {
+        return $this->morphOne(User::class, 'profile');
+    }
     //------------------- Relationships -------------------//
 
 
     //--------------------- Attributes --------------------//
-    protected function name(): Attribute
+    protected function firstName(): Attribute
     {
         return new Attribute(
             get: fn ($value) => ucwords($value),
             set: fn ($value) => strtolower($value)
         );
+    }
+    protected function middleName(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => ucwords($value),
+            set: fn ($value) => strtolower($value)
+        );
+    }
+    protected function lastName(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => ucwords($value),
+            set: fn ($value) => strtolower($value)
+        );
+    }
+
+    public function getNameAttribute(): string
+    {
+        if ($this->middle_name) {
+            return $this->first_name . ' ' . $this->middle_name . ' ' . $this->last_name;
+        }
+
+        return $this->first_name . ' ' . $this->last_name;
     }
     //--------------------- Attributes --------------------//
 

@@ -2,6 +2,9 @@
 
 namespace App\Services\Backend\Users;
 
+use App\Http\Actions\CreateUserAction;
+use App\Http\Actions\UpdateUserAction;
+use App\Http\Requests\Backend\Users\StoreAgentRequest;
 use App\Models\Agent;
 
 use Exception;
@@ -14,11 +17,11 @@ use Illuminate\View\View;
 
 class AgentService
 {
-
     public function create(): View
     {
-        return view('pages.agent.create');
+        return view('pages.backend.users.agent.create');
     }
+
     public function destroy($id): JsonResponse
     {
         if (!$agent = Agent::withTrashed()->find($id)) {
@@ -29,36 +32,31 @@ class AgentService
         return $this->handleResponse([], '', 200);
     }
 
-    public function index($request)
+    public function edit($id): View
     {
-        return view('pages.agent.index');
+        $agent = Agent::query()->findOrFail($id);
+        return view('pages.backend.users.agent.edit', compact('agent'));
+    }
+
+    public function index($request): View
+    {
+        $agents = Agent::all();
+        return view('pages.backend.users.agent.index', compact('agents'));
     }
 
     public function restore($id): JsonResponse
     {
-        if (!$agent = Agent::withTrashed()->find($id)) {
-            return $this->handleError([], 'Agent Not Found.', 404);
-        }
-
-        $restored_agent = $agent->restore();
-
-        return $this->handleResponse($restored_agent, 'Agent Restored Successfully.', 200);
+        # code...
     }
 
-    public function show($id): JsonResponse
+    public function show($id): View
     {
-        $agent = Agent::query();
+        $agent = Agent::all();
 
-        if (!$agent->withTrashed()->find($id)) {
-            return $this->handleError([], 'Agent Not Found.', 404);
-        }
-
-        $data = $agent->with(['createdBy', 'deletedBy', 'updatedBy'])->first();
-
-        return $this->handleResponse($data, '', 200);
+        return view('pages.backend.users.agent.index', compact('agent'));
     }
 
-    public function store($request): RedirectResponse
+    public function store(StoreAgentRequest $request): RedirectResponse
     {
         try {
             DB::transaction(function () use ($request) {
@@ -66,64 +64,82 @@ class AgentService
                 $validated_request = $request->validated();
 
                 $agent = Agent::create([
-                    'name'            => $validated_request['name'],
-                    'created_by'      => $created_by,
-                    'updated_by'      => $created_by,
+                    'first_name'             => $validated_request['first_name'],
+                    'middle_name'            => $validated_request['middle_name'],
+                    'last_name'              => $validated_request['last_name'],
+                    'email'                  => $validated_request['email'],
+                    'country_code'           => $validated_request['country_code'],
+                    'mobile_number'          => $validated_request['mobile_number'],
+                    'city'                   => $validated_request['city'],
+                    'state'                  => $validated_request['state'],
+                    'address'                => $validated_request['address'],
+                    'country'                => $validated_request['country'],
+                    'pincode'                => $validated_request['pincode'],
+                    'student_source_country' => $validated_request['student_source_country'],
+                    'created_by'             => $created_by,
+                    'updated_by'             => $created_by,
                 ]);
+
+                CreateUserAction::execute($agent, $validated_request['password']);
             });
         } catch (Exception $exception) {
-            return redirect()->back()->with('error', $exception->getMessage());
+            if (app()->environment('local')) {
+                return redirect()->back()->withErrors($exception->getMessage());
+            } else {
+                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            }
         }
 
         return redirect()->route('agents.index');
     }
 
-    public function trashed($id): JsonResponse
+    public function trashed($id): RedirectResponse
     {
-        if (!$agent = Agent::withTrashed()->find($id)) {
-            return $this->handleError([], 'Agent Not Found.', 404);
-        }
+        DB::transaction(function () use ($id) {
+            $agent = Agent::query()->findOrFail($id);
+            $agent->update(['deleted_by'  => Auth::id()]);
+            $agent->user->delete();
+            $agent->delete();
+        });
 
-        if ($agent->onlyTrashed()->find($id)) {
-            return $this->handleError([], 'Selected Agent already in Trashed.', 404);
-        }
-
-        $deleted_by = Auth::id();
-        $agent->delete();
-
-        $data = [
-            'deleted_by' => $deleted_by,
-            'is_active'  => 0
-        ];
-
-        $trashed_agent = tap($agent)->update($data);
-
-        return $this->handleResponse($trashed_agent, 'Agent Trashed Successfully.', 200);
+        return redirect()->route('agents.index');
     }
 
-    public function update($request, $id): JsonResponse
+    public function update($request, $id): RedirectResponse
     {
-        if (!$agent = Agent::withTrashed()->find($id)) {
-            return $this->handleError([], 'Agent Not Found.', 404);
-        }
-
         try {
-            $validated_request = $request->validated();
-            $updated_by = Auth::id();
-            $slug = Str::slug($validated_request['slug']);
+            DB::transaction(function () use ($request, $id) {
+                $agent = Agent::query()->findOrFail($id);
+                $updated_by = Auth::id();
+                $validated_request = $request->validated();
 
-            $data = [
-                'name'            => $validated_request['name'],
-                'slug'            => $slug,
-                'is_active'       => $validated_request['is_active'],
-                'updated_by'      => $updated_by,
-            ];
+                $data = [
+                    'first_name'             => $validated_request['first_name'],
+                    'middle_name'            => $validated_request['middle_name'],
+                    'last_name'              => $validated_request['last_name'],
+                    'email'                  => $validated_request['email'],
+                    'country_code'           => $validated_request['country_code'],
+                    'mobile_number'          => $validated_request['mobile_number'],
+                    'city'                   => $validated_request['city'],
+                    'state'                  => $validated_request['state'],
+                    'address'                => $validated_request['address'],
+                    'country'                => $validated_request['country'],
+                    'pincode'                => $validated_request['pincode'],
+                    'student_source_country' => $validated_request['student_source_country'],
+                    'updated_by'             => $updated_by,
+                ];
 
-            $updated_agent = tap($agent)->update($data);
+                $agent->update($data);
+                UpdateUserAction::execute($agent, $validated_request);
+            });
         } catch (Exception $exception) {
-            return $this->handleException($exception);
+            if (app()->environment('local')) {
+                return redirect()->back()->withErrors($exception->getMessage());
+            } else {
+                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            }
         }
 
-        return $this->handleResponse($updated_agent, 'Agent Updated Successfully.', 200);
+        return redirect()->route('agents.index');
     }
 }

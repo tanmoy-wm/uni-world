@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('username', 255)->index()->unique();
             $table->string('email', 255)->index()->unique();
             $table->string('password', 255)->index();
-         
             $table->string('country_code', 255)->index();
             $table->string('mobile_number', 255)->index();
             $table->string('alt_country_code', 255)->index();
@@ -35,8 +34,8 @@ return new class extends Migration
             $table->string('facebook', 255)->index()->nullable;
             $table->string('instagram', 255)->index()->nullable;
             $table->string('twitter', 255)->index()->nullable;
-           
-            
+
+
             // $table->unsignedBigInteger('created_by')->nullable();
             // $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
             // $table->index('created_by');

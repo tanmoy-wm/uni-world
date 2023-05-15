@@ -15,25 +15,20 @@ return new class extends Migration
     {
         Schema::create('agents', function (Blueprint $table) {
             $table->id();
-            $table->string('business_certificate', 255)->index();
-            $table->string('first_name', 255)->index();
-            $table->string('middle_name', 255)->index();
-            $table->string('last_name', 255)->index();
-            $table->string('business_logo', 255)->index();
+            $table->string('first_name', 255)->index()->comment('owner of the business first_name');
+            $table->string('middle_name', 255)->index()->comment('owner of the business middle_name');
+            $table->string('last_name', 255)->index()->comment('owner of the business last_name');
             $table->string('email', 255)->unique()->index();
-
-
-            $table->string('phone_number', 255)->index();
-            $table->string('address', 255)->index();
+            $table->string('country_code', 10)->index();
+            $table->string('mobile_number', 20)->index();
+            $table->string('address', 255);
             $table->string('city', 255)->index();
             $table->string('state', 255)->index();
-            $table->string('pincode', 255)->index();
-            $table->string('student_source_country', 255)->index();
-
-            
-           
-            $table->string('slug', 255)->index()->unique();
-            $table->boolean('is_active')->index();
+            $table->string('country', 255)->index();
+            $table->string('pincode', 20);
+            $table->string('student_source_country', 255);
+            $table->string('business_certificate', 255)->index()->nullable();
+            $table->string('business_logo', 255)->index()->nullable();
             $table->longText('meta')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');

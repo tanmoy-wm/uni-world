@@ -44,9 +44,12 @@ Route::middleware('auth:web')->group(function () {
             'controller' => AgentController::class,
             'prefix'     => '/agents'
         ], function () {
-            Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');
+            Route::get('/{id}/edit', 'edit')->name('edit');
+            Route::get('/', 'index')->name('index');
             Route::post('/store', 'store')->name('store');
+            Route::put('/{id}', 'update')->name('update');
+            Route::get('/{id}/trashed', 'trashed')->name('trashed');
         });
 
 
