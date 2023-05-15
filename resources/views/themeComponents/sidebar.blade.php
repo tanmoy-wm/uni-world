@@ -32,12 +32,12 @@
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
-        {{-- <li class="nav-item">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('staffs.index') }}">
                 <span class="menu-title">Staff</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
-        </li> --}}
+        </li>
         <li class="nav-item">
             <a class="nav-link" href=" {{ route('universities.index') }}">
                 <span class="menu-title">University</span>
