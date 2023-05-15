@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Backend\Users\AgentController;
+use App\Http\Controllers\Backend\Users\StaffController;
 use App\Http\Controllers\Backend\Users\StudentController;
 use App\Http\Controllers\Backend\Users\UniversityController;
 
@@ -52,6 +53,18 @@ Route::middleware('auth:web')->group(function () {
             Route::get('/{id}/trashed', 'trashed')->name('trashed');
         });
 
+        Route::group([
+            'as'         => 'staffs.',
+            'controller' => StaffController::class,
+            'prefix'     => '/staffs'
+        ], function () {
+            Route::get('/create', 'create')->name('create');
+            Route::get('/{id}/edit', 'edit')->name('edit');
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/{id}/trashed', 'trashed')->name('trashed');
+            Route::put('/{id}', 'update')->name('update');
+        });
 
         Route::group([
             'as'         => 'students.',

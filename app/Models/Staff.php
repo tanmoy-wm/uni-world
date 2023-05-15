@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Agent extends Model
+class Staff extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $table = 'staffs';
 
     protected $appends = ['name'];
 
@@ -29,17 +30,11 @@ class Agent extends Model
         'email',
         'country_code',
         'mobile_number',
-        'address',
-        'city',
-        'state',
-        'pincode',
-        'country',
-        'student_source_country',
-        'business_certificate',
-        'business_logo',
+        'agent_id',
+        'is_active',
         'created_by',
-        'deleted_by',
         'updated_by',
+        'deleted_by'
     ];
 
     //------------------- Relationships -------------------//
@@ -53,9 +48,9 @@ class Agent extends Model
         return $this->belongsTo(User::class, 'deleted_by');
     }
 
-    public function staff(): HasMany
+    public function agent(): BelongsTo
     {
-        return $this->hasMany(Staff::class, 'agent_id');
+        return $this->belongsTo(Agent::class, 'agent_id');
     }
 
     public function updatedBy(): BelongsTo
