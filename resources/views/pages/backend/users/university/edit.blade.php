@@ -21,10 +21,11 @@
             <div class="card-body">
                 <h4 class="card-title">Edit University</h4>
                 <br>
-                {{ $university->username }}
-                <form class="form-sample" action="{{ route('universities.store') }}" method="POST">
+                <form class="form-sample" action="{{ route('universities.update', ['id' => $university->id]) }}"
+                    method="POST">
                     <!-- <p class="card-description"> Personal info </p> -->
                     @csrf
+                    @method('PUT')
                     @if ($errors->any())
                         @include('themeComponents.errors', ['errors' => $errors])
                     @endif
@@ -239,7 +240,9 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-gradient-primary me-2 float">Submit</button>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-gradient-primary">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>

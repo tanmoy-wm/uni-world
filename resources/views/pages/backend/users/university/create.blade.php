@@ -235,7 +235,9 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-gradient-primary me-2 float">Submit</button>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-gradient-primary">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>

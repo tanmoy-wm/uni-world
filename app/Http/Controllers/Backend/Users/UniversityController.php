@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Users\StoreUniversityRequest;
+use App\Http\Requests\Backend\Users\UpdateUniversityRequest;
 use App\Services\Backend\Users\UniversityService;
 
 use Illuminate\Http\Request;
@@ -56,7 +57,7 @@ class UniversityController extends Controller
         return $this->service->trashed($id);
     }
 
-    public function update($request, $id): RedirectResponse
+    public function update(UpdateUniversityRequest $request, $id): RedirectResponse
     {
         return $this->service->update($request, $id);
     }
