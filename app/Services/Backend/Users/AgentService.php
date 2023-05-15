@@ -96,9 +96,10 @@ class AgentService
     public function trashed($id): RedirectResponse
     {
         DB::transaction(function () use ($id) {
-            $student = Agent::query()->findOrFail($id);
-            $student->user->delete();
-            $student->delete();
+            $agent = Agent::query()->findOrFail($id);
+            $agent->update(['deleted_by'  => Auth::id()]);
+            $agent->user->delete();
+            $agent->delete();
         });
 
         return redirect()->route('agents.index');

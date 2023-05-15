@@ -64,4 +64,24 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        function confirmDelete(e) {
+            e.preventDefault();
+
+            let urlToRedirect = e.currentTarget.getAttribute('href');
+
+            swal({
+                title: "Are you sure you want to delete the record?",
+                text: "Once deleted, you will not be able to recover this record!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willCancel) => {
+                if (willCancel) {
+                    window.location.href = urlToRedirect;
+                }
+            });
+        }
+    </script>
 @endsection

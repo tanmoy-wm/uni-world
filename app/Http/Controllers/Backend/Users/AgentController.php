@@ -54,7 +54,7 @@ class AgentController extends Controller
         return $this->service->store($request);
     }
 
-    public function trashed($id): JsonResponse
+    public function trashed($id): RedirectResponse
     {
         return $this->service->trashed($id);
     }
