@@ -27,6 +27,7 @@
                             <th> Username </th>
                             <th> Email </th>
                             <th> Mobile Number </th>
+                            <th> Status </th>
                             <th> Country </th>
                             <th> Actions </th>
                         </tr>
@@ -38,7 +39,16 @@
                                 <td> {{ $university->name }} </td>
                                 <td> {{ $university->username }} </td>
                                 <td> {{ $university->email }} </td>
-                                <td> {{ $university->mobile_number }} </td>
+                                <td> +{{ $university->country_code }} {{ $university->mobile_number }} </td>
+                                <td>
+                                    @if ($university->status === 'pending')
+                                        <label class="badge badge-warning">Pending</label>
+                                    @elseif ($university->status === 'active')
+                                        <label class="badge badge-success">Active</label>
+                                    @elseif ($university->status === 'active')
+                                        <label class="badge badge-danger">Inactive</label>
+                                    @endif
+                                </td>
                                 <td> {{ $university->country }} </td>
                                 <td>
                                     <a href="{{ route('universities.edit', ['id' => $university->id]) }}">

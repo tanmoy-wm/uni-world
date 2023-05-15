@@ -19,11 +19,13 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">New University</h4>
+                <h4 class="card-title">Edit University</h4>
                 <br>
-                <form class="form-sample" action="{{ route('universities.store') }}" method="POST">
+                <form class="form-sample" action="{{ route('universities.update', ['id' => $university->id]) }}"
+                    method="POST">
                     <!-- <p class="card-description"> Personal info </p> -->
                     @csrf
+                    @method('PUT')
                     @if ($errors->any())
                         @include('themeComponents.errors', ['errors' => $errors])
                     @endif
@@ -32,7 +34,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">University Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="name" class="form-control" required />
+                                    <input type="text" name="name" class="form-control"
+                                        value="{{ old('name') ?? $university->name }}" required />
                                 </div>
                             </div>
                         </div>
@@ -40,7 +43,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">User Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="username" class="form-control" required />
+                                    <input type="text" name="username" class="form-control"
+                                        {{ old('username') ?? $university->username }} required />
                                 </div>
                             </div>
                         </div>
@@ -50,15 +54,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Email </label>
                                 <div class="col-sm-9">
-                                    <input type="email" name="email" class="form-control" required />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Password</label>
-                                <div class="col-sm-9">
-                                    <input type="password" name="password" class="form-control" required />
+                                    <input type="email" name="email" class="form-control"
+                                        value="{{ old('email') ?? $university->email }}" required />
                                 </div>
                             </div>
                         </div>
@@ -83,7 +80,7 @@
                                 <label class="col-sm-3 col-form-label">Mobile Number</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="number" name="mobile_number"
-                                        value="{{ old('mobile_number') }}" required />
+                                        value="{{ old('mobile_number') ?? $university->mobile_number }}" required />
                                 </div>
                             </div>
                         </div>
@@ -108,7 +105,7 @@
                                 <label class="col-sm-3 col-form-label">Alternative Mobile Number</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="number" name="alt_mobile_number"
-                                        value="{{ old('alt_mobile_number') }}" required />
+                                        value="{{ old('alt_mobile_number') ?? $university->alt_mobile_number }}" required />
                                 </div>
                             </div>
                         </div>
@@ -120,38 +117,45 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Address </label>
                                 <div class="col-sm-9">
-                                    <textarea type="text" name="address" class="form-control" required></textarea>
-
+                                    <input type="text" name="address" class="form-control"
+                                        value="{{ old('address') ?? $university->address }}" required />
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">City </label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="city" class="form-control" required />
+                                    <input type="text" name="city" class="form-control"
+                                        value="{{ old('city') ?? $university->city }}" required />
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">State </label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="state" class="form-control" required />
+                                    <input type="text" name="state" class="form-control"
+                                        {{ old('state') ?? $university->state }} required />
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Pin/Zip Code</label>
                                 <div class="col-sm-9">
-                                    <input name="pincode" type="text" class="form-control" required />
+                                    <input name="pincode" type="text" class="form-control"
+                                        value="{{ old('pincode') ?? $university->pincode }}" required />
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
@@ -164,6 +168,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Country</label>
@@ -184,8 +189,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Website</label>
                                 <div class="col-sm-9">
-                                    <input name="website" type="url" value="{{ old('website') }}"
-                                        class="form-control" />
+                                    <input name="website" type="url"
+                                        value="{{ old('website') ?? $university->website }}" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -197,7 +202,7 @@
                                 <label class="col-sm-3 col-form-label">Facebook</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="url" name="facebook"
-                                        value="{{ old('facebook') }}" />
+                                        value="{{ old('facebook') ?? $university->facebook }}" />
                                 </div>
                             </div>
                         </div>
@@ -207,7 +212,7 @@
                                 <label class="col-sm-3 col-form-label">LnekdIn</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="url" name="linkedin"
-                                        value="{{ old('linkedin') }}" />
+                                        value="{{ old('linkedin') ?? $university->linkedin }}" />
                                 </div>
                             </div>
                         </div>
@@ -219,7 +224,7 @@
                                 <label class="col-sm-3 col-form-label">Twitter</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="url" name="twitter"
-                                        value="{{ old('twitter') }}" />
+                                        value="{{ old('twitter') ?? $university->twitter }}" />
                                 </div>
                             </div>
                         </div>
@@ -229,7 +234,7 @@
                                 <label class="col-sm-3 col-form-label">Instagram</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="url" name="instagram"
-                                        value="{{ old('instgram') }}" />
+                                        value="{{ old('instgram') ?? $university->instagram }}" />
                                 </div>
                             </div>
                         </div>

@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('universities', function (Blueprint $table) {
@@ -25,6 +20,7 @@ return new class extends Migration
             $table->string('alt_mobile_number', 255)->index()->nullable;
             $table->string('address', 255);
             $table->string('city', 255)->index();
+            $table->string('state', 255)->index();
             $table->string('country', 255)->index();
             $table->string('pincode', 255)->index();
             $table->string('status')->index()->comment('Approve, Reject, Pending');
@@ -35,33 +31,23 @@ return new class extends Migration
             $table->string('instagram', 255)->index()->nullable;
             $table->string('twitter', 255)->index()->nullable;
 
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users')->nullOnDelete();
+            $table->index('created_by');
 
-            // $table->unsignedBigInteger('created_by')->nullable();
-            // $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
-            // $table->index('created_by');
+            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->foreign('updated_by')->references('id')->on('users')->nullOnDelete();
+            $table->index('updated_by');
 
-            // $table->unsignedBigInteger('updated_by')->nullable();
-            // $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
-            // $table->index('updated_by');
-
-            // $table->unsignedBigInteger('deleted_by')->nullable();
-            // $table->foreign('deleted_by')->references('id')->on('users')->onDelete('set null');
-            // $table->index('deleted_by');
-
-            // $table->foreignId('universities_created_by_foreign')->index()->nullable()->constrained('users')->onDelete('set null');
-            // $table->foreignId('universities_updated_by_foreign')->index()->nullable()->constrained('users')->onDelete('set null');
-            // $table->foreignId('universities_deleted_by_foreign')->index()->nullable()->constrained('users')->onDelete('set null');
+            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->foreign('deleted_by')->references('id')->on('users')->nullOnDelete();
+            $table->index('deleted_by');
 
             $table->softDeletes();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('universities');

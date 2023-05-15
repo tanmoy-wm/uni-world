@@ -18,12 +18,12 @@ class AgentController extends Controller
     {
     }
 
-    public function create(Request $request)
+    public function create(Request $request): View
     {
         return $this->service->create($request);
     }
 
-    public function destroy($id): JsonResponse
+    public function destroy($id)
     {
         return $this->service->destroy($id);
     }
@@ -33,12 +33,12 @@ class AgentController extends Controller
         return $this->service->edit($id);
     }
 
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         return $this->service->index($request);
     }
 
-    public function restore($id): JsonResponse
+    public function restore($id)
     {
         return $this->service->restore($id);
     }

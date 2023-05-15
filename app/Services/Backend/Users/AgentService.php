@@ -22,14 +22,9 @@ class AgentService
         return view('pages.backend.users.agent.create');
     }
 
-    public function destroy($id): JsonResponse
+    public function destroy($id)
     {
-        if (!$agent = Agent::withTrashed()->find($id)) {
-            return $this->handleError([], 'Agent Not Found.', 404);
-        }
-
-        $agent->forceDeleted();
-        return $this->handleResponse([], '', 200);
+        # code...
     }
 
     public function edit($id): View
@@ -44,7 +39,7 @@ class AgentService
         return view('pages.backend.users.agent.index', compact('agents'));
     }
 
-    public function restore($id): JsonResponse
+    public function restore($id)
     {
         # code...
     }
