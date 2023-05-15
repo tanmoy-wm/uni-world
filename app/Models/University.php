@@ -20,20 +20,19 @@ class University extends Model
         'deleted_by' => 'int',
         'updated_by' => 'int',
     ];
-   
-    
 
     protected $fillable = [
         'name',
-        'username' ,
-        'email' ,
+        'username',
+        'email',
         'password',
         'country_code',
         'mobile_number',
         'alt_country_code',
-        'alt_mobile_number' ,
+        'alt_mobile_number',
         'address',
         'city',
+        'state',
         'country',
         'pincode',
         'status',
@@ -49,7 +48,7 @@ class University extends Model
     ];
 
     //------------------- Relationships -------------------//
-     public function createdBy(): BelongsTo
+    public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
@@ -78,6 +77,19 @@ class University extends Model
             get: fn ($value) => ucwords($value),
             set: fn ($value) => strtolower($value)
         );
+    }
+
+    // protected function username(): Attribute
+    // {
+    //     return new Attribute(
+    //         get: fn ($value) => strtolower($value),
+    //         set: fn ($value) => strtolower($value)
+    //     );
+    // }
+
+    protected function setUsernameAttribute($value)
+    {
+        $this->attributes['username'] = strtolower($value);
     }
     //--------------------- Attributes --------------------//
 

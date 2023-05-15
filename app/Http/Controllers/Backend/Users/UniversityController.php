@@ -25,6 +25,11 @@ class UniversityController extends Controller
         return $this->service->destroy($id);
     }
 
+    public function edit($id)
+    {
+        return $this->service->edit($id);
+    }
+
     public function index(Request $request)
     {
         return $this->service->index($request);

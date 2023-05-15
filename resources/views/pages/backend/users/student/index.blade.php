@@ -9,10 +9,9 @@
         <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a href="{{ route('students.create') }}">
-                        <button class="btn btn-gradient-primary btn-icon">
-                            <i class="mdi mdi-account-plus"></i>
-                        </button>
+                    <a href="{{ route('students.create') }}" class="btn btn-gradient-primary btn-icon-text">
+                        <i class="mdi mdi-account-multiple-plus"></i>
+                        Add Student
                     </a>
                 </li>
             </ul>

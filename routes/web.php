@@ -72,6 +72,7 @@ Route::middleware('auth:web')->group(function () {
             'prefix'     => '/universities'
         ], function () {
             Route::get('/create', 'create')->name('create');
+            Route::get('/{id}/edit', 'edit')->name('edit');
             Route::get('/', 'index')->name('index');
             Route::post('/store', 'store')->name('store');
             Route::get('/{id}/trashed', 'trashed')->name('trashed');

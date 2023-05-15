@@ -4,6 +4,7 @@ namespace App\Services\Backend\Users;
 
 use App\Http\Actions\CreateUserAction;
 use App\Http\Actions\UpdateUserAction;
+use App\Http\Requests\Backend\Users\StoreUniversityRequest;
 use App\Mail\UniversityWelcomeMail;
 use App\Models\University;
 
@@ -25,6 +26,12 @@ class UniversityService
         # code...
     }
 
+    public function edit($id): View
+    {
+        $university = University::query()->findOrFail($id);
+        return view('pages.backend.users.university.edit', compact('university'));
+    }
+
     public function index($request): View
     {
         $universities = University::all();
@@ -41,7 +48,7 @@ class UniversityService
         # code...
     }
 
-    public function store($request): RedirectResponse
+    public function store(StoreUniversityRequest $request): RedirectResponse
     {
         try {
             $validated_request = $request->validated();
@@ -58,6 +65,7 @@ class UniversityService
                     'alt_mobile_number' => $validated_request['alt_mobile_number'] ?? null,
                     'address'           => $validated_request['address'],
                     'city'              => $validated_request['city'],
+                    'state'              => $validated_request['state'],
                     'country'           => $validated_request['country'],
                     'pincode'           => $validated_request['pincode'],
                     'status'            => $validated_request['status'],
@@ -68,9 +76,7 @@ class UniversityService
                     'twitter'           => $validated_request['twitter'] ?? null,
                 ]);
 
-                $user = CreateUserAction::execute($data, $validated_request['password']);
-
-                dd($user);
+                CreateUserAction::execute($data, $validated_request['password']);
                 Mail::to($data->email)->send((new UniversityWelcomeMail($data, $validated_request['password']))->afterCommit());
             });
         } catch (Exception $exception) {
@@ -80,7 +86,7 @@ class UniversityService
                 return redirect()->back()->withErrors('Something went wrong. Please try again later.');
             }
         }
-        
+
         return redirect()->route('universities.index');
     }
 
@@ -91,7 +97,6 @@ class UniversityService
             $university->user->delete();
             $university->delete();
         });
-
 
         return redirect()->route('universities.index');
     }

@@ -29,7 +29,7 @@ class UniversityWelcomeMail extends Mailable
         return new Content(
             view: 'mails.university-welcome-mail',
             with: [
-                'university' => $this->university,
+                'user' => $this->university,
                 'password' => $this->password,
             ],
         );
