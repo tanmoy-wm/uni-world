@@ -45,8 +45,11 @@ Route::middleware('auth:web')->group(function () {
             'prefix'     => '/agents'
         ], function () {
             Route::get('/create', 'create')->name('create');
+            Route::get('/{id}/edit', 'edit')->name('edit');
             Route::get('/', 'index')->name('index');
             Route::post('/store', 'store')->name('store');
+            Route::put('/{id}', 'update')->name('update');
+            Route::get('/{id}/trashed', 'trashed')->name('trashed');
         });
 
 

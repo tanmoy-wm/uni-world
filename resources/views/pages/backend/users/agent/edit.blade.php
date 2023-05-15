@@ -13,8 +13,10 @@
             <div class="card-body">
                 <h4 class="card-title">New Agent</h4>
                 <br>
-                <form class="form-sample" action="{{ route('agents.store') }}" method="POST" enctype="multipart/form-data">
+                <form class="form-sample" action="{{ route('agents.update', ['id' => $agent->id]) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     @if ($errors->any())
                         @include('themeComponents.errors', ['errors' => $errors])
                     @endif
@@ -49,7 +51,7 @@
                                 <label class="col-sm-3 col-form-label">Owner First Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="first_name" class="form-control"
-                                        value="{{ old('first_name') }}" required />
+                                        value="{{ old('first_name') ?? $agent->first_name }}" required />
                                 </div>
                             </div>
                         </div>
@@ -58,28 +60,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Owner Middle Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="middle_name" value="{{ old('middle_name') }}"
-                                        class="form-control" required />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Owner Last Name</label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="last_name" value="{{ old('last_name') }}"
-                                        class="form-control" required />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Email </label>
-                                <div class="col-sm-9">
-                                    <input type="email" name="email" value="{{ old('email') }}" class="form-control"
+                                    <input type="text" name="middle_name"
+                                        value="{{ old('middle_name') ?? $agent->middle_name }}" class="form-control"
                                         required />
                                 </div>
                             </div>
@@ -89,18 +71,20 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Password</label>
+                                <label class="col-sm-3 col-form-label">Owner Last Name</label>
                                 <div class="col-sm-9">
-                                    <input type="password" name="password" class="form-control" required />
+                                    <input type="text" name="last_name"
+                                        value="{{ old('last_name') ?? $agent->last_name }}" class="form-control" required />
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Confirm Password</label>
+                                <label class="col-sm-3 col-form-label">Email </label>
                                 <div class="col-sm-9">
-                                    <input type="password" name="password_confirmation" class="form-control" required />
+                                    <input type="email" name="email" value="{{ old('email') ?? $agent->email }}"
+                                        class="form-control" required />
                                 </div>
                             </div>
                         </div>
@@ -125,30 +109,30 @@
                                 <label class="col-sm-3 col-form-label">Mobile Number</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="number" name="mobile_number"
-                                        value="{{ old('mobile_number') }}" required />
+                                        value="{{ old('mobile_number') ?? $agent->mobile_number }}" required />
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <p class="card-description"> Address </p>
+                    <p class="card-description">Address</p>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Address </label>
+                                <label class="col-sm-3 col-form-label">Address</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="address" class="form-control" value="{{ old('address') }}"
-                                        required></input>
+                                    <input type="text" name="address" class="form-control"
+                                        value="{{ old('address') ?? $agent->address }}" required></input>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">City </label>
+                                <label class="col-sm-3 col-form-label">City</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="city" class="form-control" value="{{ old('city') }}"
-                                        required />
+                                    <input type="text" name="city" class="form-control"
+                                        value="{{ old('city') ?? $agent->city }}" required />
                                 </div>
                             </div>
                         </div>
@@ -157,9 +141,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">State </label>
+                                <label class="col-sm-3 col-form-label">State</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="state" value="{{ old('state') }}"
+                                    <input type="text" name="state" value="{{ old('state') ?? $agent->state }}"
                                         class="form-control" required />
                                 </div>
                             </div>
@@ -169,7 +153,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Pin/Zip Code</label>
                                 <div class="col-sm-9">
-                                    <input name="pincode" type="number" value="{{ old('pincode') }}"
+                                    <input name="pincode" type="number" value="{{ old('pincode') ?? $agent->pincode }}"
                                         class="form-control" required />
                                 </div>
                             </div>
@@ -179,9 +163,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Student Source Country </label>
+                                <label class="col-sm-3 col-form-label">Student Source Country</label>
                                 <div class="col-sm-9">
-                                    <input name="student_source_country" value="{{ old('student_source_country') }}"
+                                    <input name="student_source_country"
+                                        value="{{ old('student_source_country') ?? $agent->student_source_country }}"
                                         type="text" class="form-control" required />
                                 </div>
                             </div>
@@ -191,7 +176,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Country</label>
                                 <div class="col-sm-9">
-                                    <select name="country" class="form-control" required>
+                                    <select name="country" class="form-control " required>
                                         <option value="America">America</option>
                                         <option value="Italy">Italy</option>
                                         <option value="Russia">Russia</option>

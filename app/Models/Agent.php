@@ -13,7 +13,7 @@ class Agent extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $appends = [];
+    protected $appends = ['name'];
 
     protected $casts = [
         'created_by' => 'int',
@@ -32,9 +32,13 @@ class Agent extends Model
         'city',
         'state',
         'pincode',
+        'country',
         'student_source_country',
         'business_certificate',
         'business_logo',
+        'created_by',
+        'deleted_by',
+        'updated_by',
     ];
 
     //------------------- Relationships -------------------//
@@ -61,12 +65,35 @@ class Agent extends Model
 
 
     //--------------------- Attributes --------------------//
-    protected function name(): Attribute
+    protected function firstName(): Attribute
     {
         return new Attribute(
             get: fn ($value) => ucwords($value),
             set: fn ($value) => strtolower($value)
         );
+    }
+    protected function middleName(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => ucwords($value),
+            set: fn ($value) => strtolower($value)
+        );
+    }
+    protected function lastName(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => ucwords($value),
+            set: fn ($value) => strtolower($value)
+        );
+    }
+
+    public function getNameAttribute(): string
+    {
+        if ($this->middle_name) {
+            return $this->first_name . ' ' . $this->middle_name . ' ' . $this->last_name;
+        }
+
+        return $this->first_name . ' ' . $this->last_name;
     }
     //--------------------- Attributes --------------------//
 

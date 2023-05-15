@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('address', 255);
             $table->string('city', 255)->index();
             $table->string('state', 255)->index();
+            $table->string('country', 255)->index();
             $table->string('pincode', 20);
             $table->string('student_source_country', 255);
             $table->string('business_certificate', 255)->index()->nullable();
