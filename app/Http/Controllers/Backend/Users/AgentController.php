@@ -35,7 +35,7 @@ class AgentController extends Controller
         return $this->service->restore($id);
     }
 
-    public function show($id): JsonResponse
+    public function show($id)
     {
         return $this->service->show($id);
     }

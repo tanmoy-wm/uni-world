@@ -17,25 +17,28 @@ class StoreAgentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'business_certificate'    => ['required', 'string', 'max:255'],
-            'first_name'    => ['required', 'string', 'max:255'],
-            'middle_name'   => ['nullable', 'string', 'max:255'],
-            'last_name'     => ['required', 'string', 'max:255'],
-            'business_logo'     => ['required', 'string', 'max:255'],
-            'email'         => ['required', 'string', 'unique:agents,email', 'unique:users,email', 'unique:admins,email', 'unique:students,email', 'max:255'],
-            'country_code'  => ['required', 'string', 'max:10'],
-            'phone_number' => ['required', 'digits:10'],
-            'address'         => ['required', 'string', 'max:255'],
-            'city'       => ['required', 'string', 'max:255'],
-            'state'   => ['nullable', 'string', 'max:255'],
-            'pincode'   => ['nullable', 'string', 'max:255'],
+            'first_name'             => ['required', 'string', 'max:255'],
+            'middle_name'            => ['nullable', 'string', 'max:255'],
+            'last_name'              => ['required', 'string', 'max:255'],
+            'email'                  => ['required', 'email:rfc,dns', 'unique:agents,email', 'unique:users,email', 'unique:admins,email', 'unique:students,email', 'max:255'],
+            'country_code'           => ['required', 'numeric'],
+            'mobile_number'          => ['required', 'numeric', 'unique:agents,mobile_number', 'unique:students,mobile_number'],
+            'address'                => ['required', 'string', 'max:255'],
+            'city'                   => ['required', 'string', 'max:255'],
+            'state'                  => ['required', 'string', 'max:255'],
+            'country'                => ['required', 'string', 'max:255'],
+            'pincode'                => ['required', 'numeric'],
+            'password'               => ['required', 'string', 'min:8', 'max:16', 'confirmed'],
+            'student_source_country' => ['nullable', 'string', 'max:255'],
+            'business_certificate'   => ['nullable', 'mimes:png,jpg,jpeg'],
+            'business_logo'          => ['nullable', 'mimes:png,jpg,jpeg'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Name field is required.',
+            'first_name.required' => 'Name field is required.',
         ];
     }
 }

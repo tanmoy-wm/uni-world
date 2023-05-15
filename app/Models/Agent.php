@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Agent extends Model
@@ -21,16 +22,23 @@ class Agent extends Model
     ];
 
     protected $fillable = [
-        'name',
-        'slug',
-        'is_active',
-        'created_by',
-        'updated_by',
-        'deleted_by'
+        'first_name',
+        'middle_name',
+        'last_name',
+        'email',
+        'country_code',
+        'mobile_number',
+        'address',
+        'city',
+        'state',
+        'pincode',
+        'student_source_country',
+        'business_certificate',
+        'business_logo',
     ];
 
     //------------------- Relationships -------------------//
-     public function createdBy(): BelongsTo
+    public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
     }
@@ -43,6 +51,11 @@ class Agent extends Model
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');
+    }
+
+    public function user(): MorphOne
+    {
+        return $this->morphOne(User::class, 'profile');
     }
     //------------------- Relationships -------------------//
 
