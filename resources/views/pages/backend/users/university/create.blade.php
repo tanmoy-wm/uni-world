@@ -70,9 +70,11 @@
                                 <label class="col-sm-3 col-form-label">Country Code</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="country_code" required>
-                                        <option value="91">+91</option>
-                                        <option value="92">+92</option>
-                                        <option value="93">+93</option>
+                                        @forelse ($countries as $country)
+                                            <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                        @empty
+                                            <option value="">No Country Found</option>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
@@ -95,9 +97,11 @@
                                 <label class="col-sm-3 col-form-label">Alternate Country Code</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="alt_country_code" required>
-                                        <option value="91">+91</option>
-                                        <option value="92">+92</option>
-                                        <option value="93">+93</option>
+                                        @forelse ($countries as $country)
+                                            <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                        @empty
+                                            <option value="">No Country Found</option>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
@@ -169,10 +173,11 @@
                                 <label class="col-sm-3 col-form-label">Country</label>
                                 <div class="col-sm-9">
                                     <select name="country" class="form-control " required>
-                                        <option>America</option>
-                                        <option>Italy</option>
-                                        <option>Russia</option>
-                                        <option>Britain</option>
+                                        @forelse ($countries as $country)
+                                            <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                        @empty
+                                            <option value="">No Country Found</option>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>

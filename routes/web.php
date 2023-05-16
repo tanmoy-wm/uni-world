@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\CountryController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Backend\Users\AgentController;
@@ -52,6 +54,21 @@ Route::middleware('auth:web')->group(function () {
             Route::put('/{id}', 'update')->name('update');
             Route::get('/{id}/trashed', 'trashed')->name('trashed');
         });
+
+        Route::group([
+            'as'         => 'categories.',
+            'controller' => CategoryController::class,
+            'prefix'     => '/categories'
+        ], function () {
+            Route::get('/create', 'create')->name('create');
+            Route::get('/{id}/edit', 'edit')->name('edit');
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::put('/{id}', 'update')->name('update');
+            Route::get('/{id}/trashed', 'trashed')->name('trashed');
+        });
+
+        Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
 
         Route::group([
             'as'         => 'staffs.',

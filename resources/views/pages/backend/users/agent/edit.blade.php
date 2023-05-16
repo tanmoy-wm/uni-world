@@ -96,9 +96,11 @@
                                 <label class="col-sm-3 col-form-label">Country Code</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="country_code" required>
-                                        <option value="91">+91</option>
-                                        <option value="92">+92</option>
-                                        <option value="93">+93</option>
+                                        @forelse ($countries as $country)
+                                            <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                        @empty
+                                            <option value="">No Country Found</option>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>
@@ -177,10 +179,11 @@
                                 <label class="col-sm-3 col-form-label">Country</label>
                                 <div class="col-sm-9">
                                     <select name="country" class="form-control " required>
-                                        <option value="America">America</option>
-                                        <option value="Italy">Italy</option>
-                                        <option value="Russia">Russia</option>
-                                        <option value="Britain">Britain</option>
+                                        @forelse ($countries as $country)
+                                            <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                        @empty
+                                            <option value="">No Country Found</option>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>

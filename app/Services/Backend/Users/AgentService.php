@@ -6,7 +6,7 @@ use App\Http\Actions\CreateUserAction;
 use App\Http\Actions\UpdateUserAction;
 use App\Http\Requests\Backend\Users\StoreAgentRequest;
 use App\Models\Agent;
-
+use App\Models\Country;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +19,8 @@ class AgentService
 {
     public function create(): View
     {
-        return view('pages.backend.users.agent.create');
+        $countries = Country::all();
+        return view('pages.backend.users.agent.create', compact('countries'));
     }
 
     public function destroy($id)
@@ -30,7 +31,8 @@ class AgentService
     public function edit($id): View
     {
         $agent = Agent::query()->findOrFail($id);
-        return view('pages.backend.users.agent.edit', compact('agent'));
+        $countries = Country::all();
+        return view('pages.backend.users.agent.edit', compact('agent', 'countries'));
     }
 
     public function index($request): View

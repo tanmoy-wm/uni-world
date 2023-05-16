@@ -60,11 +60,16 @@
             </div>
         </li>
 
-
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('categories.index') }}">
+                <span class="menu-title">Manage Category</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+        </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
-                <span class="menu-title">Manage Category</span>
+            <a class="nav-link" href="{{ route('countries.index') }}">
+                <span class="menu-title">Countries</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
             </a>
         </li>

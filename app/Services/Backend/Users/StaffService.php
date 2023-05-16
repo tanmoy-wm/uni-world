@@ -7,6 +7,7 @@ use App\Http\Actions\UpdateUserAction;
 use App\Http\Requests\Backend\Users\StoreStaffRequest;
 use App\Mail\UserWelcomeMail;
 use App\Models\Agent;
+use App\Models\Country;
 use App\Models\Staff;
 
 use Exception;
@@ -22,7 +23,8 @@ class StaffService
     public function create(): View
     {
         $agents = Agent::all();
-        return view('pages.backend.users.staff.create', compact('agents'));
+        $countries = Country::all();
+        return view('pages.backend.users.staff.create', compact('agents', 'countries'));
     }
 
     public function destroy($id)
@@ -34,7 +36,8 @@ class StaffService
     {
         $staff = Staff::query()->findOrFail($id);
         $agents = Agent::all();
-        return view('pages.backend.users.staff.edit', compact('staff', 'agents'));
+        $countries = Country::all();
+        return view('pages.backend.users.staff.edit', compact('staff', 'agents', 'countries'));
     }
 
     public function index($request): View

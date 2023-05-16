@@ -6,10 +6,11 @@ use App\Http\Actions\CreateUserAction;
 use App\Http\Actions\UpdateUserAction;
 use App\Http\Requests\Backend\Users\StoreUniversityRequest;
 use App\Mail\UniversityWelcomeMail;
+use App\Models\Country;
 use App\Models\University;
 
-use Illuminate\Support\Facades\DB;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +20,8 @@ class UniversityService
 {
     public function create($request)
     {
-        return view('pages.backend.users.university.create');
+        $countries = Country::all();
+        return view('pages.backend.users.university.create', compact('countries'));
     }
     public function destroy($id)
     {
@@ -29,7 +31,9 @@ class UniversityService
     public function edit($id): View
     {
         $university = University::query()->findOrFail($id);
-        return view('pages.backend.users.university.edit', compact('university'));
+        $countries = Country::all();
+
+        return view('pages.backend.users.university.edit', compact('university', 'countries'));
     }
 
     public function index($request): View
