@@ -30,9 +30,12 @@ Route::get('/', function () {
 
 Route::view('/login', 'pages.auth.login')->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
-Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
 
 Route::middleware('auth:web')->group(function () {
+
+    Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
+    Route::view('/profile', 'pages.auth.profile')->name('auth.profile');
+
     Route::middleware('UserTypeCheck:Admin')->group(function () {
         Route::group([
             'as'         => 'admins.',
@@ -55,6 +58,8 @@ Route::middleware('auth:web')->group(function () {
             Route::get('/{id}/trashed', 'trashed')->name('trashed');
         });
 
+        Route::view('/applications', 'pages.backend.application.index')->name('applications.index');
+
         Route::group([
             'as'         => 'categories.',
             'controller' => CategoryController::class,
@@ -71,6 +76,20 @@ Route::middleware('auth:web')->group(function () {
 
         Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
 
+        Route::view('/courses', 'pages.backend.course.index')->name('courses.index');
+
+        Route::view('/letter-request', 'pages.backend.latter-request.index')->name('letter-request.index');
+
+        Route::view('/payments', 'pages.backend.payments.index')->name('payments.index');
+
+        Route::prefix('/reports')->group(function () {
+            Route::view('/agents', 'pages.backend.reports.agent')->name('reports.agent');
+            Route::view('/applications', 'pages.backend.reports.application')->name('reports.application');
+            Route::view('/payments', 'pages.backend.reports.payment')->name('reports.payment');
+            Route::view('/staffs', 'pages.backend.reports.staff')->name('reports.staff');
+            Route::view('/students', 'pages.backend.reports.student')->name('reports.student');
+        });
+
         Route::group([
             'as'         => 'staffs.',
             'controller' => StaffController::class,
@@ -82,6 +101,10 @@ Route::middleware('auth:web')->group(function () {
             Route::post('/store', 'store')->name('store');
             Route::get('/{id}/trashed', 'trashed')->name('trashed');
             Route::put('/{id}', 'update')->name('update');
+        });
+
+        Route::prefix('/settings')->group(function () {
+            Route::view('/general', 'pages.backend.settings.general.index')->name('general.index');
         });
 
         Route::group([

@@ -32,8 +32,8 @@
                     </div>
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="#">
-                        <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
+                    <a class="dropdown-item" href="{{ route('auth.profile') }}">
+                        <i class="mdi mdi-cached me-2 text-success"></i> Profile </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('auth.logout') }}">
                         <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
