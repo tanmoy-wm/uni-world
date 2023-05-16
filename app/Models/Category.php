@@ -15,15 +15,10 @@ class Category extends Model
 
     protected $appends = [];
 
-    protected $casts = [
-        'created_by' => 'int',
-        'deleted_by' => 'int',
-        'updated_by' => 'int',
-    ];
-
     protected $fillable = [
         'name',
         'slug',
+        'description',
         'is_active',
         'parent_id',
         'created_by',
@@ -32,9 +27,9 @@ class Category extends Model
     ];
 
     //------------------- Relationships -------------------//
-    public function child(): BelongsTo
+    public function children(): HasMany
     {
-        return $this->belongsTo(Category::class, 'parent_id');
+        return $this->hasMany(Category::class, 'parent_id')->with('children');
     }
 
     public function createdBy(): BelongsTo
@@ -47,9 +42,9 @@ class Category extends Model
         return $this->belongsTo(User::class, 'deleted_by');
     }
 
-    public function parent(): HasMany
+    public function parent(): BelongsTo
     {
-        return $this->hasMany(Category::class, 'parent_id');
+        return $this->belongsTo(Category::class, 'parent_id');
     }
 
     public function updatedBy(): BelongsTo

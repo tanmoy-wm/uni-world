@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
@@ -18,7 +13,7 @@ return new class extends Migration
             $table->string('name', 255)->index();
             $table->string('slug', 255)->index()->unique();
             $table->boolean('is_active')->index()->nullable();
-            $table->longText('meta')->nullable();
+            $table->text('description')->nullable();
 
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('categories')->nullOnDelete();

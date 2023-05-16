@@ -26,7 +26,7 @@
                             <th> Name </th>
                             <th> Slug </th>
                             <th> Parent Category </th>
-                            <th> Is Active </th>
+                            <th> Active Status </th>
                             <th> Actions </th>
                         </tr>
                     </thead>
@@ -36,8 +36,24 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->slug }}</td>
-                                <td>{{ $category->parent_id }}</td>
-                                <td>{{ $category->is_active }}</td>
+                                <td>
+                                    @if (!$category->parent_id)
+                                        NULL
+                                    @else
+                                        {{ $category->parent->name }}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($category->is_active === 1)
+                                        <a href="{{ route('categories.changeStatus', ['id' => $category->id]) }}">
+                                            <lable class="badge badge-success">ACTIVE</lable>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('categories.changeStatus', ['id' => $category->id]) }}">
+                                            <lable class="badge badge-danger">INACTIVE</lable>
+                                        </a>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('categories.edit', ['id' => $category->id]) }}">
                                         <button class="btn btn-primary btn-icon" type="button">
