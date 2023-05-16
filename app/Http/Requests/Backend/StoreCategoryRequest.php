@@ -17,28 +17,10 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'      => ['required', 'string', 'unique:', 'max:255'],
-            'slug'      => ['required', 'string', 'unique:', 'max:255'],
-            'meta'      => ['nullable'],
-            'is_active' => ['required', 'boolean',],
-        ];
-    }
-
-    public function failedValidation(Validator $validator): JsonResponse
-    {
-        throw new HttpResponseException(response()->json([
-            'success'  => false,
-            'errorMsg' => 'Validation Errors.',
-            'messages' => $validator->errors()->all(),
-        ]), 422);
-    }
-
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'Name field is required.',
-            'slug.required' => 'Slug field is required.',
-            'slug.unique'   => 'Sorry, this Slug is already Exists.',
+            'name'        => ['required', 'string', 'unique:categories,name', 'max:255'],
+            'description' => ['nullable'],
+            'is_active'   => ['required', 'string'],
+            'parent_id'   => ['nullable', 'exists:categories,id'],
         ];
     }
 }

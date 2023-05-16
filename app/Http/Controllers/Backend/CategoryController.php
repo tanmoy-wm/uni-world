@@ -23,6 +23,11 @@ class CategoryController extends Controller
         return $this->service->create();
     }
 
+    public function changeStatus($id): RedirectResponse
+    {
+        return $this->service->changeStatus($id);
+    }
+
     public function destroy($id)
     {
         # code...
@@ -58,7 +63,7 @@ class CategoryController extends Controller
         return $this->service->trashed($id);
     }
 
-    public function update(UpdateCategoryRequest $request, $id): JsonResponse
+    public function update(UpdateCategoryRequest $request, $id): RedirectResponse
     {
         return $this->service->update($request, $id);
     }
