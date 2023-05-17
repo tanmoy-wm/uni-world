@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
+use App\Http\Controllers\Backend\CourseController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Backend\Users\AgentController;
@@ -76,7 +77,16 @@ Route::middleware('auth:web')->group(function () {
 
         Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
 
-        Route::view('/courses', 'pages.backend.course.index')->name('courses.index');
+        Route::group([
+            'as'         => 'courses.',
+            'controller' => CourseController::class,
+            'prefix'     => '/courses'
+        ], function () {
+
+            Route::view('/', 'pages.backend.course.index')->name('index');
+            Route::view('/create', 'pages.backend.course.create')->name('create');
+            Route::post('/store', 'store')->name('store');
+        });
 
         Route::view('/letter-request', 'pages.backend.latter-request.index')->name('letter-request.index');
 

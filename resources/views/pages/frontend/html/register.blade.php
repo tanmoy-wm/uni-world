@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Login | UINWOLC</title>
+    <title>Register | UINWOLC</title>
 
     <link rel="stylesheet" href="{{ asset('assets/frontend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/frontend/assets/css/style.css') }}" rel="stylesheet">
@@ -32,7 +32,8 @@
 
                     <div class="col-lg-7">
                         <nav class="navbar navbar-expand-lg navbar-dark">
-                            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="" /></a>
+                            <a class="navbar-brand" href="index.html"><img
+                                    src="{{ asset('assets/frontend/assets/images/logo.png') }}" alt="" /></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation"> <span
@@ -96,73 +97,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-12">
-                    <div class="sub-login-welcome-text">
-                        <h3>Welcome</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet.</p>
-                    </div>
-                </div>
 
-                <div class="col-lg-12">
-                    <div class="sub-login-white-bg">
-                        <div class="row">
-                            <div class="col-lg-6 offset-lg-3">
-                                <div class="sub-login-content">
-                                    <h4>Log In</h4>
-                                </div>
-                                <div class="sub-login-form">
-                                    <form>
-                                        <div class="col-lg-12">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text"><i class="fa-solid fa-lock"></i></div>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="Password">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <a href="javascript:;">Forgot Password?</a>
-                                        </div>
-                                        <div class="col-lg-12 text-center">
-                                            <button class="btn btn-primary" type="submit">Login</button>
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <div class="sub-login-social-or">
-                                    <span>or</span>
-                                </div>
-
-                                <div class="sub-login-social-main">
-
-                                    <a class="sub-login-social-box" href="javascript:;">
-                                        <span><i class="fa-brands fa-google"></i></span>
-                                        <p>Log In with Google</p>
-                                    </a>
-                                    <a class="sub-login-social-box" href="javascript:;">
-                                        <span><i class="fa-brands fa-apple"></i></span>
-                                        <p>Log In with Apple</p>
-                                    </a>
-                                    <a class="sub-login-social-box" href="javascript:;">
-                                        <span><i class="fa-brands fa-facebook-f"></i></span>
-                                        <p>Log In with Facebook</p>
-                                    </a>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -176,7 +111,8 @@
 
                 <div class="col-6 col-lg-2">
                     <div class="sub-footer-logo">
-                        <a href="javascript:;"><img src="assets/images/footer-logo.png" alt="" /></a>
+                        <a href="javascript:;"><img src="{{ asset('assets/frontend/assets/images/footer-logo.png') }}"
+                                alt="" /></a>
                         <div class="footer-address-text">
                             <p>101 Frederick St,<br /> Kitchener,<br /> ON N2H 6R3</p>
                         </div>
@@ -293,27 +229,24 @@
     <!-- Play Video End -->
 
     <!-- JavaScript -->
-    <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/our-partners.js"></script>
+    
     <!-- Header Menu -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // executes when HTML-Document is loaded and DOM is ready
 
             // breakpoint and up
-            $(window).resize(function () {
+            $(window).resize(function() {
                 if ($(window).width() >= 980) {
 
                     // when you hover a toggle show its dropdown menu
-                    $(".navbar .dropdown-toggle").hover(function () {
+                    $(".navbar .dropdown-toggle").hover(function() {
                         $(this).parent().toggleClass("show");
                         $(this).parent().find(".dropdown-menu").toggleClass("show");
                     });
 
                     // hide the menu when the mouse leaves the dropdown
-                    $(".navbar .dropdown-menu").mouseleave(function () {
+                    $(".navbar .dropdown-menu").mouseleave(function() {
                         $(this).removeClass("show");
                     });
 
@@ -327,10 +260,10 @@
     <!-- New on Awolc Tab -->
     <script>
         $('.nav-tabs-dropdown')
-            .on("click", "li:not('.active') a", function (event) {
+            .on("click", "li:not('.active') a", function(event) {
                 $(this).closest('ul').removeClass("open");
             })
-            .on("click", "li.active a", function (event) {
+            .on("click", "li.active a", function(event) {
                 $(this).closest('ul').toggleClass("open");
             });
     </script>
@@ -344,7 +277,7 @@
 
     <!-- Modal Video -->
     <script language="JavaScript">
-        $(".VideoPopup").on('hidden.bs.modal', function (e) {
+        $(".VideoPopup").on('hidden.bs.modal', function(e) {
             $(".VideoPopup iframe").attr("src", $(".VideoPopup iframe").attr("src"));
         });
     </script>

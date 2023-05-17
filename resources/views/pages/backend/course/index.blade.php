@@ -9,7 +9,7 @@
         <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a href="{{ route('categories.create') }}" class="btn btn-gradient-primary btn-icon-text">
+                    <a href="{{ route('courses.create') }}" class="btn btn-gradient-primary btn-icon-text">
                         <i class="mdi mdi-account-multiple-plus"></i> Add Course </a>
                     <!-- <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i> -->
                 </li>

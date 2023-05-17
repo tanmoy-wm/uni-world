@@ -2,23 +2,23 @@
 <html lang="en">
 
 <head>
-    @include('theme.components.backend.head')
+    @include('components.head')
 </head>
 
 <body>
     <div class="container-scroller">
-        @include('theme.components.backend.topbar')
+        @include('themeComponents.topbar')
         <div class="container-fluid page-body-wrapper">
-            @include('theme.components.backend.sidebar')
+            @include('themeComponents.sidebar')
             <div class="main-panel">
                 <div class="content-wrapper">
                     @yield('content')
                 </div>
-                @include('theme.components.backend.footer')
+                @include('themeComponents.footer')
             </div>
         </div>
     </div>
-    @include('theme.components.backend.scripts')
+    @include('themeComponents.scripts')
 </body>
 
 </html>
