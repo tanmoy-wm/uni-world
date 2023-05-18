@@ -35,7 +35,7 @@
                             <form class="pt-3" action="" method='POST'>
                                 @csrf
                                 @if ($errors->any())
-                                    @include('themeComponents.errors', ['errors' => $errors])
+                                   @include('theme.components.backend.errors', ['errors' => $errors])
                                 @endif
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
