@@ -3,10 +3,20 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/fe')->group(function () {
+    Route::view('/assist', 'pages.frontend.public.assist')->name('frontend.assist');
+    Route::view('/application-process', 'pages.frontend.public.application-process')->name('frontend.application-process');
+    Route::view('/application-requirements-101-united-kingdom', 'pages.frontend.public.application-requirements-101-united-kingdom')->name('frontend.application-requirements-101-united-kingdom');
     Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
     Route::view('/careers', 'pages.frontend.public.careers')->name('frontend.careers');
+    Route::view('/choosing-an-english-proficiency', 'pages.frontend.public.choosing-an-english-proficiency')->name('frontend.choosing-an-english-proficiency');
+    Route::view('/contact-us', 'pages.frontend.public.contact-us')->name('frontend.contact-us');
     Route::view('/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
+    Route::view('/discover-schools', 'pages.frontend.public.discover-schools')->name('frontend.discover-schools');
+    Route::view('/education-partners', 'pages.frontend.public.education-partners')->name('frontend.education-partners');
+    Route::view('/featured-study-destinations', 'pages.frontend.public.featured-study-destinations')->name('frontend.featured-study-destinations');
     Route::view('/get-started', 'pages.frontend.public.get-started')->name('frontend.get-started');
+    Route::view('/gre-vs-gmat-what-you-need-to-know', 'pages.frontend.public.gre-vs-gmat-what-you-need-to-know')->name('frontend.gre-vs-gmat-what-you-need-to-know');
+    Route::view('/international-student-gic-program', 'pages.frontend.public.international-student-gic-program')->name('frontend.international-student-gic-program');
     Route::view('/leaderships', 'pages.frontend.public.leaderships')->name('frontend.leaderships');
     Route::view('/life', 'pages.frontend.public.life')->name('frontend.life');
     Route::view('/login', 'pages.frontend.public.login')->name('frontend.login');
@@ -39,4 +49,6 @@ Route::prefix('/fe')->group(function () {
     Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
     Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
 
+    Route::view('/what-is-the-pte-test', 'pages.frontend.public.what-is-the-pte-test')->name('frontend.what-is-the-pte-test');
+    Route::view('/why-study-design-and-illustration', 'pages.frontend.public.why-study-design-and-illustration')->name('frontend.why-study-design-and-illustration');
 });
