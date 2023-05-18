@@ -51,8 +51,10 @@
             </div>
             <div class="col-lg-2">
                 <div class="sub-btn-regst my-2 my-lg-0">
-                    <button class="btn btn-outline-primary" type="submit">Log In</button>
-                    <button class="btn btn-primary" type="submit">Sign Up</button>
+                    @auth
+                    <a href="{{route('auth.logout')}}" class="btn btn-primary" type="submit">Sign Out</a>
+                    @endauth
+
                 </div>
             </div>
 

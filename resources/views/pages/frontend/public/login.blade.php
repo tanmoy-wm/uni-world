@@ -16,13 +16,17 @@
                         <h4>Log In</h4>
                     </div>
                     <div class="sub-login-form">
-                        <form>
+                        <form class="pt-3" action="{{route('auth.login')}}" method='POST'>
+                            @csrf
+                            @if ($errors->any())
+                               @include('theme.components.backend.errors', ['errors' => $errors])
+                            @endif
                             <div class="col-lg-12">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" required class="form-control" placeholder="Email">
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -30,7 +34,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa-solid fa-lock"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" placeholder="Password">
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -45,9 +49,7 @@
                     <div class="sub-login-social-or">
                         <span>or</span>
                     </div>
-
                     <div class="sub-login-social-main">
-
                         <a class="sub-login-social-box" href="javascript:;">
                             <span><i class="fa-brands fa-google"></i></span>
                             <p>Log In with Google</p>
@@ -95,11 +97,9 @@
     <script>
         $(document).ready(function() {
             // executes when HTML-Document is loaded and DOM is ready
-
             // breakpoint and up
             $(window).resize(function() {
                 if ($(window).width() >= 980) {
-
                     // when you hover a toggle show its dropdown menu
                     $(".navbar .dropdown-toggle").hover(function() {
                         $(this).parent().toggleClass("show");
