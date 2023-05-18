@@ -3,6 +3,15 @@
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
+Route::middleware('auth:web')->group(function () {
+    Route::view('/fe/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
+});
+
+// Route::group(['middlware' => 'auth:web'], function () {
+//     Route::view('/fe/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
+// });
+
+    Route::prefix('/fe')->group(function () {
 Route::prefix('/fe')->group(function () {
     Route::view('/assist', 'pages.frontend.public.assist')->name('frontend.assist');
     Route::view('/application-process', 'pages.frontend.public.application-process')->name('frontend.application-process');
