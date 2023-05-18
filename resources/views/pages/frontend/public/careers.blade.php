@@ -4,7 +4,6 @@
     <section class="header-banner-box">
         <div class="container">
             <div class="row">
-
                 <div class="header-abroad-main">
                     <div class="col-lg-6">
                         <div class="header-abroad-content">
@@ -15,7 +14,6 @@
                             <a href="javascript:;">View Open Roles</a>
                         </div>
                     </div>
-
                     <div class="col-lg-6">
                         <div class="header-img-abroad">
                             <img src="{{ asset('assets/frontend/assets/images/inner-banner/careers-banner.jpg') }}"
@@ -139,12 +137,10 @@
         </div>
     </div>
     <!-- Join Us in Making a Difference! End -->
-
     <!-- Perks and Benefits -->
     <section class="sub-best-programs-main pb-0">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-12">
                     <div class="sub-uniwolc-title sub-choose-tt-pd">
                         <h2>Perks and Benefits</h2>

@@ -16,9 +16,8 @@
                     @csrf
                     @method('PUT')
                     @if ($errors->any())
-                        @include('themeComponents.errors', ['errors' => $errors])
+                        @include('theme.components.backend.errors', ['errors' => $errors])
                     @endif
-
                     <p class="card-description"></p>
                     <div class="row">
                         <div class="col-md-6">
@@ -81,7 +80,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Date of Birth</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="date" placeholder="dd/mm/yyyy" name="dob"
+                                <input class="form-control" value="{{ $student->dob }}" type="date" placeholder="dd/mm/yyyy" name="dob"
                                         required />
                                 </div>
                             </div>

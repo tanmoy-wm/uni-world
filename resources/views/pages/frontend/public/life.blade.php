@@ -15,7 +15,6 @@
                             <a href="javascript:;">Join Us</a>
                         </div>
                     </div>
-
                     <div class="col-lg-6">
                         <div class="header-img-abroad">
                             <img src="{{ asset('assets/frontend/assets/images/inner-banner/life-banner.png') }}"

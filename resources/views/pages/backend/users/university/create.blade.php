@@ -25,7 +25,7 @@
                     <!-- <p class="card-description"> Personal info </p> -->
                     @csrf
                     @if ($errors->any())
-                        @include('themeComponents.errors', ['errors' => $errors])
+                        @include('theme.components.backend.errors', ['errors' => $errors])
                     @endif
                     <div class="row">
                         <div class="col-md-6">
