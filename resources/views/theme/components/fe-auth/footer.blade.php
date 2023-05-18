@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-6 col-lg-2">
                 <div class="sub-footer-logo">
-                    <a href="{{ route('welcome') }}"><img
-                            src="{{ asset('assets/frontend/assets/images/footer-logo.png') }}" alt="" /></a>
+                    <a href="javascript:;"><img src="{{ asset('assets/frontend/assets/images/footer-logo.png') }}"
+                            alt="" /></a>
                     <div class="footer-address-text">
                         <p>101 Frederick St,<br /> Kitchener,<br /> ON N2H 6R3</p>
                     </div>

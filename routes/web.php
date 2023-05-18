@@ -24,9 +24,7 @@ use App\Http\Controllers\Backend\Users\UniversityController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome')->name('welcome');
 
 
 Route::view('/login', 'pages.auth.login')->name('login');

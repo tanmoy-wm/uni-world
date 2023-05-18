@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/fe')->group(function () {
-    Route::view('/blog', 'pages.frontend.public.blog')->name('frontend.blog');
+    Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
     Route::view('/careers', 'pages.frontend.public.careers')->name('frontend.careers');
+    Route::view('/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
     Route::view('/get-started', 'pages.frontend.public.get-started')->name('frontend.get-started');
     Route::view('/leaderships', 'pages.frontend.public.leaderships')->name('frontend.leaderships');
     Route::view('/life', 'pages.frontend.public.life')->name('frontend.life');

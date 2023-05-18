@@ -6,7 +6,7 @@
 
                 <div class="col-lg-7">
                     <nav class="navbar navbar-expand-lg navbar-dark">
-                        <a class="navbar-brand" href="index.html"><img
+                        <a class="navbar-brand" href="{{ route('welcome') }}"><img
                                 src="{{ asset('assets/frontend/assets/images/logo.png') }}" alt="" /></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -59,9 +59,7 @@
                         <a href="{{ route('frontend.register') }}" class="btn btn-primary" type="submit">Sign Up</a>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 </header>
