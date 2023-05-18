@@ -20,35 +20,39 @@ Route::prefix('/fe')->group(function () {
     Route::view('/leaderships', 'pages.frontend.public.leaderships')->name('frontend.leaderships');
     Route::view('/life', 'pages.frontend.public.life')->name('frontend.life');
     Route::view('/login', 'pages.frontend.public.login')->name('frontend.login');
+    Route::view('/new-associate', 'pages.frontend.public.new-associate')->name('frontend.new-associate');
     Route::view('/news-centre', 'pages.frontend.public.news-centre')->name('frontend.news-centre');
+    Route::view('/our-solutions', 'pages.frontend.public.our-solutions')->name('frontend.our-solutions');
     Route::view('/our-story', 'pages.frontend.public.our-story')->name('frontend.our-story');
+    Route::view('/our-solutions-two', 'pages.frontend.public.our-solutions-two')->name('frontend.our-solutions-two');
+    Route::view('/partner-schools', 'pages.frontend.public.partner-schools')->name('frontend.partner-schools');
+    Route::view('/press', 'pages.frontend.public.press')->name('frontend.press');
+    Route::view('/recruiters', 'pages.frontend.public.recruiters')->name('frontend.recruiters');
+    Route::view('/resources', 'pages.frontend.public.resources')->name('frontend.resources');
     Route::view('/register', 'pages.frontend.public.register')->name('frontend.register');
+    Route::view('/save-more-on-english-tests', 'pages.frontend.public.save-more-on-english-tests')->name('frontend.save-more-on-english-tests');
+    Route::view('/see-program-details', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
+    Route::view('/stem-for-change-scholarship', 'pages.frontend.public.stem-for-change-scholarship')->name('frontend.stem-for-change-scholarship');
+    Route::view('/student-success', 'pages.frontend.public.student-success')->name('frontend.student-success');
+    Route::view('/students', 'pages.frontend.public.students')->name('frontend.students');
+    Route::view('/study-in-canada-guide', 'pages.frontend.public.study-in-canada-guide')->name('frontend.study-in-canada-guide');
+    Route::view('/study-in-canada-guide-two', 'pages.frontend.public.study-in-canada-guide-two')->name('frontend.study-in-canada-guide-two');
+    Route::view('/trends-report', 'pages.frontend.public.trends-report')->name('frontend.trends-report');
+    Route::view('/tuition-payments-made-easy', 'pages.frontend.public.tuition-payments-made-easy')->name('frontend.tuition-payments-made-easy');
+    Route::view('/types-of-PTE-tests-vouchers', 'pages.frontend.public.types-of-PTE-tests-vouchers')->name('frontend.types-of-PTE-tests-vouchers');
     Route::view('/uk-resources', 'pages.frontend.public.uk-resources')->name('frontend.uk-resources');
-    Route::view('/why-study-in-canada', 'pages.frontend.public.why-study-in-canada')->name('frontend.why-study-in-canada');
+    Route::view('/uni-insights', 'pages.frontend.public.uniInsights')->name('frontend.uni-insights');
+    Route::view('/uniwolc-fees', 'pages.frontend.public.uniwolc-fees')->name('frontend.uniwolc-fees');
+    Route::view('/uniwolc-ranks-on-deloitte-technology-fast-50-list-for-2022', 'pages.frontend.public.uniwolc-ranks-on-deloitte-technology-fast-50-list-for-2022')->name('frontend.uniwolc-ranks-on-deloitte-technology-fast-50-list-for-2022');
+    Route::view('/university-of-toronto-rotman-school-of-management', 'pages.frontend.public.university-of-toronto-rotman-school-of-management')->name('frontend.university-of-toronto-rotman-school-of-management');
+    Route::view('/university-of-tasmania-UTAS-hobart', 'pages.frontend.public.university-of-tasmania-UTAS-hobart')->name('frontend.university-of-tasmania-UTAS-hobart');
+    Route::view('/uniwolc-registration', 'pages.frontend.public.uniwolc-registration')->name('frontend.uniwolc-registration');
+    Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
+    Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
+    Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
     Route::view('/view-open-roles', 'pages.frontend.public.view-open-roles')->name('frontend.view-open-roles');
     Route::view('/view-all-posts', 'pages.frontend.public.view-all-posts')->name('frontend.view-all-posts');
-    Route::view('/uniwolc-registration', 'pages.frontend.public.uniwolc-registration')->name('frontend.uniwolc-registration');
-
-    Route::view('/uniwolc-ranks-on-deloitte-technology-fast-50-list-for-2022', 'pages.frontend.public.uniwolc-ranks-on-deloitte-technology-fast-50-list-for-2022')->name('frontend.uniwolc-ranks-on-deloitte-technology-fast-50-list-for-2022');
-
-    Route::view('/uniwolc-fees', 'pages.frontend.public.uniwolc-fees')->name('frontend.uniwolc-fees');
-
-    Route::view('/university-of-toronto-rotman-school-of-management', 'pages.frontend.public.university-of-toronto-rotman-school-of-management')->name('frontend.university-of-toronto-rotman-school-of-management');
-
-
-    Route::view('/university-of-tasmania-UTAS-hobart', 'pages.frontend.public.university-of-tasmania-UTAS-hobart')->name('frontend.university-of-tasmania-UTAS-hobart');
-
-    Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
-
-    Route::view('/types-of-PTE-tests-vouchers', 'pages.frontend.public.types-of-PTE-tests-vouchers')->name('frontend.types-of-PTE-tests-vouchers');
-    Route::view('/tuition-payments-made-easy', 'pages.frontend.public.tuition-payments-made-easy')->name('frontend.tuition-payments-made-easy');
-
-    Route::view('/trends-report', 'pages.frontend.public.trends-report')->name('frontend.trends-report');
-
-    Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
-    Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
-    Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
-
     Route::view('/what-is-the-pte-test', 'pages.frontend.public.what-is-the-pte-test')->name('frontend.what-is-the-pte-test');
     Route::view('/why-study-design-and-illustration', 'pages.frontend.public.why-study-design-and-illustration')->name('frontend.why-study-design-and-illustration');
+    Route::view('/why-study-in-canada', 'pages.frontend.public.why-study-in-canada')->name('frontend.why-study-in-canada');
 });
