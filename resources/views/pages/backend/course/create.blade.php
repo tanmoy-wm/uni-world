@@ -15,7 +15,7 @@
                 <form class="form-sample" action={{ route('courses.store') }} method="POST" enctype="multipart/form-data">
                     @csrf
                     @if ($errors->any())
-                        @include('themeComponents.errors', ['errors' => $errors])
+                        @include('theme.components.backend.errors', ['errors' => $errors])
                     @endif
 
                     <p class="card-description"></p>
