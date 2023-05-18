@@ -29,6 +29,8 @@ class Student extends Model
         'country_code',
         'mobile_number',
         'country',
+        'gender',
+        'dob',
         'state',
         'is_active',
         'meta',

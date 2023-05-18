@@ -6,6 +6,7 @@ use App\Http\Actions\CreateUserAction;
 use App\Http\Actions\UpdateUserAction;
 use App\Http\Requests\Backend\Users\StoreStudentRequest;
 use App\Mail\UserWelcomeMail;
+use App\Models\Country;
 use App\Models\Student;
 
 use Exception;
@@ -18,7 +19,8 @@ class StudentService
 {
     public function create(): View
     {
-        return view('pages.backend.users.student.create');
+        $countries = Country::all();
+        return view('pages.backend.users.student.create', compact('countries'));
     }
 
     public function destroy($id): View
@@ -33,8 +35,8 @@ class StudentService
     public function edit($id): View
     {
         $student = Student::query()->findOrFail($id);
-
-        return view('pages.backend.users.student.edit', compact('student'));
+        $countries = Country::all();
+        return view('pages.backend.users.student.edit', compact('student','countries'));
     }
 
     public function index($request): View
@@ -51,7 +53,6 @@ class StudentService
     public function show($id): View
     {
         $student = Student::query()->findOrFail($id);
-
         return view('pages.backend.users.student.show', compact('student'));
     }
 
@@ -70,21 +71,18 @@ class StudentService
                     'country_code'  => $validated_request['country_code'],
                     'mobile_number' => $validated_request['mobile_number'],
                     'state'         => $validated_request['state'],
-                    'country'       => $validated_request['state'],
+                    'country'       => $validated_request['country'],
                     'dob'           => $validated_request['dob'],
                 ]);
 
                 CreateUserAction::execute($data, $validated_request['password']);
-
                 Mail::to($data->email)->send((new UserWelcomeMail($data, $validated_request['password']))->afterCommit());
             });
         } catch (Exception $exception) {
             return redirect()->back()->withErrors($exception->getMessage());
         }
-
         return redirect()->route('students.index');
     }
-
     public function trashed($id): RedirectResponse
     {
         DB::transaction(function () use ($id) {
