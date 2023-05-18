@@ -36,7 +36,7 @@ class StudentService
     {
         $student = Student::query()->findOrFail($id);
         $countries = Country::all();
-        return view('pages.backend.users.student.edit', compact('student','countries'));
+        return view('pages.backend.users.student.edit', compact('student', 'countries'));
     }
 
     public function index($request): View
@@ -61,7 +61,7 @@ class StudentService
         try {
             $validated_request = $request->validated();
 
-            // dd($validated_request);
+            dd($validated_request);
             DB::transaction(function () use ($validated_request) {
                 $data = Student::create([
                     'first_name'    => $validated_request['first_name'],
@@ -83,6 +83,7 @@ class StudentService
         }
         return redirect()->route('students.index');
     }
+
     public function trashed($id): RedirectResponse
     {
         DB::transaction(function () use ($id) {

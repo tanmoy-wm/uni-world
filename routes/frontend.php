@@ -1,30 +1,20 @@
 <?php
 
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:web')->group(function () {
     Route::view('/fe/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
 });
-
-// Route::group(['middlware' => 'auth:web'], function () {
-//     Route::view('/fe/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
-// });
-
-    Route::prefix('/fe')->group(function () {
-Route::prefix('/fe')->group(function () {
-    Route::view('/assist', 'pages.frontend.public.assist')->name('frontend.assist');
-    Route::view('/application-process', 'pages.frontend.public.application-process')->name('frontend.application-process');
-    Route::view('/application-requirements-101-united-kingdom', 'pages.frontend.public.application-requirements-101-united-kingdom')->name('frontend.application-requirements-101-united-kingdom');
 Route::middleware('auth:web')->group(function () {
     Route::view('/fe/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
 });
 
-// Route::group(['middlware' => 'auth:web'], function () {
-//     Route::view('/fe/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
-// });
-
-    Route::prefix('/fe')->group(function () {
+Route::prefix('/fe')->group(function () {
+    Route::view('/assist', 'pages.frontend.public.assist')->name('frontend.assist');
+    Route::view('/application-process', 'pages.frontend.public.application-process')->name('frontend.application-process');
+    Route::view('/application-requirements-101-united-kingdom', 'pages.frontend.public.application-requirements-101-united-kingdom')->name('frontend.application-requirements-101-united-kingdom');
     Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
     Route::view('/careers', 'pages.frontend.public.careers')->name('frontend.careers');
     Route::view('/choosing-an-english-proficiency', 'pages.frontend.public.choosing-an-english-proficiency')->name('frontend.choosing-an-english-proficiency');
@@ -82,7 +72,6 @@ Route::middleware('auth:web')->group(function () {
     Route::view('/types-of-PTE-tests-vouchers', 'pages.frontend.public.types-of-PTE-tests-vouchers')->name('frontend.types-of-PTE-tests-vouchers');
     Route::view('/tuition-payments-made-easy', 'pages.frontend.public.tuition-payments-made-easy')->name('frontend.tuition-payments-made-easy');
     Route::view('/trends-report', 'pages.frontend.public.trends-report')->name('frontend.trends-report');
-
 });
 
 Route::group([
@@ -93,6 +82,6 @@ Route::group([
     Route::get('/student-register', 'createStudent')->name('student-register');
     Route::get('/agent-register', 'createAgent')->name('agent-register');
     Route::get('/university-register', 'createUniversity')->name('university-register');
-
-
 });
+
+Route::post('/student-register', [RegisterController::class, 'studentRegister'])->name('student-registration');
