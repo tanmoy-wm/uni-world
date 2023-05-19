@@ -101,14 +101,11 @@ class UniversityCourseService
                 'updated_by'                  => $created_by,
             ]);
         } catch (Exception $exception) {
-            // if (app()->environment('local')) {
-            //     return redirect()->back()->withErrors($exception->getMessage());
-            // } else {
-            //     return redirect()->back()->withErrors('Something went wrong. Please try again later.');
-            // }
-
-            return app()->environment('local') ?  redirect()->back()->withErrors($exception->getMessage()) :
-                redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            if (app()->environment('local')) {
+                return redirect()->back()->withErrors($exception->getMessage());
+            } else {
+                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            }
         }
 
         return redirect()->route('university-courses.index');
@@ -131,8 +128,11 @@ class UniversityCourseService
             });
             return redirect()->route('university-courses.index');
         } catch (Exception $exception) {
-            return app()->environment('local') ?  redirect()->back()->withErrors($exception->getMessage()) :
-                redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            if (app()->environment('local')) {
+                return redirect()->back()->withErrors($exception->getMessage());
+            } else {
+                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            }
         }
     }
 
@@ -143,7 +143,7 @@ class UniversityCourseService
         try {
             $updated_by = Auth::id();
             $validated_request = $request->validated();
-            // dd($validated_request);
+
             $slug = Str::slug($validated_request['title']);
 
             $data = [
@@ -169,8 +169,11 @@ class UniversityCourseService
 
             $universityCourse->update($data);
         } catch (Exception $exception) {
-            return app()->environment('local') ?  redirect()->back()->withErrors($exception->getMessage()) :
-                redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            if (app()->environment('local')) {
+                return redirect()->back()->withErrors($exception->getMessage());
+            } else {
+                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            }
         }
 
         return redirect()->route('university-courses.index');
