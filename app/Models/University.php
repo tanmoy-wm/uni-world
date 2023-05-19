@@ -14,7 +14,9 @@ class University extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $appends = [];
+    protected $appends = [
+        'full_address'
+    ];
 
     protected $casts = [
         'created_by' => 'int',
@@ -77,6 +79,10 @@ class University extends Model
 
 
     //--------------------- Attributes --------------------//
+    public function getFullAddressAttribute(): string
+    {
+        return $this->city . ', ' . $this->state . ', ' . $this->country;
+    }
     protected function name(): Attribute
     {
         return new Attribute(
@@ -85,13 +91,13 @@ class University extends Model
         );
     }
 
-    // protected function username(): Attribute
-    // {
-    //     return new Attribute(
-    //         get: fn ($value) => strtolower($value),
-    //         set: fn ($value) => strtolower($value)
-    //     );
-    // }
+    protected function username(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => strtolower($value),
+            set: fn ($value) => strtolower($value)
+        );
+    }
 
     protected function setUsernameAttribute($value)
     {
