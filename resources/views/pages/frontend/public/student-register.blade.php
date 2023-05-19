@@ -136,7 +136,8 @@
                                         </div>
                                     </div>
                                     <input type="number" class="form-control" name="mobile_number"
-                                        value="{{ old('mobile_number') }}" placeholder="Mobile Number">
+                                        value="{{ old('mobile_number') }}" placeholder="Mobile Number" minlength="10"
+                                        maxlength="10">
                                 </div>
                             </div>
                             <div class="col-lg-12">

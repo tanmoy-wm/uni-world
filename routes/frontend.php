@@ -5,10 +5,7 @@ use App\Http\Controllers\Frontend\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:web')->group(function () {
-    Route::view('/fe/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
-});
-Route::middleware('auth:web')->group(function () {
-    Route::view('/fe/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
+    Route::view('/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
 });
 
 Route::prefix('/fe')->group(function () {
@@ -19,7 +16,6 @@ Route::prefix('/fe')->group(function () {
     Route::view('/careers', 'pages.frontend.public.careers')->name('frontend.careers');
     Route::view('/choosing-an-english-proficiency', 'pages.frontend.public.choosing-an-english-proficiency')->name('frontend.choosing-an-english-proficiency');
     Route::view('/contact-us', 'pages.frontend.public.contact-us')->name('frontend.contact-us');
-    Route::view('/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
     Route::view('/discover-schools', 'pages.frontend.public.discover-schools')->name('frontend.discover-schools');
     Route::view('/education-partners', 'pages.frontend.public.education-partners')->name('frontend.education-partners');
     Route::view('/featured-study-destinations', 'pages.frontend.public.featured-study-destinations')->name('frontend.featured-study-destinations');
