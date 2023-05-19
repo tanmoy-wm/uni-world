@@ -26,24 +26,17 @@ class ProfileController extends Controller
         $validatation = $request->validate([
             'current_password' => ['required', 'string'],
             'new_password' => ['required', 'string', 'min:8', 'confirmed'],
-            'new_password_confirmation' => ['required', 'string', 'min:8', 'confirmed'],
-
         ]);
 
-        if (!Hash::check($request['current_password'], $user['password'])) {
+        if (!Hash::check($validatation['current_password'], $user['password'])) {
             $respons_data['error'] = "Incorrect Password";
             return response()->json(['data' => $respons_data], 400);
         }
 
         $user->update([
-            'password' => Hash::make($request->new_password)
+            'password' => Hash::make($validatation['new_password'])
         ]);
 
-        echo "<script>alert('asdasdasd)</script>";
-
-
-
         return redirect()->route('auth.profile');
-
     }
 }

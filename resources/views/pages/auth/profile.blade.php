@@ -24,6 +24,10 @@
                 {{-- <h4 class="card-title">Basic form elements</h4>
                 <p class="card-description"> Basic form elements </p> --}}
                 <form class="forms-sample">
+                    @csrf
+                    @if ($errors->any())
+                        @include('theme.components.backend.errors', ['errors' => $errors])
+                    @endif
                     <div class="form-group">
                         <label for="exampleInputName1">Name</label>
                         <input type="text" value="{{ old('name') ?? $user->name }}" class="form-control"
@@ -47,11 +51,12 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Change Password</h4>
-                {{--
-                <p class="card-description"> Basic form elements </p> --}}
                 <form class="forms-sample" action="{{ route('auth.changePassword') }}" method="POST">
                     @csrf
-                    {{-- <p><b>Change Password</b></p> --}}
+                    @method('PUT')
+                    @if ($errors->any())
+                        @include('theme.components.backend.errors', ['errors' => $errors])
+                    @endif
                     <div class="form-group">
                         <label for="exampleInputPassword4">Old Password</label>
                         <input type="password" required name="current_password" class="form-control"
