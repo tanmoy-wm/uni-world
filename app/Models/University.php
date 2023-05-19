@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,7 +14,9 @@ class University extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $appends = [];
+    protected $appends = [
+        'full_address'
+    ];
 
     protected $casts = [
         'created_by' => 'int',
@@ -63,6 +66,11 @@ class University extends Model
         return $this->belongsTo(User::class, 'updated_by');
     }
 
+    public function universityCourses(): HasMany
+    {
+        return $this->hasMany(UniversityCourse::class, 'university_id');
+    }
+
     public function user(): MorphOne
     {
         return $this->morphOne(User::class, 'profile');
@@ -71,6 +79,10 @@ class University extends Model
 
 
     //--------------------- Attributes --------------------//
+    public function getFullAddressAttribute(): string
+    {
+        return $this->city . ', ' . $this->state . ', ' . $this->country;
+    }
     protected function name(): Attribute
     {
         return new Attribute(
@@ -79,13 +91,13 @@ class University extends Model
         );
     }
 
-    // protected function username(): Attribute
-    // {
-    //     return new Attribute(
-    //         get: fn ($value) => strtolower($value),
-    //         set: fn ($value) => strtolower($value)
-    //     );
-    // }
+    protected function username(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => strtolower($value),
+            set: fn ($value) => strtolower($value)
+        );
+    }
 
     protected function setUsernameAttribute($value)
     {

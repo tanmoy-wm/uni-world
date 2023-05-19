@@ -51,23 +51,38 @@
                             </div>
                         </div>
 
-                        <<div class="row">
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Media</label>
                                     <div class="col-sm-9">
-                                        <input type="file" name="file" class="form-control"
-                                            accept="image/jpg, image/jpeg, image/png" />
+                                        <input type="file" name="file[]" class="filepond"
+                                            accept="image/jpg, image/jpeg, image/png" multiple data-max-file-size="3MB" />
                                     </div>
                                 </div>
                             </div>
-                    </div>
+                        </div>
 
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="submit" class="btn btn-gradient-primary">Submit</button>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-gradient-primary">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        FilePond.create(inputElement).setOptions({
+            server: {
+                process: './uploads/process',
+                fetch: null,
+                revert: null,
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken,
+                }
+            },
+            allowMultiple: true,
+        });
+    </script>
 @endsection

@@ -5,7 +5,8 @@ use App\Http\Controllers\Frontend\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:web')->group(function () {
-    Route::view('/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
+    Route::get('/courses', [FrontendController::class, 'getUniversityCourses'])->name('frontend.courses');
+    Route::view('/see-program-details', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
 });
 
 Route::prefix('/fe')->group(function () {
@@ -36,7 +37,6 @@ Route::prefix('/fe')->group(function () {
     Route::view('/resources', 'pages.frontend.public.resources')->name('frontend.resources');
     Route::view('/register', 'pages.frontend.public.register')->name('frontend.register');
     Route::view('/save-more-on-english-tests', 'pages.frontend.public.save-more-on-english-tests')->name('frontend.save-more-on-english-tests');
-    Route::view('/see-program-details', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
     Route::view('/stem-for-change-scholarship', 'pages.frontend.public.stem-for-change-scholarship')->name('frontend.stem-for-change-scholarship');
     Route::view('/student-success', 'pages.frontend.public.student-success')->name('frontend.student-success');
     Route::view('/students', 'pages.frontend.public.students')->name('frontend.students');

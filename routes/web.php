@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CourseController;
+use App\Http\Controllers\Backend\UniversityCourseController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Backend\Users\AgentController;
@@ -38,6 +39,7 @@ Route::middleware('auth:web')->group(function () {
 
     Route::prefix('/backend')->group(function () {
         Route::view('/dashbaord', 'pages.backend.dashboard')->name('backend.dashboard');
+    Route::prefix('/backend')->group(function () {
         Route::middleware('UserTypeCheck:Admin')->group(function () {
             Route::group([
                 'as' => 'admins.',
@@ -147,8 +149,6 @@ Route::middleware('auth:web')->group(function () {
                 Route::get('/{id}/trashed', 'trashed')->name('trashed');
                 Route::put('/{id}', 'update')->name('update');
             });
-
-
         });
     });
 
