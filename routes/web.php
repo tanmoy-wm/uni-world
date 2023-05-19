@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CourseController;
@@ -32,22 +33,24 @@ Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
 Route::middleware('auth:web')->group(function () {
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
-    Route::view('/profile', 'pages.auth.profile')->name('auth.profile');
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('auth.profile');
+    Route::post('/change-password', [ProfileController::class, 'changePassword'])->name('auth.changePassword');
 
-    Route::prefix('/backend')->group(function() {
+    Route::prefix('/backend')->group(function () {
+        Route::view('/dashbaord', 'pages.backend.dashboard')->name('backend.dashboard');
         Route::middleware('UserTypeCheck:Admin')->group(function () {
             Route::group([
-                'as'         => 'admins.',
+                'as' => 'admins.',
                 'controller' => AdminController::class,
-                'prefix'     => '/admins'
+                'prefix' => '/admins'
             ], function () {
                 Route::view('/', 'pages.admin.dashboard')->name('dashboard');
             });
 
             Route::group([
-                'as'         => 'agents.',
+                'as' => 'agents.',
                 'controller' => AgentController::class,
-                'prefix'     => '/agents'
+                'prefix' => '/agents'
             ], function () {
                 Route::get('/create', 'create')->name('create');
                 Route::get('/{id}/edit', 'edit')->name('edit');
@@ -60,9 +63,9 @@ Route::middleware('auth:web')->group(function () {
             Route::view('/applications', 'pages.backend.application.index')->name('applications.index');
 
             Route::group([
-                'as'         => 'categories.',
+                'as' => 'categories.',
                 'controller' => CategoryController::class,
-                'prefix'     => '/categories'
+                'prefix' => '/categories'
             ], function () {
                 Route::get('/create', 'create')->name('create');
                 Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
@@ -74,11 +77,14 @@ Route::middleware('auth:web')->group(function () {
             });
 
             Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
+            Route::get('/countries/{id}/change-status', [CountryController::class, 'changeStatus'])->name('countries.changeStatus');
+
+            // Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
 
             Route::group([
-                'as'         => 'courses.',
+                'as' => 'courses.',
                 'controller' => CourseController::class,
-                'prefix'     => '/courses'
+                'prefix' => '/courses'
             ], function () {
 
                 Route::view('/', 'pages.backend.course.index')->name('index');
@@ -99,9 +105,9 @@ Route::middleware('auth:web')->group(function () {
             });
 
             Route::group([
-                'as'         => 'staffs.',
+                'as' => 'staffs.',
                 'controller' => StaffController::class,
-                'prefix'     => '/staffs'
+                'prefix' => '/staffs'
             ], function () {
                 Route::get('/create', 'create')->name('create');
                 Route::get('/{id}/edit', 'edit')->name('edit');
@@ -116,9 +122,9 @@ Route::middleware('auth:web')->group(function () {
             });
 
             Route::group([
-                'as'         => 'students.',
+                'as' => 'students.',
                 'controller' => StudentController::class,
-                'prefix'     => '/students'
+                'prefix' => '/students'
             ], function () {
                 Route::get('/create', 'create')->name('create');
                 Route::get('/{id}', 'edit')->name('edit');
@@ -128,10 +134,11 @@ Route::middleware('auth:web')->group(function () {
                 Route::put('/{id}', 'update')->name('update');
             });
 
+
             Route::group([
-                'as'         => 'universities.',
+                'as' => 'universities.',
                 'controller' => UniversityController::class,
-                'prefix'     => '/universities'
+                'prefix' => '/universities'
             ], function () {
                 Route::get('/create', 'create')->name('create');
                 Route::get('/{id}/edit', 'edit')->name('edit');
@@ -140,6 +147,8 @@ Route::middleware('auth:web')->group(function () {
                 Route::get('/{id}/trashed', 'trashed')->name('trashed');
                 Route::put('/{id}', 'update')->name('update');
             });
+
+
         });
     });
 

@@ -16,7 +16,7 @@
                         <h4>Register</h4>
                     </div>
                     <div class="sub-login-form">
-                        <form class="form-sample" action={{ route('students.store') }} method="POST">
+                        <form class="form-sample" action="{{ route('agent-registration') }}"  method="POST">
                             @csrf
                             @if ($errors->any())
                                 @include('theme.components.backend.errors', ['errors' => $errors])
@@ -47,7 +47,7 @@
                                         <div class="input-group-text"><i class="fa-solid fa-user"></i>
                                         </div>
                                     </div>
-                                    <input type="text" name="middle_name" class="form-control" placeholder="Owner Last Name" required>
+                                    <input type="text" name="last_name" class="form-control" placeholder="Owner Last Name" required>
                                 </div>
                             </div>
 
@@ -60,6 +60,33 @@
                                     <input type="email" name="email" class="form-control" placeholder="Email" required>
                                 </div>
                             </div>
+
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa-solid fa-globe"></i>
+                                        </div>
+                                    </div>
+                                    <select class="form-control" name="country_code" required>
+                                        @forelse ($countries as $country)
+                                            <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                        @empty
+                                            <option value="">No Country Found</option>
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa-solid fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="mobile_number" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+
 
                             <div class="col-lg-12">
                                 <div class="input-group">
@@ -123,24 +150,30 @@
                                     <input type="text" name="pincode" class="form-control" placeholder="Enter Pin-Code">
                                 </div>
                             </div>
-
-
                             <div class="col-lg-12">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fa-solid fa-globe"></i>
+                                        <div class="input-group-text">
+                                            <i class="fa-solid fa-map-pin"></i>
                                         </div>
                                     </div>
-                                    <select class="form-control" name="country_code" required>
+
+                                    <select class="form-control" name="student_source_country" required>
                                         @forelse ($countries as $country)
-                                            <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                            <option value="{{ $country->name }}">{{ $country->name }}</option>
                                         @empty
                                             <option value="">No Country Found</option>
                                         @endforelse
                                     </select>
+
+
+                                    {{-- <input type="text" name="student_source_country" class="form-control" placeholder="Enter Pin-Code"> --}}
                                 </div>
                             </div>
 
+
+
+{{--
                             <div class="col-lg-12">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -150,7 +183,7 @@
                                     </div>
                                     <input type="text" class="form-control" placeholder="+1 204-234-5678">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-lg-12">
                                 <div class="input-group">
                                     <div class="input-group-prepend">

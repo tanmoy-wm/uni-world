@@ -26,6 +26,7 @@
                             <th> Name </th>
                             <th> Code </th>
                             <th> Dail Code </th>
+                            <th> Status </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,17 @@
                                 <td>{{ $country->name }}</td>
                                 <td>{{ $country->code }}</td>
                                 <td>{{ $country->dial_code }}</td>
+                                <td>
+                                    @if ($country->is_active === 1)
+                                        <a href="{{ route('countries.changeStatus', ['id' => $country->id]) }}">
+                                            <lable class="badge badge-success">ACTIVE</lable>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('countries.changeStatus', ['id' => $country->id]) }}">
+                                            <lable class="badge badge-danger">INACTIVE</lable>
+                                        </a>
+                                    @endif
+                                </td>
                             </tr>
                         @empty
                             <tr>

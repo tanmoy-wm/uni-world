@@ -44,6 +44,8 @@
                                     @endif
                                 </td>
                                 <td>
+
+
                                     @if ($category->is_active === 1)
                                         <a href="{{ route('categories.changeStatus', ['id' => $category->id]) }}">
                                             <lable class="badge badge-success">ACTIVE</lable>
