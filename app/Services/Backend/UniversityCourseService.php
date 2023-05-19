@@ -13,6 +13,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -116,17 +117,18 @@ class UniversityCourseService
     public function trashed($id): RedirectResponse
     {
         try {
-            $universityCourse = UniversityCourse::query()->findOrFail($id);
-            $deleted_by = Auth::id();
+            DB::transaction(function () use ($id) {
+                $universityCourse = UniversityCourse::query()->findOrFail($id);
+                $deleted_by = Auth::id();
 
-            $data = [
-                'deleted_by' => $deleted_by,
-                'is_active'  => 0
-            ];
+                $data = [
+                    'deleted_by' => $deleted_by,
+                    'is_active'  => 0
+                ];
 
-            $universityCourse->update($data);
-            $universityCourse->delete();
-
+                $universityCourse->update($data);
+                $universityCourse->delete();
+            });
             return redirect()->route('university-courses.index');
         } catch (Exception $exception) {
             return app()->environment('local') ?  redirect()->back()->withErrors($exception->getMessage()) :
