@@ -12,7 +12,6 @@ class LoginController extends Controller
 {
     public function login(LoginRequest $request)
     {
-
         $credentials = $request->validated();
         $remember_token = $request->has('remember_token') ? true : false;
         if (Auth::attempt($credentials, $remember_token)) {
@@ -20,6 +19,10 @@ class LoginController extends Controller
                 return redirect()->route('admins.dashboard');
             } elseif (Auth::user()->profile_type === 'App\Models\Student') {
                 return redirect()->route('frontend.courses');
+            } elseif (Auth::user()->profile_type === 'App\Models\Agent') {
+                return redirect()->route('backend.dashboard');
+            } elseif (Auth::user()->profile_type === 'App\Models\University') {
+                return redirect()->route('backend.dashboard');
             }
         } else {
             return back()->withErrors(['password' => 'Wrong Credentials']);

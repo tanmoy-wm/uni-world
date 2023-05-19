@@ -23,6 +23,7 @@ class Country extends Model
     protected $fillable = [
         'name',
         'slug',
+        'is_active',
         'created_by',
         'updated_by',
         'deleted_by'
@@ -50,8 +51,8 @@ class Country extends Model
     protected function name(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => ucwords($value),
-            set: fn ($value) => strtolower($value)
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
         );
     }
     //--------------------- Attributes --------------------//

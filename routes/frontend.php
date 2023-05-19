@@ -80,4 +80,11 @@ Route::group([
     Route::get('/university-register', 'createUniversity')->name('university-register');
 });
 
+
+
 Route::post('/student-register', [RegisterController::class, 'studentRegister'])->name('student-registration');
+Route::post('/university-register', [RegisterController::class, 'universityRegister'])->name('university-registration');
+
+
+Route::post('/agent-register', [RegisterController::class, 'agentRegister'])->name('agent-registration');
+
