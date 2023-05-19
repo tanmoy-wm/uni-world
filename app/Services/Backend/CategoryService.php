@@ -15,12 +15,6 @@ use Illuminate\View\View;
 
 class CategoryService
 {
-    public function create(): View
-    {
-        $categories = Category::all();
-        return view('pages.backend.category.create', compact('categories'));
-    }
-
     public function changeStatus($id): RedirectResponse
     {
         $category = Category::query()->findOrFail($id);
@@ -31,6 +25,12 @@ class CategoryService
             ]),
             'message' => $category->is_active === 1 ? 'Category Deactivated Successfully.' : 'Category Activated Successfully.',
         ]);
+    }
+
+    public function create(): View
+    {
+        $categories = Category::all();
+        return view('pages.backend.category.create', compact('categories'));
     }
 
     public function destroy($id)
