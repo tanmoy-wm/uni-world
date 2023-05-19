@@ -42,12 +42,12 @@ class UniversityCourseController extends Controller
         return $this->service->index($request);
     }
 
-    public function restore($id): JsonResponse
+    public function restore($id)
     {
         return $this->service->restore($id);
     }
 
-    public function show($id): JsonResponse
+    public function show($id)
     {
         return $this->service->show($id);
     }
