@@ -6,30 +6,50 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class UniversityCourse extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $appends = [];
 
+    protected $table = 'university_courses';
+
+    protected $casts = [
+        'created_by' => 'int',
+        'deleted_by' => 'int',
+        'updated_by' => 'int',
+    ];
+
     protected $fillable = [
-        'name',
+        'title',
         'slug',
         'description',
+        'duration',
+        'apply_fees',
+        'gross_fees',
+        'total_sem',
+        'minimum_qualification',
+        'minimum_gpa',
+        'minimum_language_test_score',
+        'cost_of_living',
+        'program_level',
+        'application_open_date',
+        'application_deadline',
+        'category_id',
+        'university_id',
         'is_active',
-        'parent_id',
+        'meta',
         'created_by',
         'updated_by',
         'deleted_by'
     ];
 
     //------------------- Relationships -------------------//
-    public function children(): HasMany
+    public function category(): BelongsTo
     {
-        return $this->hasMany(Category::class, 'parent_id')->with('children');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function createdBy(): BelongsTo
@@ -42,14 +62,9 @@ class Category extends Model
         return $this->belongsTo(User::class, 'deleted_by');
     }
 
-    public function parent(): BelongsTo
+    public function university(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'parent_id');
-    }
-
-    public function universityCourses(): HasMany
-    {
-        return $this->hasMany(UniversityCourse::class, 'category_id');
+        return $this->belongsTo(University::class, 'university_id');
     }
 
     public function updatedBy(): BelongsTo
