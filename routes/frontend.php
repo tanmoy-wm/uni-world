@@ -5,7 +5,7 @@ use App\Http\Controllers\Frontend\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:web')->group(function () {
-    Route::view('/courses', 'pages.frontend.auth.courses')->name('frontend.courses');
+    Route::get('/courses', [FrontendController::class, 'getUniversityCourses'])->name('frontend.courses');
     Route::view('/see-program-details', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
 });
 

@@ -1232,522 +1232,60 @@
                         <div class="tab-content jump">
                             <!-- course-details-1 -->
                             <div class="tab-pane active" id="course-details-1">
-
-                                <div class="course-tab-content">
-                                    <div class="d-flex flex-wrap justify-content-between">
-                                        <div class="col-lg-9 p-0">
-                                            <div class="sub-course-tt-box">
-                                                <div class="sub-course-unt-title">
-                                                    <h6>1-Year Post-Secondary Certificate</h6>
-                                                    <h3>T-Level - Design, Surveying and Planning for Construction</h3>
-                                                    <p>Cheshire College South and West - Ellesmere Port</p>
-                                                </div>
-                                                <div class="sub-course-country">
-                                                    <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
-                                                    North West, United Kingdom
-                                                </div>
-                                                <div class="sub-course-appl-bg">
-                                                    <div
-                                                        class="d-flex flex-wrap align-items-center justify-content-between">
-                                                        <div class="sub-tution-text">
-                                                            <h6>Tuition Fee</h6>
-                                                            <p>&#163;14,250.00 GBP</p>
+                                @forelse ($universityCourses as $universityCourse)
+                                    <div class="course-tab-content">
+                                        <div class="d-flex flex-wrap justify-content-between">
+                                            <div class="col-lg-9 p-0">
+                                                <div class="col-lg-9 p-0">
+                                                    <div class="sub-course-tt-box">
+                                                        <div class="sub-course-unt-title">
+                                                            <h6>{{ $universityCourse->title }}</h6>
+                                                            <h3>{{ $universityCourse->program_level }}
+                                                            </h3>
+                                                            <p>{{ $universityCourse->university->name }}</p>
                                                         </div>
-                                                        <div class="sub-tution-text">
-                                                            <h6>Application Fee</h6>
-                                                            <p>&#163;0.00 GBP</p>
+                                                        <div class="sub-course-country">
+                                                            <i class="fa-sharp fa-solid fa-location-dot"></i>
+                                                            {{ $universityCourse->university->full_address }}
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 p-0">
-                                            <div class="sub-course-btn-left">
-                                                <a class="sub-start-btn-applica" href="javascript:;">Start
-                                                    Application</a>
-                                                <a class="sub-program-det-border-btn" href="javascript:;">Program
-                                                    Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="course-tab-content">
-                                    <div class="d-flex flex-wrap justify-content-between">
-                                        <div class="col-lg-9 p-0">
-                                            <div class="sub-course-tt-box">
-                                                <div class="sub-course-unt-title">
-                                                    <h6>1-Year Post-Secondary Certificate</h6>
-                                                    <h3>T-Level - Design, Surveying and Planning for Construction</h3>
-                                                    <p>Cheshire College South and West - Ellesmere Port</p>
-                                                </div>
-                                                <div class="sub-course-country">
-                                                    <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
-                                                    North West, United Kingdom
-                                                </div>
-                                                <div class="sub-course-appl-bg">
-                                                    <div
-                                                        class="d-flex flex-wrap align-items-center justify-content-between">
-                                                        <div class="sub-tution-text">
-                                                            <h6>Tuition Fee</h6>
-                                                            <p>&#163;14,250.00 GBP</p>
-                                                        </div>
-                                                        <div class="sub-tution-text">
-                                                            <h6>Application Fee</h6>
-                                                            <p>&#163;0.00 GBP</p>
+                                                        <div class="sub-course-appl-bg">
+                                                            <div
+                                                                class="d-flex flex-wrap align-items-center justify-content-between">
+                                                                <div class="sub-tution-text">
+                                                                    <h6>Tuition Fee</h6>
+                                                                    <p>&#163;{{ $universityCourse->gross_fees }}</p>
+                                                                </div>
+                                                                <div class="sub-tution-text">
+                                                                    <h6>Application Fee</h6>
+                                                                    <p>&#163;{{ $universityCourse->apply_fees }} GBP</p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
-                                        </div>
-                                        <div class="col-lg-3 p-0">
-                                            <div class="sub-course-btn-left">
-                                                <a class="sub-start-btn-applica" href="javascript:;">Start
-                                                    Application</a>
-                                                <a class="sub-program-det-border-btn" href="javascript:;">Program
-                                                    Details</a>
+                                            <div class="col-lg-3 p-0">
+                                                <div class="sub-course-btn-left">
+                                                    <a class="sub-start-btn-applica" href="javascript:;">Start
+                                                        Application</a>
+                                                    <a class="sub-program-det-border-btn" href="javascript:;">Program
+                                                        Details</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="course-tab-content">
-                                    <div class="d-flex flex-wrap justify-content-between">
-                                        <div class="col-lg-9 p-0">
-                                            <div class="sub-course-tt-box">
-                                                <div class="sub-course-unt-title">
-                                                    <h6>1-Year Post-Secondary Certificate</h6>
-                                                    <h3>T-Level - Design, Surveying and Planning for Construction</h3>
-                                                    <p>Cheshire College South and West - Ellesmere Port</p>
-                                                </div>
-                                                <div class="sub-course-country">
-                                                    <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
-                                                    North West, United Kingdom
-                                                </div>
-                                                <div class="sub-course-appl-bg">
-                                                    <div
-                                                        class="d-flex flex-wrap align-items-center justify-content-between">
-                                                        <div class="sub-tution-text">
-                                                            <h6>Tuition Fee</h6>
-                                                            <p>&#163;14,250.00 GBP</p>
-                                                        </div>
-                                                        <div class="sub-tution-text">
-                                                            <h6>Application Fee</h6>
-                                                            <p>&#163;0.00 GBP</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 p-0">
-                                            <div class="sub-course-btn-left">
-                                                <a class="sub-start-btn-applica" href="javascript:;">Start
-                                                    Application</a>
-                                                <a class="sub-program-det-border-btn" href="javascript:;">Program
-                                                    Details</a>
+                                @empty
+                                    <div class="course-tab-content">
+                                        <div class="d-flex flex-wrap justify-content-between">
+                                            <div class="col-lg-9 p-0">
+                                                <p class="text-center">No Course Found</p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="course-tab-content">
-                                    <div class="d-flex flex-wrap justify-content-between">
-                                        <div class="col-lg-9 p-0">
-                                            <div class="sub-course-tt-box">
-                                                <div class="sub-course-unt-title">
-                                                    <h6>1-Year Post-Secondary Certificate</h6>
-                                                    <h3>T-Level - Design, Surveying and Planning for Construction</h3>
-                                                    <p>Cheshire College South and West - Ellesmere Port</p>
-                                                </div>
-                                                <div class="sub-course-country">
-                                                    <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
-                                                    North West, United Kingdom
-                                                </div>
-                                                <div class="sub-course-appl-bg">
-                                                    <div
-                                                        class="d-flex flex-wrap align-items-center justify-content-between">
-                                                        <div class="sub-tution-text">
-                                                            <h6>Tuition Fee</h6>
-                                                            <p>&#163;14,250.00 GBP</p>
-                                                        </div>
-                                                        <div class="sub-tution-text">
-                                                            <h6>Application Fee</h6>
-                                                            <p>&#163;0.00 GBP</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 p-0">
-                                            <div class="sub-course-btn-left">
-                                                <a class="sub-start-btn-applica" href="javascript:;">Start
-                                                    Application</a>
-                                                <a class="sub-program-det-border-btn" href="javascript:;">Program
-                                                    Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="course-tab-content">
-                                    <div class="d-flex flex-wrap justify-content-between">
-                                        <div class="col-lg-9 p-0">
-                                            <div class="sub-course-tt-box">
-                                                <div class="sub-course-unt-title">
-                                                    <h6>1-Year Post-Secondary Certificate</h6>
-                                                    <h3>T-Level - Design, Surveying and Planning for Construction</h3>
-                                                    <p>Cheshire College South and West - Ellesmere Port</p>
-                                                </div>
-                                                <div class="sub-course-country">
-                                                    <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
-                                                    North West, United Kingdom
-                                                </div>
-                                                <div class="sub-course-appl-bg">
-                                                    <div
-                                                        class="d-flex flex-wrap align-items-center justify-content-between">
-                                                        <div class="sub-tution-text">
-                                                            <h6>Tuition Fee</h6>
-                                                            <p>&#163;14,250.00 GBP</p>
-                                                        </div>
-                                                        <div class="sub-tution-text">
-                                                            <h6>Application Fee</h6>
-                                                            <p>&#163;0.00 GBP</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 p-0">
-                                            <div class="sub-course-btn-left">
-                                                <a class="sub-start-btn-applica" href="javascript:;">Start
-                                                    Application</a>
-                                                <a class="sub-program-det-border-btn" href="javascript:;">Program
-                                                    Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="course-tab-content">
-                                    <div class="d-flex flex-wrap justify-content-between">
-                                        <div class="col-lg-9 p-0">
-                                            <div class="sub-course-tt-box">
-                                                <div class="sub-course-unt-title">
-                                                    <h6>1-Year Post-Secondary Certificate</h6>
-                                                    <h3>T-Level - Design, Surveying and Planning for Construction</h3>
-                                                    <p>Cheshire College South and West - Ellesmere Port</p>
-                                                </div>
-                                                <div class="sub-course-country">
-                                                    <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
-                                                    North West, United Kingdom
-                                                </div>
-                                                <div class="sub-course-appl-bg">
-                                                    <div
-                                                        class="d-flex flex-wrap align-items-center justify-content-between">
-                                                        <div class="sub-tution-text">
-                                                            <h6>Tuition Fee</h6>
-                                                            <p>&#163;14,250.00 GBP</p>
-                                                        </div>
-                                                        <div class="sub-tution-text">
-                                                            <h6>Application Fee</h6>
-                                                            <p>&#163;0.00 GBP</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 p-0">
-                                            <div class="sub-course-btn-left">
-                                                <a class="sub-start-btn-applica" href="javascript:;">Start
-                                                    Application</a>
-                                                <a class="sub-program-det-border-btn" href="javascript:;">Program
-                                                    Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="course-tab-content">
-                                    <div class="d-flex flex-wrap justify-content-between">
-                                        <div class="col-lg-9 p-0">
-                                            <div class="sub-course-tt-box">
-                                                <div class="sub-course-unt-title">
-                                                    <h6>1-Year Post-Secondary Certificate</h6>
-                                                    <h3>T-Level - Design, Surveying and Planning for Construction</h3>
-                                                    <p>Cheshire College South and West - Ellesmere Port</p>
-                                                </div>
-                                                <div class="sub-course-country">
-                                                    <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
-                                                    North West, United Kingdom
-                                                </div>
-                                                <div class="sub-course-appl-bg">
-                                                    <div
-                                                        class="d-flex flex-wrap align-items-center justify-content-between">
-                                                        <div class="sub-tution-text">
-                                                            <h6>Tuition Fee</h6>
-                                                            <p>&#163;14,250.00 GBP</p>
-                                                        </div>
-                                                        <div class="sub-tution-text">
-                                                            <h6>Application Fee</h6>
-                                                            <p>&#163;0.00 GBP</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 p-0">
-                                            <div class="sub-course-btn-left">
-                                                <a class="sub-start-btn-applica" href="javascript:;">Start
-                                                    Application</a>
-                                                <a class="sub-program-det-border-btn" href="javascript:;">Program
-                                                    Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="course-tab-content">
-                                    <div class="d-flex flex-wrap justify-content-between">
-                                        <div class="col-lg-9 p-0">
-                                            <div class="sub-course-tt-box">
-                                                <div class="sub-course-unt-title">
-                                                    <h6>1-Year Post-Secondary Certificate</h6>
-                                                    <h3>T-Level - Design, Surveying and Planning for Construction</h3>
-                                                    <p>Cheshire College South and West - Ellesmere Port</p>
-                                                </div>
-                                                <div class="sub-course-country">
-                                                    <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
-                                                    North West, United Kingdom
-                                                </div>
-                                                <div class="sub-course-appl-bg">
-                                                    <div
-                                                        class="d-flex flex-wrap align-items-center justify-content-between">
-                                                        <div class="sub-tution-text">
-                                                            <h6>Tuition Fee</h6>
-                                                            <p>&#163;14,250.00 GBP</p>
-                                                        </div>
-                                                        <div class="sub-tution-text">
-                                                            <h6>Application Fee</h6>
-                                                            <p>&#163;0.00 GBP</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 p-0">
-                                            <div class="sub-course-btn-left">
-                                                <a class="sub-start-btn-applica" href="javascript:;">Start
-                                                    Application</a>
-                                                <a class="sub-program-det-border-btn" href="javascript:;">Program
-                                                    Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                @endforelse
                             </div>
                             <!-- course-details-1 End -->
-
-                            <!-- course-details-2 -->
-                            <div class="tab-pane" id="course-details-2">
-                                <div class="d-flex flex-wrap align-items-center justify-content-center">
-
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="sub-agent-content">
-                                            <div>
-                                                <div class="sub-agent-icon">
-                                                    <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_Education.png') }}"
-                                                        alt="" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="sub-agent-text">
-                                                    <a href="javascript:;">University of Greenwich (Medway Campus) Chattam
-                                                        , South East</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- course-details-2 End -->
                         </div>
                     </div>
                 </div>
