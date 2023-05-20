@@ -37,7 +37,7 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/profile', [ProfileController::class, 'profile'])->name('auth.profile');
     Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('auth.changePassword');
 
-    Route::view('/dashbaord', 'pages.backend.dashboard')->name('backend.dashboard');
+    Route::view('/dashboard', 'pages.backend.dashboard')->name('backend.dashboard');
     Route::prefix('/backend')->group(function () {
         Route::middleware('UserTypeCheck:Admin')->group(function () {
             Route::group([
