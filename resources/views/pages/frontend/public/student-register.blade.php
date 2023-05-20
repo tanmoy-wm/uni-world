@@ -194,7 +194,7 @@
 
                     <div class="sub-login-social-main">
 
-                        <a class="sub-login-social-box" href="javascript:;">
+                        <a class="sub-login-social-box" href="{{ route('social.google') }}">
                             <span><i class="fa-brands fa-google"></i></span>
                             <p>Log In with Google</p>
                         </a>
