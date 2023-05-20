@@ -14,10 +14,13 @@
                                 class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item"><a class="nav-link" href="javascript:;">Students</a></li>
-                                <li class="nav-item"><a class="nav-link" href="javascript:;">Recruitments
+                                <li class="nav-item"><a class="nav-link"
+                                        href="{{ route('frontend.students') }}">Students</a></li>
+                                <li class="nav-item"><a class="nav-link"
+                                        href="{{ route('frontend.recruiters') }}">Recruitments
                                         Partners</a></li>
-                                <li class="nav-item"><a class="nav-link" href="javascript:;">Education Partners</a>
+                                <li class="nav-item"><a class="nav-link"
+                                        href="{{ route('frontend.education-partners') }}">Education Partners</a>
                                 </li>
                             </ul>
                         </div>
@@ -38,16 +41,16 @@
                                 <i class="fa-solid fa-bars"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Our Solutions</a>
-                                <a class="dropdown-item" href="#">Our Story</a>
-                                <a class="dropdown-item" href="#">Careers</a>
-                                <a class="dropdown-item" href="#">Press</a>
-                                <a class="dropdown-item" href="#">Life</a>
-                                <a class="dropdown-item" href="#">Leadership</a>
-                                <a class="dropdown-item" href="#">Contact</a>
-                                <a class="dropdown-item" href="#">Blog</a>
+                                <a class="dropdown-item" href="{{ route('frontend.our-solutions') }}">Our Solutions</a>
+                                <a class="dropdown-item" href="{{ route('frontend.our-story') }}">Our Story</a>
+                                <a class="dropdown-item" href="{{ route('frontend.careers') }}">Careers</a>
+                                <a class="dropdown-item" href="{{ route('frontend.press') }}">Press</a>
+                                <a class="dropdown-item" href="{{ route('frontend.life') }}">Life</a>
+                                <a class="dropdown-item" href="{{ route('frontend.leaderships') }}">Leadership</a>
+                                <a class="dropdown-item" href="{{ route('frontend.contact-us') }}">Contact</a>
+                                <a class="dropdown-item" href="{{ route('frontend.blog') }}">Blog</a>
                                 <a class="dropdown-item" href="#">ApplyInsights</a>
-                                <a class="dropdown-item" href="#">Trends Report</a>
+                                <a class="dropdown-item" href="{{ route('frontend.trends-report') }}">Trends Report</a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +59,8 @@
                     <div class="sub-btn-regst my-2 my-lg-0">
                         <a href="{{ route('frontend.login') }}" class="btn btn-outline-primary" type="submit">Log
                             In</a>
-                        <a href="{{ route('frontend.student-register') }}" class="btn btn-primary" type="submit">Sign Up</a>
+                        <a href="{{ route('frontend.student-register') }}" class="btn btn-primary" type="submit">Sign
+                            Up</a>
                     </div>
                 </div>
             </div>

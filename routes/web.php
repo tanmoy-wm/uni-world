@@ -8,12 +8,12 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\UniversityCourseController;
-use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Backend\Users\AgentController;
 use App\Http\Controllers\Backend\Users\StaffController;
 use App\Http\Controllers\Backend\Users\StudentController;
 use App\Http\Controllers\Backend\Users\UniversityController;
+
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +36,8 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('auth.profile');
     Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('auth.changePassword');
-
     Route::view('/dashboard', 'pages.backend.dashboard')->name('backend.dashboard');
+
     Route::prefix('/backend')->group(function () {
         Route::middleware('UserTypeCheck:Admin')->group(function () {
             Route::group([

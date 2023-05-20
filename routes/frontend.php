@@ -13,6 +13,7 @@ Route::prefix('/fe')->group(function () {
     Route::view('/assist', 'pages.frontend.public.assist')->name('frontend.assist');
     Route::view('/application-process', 'pages.frontend.public.application-process')->name('frontend.application-process');
     Route::view('/application-requirements-101-united-kingdom', 'pages.frontend.public.application-requirements-101-united-kingdom')->name('frontend.application-requirements-101-united-kingdom');
+    Route::view('/au-resources', 'pages.frontend.public.au-resources')->name('frontend.au-resources');
     Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
     Route::view('/careers', 'pages.frontend.public.careers')->name('frontend.careers');
     Route::view('/choosing-an-english-proficiency', 'pages.frontend.public.choosing-an-english-proficiency')->name('frontend.choosing-an-english-proficiency');
@@ -58,8 +59,6 @@ Route::prefix('/fe')->group(function () {
     Route::view('/university-of-tasmania-UTAS-hobart', 'pages.frontend.public.university-of-tasmania-UTAS-hobart')->name('frontend.university-of-tasmania-UTAS-hobart');
     Route::view('/uniwolc-registration', 'pages.frontend.public.uniwolc-registration')->name('frontend.uniwolc-registration');
     Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
-    Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
-    Route::view('/uniInsights', 'pages.frontend.public.uniInsights')->name('frontend.uniInsights');
     Route::view('/view-open-roles', 'pages.frontend.public.view-open-roles')->name('frontend.view-open-roles');
     Route::view('/view-all-posts', 'pages.frontend.public.view-all-posts')->name('frontend.view-all-posts');
     Route::view('/what-is-the-pte-test', 'pages.frontend.public.what-is-the-pte-test')->name('frontend.what-is-the-pte-test');
@@ -87,4 +86,3 @@ Route::post('/university-register', [RegisterController::class, 'universityRegis
 
 
 Route::post('/agent-register', [RegisterController::class, 'agentRegister'])->name('agent-registration');
-
