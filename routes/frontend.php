@@ -71,13 +71,15 @@ Route::prefix('/fe')->group(function () {
 });
 
 Route::group([
-    'as'         => 'frontend.',
+    'as' => 'frontend.',
     'controller' => FrontendController::class,
 ], function () {
 
     Route::get('/student-register', 'createStudent')->name('student-register');
     Route::get('/agent-register', 'createAgent')->name('agent-register');
     Route::get('/university-register', 'createUniversity')->name('university-register');
+    Route::get('/blogs', 'getBlogs')->name('getBlogs');
+
 });
 
 
@@ -85,5 +87,6 @@ Route::group([
 Route::post('/student-register', [RegisterController::class, 'studentRegister'])->name('student-registration');
 Route::post('/university-register', [RegisterController::class, 'universityRegister'])->name('university-registration');
 
-
+// Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
 Route::post('/agent-register', [RegisterController::class, 'agentRegister'])->name('agent-registration');
+

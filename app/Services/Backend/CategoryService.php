@@ -69,13 +69,13 @@ class CategoryService
 
         try {
             Category::create([
-                'name'        => $validated_request['name'],
-                'slug'        => $slug,
+                'name' => $validated_request['name'],
+                'slug' => $slug,
                 'description' => $validated_request['description'] ?? null,
-                'parent_id'   => $validated_request['parent_id'] ?? null,
-                'is_active'   => $validated_request['is_active'] === 'active' ? 1 : 0,
-                'created_by'  => $created_by,
-                'updated_by'  => $created_by,
+                'parent_id' => $validated_request['parent_id'] ?? null,
+                'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
+                'created_by' => $created_by,
+                'updated_by' => $created_by,
             ]);
         } catch (Exception $exception) {
             if (app()->environment('local')) {
@@ -91,7 +91,7 @@ class CategoryService
     public function trashed($id): RedirectResponse
     {
         $category = Category::query()->findOrFail($id);
-        $category->update(['deleted_by'  => Auth::id()]);
+        $category->update(['deleted_by' => Auth::id()]);
         $category->delete();
 
         return redirect()->route('categories.index');
@@ -107,12 +107,12 @@ class CategoryService
             $slug = Str::slug($validated_request['name']);
 
             $data = [
-                'name'        => $validated_request['name'],
-                'slug'        => $slug,
+                'name' => $validated_request['name'],
+                'slug' => $slug,
                 'description' => $validated_request['description'] ?? null,
-                'parent_id'   => $validated_request['parent_id'] ?? null,
-                'is_active'   => $validated_request['is_active'] === 'active' ? 1 : 0,
-                'updated_by'  => $updated_by,
+                'parent_id' => $validated_request['parent_id'] ?? null,
+                'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
+                'updated_by' => $updated_by,
             ];
 
             $category->update($data);

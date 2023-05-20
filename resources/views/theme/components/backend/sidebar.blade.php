@@ -33,6 +33,13 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{ route('blogs.index') }}">
+                <span class="menu-title">Blog</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('staffs.index') }}">
                 <span class="menu-title">Staff</span>
                 <i class="mdi mdi-home menu-icon"></i>
@@ -77,6 +84,14 @@
                 <i class="mdi mdi-table-large menu-icon"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('press.index') }}">
+                <span class="menu-title">Press</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+        </li>
+
+
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#settings" aria-expanded="false"
                 aria-controls="settings">
