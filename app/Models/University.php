@@ -51,6 +51,11 @@ class University extends Model
     ];
 
     //------------------- Relationships -------------------//
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'country');
+    }
+
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
