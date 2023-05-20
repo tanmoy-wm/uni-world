@@ -37,7 +37,7 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/profile', [ProfileController::class, 'profile'])->name('auth.profile');
     Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('auth.changePassword');
 
-    Route::view('/dashbaord', 'pages.backend.dashboard')->name('backend.dashboard');
+    Route::view('/dashboard', 'pages.backend.dashboard')->name('backend.dashboard');
     Route::prefix('/backend')->group(function () {
         Route::middleware('UserTypeCheck:Admin')->group(function () {
             Route::group([
@@ -79,8 +79,6 @@ Route::middleware('auth:web')->group(function () {
 
             Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
             Route::get('/countries/{id}/change-status', [CountryController::class, 'changeStatus'])->name('countries.changeStatus');
-
-            // Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
 
             Route::group([
                 'as' => 'courses.',
@@ -141,6 +139,20 @@ Route::middleware('auth:web')->group(function () {
                 'controller' => UniversityController::class,
                 'prefix' => '/universities'
             ], function () {
+                Route::get('/create', 'create')->name('create');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::get('/', 'index')->name('index');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/{id}/trashed', 'trashed')->name('trashed');
+                Route::put('/{id}', 'update')->name('update');
+            });
+
+            Route::group([
+                'as'         => 'university-courses.',
+                'controller' => UniversityCourseController::class,
+                'prefix'     => '/university/courses'
+            ], function () {
+                Route::get('/{id}/changeStatus', 'changeStatus')->name('changeStatus');
                 Route::get('/create', 'create')->name('create');
                 Route::get('/{id}/edit', 'edit')->name('edit');
                 Route::get('/', 'index')->name('index');
