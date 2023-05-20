@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CourseController;
@@ -30,6 +31,15 @@ Route::view('/', 'welcome')->name('welcome');
 
 Route::view('/login', 'pages.auth.login')->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
+
+Route::group([
+    'as'    => 'social.',
+    'prefix' => '/login',
+    'controller' => SocialLoginController::class,
+], function () {
+    Route::get('/google', 'redirectToGoogle')->name('google');
+    Route::any('/google/callback', 'handleGoogleCallback')->name('google-callback');
+});
 
 Route::middleware('auth:web')->group(function () {
 

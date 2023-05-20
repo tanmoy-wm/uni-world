@@ -24,6 +24,11 @@ return new class extends Migration
             $table->string('country', 255)->index();
             $table->string('pincode', 255)->index();
             $table->string('status')->index()->comment('Approve, Reject, Pending');
+            $table->string('dli_number')->nullable();
+            $table->string('institution_type')->nullable();
+            $table->string('founded_year')->nullable();
+            $table->text('why_your_institution')->nullable();
+            $table->string('google_map_location')->nullable();
             $table->longText('meta')->nullable();
             $table->string('website', 255)->index()->nullable;
             $table->string('linkedin', 255)->index()->nullable;
