@@ -35,7 +35,6 @@ Route::prefix('/fe')->group(function () {
     Route::view('/our-story', 'pages.frontend.public.our-story')->name('frontend.our-story');
     Route::view('/our-solutions-two', 'pages.frontend.public.our-solutions-two')->name('frontend.our-solutions-two');
     Route::view('/partner-schools', 'pages.frontend.public.partner-schools')->name('frontend.partner-schools');
-    Route::view('/press', 'pages.frontend.public.press')->name('frontend.press');
     Route::view('/recruiters', 'pages.frontend.public.recruiters')->name('frontend.recruiters');
     Route::view('/resources', 'pages.frontend.public.resources')->name('frontend.resources');
     Route::view('/register', 'pages.frontend.public.register')->name('frontend.register');
@@ -80,7 +79,7 @@ Route::group([
     Route::get('/agent-register', 'createAgent')->name('agent-register');
     Route::get('/university-register', 'createUniversity')->name('university-register');
     Route::get('/blogs', 'getBlogs')->name('getBlogs');
-
+    Route::get('/press', 'getPrees')->name('getPrees');
 });
 
 

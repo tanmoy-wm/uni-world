@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CourseController;
+use App\Http\Controllers\Backend\PressController;
 use App\Http\Controllers\Backend\University\UniversityCourseController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\PressController;
@@ -37,7 +38,7 @@ Route::view('/login', 'pages.auth.login')->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
 
 Route::group([
-    'as'    => 'social.',
+    'as' => 'social.',
     'prefix' => '/login',
     'controller' => SocialLoginController::class,
 ], function () {
