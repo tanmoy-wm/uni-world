@@ -15,9 +15,9 @@
             <div class="col-6 col-lg-2">
                 <div class="sub-footer-list-bold">
                     <ul>
-                        <li><a href="javascript:;">Students</a></li>
-                        <li><a href="javascript:;">Schools</a></li>
-                        <li><a href="javascript:;">Recruiters</a></li>
+                        <li><a href="{{ route('frontend.students') }}">Students</a></li>
+                        <li><a href="{{ route('frontend.education-partners') }}">Schools</a></li>
+                        <li><a href="{{ route('frontend.recruiters') }}">Recruiters</a></li>
                     </ul>
                 </div>
             </div>
@@ -26,13 +26,13 @@
                 <div class="sub-footer-list">
                     <h6>About</h6>
                     <ul>
-                        <li><a href="javascript:;">Our Story</a></li>
-                        <li><a href="javascript:;">Careers</a></li>
-                        <li><a href="javascript:;">Blog</a></li>
-                        <li><a href="javascript:;">Press</a></li>
-                        <li><a href="javascript:;">Life</a></li>
-                        <li><a href="javascript:;">Leadership</a></li>
-                        <li><a href="javascript:;">Contact</a></li>
+                        <li><a href="{{ route('frontend.our-story') }}">Our Story</a></li>
+                        <li><a href="{{ route('frontend.careers') }}">Careers</a></li>
+                        <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
+                        <li><a href="{{ route('frontend.press') }}">Press</a></li>
+                        <li><a href="{{ route('frontend.life') }}">Life</a></li>
+                        <li><a href="{{ route('frontend.leaderships') }}">Leadership</a></li>
+                        <li><a href="{{ route('frontend.contact-us') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,9 +41,9 @@
                 <div class="sub-footer-list">
                     <h6>Discover</h6>
                     <ul>
-                        <li><a href="javascript:;">Discover Programs</a></li>
-                        <li><a href="javascript:;">Discover Schools</a></li>
-                        <li><a href="javascript:;">Register</a></li>
+                        {{-- <li><a href="{{ route('') }}">Discover Programs</a></li> --}}
+                        <li><a href="{{ route('frontend.discover-schools') }}">Discover Schools</a></li>
+                        <li><a href="{{ route('student-registration') }}">Register</a></li>
                     </ul>
                 </div>
             </div>
@@ -52,9 +52,9 @@
                 <div class="sub-footer-list">
                     <h6>Resources</h6>
                     <ul>
-                        <li><a href="javascript:;">Our Solutions</a></li>
-                        <li><a href="javascript:;">UK Resources</a></li>
-                        <li><a href="javascript:;">AU Resources</a></li>
+                        <li><a href="{{ route('frontend.our-solutions') }}">Our Solutions</a></li>
+                        <li><a href="{{ route('frontend.uk-resources') }}">UK Resources</a></li>
+                        <li><a href="{{ route('frontend.au-resources') }}">AU Resources</a></li>
                     </ul>
                 </div>
             </div>
