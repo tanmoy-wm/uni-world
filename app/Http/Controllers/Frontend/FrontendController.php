@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\University;
 use App\Models\UniversityCourse;
 use Illuminate\View\View;
 
@@ -31,6 +32,7 @@ class FrontendController extends Controller
     public function getUniversityCourses(): View
     {
         $universityCourses = UniversityCourse::query()->with(['category', 'createdBy', 'university', 'updatedBy'])->get();
-        return view('pages.frontend.auth.courses', compact('universityCourses'));
+        $universities = University::query()->with('country')->get();
+        return view('pages.frontend.auth.courses', compact('universityCourses', 'universities'));
     }
 }

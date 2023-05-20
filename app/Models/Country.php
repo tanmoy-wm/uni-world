@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Country extends Model
@@ -40,6 +41,11 @@ class Country extends Model
         return $this->belongsTo(User::class, 'deleted_by');
     }
 
+    public function universities(): HasMany
+    {
+        return $this->hasMany(University::class, 'country');
+    }
+
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');
@@ -51,8 +57,8 @@ class Country extends Model
     protected function name(): Attribute
     {
         return new Attribute(
-            get: fn($value) => ucwords($value),
-            set: fn($value) => strtolower($value)
+            get: fn ($value) => ucwords($value),
+            set: fn ($value) => strtolower($value)
         );
     }
     //--------------------- Attributes --------------------//

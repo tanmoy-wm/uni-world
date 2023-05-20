@@ -1286,6 +1286,32 @@
                                 @endforelse
                             </div>
                             <!-- course-details-1 End -->
+
+                            <div class="tab-pane" id="course-details-2">
+                                <div class="d-flex flex-wrap align-items-center justify-content-center">
+                                    @forelse ($universities as $university)
+                                        <div class="col-lg-6">
+                                            <div class="sub-agent-content">
+                                                <div>
+                                                    <div class="sub-agent-icon">
+                                                        <img src="{{ asset('assets/frontend/assets/images/courses/Cambridge_ Education.png') }}"
+                                                            alt="" />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="sub-agent-text">
+                                                        <a href="javascript:;">
+                                                            {{ $university->name }} {{ $university->full_address }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @empty
+                                    @endforelse
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

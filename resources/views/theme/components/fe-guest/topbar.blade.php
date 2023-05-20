@@ -1,9 +1,7 @@
 <header class="header-menu-box-shadow">
     <div class="container">
         <div class="row">
-
             <div class="header-menu-uinw d-flex flex-wrap align-items-center justify-content-center">
-
                 <div class="col-lg-7">
                     <nav class="navbar navbar-expand-lg navbar-dark">
                         <a class="navbar-brand" href="{{ route('welcome') }}"><img
@@ -26,6 +24,7 @@
                         </div>
                     </nav>
                 </div>
+
                 <div class="col-lg-3">
                     <div class="header-search-box">
                         <div>
@@ -35,6 +34,7 @@
                                         class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
+                        
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
