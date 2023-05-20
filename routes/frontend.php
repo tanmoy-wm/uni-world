@@ -13,7 +13,7 @@ Route::prefix('/fe')->group(function () {
     Route::view('/assist', 'pages.frontend.public.assist')->name('frontend.assist');
     Route::view('/application-process', 'pages.frontend.public.application-process')->name('frontend.application-process');
     Route::view('/application-requirements-101-united-kingdom', 'pages.frontend.public.application-requirements-101-united-kingdom')->name('frontend.application-requirements-101-united-kingdom');
-    Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
+
     Route::view('/careers', 'pages.frontend.public.careers')->name('frontend.careers');
     Route::view('/choosing-an-english-proficiency', 'pages.frontend.public.choosing-an-english-proficiency')->name('frontend.choosing-an-english-proficiency');
     Route::view('/contact-us', 'pages.frontend.public.contact-us')->name('frontend.contact-us');
@@ -71,13 +71,15 @@ Route::prefix('/fe')->group(function () {
 });
 
 Route::group([
-    'as'         => 'frontend.',
+    'as' => 'frontend.',
     'controller' => FrontendController::class,
 ], function () {
 
     Route::get('/student-register', 'createStudent')->name('student-register');
     Route::get('/agent-register', 'createAgent')->name('agent-register');
     Route::get('/university-register', 'createUniversity')->name('university-register');
+    Route::get('/blogs', 'getBlogs')->name('getBlogs');
+
 });
 
 
@@ -85,6 +87,5 @@ Route::group([
 Route::post('/student-register', [RegisterController::class, 'studentRegister'])->name('student-registration');
 Route::post('/university-register', [RegisterController::class, 'universityRegister'])->name('university-registration');
 
-
+// Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
 Route::post('/agent-register', [RegisterController::class, 'agentRegister'])->name('agent-registration');
-
