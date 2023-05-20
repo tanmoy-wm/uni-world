@@ -89,4 +89,3 @@ Route::post('/university-register', [RegisterController::class, 'universityRegis
 
 // Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
 Route::post('/agent-register', [RegisterController::class, 'agentRegister'])->name('agent-registration');
-
