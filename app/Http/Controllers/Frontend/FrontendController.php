@@ -35,4 +35,14 @@ class FrontendController extends Controller
         $universities = University::query()->with('country')->get();
         return view('pages.frontend.auth.courses', compact('universityCourses', 'universities'));
     }
+
+    public function universityShow($username): View
+    {
+        $university = University::query()
+            ->where('username', $username)
+            ->with(['country', 'features', 'universityCourses'])
+            ->first();
+
+        return view('pages.frontend.auth.university-show', compact('university'));
+    }
 }

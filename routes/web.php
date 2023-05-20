@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CourseController;
-use App\Http\Controllers\Backend\UniversityCourseController;
+use App\Http\Controllers\Backend\University\UniversityCourseController;
 use App\Http\Controllers\Backend\Users\AgentController;
 use App\Http\Controllers\Backend\Users\StaffController;
 use App\Http\Controllers\Backend\Users\StudentController;
