@@ -1287,6 +1287,7 @@
                             </div>
                             <!-- course-details-1 End -->
 
+                            <!-- university -->
                             <div class="tab-pane" id="course-details-2">
                                 <div class="d-flex flex-wrap align-items-center justify-content-center">
                                     @forelse ($universities as $university)
@@ -1300,7 +1301,8 @@
                                                 </div>
                                                 <div>
                                                     <div class="sub-agent-text">
-                                                        <a href="javascript:;">
+                                                        <a
+                                                            href="{{ route('frontend.university-show', ['username' => $university->username]) }}">
                                                             {{ $university->name }} {{ $university->full_address }}
                                                         </a>
                                                     </div>

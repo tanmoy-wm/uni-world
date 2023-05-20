@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\University;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreUniversityCourseRequest;
@@ -27,7 +27,7 @@ class UniversityCourseController extends Controller
         return $this->service->create();
     }
 
-    public function destroy($id): JsonResponse
+    public function destroy($id)
     {
         return $this->service->destroy($id);
     }

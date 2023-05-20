@@ -39,6 +39,10 @@ class University extends Model
         'country',
         'pincode',
         'status',
+        'dli_number',
+        'institution_type',
+        'founded_year',
+        'why_your_institution',
         'website',
         'linkedin',
         'facebook',
@@ -64,6 +68,11 @@ class University extends Model
     public function deletedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'deleted_by');
+    }
+
+    public function features(): HasMany
+    {
+        return $this->hasMany(UniversityFeature::class, 'university_id');
     }
 
     public function updatedBy(): BelongsTo

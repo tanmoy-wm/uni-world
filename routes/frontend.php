@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:web')->group(function () {
     Route::get('/courses', [FrontendController::class, 'getUniversityCourses'])->name('frontend.courses');
     Route::view('/see-program-details', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
+    Route::get('/university/{username}', [FrontendController::class, 'universityShow'])->name('frontend.university-show');
 });
 
 Route::prefix('/fe')->group(function () {
