@@ -9,6 +9,10 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\University\UniversityCourseController;
+use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\PressController;
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Backend\Users\AgentController;
 use App\Http\Controllers\Backend\Users\StaffController;
 use App\Http\Controllers\Backend\Users\StudentController;
@@ -87,6 +91,38 @@ Route::middleware('auth:web')->group(function () {
                 Route::get('/{id}/trashed', 'trashed')->name('trashed');
             });
 
+            Route::group([
+                'as' => 'blogs.',
+                'controller' => BlogController::class,
+                'prefix' => '/blogs'
+            ], function () {
+                Route::get('/create', 'create')->name('create');
+                // Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::get('/', 'index')->name('index');
+                Route::post('/store', 'store')->name('store');
+                Route::put('/{id}', 'update')->name('update');
+                Route::get('/{id}/trashed', 'trashed')->name('trashed');
+            });
+
+            Route::group([
+                'as' => 'press.',
+                'controller' => PressController::class,
+                'prefix' => '/press'
+            ], function () {
+                Route::get('/create', 'create')->name('create');
+                // Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::get('/', 'index')->name('index');
+                Route::post('/store', 'store')->name('store');
+                Route::put('/{id}', 'update')->name('update');
+                Route::get('/{id}/trashed', 'trashed')->name('trashed');
+            });
+
+
+
+
+
             Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
             Route::get('/countries/{id}/change-status', [CountryController::class, 'changeStatus'])->name('countries.changeStatus');
 
@@ -158,9 +194,9 @@ Route::middleware('auth:web')->group(function () {
             });
 
             Route::group([
-                'as'         => 'university-courses.',
+                'as' => 'university-courses.',
                 'controller' => UniversityCourseController::class,
-                'prefix'     => '/university/courses'
+                'prefix' => '/university/courses'
             ], function () {
                 Route::get('/{id}/changeStatus', 'changeStatus')->name('changeStatus');
                 Route::get('/create', 'create')->name('create');

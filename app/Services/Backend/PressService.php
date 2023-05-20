@@ -3,7 +3,6 @@
 namespace App\Services\Backend;
 
 use App\Http\Actions\FiltersQuery;
-use App\Http\Requests\Backend\UpdatePressRequest;
 use App\Models\Press;
 use App\Services\BaseService;
 use Illuminate\View\View;
@@ -37,14 +36,6 @@ class PressService
         return view('pages.backend.press.create');
     }
 
-    public function edit($id): View
-    {
-        $press = Press::query()->findOrFail($id);
-        $presses = Press::all();
-        return view('pages.backend.press.edit', compact('press', 'presses'));
-    }
-
-
     public function restore($id): JsonResponse
     {
         if (!$press = Press::withTrashed()->find($id)) {
@@ -65,6 +56,7 @@ class PressService
         }
 
         $data = $press->with(['createdBy', 'deletedBy', 'updatedBy'])->first();
+
         return $this->handleResponse($data, '', 200);
     }
 
@@ -73,7 +65,7 @@ class PressService
         try {
             $created_by = Auth::id();
             $validated_request = $request->validated();
-            $press = Press::create([
+            $blog = Press::create([
                 'title' => $validated_request['title'],
                 'description' => $validated_request['description'],
                 'given_organization' => $validated_request['given_organization'],
@@ -102,33 +94,28 @@ class PressService
     }
 
 
-    public function update(UpdatePressRequest $request, $id): RedirectResponse
+    public function update($request, $id): JsonResponse
     {
-        $blog = Press::query()->findOrFail($id);
-
+        if (!$press = Press::withTrashed()->find($id)) {
+            return $this->handleError([], 'Press Not Found.', 404);
+        }
         try {
             $validated_request = $request->validated();
             $updated_by = Auth::id();
-            $slug = Str::slug($validated_request['title']);
+            $slug = Str::slug($validated_request['slug']);
 
             $data = [
-                'title' => $validated_request['title'],
-                'description' => $validated_request['description'],
-                'given_organization' => $validated_request['given_organization'],
-                'award_name' => $validated_request['award_name'],
-                'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
+                'name' => $validated_request['name'],
+                'slug' => $slug,
+                'is_active' => $validated_request['is_active'],
                 'updated_by' => $updated_by,
             ];
 
-            $blog->update($data);
+            $updated_press = tap($press)->update($data);
         } catch (Exception $exception) {
-            if (app()->environment('local')) {
-                return redirect()->back()->withErrors($exception->getMessage());
-            } else {
-                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
-            }
+            return $this->handleException($exception);
         }
 
-        return redirect()->route('press.index');
+        return $this->handleResponse($updated_press, 'Press Updated Successfully.', 200);
     }
 }
