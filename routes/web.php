@@ -39,6 +39,8 @@ Route::group([
 ], function () {
     Route::get('/google', 'redirectToGoogle')->name('google');
     Route::any('/google/callback', 'handleGoogleCallback')->name('google-callback');
+    Route::get('/facebook', 'redirectToFacebook')->name('facebook');
+    Route::any('/facebook/callback', 'handleFacebookCallback')->name('facebook-callback');
 });
 
 Route::middleware('auth:web')->group(function () {
