@@ -142,53 +142,14 @@
                                     <!-- Featured -->
                                     <div role="tabpanel" class="tab-pane active show" id="01Featured">
                                         <div class="row">
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>NOV 2022</span> BNN BLOOMBERG</h5>
-                                                    <p>We Want To Empower Students To Make The Right Choice: Uniwolc Massi
-                                                        Basiri</p>
+                                            @foreach ($press as $presses)
+                                                <div class="col-lg-6">
+                                                    <div class="sub-coverage-box">
+                                                        <h5><span>NOV 2022</span>{{ $presses->title }} </h5>
+                                                        <p>{{ $presses->description }} </p>
+                                                    </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>OCT 2022</span> TIMES OF INDIA</h5>
-                                                    <p>Canada Addresses Labour Shortage: International Students Allowed To
-                                                        Work Unrestricted Hours</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>JULY 2022</span> HEPI</h5>
-                                                    <p>How International Students Can Help Bridge The Uk’s Skills Gap</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>MAR 2022</span> THE RECORD</h5>
-                                                    <p>Our Program Is Designed To Benefit International Students</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>MAR 2022</span> BETAKIT</h5>
-                                                    <p>Uniwolc Makes First Acquisition, Grabbing Panda Portal To Train
-                                                        Recruiters</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>FEB 2022</span> FINANCIAL POST</h5>
-                                                    <p>New Tool Helps Canadian Higher Education Institutions Navigate The
-                                                        Global Talent Competition</p>
-                                                </div>
-                                            </div>
-
+                                            @endforeach
                                         </div>
                                     </div>
                                     <!-- Featured End -->
@@ -334,7 +295,8 @@
                 <div class="col-6 col-lg-6">
                     <div class="sub-making-edu-content">
                         <a href="javascript:;" data-toggle="modal" data-target="#exampleModal"><img
-                                src="{{ asset('assets/frontend/assets/images/02-accomplishments.png') }}" alt="" /></a>
+                                src="{{ asset('assets/frontend/assets/images/02-accomplishments.png') }}"
+                                alt="" /></a>
                     </div>
                 </div>
 
