@@ -51,9 +51,12 @@ Route::group([
 Route::middleware('auth:web')->group(function () {
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
+    // Route::view('/edit-profile', 'pages.auth.edit-profile')->name('auth.edit-profile');
+    Route::get('/profile/edit', [ProfileController::class, 'editProfile'])->name('auth.edit-profile');
+    Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('auth.update-profile');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('auth.profile');
     Route::view('/change-password', 'pages.auth.change-password')->name('change-password');
-    Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('auth.change-password');
+    Route::put('/update-password', [ProfileController::class, 'changePassword'])->name('auth.change-password');
     Route::view('/dashboard', 'pages.backend.dashboard')->name('backend.dashboard');
 
     Route::prefix('/backend')->group(function () {

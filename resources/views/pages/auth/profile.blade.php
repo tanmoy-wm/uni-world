@@ -16,7 +16,8 @@
                             @endif
 
                             <div class="d-flex justify-content-center mb-2">
-                                <button type="button" class="btn btn-primary">Edit Profile Details</button>
+                                <a href="{{ route('auth.edit-profile') }}" type="button" class="btn btn-primary">Edit
+                                    Profile Details</a>
                             </div>
                         </div>
                     </div>
