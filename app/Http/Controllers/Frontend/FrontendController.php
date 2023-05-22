@@ -45,6 +45,13 @@ class FrontendController extends Controller
 
     }
 
+    public function getProgram()
+    {
+        // $press = Program::all();
+        return view('pages.frontend.public.program-details', compact('program'));
+
+    }
+
     public function getUniversityCourses(): View
     {
         $universityCourses = UniversityCourse::query()->with(['category', 'createdBy', 'university', 'updatedBy'])->get();

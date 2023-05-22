@@ -68,6 +68,7 @@ Route::prefix('/fe')->group(function () {
     Route::view('/types-of-PTE-tests-vouchers', 'pages.frontend.public.types-of-PTE-tests-vouchers')->name('frontend.types-of-PTE-tests-vouchers');
     Route::view('/tuition-payments-made-easy', 'pages.frontend.public.tuition-payments-made-easy')->name('frontend.tuition-payments-made-easy');
     Route::view('/trends-report', 'pages.frontend.public.trends-report')->name('frontend.trends-report');
+
 });
 
 Route::group([
@@ -80,6 +81,7 @@ Route::group([
     Route::get('/university-register', 'createUniversity')->name('university-register');
     Route::get('/blogs', 'getBlogs')->name('getBlogs');
     Route::get('/press', 'getPrees')->name('getPrees');
+    Route::get('/program-details', 'getProgram')->name('fe.programs.show');
 });
 
 

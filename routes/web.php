@@ -11,7 +11,7 @@ use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\PressController;
 use App\Http\Controllers\Backend\University\UniversityCourseController;
 use App\Http\Controllers\Backend\BlogController;
-use App\Http\Controllers\Backend\PressController;
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Backend\Users\AgentController;
@@ -19,7 +19,7 @@ use App\Http\Controllers\Backend\Users\StaffController;
 use App\Http\Controllers\Backend\Users\StudentController;
 use App\Http\Controllers\Backend\Users\UniversityController;
 
-use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
