@@ -1232,32 +1232,32 @@
                         <div class="tab-content jump">
                             <!-- course-details-1 -->
                             <div class="tab-pane active" id="course-details-1">
-                                @forelse ($universityCourses as $universityCourse)
+                                @forelse ($programs as $program)
                                     <div class="course-tab-content">
                                         <div class="d-flex flex-wrap justify-content-between">
                                             <div class="col-lg-9 p-0">
                                                 <div class="col-lg-9 p-0">
                                                     <div class="sub-course-tt-box">
                                                         <div class="sub-course-unt-title">
-                                                            <h6>{{ $universityCourse->title }}</h6>
-                                                            <h3>{{ $universityCourse->program_level }}
+                                                            <h6>{{ $program->title }}</h6>
+                                                            <h3>{{ $program->program_level }}
                                                             </h3>
-                                                            <p>{{ $universityCourse->university->name }}</p>
+                                                            <p>{{ $program->university->name }}</p>
                                                         </div>
                                                         <div class="sub-course-country">
                                                             <i class="fa-sharp fa-solid fa-location-dot"></i>
-                                                            {{ $universityCourse->university->full_address }}
+                                                            {{ $program->university->full_address }}
                                                         </div>
                                                         <div class="sub-course-appl-bg">
                                                             <div
                                                                 class="d-flex flex-wrap align-items-center justify-content-between">
                                                                 <div class="sub-tution-text">
                                                                     <h6>Tuition Fee</h6>
-                                                                    <p>&#163;{{ $universityCourse->gross_fees }}</p>
+                                                                    <p>&#163;{{ $program->gross_fees }}</p>
                                                                 </div>
                                                                 <div class="sub-tution-text">
                                                                     <h6>Application Fee</h6>
-                                                                    <p>&#163;{{ $universityCourse->apply_fees }} GBP</p>
+                                                                    <p>&#163;{{ $program->apply_fees }} GBP</p>
                                                                 </div>
                                                             </div>
                                                         </div>

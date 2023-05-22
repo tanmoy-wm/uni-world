@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Backend\University;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreUniversityCourseRequest;
 use App\Http\Requests\Backend\UpdateUniversityCourseRequest;
-use App\Services\Backend\UniversityCourseService;
-use Illuminate\Http\JsonResponse;
+use App\Services\Backend\ProgramService;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class UniversityCourseController extends Controller
+class ProgramController extends Controller
 {
-    public function __construct(private UniversityCourseService $service)
+    public function __construct(private ProgramService $service)
     {
     }
 

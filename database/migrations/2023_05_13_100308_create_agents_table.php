@@ -29,7 +29,13 @@ return new class extends Migration
             $table->string('student_source_country', 255);
             $table->string('business_certificate', 255)->index()->nullable();
             $table->string('business_logo', 255)->index()->nullable();
+            $table->string('preferred_contact_method', 255)->nullable();
+            $table->string('preferred_contact_method_number', 255)->index()->nullable();
+            $table->string('how_did_you_find_about_uniwolc', 255)->index();
+            $table->string('in_which_year_you_start_recruiting', 255)->nullable();
+            $table->string('provided_service', 255)->nullable();
             $table->longText('meta')->nullable();
+
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->index('created_by');

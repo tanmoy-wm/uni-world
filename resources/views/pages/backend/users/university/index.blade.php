@@ -39,7 +39,7 @@
                                 <td> {{ $university->name }} </td>
                                 <td> {{ $university->username }} </td>
                                 <td> {{ $university->email }} </td>
-                                <td> +{{ $university->country_code }} {{ $university->mobile_number }} </td>
+                                <td> {{ $university->country_code }} {{ $university->mobile_number }} </td>
                                 <td>
                                     @if ($university->status === 'pending')
                                         <label class="badge badge-warning">Pending</label>
