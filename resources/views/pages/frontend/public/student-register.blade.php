@@ -202,7 +202,7 @@
                             <span><i class="fa-brands fa-apple"></i></span>
                             <p>Log In with Apple</p>
                         </a>
-                        <a class="sub-login-social-box" href="javascript:;">
+                        <a class="sub-login-social-box" href="{{ route('social.facebook') }}">
                             <span><i class="fa-brands fa-facebook-f"></i></span>
                             <p>Log In with Facebook</p>
                         </a>
