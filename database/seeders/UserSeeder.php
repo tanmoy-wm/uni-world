@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Admin',
                 'last_name' => 'User',
-                'email' => 'admin@admin.com',
-                'password' => bcrypt('password'),
+                'email' => 'admin@uniwolc.com',
+                'password' => bcrypt('admin@1234'),
                 'profile_type' => 'App\\Models\\Admin',
                 'profile_id' => 1,
                 'is_active' => true
