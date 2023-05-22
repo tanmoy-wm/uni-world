@@ -47,7 +47,7 @@
                             <a class="dropdown-item" href="{{ route('frontend.trends-report') }}">Trends Report</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('auth.profile') }}">Profile</a>
-                            <a class="dropdown-item" href="#">Change Password</a>
+                            <a class="dropdown-item" href="{{ route('change-password') }}">Change Password</a>
                         </div>
                     </div>
                 </div>

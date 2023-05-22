@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
             [
                 'first_name' => 'Admin',
                 'last_name' => 'User',
-                'email' => 'admin@admin.com',
+                'email' => 'admin@uniwolc.com',
             ],
         ], 'email');
     }

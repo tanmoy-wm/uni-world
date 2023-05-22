@@ -52,7 +52,8 @@ Route::middleware('auth:web')->group(function () {
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('auth.profile');
-    Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('auth.changePassword');
+    Route::view('/change-password', 'pages.auth.change-password')->name('change-password');
+    Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('auth.change-password');
     Route::view('/dashboard', 'pages.backend.dashboard')->name('backend.dashboard');
 
     Route::prefix('/backend')->group(function () {
