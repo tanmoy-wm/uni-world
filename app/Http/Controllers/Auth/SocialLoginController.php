@@ -54,6 +54,25 @@ class SocialLoginController extends Controller
 
         // check if they're an existing user
 
-        return redirect()->route('frontend.courses');
+        return redirect()->route('frontend.programs');
+    }
+
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookCallback()
+    {
+        try {
+            $user = Socialite::driver('facebook')->user();
+            dd($user);
+        } catch (Exception $exception) {
+            if (app()->environment('local')) {
+                return redirect()->back()->withErrors($exception->getMessage());
+            } else {
+                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            }
+        }
     }
 }

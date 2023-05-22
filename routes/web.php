@@ -5,12 +5,12 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\SocialLoginController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\PressController;
-use App\Http\Controllers\Backend\University\UniversityCourseController;
-use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\University\ProgramController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +34,7 @@ use App\Http\Controllers\Backend\Users\UniversityController;
 
 Route::view('/', 'welcome')->name('welcome');
 
-Route::view('/login', 'pages.auth.login')->name('login');
+Route::view('/backend/login', 'pages.auth.login')->name('.backend.login');
 Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
 
 Route::group([
@@ -44,6 +44,8 @@ Route::group([
 ], function () {
     Route::get('/google', 'redirectToGoogle')->name('google');
     Route::any('/google/callback', 'handleGoogleCallback')->name('google-callback');
+    Route::get('/facebook', 'redirectToFacebook')->name('facebook');
+    Route::any('/facebook/callback', 'handleFacebookCallback')->name('facebook-callback');
 });
 
 Route::middleware('auth:web')->group(function () {
@@ -195,9 +197,9 @@ Route::middleware('auth:web')->group(function () {
             });
 
             Route::group([
-                'as' => 'university-courses.',
-                'controller' => UniversityCourseController::class,
-                'prefix' => '/university/courses'
+                'as' => 'programs.',
+                'controller' => ProgramController::class,
+                'prefix' => '/programs'
             ], function () {
                 Route::get('/{id}/changeStatus', 'changeStatus')->name('changeStatus');
                 Route::get('/create', 'create')->name('create');

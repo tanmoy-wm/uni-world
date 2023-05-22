@@ -52,8 +52,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href=" {{ route('courses.index') }}">
-                <span class="menu-title">Courses</span>
+            <a class="nav-link" href=" {{ route('programs.index') }}">
+                <span class="menu-title">Programs</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>

@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="sub-btn-regst my-2 my-lg-0">
-                        <a href="{{ route('frontend.login') }}" class="btn btn-outline-primary" type="submit">Log
+                        <a href="{{ route('login') }}" class="btn btn-outline-primary" type="submit">Log
                             In</a>
                         <a href="{{ route('frontend.student-register') }}" class="btn btn-primary" type="submit">Sign
                             Up</a>
