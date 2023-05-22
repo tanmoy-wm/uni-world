@@ -28,16 +28,13 @@ class RegisterController extends Controller
             if (Auth::user()->profile_type === 'App\Models\Admin') {
                 return 'admins.dashboard';
             } elseif (Auth::user()->profile_type === 'App\Models\Student') {
-                return 'frontend.courses';
+                return 'frontend.programs';
+            } elseif (Auth::user()->profile_type === 'App\Models\Agent') {
+                return 'frontend.programs';
             }
-            elseif (Auth::user()->profile_type === 'App\Models\Agent') {
-                return 'frontend.courses';
-            }
-
         } else {
             return back()->withErrors(['password' => 'Wrong Credentials']);
         }
-
     }
 
     public function studentRegister(StoreStudentRequest $request)
@@ -81,7 +78,8 @@ class RegisterController extends Controller
 
 
 
-    public function  universityRegister(StoreUniversityRequest $request){
+    public function  universityRegister(StoreUniversityRequest $request)
+    {
         try {
             $validated_request = $request->validated();
 
@@ -124,7 +122,8 @@ class RegisterController extends Controller
     }
 
 
-    public function agentRegister(StoreAgentRequest $request){
+    public function agentRegister(StoreAgentRequest $request)
+    {
         try {
             $redirect_url =  DB::transaction(function () use ($request) {
                 $created_by = Auth::id();
@@ -152,7 +151,6 @@ class RegisterController extends Controller
                 ];
 
                 return  $this->login($credentials);
-
             });
         } catch (Exception $exception) {
             if (app()->environment('local')) {
@@ -164,5 +162,4 @@ class RegisterController extends Controller
 
         return redirect()->route($redirect_url);
     }
-
 }

@@ -15,6 +15,7 @@ class University extends Model
     use HasFactory, SoftDeletes;
 
     protected $appends = [
+        'full_mobile_number',
         'full_address'
     ];
 
@@ -95,8 +96,19 @@ class University extends Model
     //--------------------- Attributes --------------------//
     public function getFullAddressAttribute(): string
     {
-        return $this->city . ', ' . $this->state . ', ' . $this->country;
+        return $this->city . ', ' . $this->state . ', ' . $this->country . ',' . $this->pincode;
     }
+
+    public function getFullAltMobileNumberAttribute(): string
+    {
+        return $this->alt_country_code . ' ' . $this->alt_mobile_number;
+    }
+
+    public function getFullMobileNumberAttribute(): string
+    {
+        return $this->country_code . ' ' . $this->mobile_number;
+    }
+
     protected function name(): Attribute
     {
         return new Attribute(

@@ -4,8 +4,9 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\RegisterController;
 use Illuminate\Support\Facades\Route;
 
+Route::view('/login', 'pages.frontend.public.login')->name('login');
 Route::middleware('auth:web')->group(function () {
-    Route::get('/courses', [FrontendController::class, 'getUniversityCourses'])->name('frontend.courses');
+    Route::get('/programs', [FrontendController::class, 'getPrograms'])->name('frontend.programs');
     Route::view('/see-program-details', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
     Route::get('/university/{username}', [FrontendController::class, 'universityShow'])->name('frontend.university-show');
 });
@@ -14,7 +15,6 @@ Route::prefix('/fe')->group(function () {
     Route::view('/assist', 'pages.frontend.public.assist')->name('frontend.assist');
     Route::view('/application-process', 'pages.frontend.public.application-process')->name('frontend.application-process');
     Route::view('/application-requirements-101-united-kingdom', 'pages.frontend.public.application-requirements-101-united-kingdom')->name('frontend.application-requirements-101-united-kingdom');
-
     Route::view('/au-resources', 'pages.frontend.public.au-resources')->name('frontend.au-resources');
     Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
     Route::view('/careers', 'pages.frontend.public.careers')->name('frontend.careers');
@@ -28,7 +28,6 @@ Route::prefix('/fe')->group(function () {
     Route::view('/international-student-gic-program', 'pages.frontend.public.international-student-gic-program')->name('frontend.international-student-gic-program');
     Route::view('/leaderships', 'pages.frontend.public.leaderships')->name('frontend.leaderships');
     Route::view('/life', 'pages.frontend.public.life')->name('frontend.life');
-    Route::view('/login', 'pages.frontend.public.login')->name('frontend.login');
     Route::view('/new-associate', 'pages.frontend.public.new-associate')->name('frontend.new-associate');
     Route::view('/news-centre', 'pages.frontend.public.news-centre')->name('frontend.news-centre');
     Route::view('/our-solutions', 'pages.frontend.public.our-solutions')->name('frontend.our-solutions');
@@ -79,7 +78,7 @@ Route::group([
     Route::get('/agent-register', 'createAgent')->name('agent-register');
     Route::get('/university-register', 'createUniversity')->name('university-register');
     Route::get('/blogs', 'getBlogs')->name('getBlogs');
-    Route::get('/press', 'getPrees')->name('getPrees');
+    Route::get('/press', 'getPress')->name('getPrees');
 });
 
 

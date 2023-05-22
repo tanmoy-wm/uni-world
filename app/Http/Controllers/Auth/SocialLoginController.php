@@ -54,7 +54,7 @@ class SocialLoginController extends Controller
 
         // check if they're an existing user
 
-        return redirect()->route('frontend.courses');
+        return redirect()->route('frontend.programs');
     }
 
     public function redirectToFacebook()

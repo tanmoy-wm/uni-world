@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('welcome');
 
-Route::view('/login', 'pages.auth.login')->name('login');
+Route::view('/backend/login', 'pages.auth.login')->name('.backend.login');
 Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
 
 Route::group([

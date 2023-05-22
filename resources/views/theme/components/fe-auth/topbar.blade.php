@@ -35,16 +35,19 @@
                             <i class="fa-solid fa-bars"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Our Solutions</a>
-                            <a class="dropdown-item" href="#">Our Story</a>
-                            <a class="dropdown-item" href="#">Careers</a>
-                            <a class="dropdown-item" href="#">Press</a>
-                            <a class="dropdown-item" href="#">Life</a>
-                            <a class="dropdown-item" href="#">Leadership</a>
-                            <a class="dropdown-item" href="#">Contact</a>
-                            <a class="dropdown-item" href="#">Blog</a>
+                            <a class="dropdown-item" href="{{ route('frontend.our-solutions') }}">Our Solutions</a>
+                            <a class="dropdown-item" href="{{ route('frontend.our-story') }}">Our Story</a>
+                            <a class="dropdown-item" href="{{ route('frontend.careers') }}">Careers</a>
+                            <a class="dropdown-item" href="{{ route('frontend.getPrees') }}">Press</a>
+                            <a class="dropdown-item" href="{{ route('frontend.life') }}">Life</a>
+                            <a class="dropdown-item" href="{{ route('frontend.leaderships') }}">Leadership</a>
+                            <a class="dropdown-item" href="{{ route('frontend.contact-us') }}">Contact</a>
+                            <a class="dropdown-item" href="{{ route('frontend.blog') }}">Blog</a>
                             <a class="dropdown-item" href="#">ApplyInsights</a>
-                            <a class="dropdown-item" href="#">Trends Report</a>
+                            <a class="dropdown-item" href="{{ route('frontend.trends-report') }}">Trends Report</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('auth.profile') }}">Profile</a>
+                            <a class="dropdown-item" href="#">Change Password</a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +55,7 @@
             <div class="col-lg-2">
                 <div class="sub-btn-regst my-2 my-lg-0">
                     @auth
-                    <a href="{{route('auth.logout')}}" class="btn btn-primary" type="submit">Sign Out</a>
+                        <a href="{{ route('auth.logout') }}" class="btn btn-primary" type="submit">Sign Out</a>
                     @endauth
 
                 </div>
