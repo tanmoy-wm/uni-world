@@ -14,6 +14,7 @@ Route::prefix('/fe')->group(function () {
     Route::view('/assist', 'pages.frontend.public.assist')->name('frontend.assist');
     Route::view('/application-process', 'pages.frontend.public.application-process')->name('frontend.application-process');
     Route::view('/application-requirements-101-united-kingdom', 'pages.frontend.public.application-requirements-101-united-kingdom')->name('frontend.application-requirements-101-united-kingdom');
+
     Route::view('/au-resources', 'pages.frontend.public.au-resources')->name('frontend.au-resources');
     Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
     Route::view('/careers', 'pages.frontend.public.careers')->name('frontend.careers');
@@ -34,7 +35,6 @@ Route::prefix('/fe')->group(function () {
     Route::view('/our-story', 'pages.frontend.public.our-story')->name('frontend.our-story');
     Route::view('/our-solutions-two', 'pages.frontend.public.our-solutions-two')->name('frontend.our-solutions-two');
     Route::view('/partner-schools', 'pages.frontend.public.partner-schools')->name('frontend.partner-schools');
-    Route::view('/press', 'pages.frontend.public.press')->name('frontend.press');
     Route::view('/recruiters', 'pages.frontend.public.recruiters')->name('frontend.recruiters');
     Route::view('/resources', 'pages.frontend.public.resources')->name('frontend.resources');
     Route::view('/register', 'pages.frontend.public.register')->name('frontend.register');
@@ -71,13 +71,15 @@ Route::prefix('/fe')->group(function () {
 });
 
 Route::group([
-    'as'         => 'frontend.',
+    'as' => 'frontend.',
     'controller' => FrontendController::class,
 ], function () {
 
     Route::get('/student-register', 'createStudent')->name('student-register');
     Route::get('/agent-register', 'createAgent')->name('agent-register');
     Route::get('/university-register', 'createUniversity')->name('university-register');
+    Route::get('/blogs', 'getBlogs')->name('getBlogs');
+    Route::get('/press', 'getPrees')->name('getPrees');
 });
 
 
@@ -85,5 +87,5 @@ Route::group([
 Route::post('/student-register', [RegisterController::class, 'studentRegister'])->name('student-registration');
 Route::post('/university-register', [RegisterController::class, 'universityRegister'])->name('university-registration');
 
-
+// Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
 Route::post('/agent-register', [RegisterController::class, 'agentRegister'])->name('agent-registration');

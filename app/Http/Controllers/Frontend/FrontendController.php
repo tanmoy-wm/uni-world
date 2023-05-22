@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Country;
+use App\Models\Press;
 use App\Models\University;
 use App\Models\UniversityCourse;
 use Illuminate\View\View;
@@ -27,6 +29,20 @@ class FrontendController extends Controller
     {
         $countries = Country::all();
         return view('pages.frontend.public.university-register', compact('countries'));
+    }
+
+    public function getBlogs()
+    {
+        $blogs = Blog::all();
+        return view('pages.frontend.public.blog', compact('blogs'));
+
+    }
+
+    public function getPrees()
+    {
+        $press = Press::all();
+        return view('pages.frontend.public.press', compact('press'));
+
     }
 
     public function getUniversityCourses(): View
