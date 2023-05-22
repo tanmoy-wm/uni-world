@@ -61,20 +61,29 @@ class AgentService
                 $validated_request = $request->validated();
 
                 $agent = Agent::create([
-                    'first_name'             => $validated_request['first_name'],
-                    'middle_name'            => $validated_request['middle_name'],
-                    'last_name'              => $validated_request['last_name'],
-                    'email'                  => $validated_request['email'],
-                    'country_code'           => $validated_request['country_code'],
-                    'mobile_number'          => $validated_request['mobile_number'],
-                    'city'                   => $validated_request['city'],
-                    'state'                  => $validated_request['state'],
-                    'address'                => $validated_request['address'],
-                    'country'                => $validated_request['country'],
-                    'pincode'                => $validated_request['pincode'],
+                    'first_name' => $validated_request['first_name'],
+                    'middle_name' => $validated_request['middle_name'],
+                    'last_name' => $validated_request['last_name'],
+                    'email' => $validated_request['email'],
+                    'country_code' => $validated_request['country_code'],
+                    'mobile_number' => $validated_request['mobile_number'],
+                    'city' => $validated_request['city'],
+                    'state' => $validated_request['state'],
+                    'address' => $validated_request['address'],
+                    'country' => $validated_request['country'],
+                    'pincode' => $validated_request['pincode'],
                     'student_source_country' => $validated_request['student_source_country'],
-                    'created_by'             => $created_by,
-                    'updated_by'             => $created_by,
+
+                    'preferred_contact_method' => $validated_request['preferred_contact_method'],
+                    'preferred_contact_method_number' => $validated_request['preferred_contact_method_number'],
+                    'how_did_you_find_about_uniwolc' => $validated_request['how_did_you_find_about_uniwolc'],
+                    'in_which_year_you_start_recruiting' => $validated_request['in_which_year_you_start_recruiting'],
+                    'provided_service' => $validated_request['provided_service'],
+
+
+
+                    'created_by' => $created_by,
+                    'updated_by' => $created_by,
                 ]);
 
                 CreateUserAction::execute($agent, $validated_request['password']);
@@ -94,7 +103,7 @@ class AgentService
     {
         DB::transaction(function () use ($id) {
             $agent = Agent::query()->findOrFail($id);
-            $agent->update(['deleted_by'  => Auth::id()]);
+            $agent->update(['deleted_by' => Auth::id()]);
             $agent->user->delete();
             $agent->delete();
         });
@@ -111,19 +120,19 @@ class AgentService
                 $validated_request = $request->validated();
 
                 $data = [
-                    'first_name'             => $validated_request['first_name'],
-                    'middle_name'            => $validated_request['middle_name'],
-                    'last_name'              => $validated_request['last_name'],
-                    'email'                  => $validated_request['email'],
-                    'country_code'           => $validated_request['country_code'],
-                    'mobile_number'          => $validated_request['mobile_number'],
-                    'city'                   => $validated_request['city'],
-                    'state'                  => $validated_request['state'],
-                    'address'                => $validated_request['address'],
-                    'country'                => $validated_request['country'],
-                    'pincode'                => $validated_request['pincode'],
+                    'first_name' => $validated_request['first_name'],
+                    'middle_name' => $validated_request['middle_name'],
+                    'last_name' => $validated_request['last_name'],
+                    'email' => $validated_request['email'],
+                    'country_code' => $validated_request['country_code'],
+                    'mobile_number' => $validated_request['mobile_number'],
+                    'city' => $validated_request['city'],
+                    'state' => $validated_request['state'],
+                    'address' => $validated_request['address'],
+                    'country' => $validated_request['country'],
+                    'pincode' => $validated_request['pincode'],
                     'student_source_country' => $validated_request['student_source_country'],
-                    'updated_by'             => $updated_by,
+                    'updated_by' => $updated_by,
                 ];
 
                 $agent->update($data);

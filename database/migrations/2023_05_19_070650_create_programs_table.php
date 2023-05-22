@@ -4,16 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+return new class extends Migration {
+
     public function up()
     {
-        Schema::create('university_courses', function (Blueprint $table) {
+        Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('title', 255)->index();
             $table->string('slug', 255)->index()->unique();
@@ -39,7 +34,6 @@ return new class extends Migration
             $table->unsignedBigInteger('university_id')->nullable();
             $table->foreign('university_id')->references('id')->on('universities')->nullOnDelete();
             $table->index('university_id');
-
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullOnDelete();
             $table->index('created_by');
@@ -57,11 +51,7 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('university_courses');
