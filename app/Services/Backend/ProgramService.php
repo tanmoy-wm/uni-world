@@ -4,30 +4,28 @@ namespace App\Services\Backend;
 
 use App\Http\Requests\Backend\StoreUniversityCourseRequest;
 use App\Http\Requests\Backend\UpdateUniversityCourseRequest;
-use App\Http\Requests\Backend\Users\StoreUniversityRequest;
 use App\Models\Category;
 use App\Models\University;
-use App\Models\UniversityCourse;
+use App\Models\Program;
 
 use Exception;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
-class UniversityCourseService
+class ProgramService
 {
     public function changeStatus($id): RedirectResponse
     {
-        $universityCourse = UniversityCourse::query()->findOrFail($id);
+        $program = Program::query()->findOrFail($id);
 
-        return redirect()->route('university-courses.index')->with([
-            'success' => $universityCourse->update([
-                'is_active' => $universityCourse->is_active === 1 ? 0 : 1,
+        return redirect()->route('programs.index')->with([
+            'success' => $program->update([
+                'is_active' => $program->is_active === 1 ? 0 : 1,
             ]),
-            'message' => $universityCourse->is_active === 1 ? 'Course Deactivated Successfully.' : 'Course Activated Successfully.',
+            'message' => $program->is_active === 1 ? 'Course Deactivated Successfully.' : 'Course Activated Successfully.',
         ]);
     }
 
@@ -36,7 +34,7 @@ class UniversityCourseService
         $categories = Category::all();
         $universities = University::all();
 
-        return view('pages.backend.university-courses.create', compact('universities', 'categories'));
+        return view('pages.backend.programs.create', compact('universities', 'categories'));
     }
 
     public function destroy($id)
@@ -48,18 +46,18 @@ class UniversityCourseService
     {
         $categories = Category::all();
         $universities = University::all();
-        $universityCourse = UniversityCourse::query()->findOrFail($id);
+        $program = Program::query()->findOrFail($id);
 
-        return view('pages.backend.university-courses.edit', compact('universityCourse', 'universities', 'categories'));
+        return view('pages.backend.programs.edit', compact('program', 'universities', 'categories'));
     }
 
     public function index($request): View
     {
-        $universityCourses = UniversityCourse::query()
+        $programs = Program::query()
             ->with(['category', 'university',])
             ->get();
 
-        return view('pages.backend.university-courses.index', compact('universityCourses'));
+        return view('pages.backend.programs.index', compact('programs'));
     }
 
     public function restore($id)
@@ -79,7 +77,7 @@ class UniversityCourseService
             $validated_request = $request->validated();
             $slug = Str::slug($validated_request['title']);
 
-            UniversityCourse::create([
+            Program::create([
                 'title'                        => $validated_request['title'],
                 'slug'                        => $slug,
                 'description'                 => $validated_request['description'],
@@ -108,14 +106,14 @@ class UniversityCourseService
             }
         }
 
-        return redirect()->route('university-courses.index');
+        return redirect()->route('programs.index');
     }
 
     public function trashed($id): RedirectResponse
     {
         try {
             DB::transaction(function () use ($id) {
-                $universityCourse = UniversityCourse::query()->findOrFail($id);
+                $program = Program::query()->findOrFail($id);
                 $deleted_by = Auth::id();
 
                 $data = [
@@ -123,10 +121,10 @@ class UniversityCourseService
                     'is_active'  => 0
                 ];
 
-                $universityCourse->update($data);
-                $universityCourse->delete();
+                $program->update($data);
+                $program->delete();
             });
-            return redirect()->route('university-courses.index');
+            return redirect()->route('program.index');
         } catch (Exception $exception) {
             if (app()->environment('local')) {
                 return redirect()->back()->withErrors($exception->getMessage());
@@ -138,7 +136,7 @@ class UniversityCourseService
 
     public function update(UpdateUniversityCourseRequest $request, $id): RedirectResponse
     {
-        $universityCourse = UniversityCourse::query()->findOrFail($id);
+        $program = Program::query()->findOrFail($id);
 
         try {
             $updated_by = Auth::id();
@@ -167,7 +165,7 @@ class UniversityCourseService
                 'updated_by'                  => $updated_by,
             ];
 
-            $universityCourse->update($data);
+            $program->update($data);
         } catch (Exception $exception) {
             if (app()->environment('local')) {
                 return redirect()->back()->withErrors($exception->getMessage());
@@ -176,6 +174,6 @@ class UniversityCourseService
             }
         }
 
-        return redirect()->route('university-courses.index');
+        return redirect()->route('programs.index');
     }
 }

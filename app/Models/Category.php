@@ -47,9 +47,9 @@ class Category extends Model
         return $this->belongsTo(Category::class, 'parent_id');
     }
 
-    public function universityCourses(): HasMany
+    public function programs(): HasMany
     {
-        return $this->hasMany(UniversityCourse::class, 'category_id');
+        return $this->hasMany(Program::class, 'category_id');
     }
 
     public function updatedBy(): BelongsTo

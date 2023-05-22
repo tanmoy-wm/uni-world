@@ -75,14 +75,14 @@ class University extends Model
         return $this->hasMany(UniversityFeature::class, 'university_id');
     }
 
+    public function programs(): HasMany
+    {
+        return $this->hasMany(Program::class, 'university_id');
+    }
+
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');
-    }
-
-    public function universityCourses(): HasMany
-    {
-        return $this->hasMany(UniversityCourse::class, 'university_id');
     }
 
     public function user(): MorphOne

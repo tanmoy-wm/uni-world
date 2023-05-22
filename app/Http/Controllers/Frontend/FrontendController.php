@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Country;
 use App\Models\Press;
+use App\Models\Program;
 use App\Models\University;
 use App\Models\UniversityCourse;
 use Illuminate\View\View;
@@ -35,21 +36,19 @@ class FrontendController extends Controller
     {
         $blogs = Blog::all();
         return view('pages.frontend.public.blog', compact('blogs'));
-
     }
 
     public function getPrees()
     {
         $press = Press::all();
         return view('pages.frontend.public.press', compact('press'));
-
     }
 
     public function getUniversityCourses(): View
     {
-        $universityCourses = UniversityCourse::query()->with(['category', 'createdBy', 'university', 'updatedBy'])->get();
+        $programs = Program::query()->with(['category', 'createdBy', 'university', 'updatedBy'])->get();
         $universities = University::query()->with('country')->get();
-        return view('pages.frontend.auth.courses', compact('universityCourses', 'universities'));
+        return view('pages.frontend.auth.programs', compact('programs', 'universities'));
     }
 
     public function universityShow($username): View

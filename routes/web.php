@@ -5,15 +5,12 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\SocialLoginController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\PressController;
-use App\Http\Controllers\Backend\University\UniversityCourseController;
-use App\Http\Controllers\Backend\BlogController;
-use App\Http\Controllers\Backend\PressController;
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Backend\University\ProgramController;
 use App\Http\Controllers\Backend\Users\AgentController;
 use App\Http\Controllers\Backend\Users\StaffController;
 use App\Http\Controllers\Backend\Users\StudentController;
@@ -197,9 +194,9 @@ Route::middleware('auth:web')->group(function () {
             });
 
             Route::group([
-                'as' => 'university-courses.',
-                'controller' => UniversityCourseController::class,
-                'prefix' => '/university/courses'
+                'as' => 'programs.',
+                'controller' => ProgramController::class,
+                'prefix' => '/programs'
             ], function () {
                 Route::get('/{id}/changeStatus', 'changeStatus')->name('changeStatus');
                 Route::get('/create', 'create')->name('create');

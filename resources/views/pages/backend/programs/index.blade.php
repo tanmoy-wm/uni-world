@@ -4,13 +4,13 @@
         <h3 class="page-title">
             <span class="page-title-icon bg-gradient-primary text-white me-2">
                 <i class="mdi mdi-home"></i>
-            </span> University's Courses
+            </span> Programs
         </h3>
         <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a href="{{ route('university-courses.create') }}" class="btn btn-gradient-primary btn-icon-text">
-                        <i class="mdi mdi-account-multiple-plus"></i> Add University's Courses </a>
+                    <a href="{{ route('programs.create') }}" class="btn btn-gradient-primary btn-icon-text">
+                        <i class="mdi mdi-account-multiple-plus"></i> Add Program </a>
                     <!-- <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i> -->
                 </li>
             </ul>
@@ -33,38 +33,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($universityCourses as $universityCourse)
+                        @forelse ($programs as $program)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $universityCourse->title }}</td>
-                                <td>{{ $universityCourse->slug }}</td>
-                                <td>{{ $universityCourse->category->name }}</td>
-                                <td>{{ $universityCourse->university->name }}</td>
+                                <td>{{ $program->title }}</td>
+                                <td>{{ $program->slug }}</td>
+                                <td>{{ $program->category->name }}</td>
+                                <td>{{ $program->university->name }}</td>
                                 <td>
-                                    @if ($universityCourse->is_active === 1)
-                                        <a
-                                            href="{{ route('university-courses.changeStatus', ['id' => $universityCourse->id]) }}">
+                                    @if ($program->is_active === 1)
+                                        <a href="{{ route('programs.changeStatus', ['id' => $program->id]) }}">
                                             <lable class="badge badge-success">ACTIVE</lable>
                                         </a>
                                     @else
-                                        <a
-                                            href="{{ route('university-courses.changeStatus', ['id' => $universityCourse->id]) }}">
+                                        <a href="{{ route('programs.changeStatus', ['id' => $program->id]) }}">
                                             <lable class="badge badge-danger">INACTIVE</lable>
                                         </a>
                                     @endif
                                 </td>
 
                                 <td>
-                                    <a href="{{ route('university-courses.edit', ['id' => $universityCourse->id]) }}">
+                                    <a href="{{ route('programs.edit', ['id' => $program->id]) }}">
                                         <button class="btn btn-primary btn-icon" type="button">
                                             <i class="mdi mdi-pencil"></i>
                                         </button>
                                     </a>
 
-                                    <a href="{{ route('university-courses.trashed', ['id' => $universityCourse->id]) }}"
+                                    <a href="{{ route('programs.trashed', ['id' => $program->id]) }}"
                                         onclick="confirmDelete(event)">
 
-                                        <button class="btn btn-danger btn-icon btndata" id="{{ $universityCourse->id }}"
+                                        <button class="btn btn-danger btn-icon btndata" id="{{ $program->id }}"
                                             type="button">
                                             <i class="mdi mdi-delete"></i>
                                         </button>
