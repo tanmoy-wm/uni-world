@@ -14,7 +14,7 @@ class Program extends Model
 
     protected $appends = [];
 
-    protected $table = 'university_courses';
+    protected $table = 'programs';
 
     protected $casts = [
         'created_by' => 'int',
@@ -78,8 +78,8 @@ class Program extends Model
     protected function name(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => ucwords($value),
-            set: fn ($value) => strtolower($value)
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
         );
     }
     //--------------------- Attributes --------------------//
