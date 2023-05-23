@@ -26,13 +26,13 @@
                 <div class="sub-footer-list">
                     <h6>About</h6>
                     <ul>
-                        <li><a href="javascript:;">Our Story</a></li>
-                        <li><a href="javascript:;">Careers</a></li>
-                        <li><a href="javascript:;">Blog</a></li>
-                        <li><a href="javascript:;">Press</a></li>
-                        <li><a href="javascript:;">Life</a></li>
-                        <li><a href="javascript:;">Leadership</a></li>
-                        <li><a href="javascript:;">Contact</a></li>
+                        <li><a href="{{ route('frontend.our-story') }}">Our Story</a></li>
+                        <li><a href="{{ route('frontend.careers') }}">Careers</a></li>
+                        <li><a href="{{ route('frontend.getBlogs') }}">Blog</a></li>
+                        <li><a href="{{ route('frontend.getPrees') }}">Press</a></li>
+                        <li><a href="{{ route('frontend.life') }}">Life</a></li>
+                        <li><a href="{{ route('frontend.leaderships') }}">Leadership</a></li>
+                        <li><a href="{{ route('frontend.contact-us') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>

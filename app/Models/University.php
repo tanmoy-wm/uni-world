@@ -96,7 +96,7 @@ class University extends Model
     //--------------------- Attributes --------------------//
     public function getFullAddressAttribute(): string
     {
-        return $this->city . ', ' . $this->state . ', ' . $this->country . ',' . $this->pincode;
+        return $this->address . ', ' . $this->city . ', ' . $this->state . ', ' . $this->country . ',' . $this->pincode;
     }
 
     public function getFullAltMobileNumberAttribute(): string

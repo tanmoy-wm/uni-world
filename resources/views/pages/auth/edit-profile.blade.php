@@ -30,13 +30,12 @@
                             @if (Auth::user()->profile_type === 'App\Models\University')
                                 <div class="col-md-12 mb-3">
                                     <label class="labels">Name</label><input type="text" class="form-control"
-                                        name="last_name" placeholder="Name" value="{{ old('name') ?? $user->name }}"
-                                        required>
+                                        name="name" placeholder="Name" value="{{ old('name') ?? $user->name }}" required>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
                                     <label class="labels">User Name</label><input type="text" class="form-control"
-                                        name="last_name" placeholder="user Name"
+                                        name="username" placeholder="user Name"
                                         value="{{ old('username') ?? $user->username }}" required>
                                 </div>
                             @else
@@ -69,7 +68,8 @@
                                 <label class="labels">Country Code</label>
                                 <select class="form-control" name="country_code" required>
                                     @forelse ($countries as $country)
-                                        <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                        <option value="{{ $country->dial_code }}">{{ $coutry->name }}
+                                            {{ $country->dial_code }}</option>
                                     @empty
                                         <option value="">No Country Code Found</option>
                                     @endforelse
