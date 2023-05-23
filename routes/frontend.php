@@ -67,7 +67,6 @@ Route::prefix('/fe')->group(function () {
     Route::view('/types-of-PTE-tests-vouchers', 'pages.frontend.public.types-of-PTE-tests-vouchers')->name('frontend.types-of-PTE-tests-vouchers');
     Route::view('/tuition-payments-made-easy', 'pages.frontend.public.tuition-payments-made-easy')->name('frontend.tuition-payments-made-easy');
     Route::view('/trends-report', 'pages.frontend.public.trends-report')->name('frontend.trends-report');
-
 });
 
 Route::group([
@@ -88,5 +87,4 @@ Route::group([
 Route::post('/student-register', [RegisterController::class, 'studentRegister'])->name('student-registration');
 Route::post('/university-register', [RegisterController::class, 'universityRegister'])->name('university-registration');
 
-// Route::view('/blogs', 'pages.frontend.public.blog')->name('frontend.blog');
 Route::post('/agent-register', [RegisterController::class, 'agentRegister'])->name('agent-registration');
