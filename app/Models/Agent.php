@@ -14,7 +14,7 @@ class Agent extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $appends = ['name'];
+    protected $appends = ['full_mobile_number', 'name'];
 
     protected $casts = [
         'created_by' => 'int',
@@ -106,6 +106,11 @@ class Agent extends Model
         }
 
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function getFullMobileNumberAttribute(): string
+    {
+        return $this->country_code . ' ' . $this->mobile_number;
     }
     //--------------------- Attributes --------------------//
 

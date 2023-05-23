@@ -23,6 +23,8 @@ class LoginController extends Controller
                 return redirect()->route('backend.dashboard');
             } elseif (Auth::user()->profile_type === 'App\Models\University') {
                 return redirect()->route('backend.dashboard');
+            } elseif (Auth::user()->profile_type === 'App\Models\Staff') {
+                return redirect()->route('backend.dashboard');
             }
         } else {
             return back()->withErrors(['password' => 'Wrong Credentials']);

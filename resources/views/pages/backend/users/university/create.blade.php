@@ -72,7 +72,7 @@
                                     <select class="form-control" name="country_code" required>
                                         @forelse ($countries as $country)
                                             <option value="{{ $country->dial_code }}">
-                                                {{ $country->name }}{{ $country->dial_code }}</option>
+                                                {{ $country->name }} {{ $country->dial_code }}</option>
                                         @empty
                                             <option value="">No Country Found</option>
                                         @endforelse
