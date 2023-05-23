@@ -38,7 +38,6 @@
                     </div>
                 </div>
 
-
                 @forelse ($blogs as $blog)
                     <div class="col-lg-4">
                         <div class="main-universities-blog">

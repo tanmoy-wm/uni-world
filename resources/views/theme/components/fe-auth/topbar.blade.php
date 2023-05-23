@@ -42,7 +42,7 @@
                             <a class="dropdown-item" href="{{ route('frontend.life') }}">Life</a>
                             <a class="dropdown-item" href="{{ route('frontend.leaderships') }}">Leadership</a>
                             <a class="dropdown-item" href="{{ route('frontend.contact-us') }}">Contact</a>
-                            <a class="dropdown-item" href="{{ route('frontend.blog') }}">Blog</a>
+                            <a class="dropdown-item" href="{{ route('frontend.getBlogs') }}">Blog</a>
                             <a class="dropdown-item" href="#">ApplyInsights</a>
                             <a class="dropdown-item" href="{{ route('frontend.trends-report') }}">Trends Report</a>
                             <div class="dropdown-divider"></div>

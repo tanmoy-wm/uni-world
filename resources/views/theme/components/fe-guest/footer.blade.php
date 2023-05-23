@@ -28,7 +28,7 @@
                     <ul>
                         <li><a href="{{ route('frontend.our-story') }}">Our Story</a></li>
                         <li><a href="{{ route('frontend.careers') }}">Careers</a></li>
-                        <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
+                        <li><a href="{{ route('frontend.getBlogs') }}">Blog</a></li>
                         <li><a href="{{ route('frontend.getPrees') }}">Press</a></li>
                         <li><a href="{{ route('frontend.life') }}">Life</a></li>
                         <li><a href="{{ route('frontend.leaderships') }}">Leadership</a></li>

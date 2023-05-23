@@ -62,7 +62,7 @@ class FrontendController extends Controller
     {
         $university = University::query()
             ->where('username', $username)
-            ->with(['country', 'features', 'universityCourses'])
+            ->with(['country', 'features', 'programs'])
             ->first();
 
         return view('pages.frontend.auth.university-show', compact('university'));
