@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/login', 'pages.frontend.public.login')->name('login');
 Route::middleware('auth:web')->group(function () {
     Route::get('/programs', [FrontendController::class, 'getPrograms'])->name('frontend.programs');
-    Route::view('/see-program-details', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
+    Route::view('/program/{id}', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
     Route::get('/university/{username}', [FrontendController::class, 'universityShow'])->name('frontend.university-show');
 });
 
@@ -80,7 +80,7 @@ Route::group([
     Route::get('/university-register', 'createUniversity')->name('university-register');
     Route::get('/blogs', 'getBlogs')->name('getBlogs');
     Route::get('/press', 'getPrees')->name('getPrees');
-    Route::get('/program-details', 'getProgram')->name('fe.programs.show');
+    Route::get('/program-details/{id}', 'getProgram')->name('programs.show');
 });
 
 

@@ -44,6 +44,13 @@ class FrontendController extends Controller
         return view('pages.frontend.public.press', compact('press'));
     }
 
+    public function getProgram($id)
+    {
+        $program = Program::query()->with('university')->findOrFail($id);
+
+        return view('pages.frontend.auth.program-details', compact('program'));
+    }
+
     public function getPrograms(): View
     {
         $programs = Program::query()->with(['category', 'createdBy', 'university', 'updatedBy'])->get();

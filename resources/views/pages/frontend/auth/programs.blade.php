@@ -1269,7 +1269,8 @@
                                                 <div class="sub-course-btn-left">
                                                     <a class="sub-start-btn-applica" href="javascript:;">Start
                                                         Application</a>
-                                                    <a class="sub-program-det-border-btn" href="javascript:;">Program
+                                                    <a class="sub-program-det-border-btn"
+                                                        href="{{ route('frontend.programs.show', ['id' => $program->id]) }}">Program
                                                         Details</a>
                                                 </div>
                                             </div>

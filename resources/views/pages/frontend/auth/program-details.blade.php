@@ -14,18 +14,17 @@
                                     alt="" />
                             </div>
                             <div class="sub-course-details-title">
-                                <h6>University of Toronto</h6>
+                                <h6> {{ $program->university->name }}</h6>
                                 <div class="sub-course-country">
                                     <img src="{{ asset('assets/frontend/assets/images/country-flag/australia.svg') }}"
-                                        alt="" /> Toronto, Ontario,
-                                    CA
+                                        alt="" /> {{ $program->university->full_address }} CA
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="sub-course-deta-title">
-                        <h2>Rotman School Of Management</h2>
+                        <h2>{{ $program->title }}</h2>
                     </div>
 
                     <div class="sub-course-deta-slider">
@@ -71,47 +70,57 @@
                             <div class="col-lg-8">
                                 <div class="sub-prog-dtl">
                                     <h5>Program Summary</h5>
-                                    <p>One of the world’s most innovative business schools, Rotman School of Management is
-                                        located in Toronto and is part of the University of Toronto. Whether a student’s aim
-                                        is to discover the latest in business thinking, accelerate their career or choose a
-                                        new direction, this is the right place.</p>
-                                    <p>Rotman’s mission is to be a catalyst for positive change: rooted in transformative
+                                    <p>{{ $program->description }}</p>
+                                    {{-- <p>Rotman’s mission is to be a catalyst for positive change: rooted in
+                                        transformative
                                         learning, informed by original insight and inspired by the biggest challenges in
                                         business and society. Rotman has distilled the shared beliefs and values down to
-                                        four fundamental principles: diversity, excellence, integrity and respect.</p>
-                                    <h5>Why University Of Toronto - Rotman School Of Management</h5>
-                                    <p>One of the world’s most innovative business schools, Rotman School of Management is
-                                        located in Toronto and is part of the University of Toronto. Whether a student’s aim
-                                        is to discover the latest in business thinking, accelerate their career or choose a
+                                        four fundamental principles: diversity, excellence, integrity and respect.</p> --}}
+                                    {{-- <h5>Why University Of Toronto - Rotman School Of Management</h5>
+                                    <p>One of the world’s most innovative business schools, Rotman School of Management
+                                        is
+                                        located in Toronto and is part of the University of Toronto. Whether a student’s
+                                        aim
+                                        is to discover the latest in business thinking, accelerate their career or
+                                        choose a
                                         new direction, this is the right place.</p>
-                                    <p>Rotman’s mission is to be a catalyst for positive change: rooted in transformative
+                                    <p>Rotman’s mission is to be a catalyst for positive change: rooted in
+                                        transformative
                                         learning, informed by original insight and inspired by the biggest challenges in
                                         business and society. Rotman has distilled the shared beliefs and values down to
-                                        four fundamental principles: diversity, excellence, integrity and respect.</p>
-                                    <ul>
-                                        <li>Research: The school is a global centre of research and academic excellence at
-                                            the heart of Canada’s multicultural commercial capital. Rotman is a catalyst for
+                                        four fundamental principles: diversity, excellence, integrity and respect.</p> --}}
+                                    {{-- <ul>
+                                        <li>Research: The school is a global centre of research and academic excellence
+                                            at
+                                            the heart of Canada’s multicultural commercial capital. Rotman is a catalyst
+                                            for
                                             transformative learning, insights and public engagement, bringing together
                                             diverse views and initiatives around a defining purpose: to create value for
                                             business and society.</li>
                                         <li>Community: Located at the heart of one of the world’s most dynamic and
-                                            culturally diverse cities, the Rotman School is connected to the world through a
-                                            network of business and research partners and globally-engaged alumni. We bring
-                                            together the right minds, resources and support systems to ignite breakthrough
+                                            culturally diverse cities, the Rotman School is connected to the world
+                                            through a
+                                            network of business and research partners and globally-engaged alumni. We
+                                            bring
+                                            together the right minds, resources and support systems to ignite
+                                            breakthrough
                                             solutions.</li>
-                                        <li>History: Established in 1827, the University of Toronto is recognized worldwide
+                                        <li>History: Established in 1827, the University of Toronto is recognized
+                                            worldwide
                                             as Canada’s top research university, a reputation that will add value for
                                             students who aspire to careers with global dimensions. Rotman students are
                                             welcome everywhere on the beautiful and historic U of T campus. Explore the
-                                            first-class athletic facilities, the fourth-largest research library in North
+                                            first-class athletic facilities, the fourth-largest research library in
+                                            North
                                             America, and a range of dining choices.</li>
                                         <li>Location: Due to the nature of the MBA Essentials Program being completed
-                                            online, students will not be required to be on campus or in Toronto, Canada to
+                                            online, students will not be required to be on campus or in Toronto, Canada
+                                            to
                                             complete their studies. </li>
-                                    </ul>
+                                    </ul> --}}
                                 </div>
 
-                                <div class="sub-location-mt sub-prog-dtl" id="Features">
+                                <div class="sub-location-mt sub-prog-dtl" id="Features" style="display:none;">
                                     <h5>Features</h5>
 
                                     <div class="sub-features-box">
@@ -128,11 +137,16 @@
                                                     </div>
                                                     <div id="collapse1" class="collapse show"
                                                         data-parent="#accordionExample">
-                                                        <div class="card-body">RBC requires a minimum one-time deposit of
-                                                            $10,200CAD (maximum $10,300CAD). Note that wire transfer fees
-                                                            are deducted at source, so your transfer amount must take these
-                                                            fees into consideration. If the amount transferred differs from
-                                                            these amounts, it may be immediately refunded to the originating
+                                                        <div class="card-body">RBC requires a minimum one-time deposit
+                                                            of
+                                                            $10,200CAD (maximum $10,300CAD). Note that wire transfer
+                                                            fees
+                                                            are deducted at source, so your transfer amount must take
+                                                            these
+                                                            fees into consideration. If the amount transferred differs
+                                                            from
+                                                            these amounts, it may be immediately refunded to the
+                                                            originating
                                                             account, less fees.</div>
                                                     </div>
                                                 </div>
@@ -146,10 +160,14 @@
                                                     </div>
                                                     <div id="collapse2" class="collapse" data-parent="#accordionExample">
                                                         <div class="card-body">After receiving your account details from
-                                                            RBC, you may directly contact your assigned RBC advisor for all
-                                                            questions relating to your application. To help you receive a
-                                                            quick response, you must ensure that you include in the email
-                                                            all the information available on your application form such as
+                                                            RBC, you may directly contact your assigned RBC advisor for
+                                                            all
+                                                            questions relating to your application. To help you receive
+                                                            a
+                                                            quick response, you must ensure that you include in the
+                                                            email
+                                                            all the information available on your application form such
+                                                            as
                                                             SRF # and full name, as well as date of submission.</div>
                                                     </div>
                                                 </div>
@@ -178,7 +196,8 @@
                                                                 class="fas fa-angle-down rotate-icon"></i></span>
                                                     </div>
                                                     <div id="collapse4" class="collapse" data-parent="#accordionExample">
-                                                        <div class="card-body">Absolutely! To receive a refund, you will
+                                                        <div class="card-body">Absolutely! To receive a refund, you
+                                                            will
                                                             need to provide proof of study permit rejection and submit a
                                                             request to your RBC advisor. You will receive a refund your
                                                             one-time deposit, minus the $200 CAD handling fee which is
@@ -205,7 +224,7 @@
                                     </div>
                                 </div>
 
-                                <div id="Programs">
+                                <div id="Programs" style="display:none;">
                                     <div
                                         class="sub-similar-pr-title d-flex flex-wrap align-items-center sub-course-details-pb">
                                         <div class="col-lg-6 d-flex flex-wrap align-items-center">
@@ -216,13 +235,15 @@
                                             <div class="course-tab-relevance sub-relevance-opton-mt">
                                                 <div class="form-group">
                                                     <select class="form-control">
-                                                        <option value="" selected="selected">- Relevance -</option>
+                                                        <option value="" selected="selected">- Relevance -
+                                                        </option>
                                                         <option value="School Rank">None</option>
                                                         <option value="Tuition (Low to High)">Tuition (Low to High)
                                                         </option>
                                                         <option value="Tuition (High to Low)">Tuition (High to Low)
                                                         </option>
-                                                        <option value="Application Fee (Low to High)">Program Title (A-Z)
+                                                        <option value="Application Fee (Low to High)">Program Title
+                                                            (A-Z)
                                                         </option>
                                                     </select>
                                                 </div>
@@ -254,7 +275,8 @@
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <select class="form-control">
-                                                            <option value="" selected="selected">Discipline</option>
+                                                            <option value="" selected="selected">Discipline
+                                                            </option>
                                                             <option value="">None</option>
                                                             <option value="">Business, Management & Economics
                                                             </option>
@@ -290,11 +312,13 @@
                                                 <div class="sub-course-tt-box">
                                                     <div class="sub-course-unt-title">
                                                         <h6>1-Year Post-Secondary Certificate</h6>
-                                                        <h3>T-Level - Design, Surveying and Planning for Construction</h3>
+                                                        <h3>T-Level - Design, Surveying and Planning for Construction
+                                                        </h3>
                                                         <p>Cheshire College South and West - Ellesmere Port</p>
                                                     </div>
                                                     <div class="sub-course-country">
-                                                        <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
+                                                        <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere
+                                                        Port,
                                                         North West, United Kingdom
                                                     </div>
                                                     <div class="sub-course-appl-bg">
@@ -313,7 +337,8 @@
                                             </div>
                                             <div class="col-lg-4 p-0">
                                                 <div class="sub-course-btn-left">
-                                                    <a class="sub-start-btn-applica" href="javascript:;">Check Eligibility
+                                                    <a class="sub-start-btn-applica" href="javascript:;">Check
+                                                        Eligibility
                                                         Now</a>
                                                 </div>
                                             </div>
@@ -325,11 +350,13 @@
                                                 <div class="sub-course-tt-box">
                                                     <div class="sub-course-unt-title">
                                                         <h6>1-Year Post-Secondary Certificate</h6>
-                                                        <h3>T-Level - Design, Surveying and Planning for Construction</h3>
+                                                        <h3>T-Level - Design, Surveying and Planning for Construction
+                                                        </h3>
                                                         <p>Cheshire College South and West - Ellesmere Port</p>
                                                     </div>
                                                     <div class="sub-course-country">
-                                                        <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
+                                                        <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere
+                                                        Port,
                                                         North West, United Kingdom
                                                     </div>
                                                     <div class="sub-course-appl-bg">
@@ -354,11 +381,13 @@
                                                 <div class="sub-course-tt-box">
                                                     <div class="sub-course-unt-title">
                                                         <h6>1-Year Post-Secondary Certificate</h6>
-                                                        <h3>T-Level - Design, Surveying and Planning for Construction</h3>
+                                                        <h3>T-Level - Design, Surveying and Planning for Construction
+                                                        </h3>
                                                         <p>Cheshire College South and West - Ellesmere Port</p>
                                                     </div>
                                                     <div class="sub-course-country">
-                                                        <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere Port,
+                                                        <i class="fa-sharp fa-solid fa-location-dot"></i> Ellesmere
+                                                        Port,
                                                         North West, United Kingdom
                                                     </div>
                                                     <div class="sub-course-appl-bg">
@@ -377,7 +406,8 @@
                                             </div>
                                             <div class="col-lg-4 p-0">
                                                 <div class="sub-course-btn-left">
-                                                    <a class="sub-start-btn-applica" href="javascript:;">Check Eligibility
+                                                    <a class="sub-start-btn-applica" href="javascript:;">Check
+                                                        Eligibility
                                                         Now</a>
                                                 </div>
                                             </div>
@@ -389,16 +419,16 @@
                             </div>
 
                             <div class="col-lg-4">
-
+                                <button class="btn btn-outline-info col-md-12 mb-3">Apply Now</button>
                                 <div class="sub-prog-years-bg">
 
                                     <div class="sub-course-tt-box d-flex align-items-start justify-content-start">
                                         <div class="sub-course-unt">
-                                            <img src="assets/images/courses-details/certificate-file.png"
+                                            <img src="{{ asset('assets/Frontend/assets/images/courses-details/certificate-file.png') }}"
                                                 alt="" />
                                         </div>
                                         <div class="sub-course-unt-title">
-                                            <h6>1-Year Post-Secondary Certificate</h6>
+                                            <h6>{{ $program->program_level }}</h6>
                                             <div class="sub-course-country">
                                                 Program Level
                                             </div>
@@ -406,10 +436,11 @@
                                     </div>
                                     <div class="sub-course-tt-box d-flex align-items-start justify-content-start">
                                         <div class="sub-course-unt">
-                                            <img src="assets/images/courses-details/calender.png" alt="" />
+                                            <img src="{{ asset('assets/Frontend/assets/images/courses-details/calender.png') }}"
+                                                alt="" />
                                         </div>
                                         <div class="sub-course-unt-title">
-                                            <h6>2 year T-Level program including a work placement</h6>
+                                            <h6>{{ $program->duration }}</h6>
                                             <div class="sub-course-country">
                                                 Program Length
                                             </div>
@@ -417,10 +448,11 @@
                                     </div>
                                     <div class="sub-course-tt-box d-flex align-items-start justify-content-start">
                                         <div class="sub-course-unt">
-                                            <img src="assets/images/courses-details/money.png" alt="" />
+                                            <img src="{{ asset('assets/Frontend/assets/images/courses-details/money.png') }}"
+                                                alt="" />
                                         </div>
                                         <div class="sub-course-unt-title">
-                                            <h6>£9,207.00 GBP / Year</h6>
+                                            <h6>{{ $program->cost_of_living }}</h6>
                                             <div class="sub-course-country">
                                                 Cost of Living
                                             </div>
@@ -428,10 +460,11 @@
                                     </div>
                                     <div class="sub-course-tt-box d-flex align-items-start justify-content-start">
                                         <div class="sub-course-unt">
-                                            <img src="assets/images/courses-details/money-tuition.png" alt="" />
+                                            <img src="{{ asset('assets/Frontend/assets/images/courses-details/money-tuition.png') }}"
+                                                alt="" />
                                         </div>
                                         <div class="sub-course-unt-title">
-                                            <h6>£14,250.00 GBP / Year</h6>
+                                            <h6> {{ $program->gross_fees }}</h6>
                                             <div class="sub-course-country">
                                                 Tuition
                                             </div>
@@ -439,10 +472,11 @@
                                     </div>
                                     <div class="sub-course-tt-box d-flex align-items-start justify-content-start">
                                         <div class="sub-course-unt">
-                                            <img src="assets/images/courses-details/application-fee.png" alt="" />
+                                            <img src="{{ asset('assets/Frontend/assets/images/courses-details/application-fee.png') }}"
+                                                alt="" />
                                         </div>
                                         <div class="sub-course-unt-title">
-                                            <h6>£0.00 GBP</h6>
+                                            <h6>{{ $program->apply_fees }}</h6>
                                             <div class="sub-course-country">
                                                 Application Fee
                                             </div>
@@ -460,7 +494,7 @@
                                             <p>Founded</p>
                                         </div>
                                         <div>
-                                            <span>1827</span>
+                                            <span>{{ $program->university->founded_year }}</span>
                                         </div>
                                     </div>
                                     <div
@@ -469,7 +503,7 @@
                                             <p>School ID</p>
                                         </div>
                                         <div>
-                                            <span>2159</span>
+                                            <span>{{ $program->university->id }}</span>
                                         </div>
                                     </div>
                                     <div
@@ -478,7 +512,7 @@
                                             <p>DLI number</p>
                                         </div>
                                         <div>
-                                            <span>O19332746152</span>
+                                            <span>{{ $program->university->dli_number }}</span>
                                         </div>
                                     </div>
                                     <div
@@ -487,42 +521,12 @@
                                             <p>Institution type</p>
                                         </div>
                                         <div>
-                                            <span>Public</span>
+                                            <span>{{ $program->university->institution_type }}</span>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="sub-prog-intake-bg">
-                                    <h5>Institution Details</h5>
 
-                                    <div
-                                        class="sub-intake-open-main d-flex flex-wrap align-items-center justify-content-between">
-                                        <div>
-                                            <p>January - April</p>
-                                        </div>
-                                        <div>
-                                            <span>N/A</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="sub-intake-open-main d-flex flex-wrap align-items-center justify-content-between">
-                                        <div>
-                                            <p>May - August</p>
-                                        </div>
-                                        <div>
-                                            <span>Under 15 days</span>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="sub-intake-open-main d-flex flex-wrap align-items-center justify-content-between">
-                                        <div>
-                                            <p>September - December</p>
-                                        </div>
-                                        <div>
-                                            <span>N/A</span>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
 
