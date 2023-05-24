@@ -16,9 +16,15 @@ class UniversityController extends Controller
     public function __construct(public UniversityService $service)
     {
     }
+
     public function create(Request $request)
     {
         return $this->service->create($request);
+    }
+
+    public function createProgram(Request $request)
+    {
+        return $this->service->createProgram($request);
     }
 
     public function destroy($id)

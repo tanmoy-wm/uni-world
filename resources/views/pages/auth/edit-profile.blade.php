@@ -58,7 +58,7 @@
                                 </div>
                             @endif
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 mb-3">
                                 <label class="labels">Email ID</label>
                                 <input type="email" class="form-control" placeholder="Enter email id" name="email"
                                     value="{{ old('email') ?? $user->email }}" required>
@@ -68,7 +68,7 @@
                                 <label class="labels">Country Code</label>
                                 <select class="form-control" name="country_code" required>
                                     @forelse ($countries as $country)
-                                        <option value="{{ $country->dial_code }}">{{ $coutry->name }}
+                                        <option value="{{ $country->dial_code }}">{{ $country->name }}
                                             {{ $country->dial_code }}</option>
                                     @empty
                                         <option value="">No Country Code Found</option>
@@ -116,7 +116,7 @@
                                         value="{{ old('city') ?? $user->city }}" required>
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-12 mb-3">
                                     <label class="labels">Postcode / Zipcode</label>
                                     <input type="number" class="form-control"
                                         placeholder="Enter your Postcode / Zipcode" name="pincode"
@@ -125,7 +125,7 @@
                             @endif
 
                             @if (Auth::user()->profile_type === 'App\Models\Agent')
-                                <div class="col-md-12">
+                                <div class="col-md-12 mb-3">
                                     <label class="labels">Student Source Country</label>
                                     <select class="form-control" name="student_source_country" required>
                                         @forelse ($countries as $country)
@@ -137,13 +137,13 @@
                                 </div>
                             @endif
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 mb-3">
                                 <label class="labels">State</label>
                                 <input type="text" class="form-control" placeholder="Enter your state" name="state"
                                     value="{{ old('state') ?? $user->state }}" required>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 mb-3">
                                 <label class="labels">Country</label>
                                 <select class="form-control" name="country" required>
                                     @forelse ($countries as $country)

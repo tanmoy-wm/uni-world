@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\Users\UniversityController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\RegisterController;
 use Illuminate\Support\Facades\Route;
