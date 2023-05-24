@@ -214,8 +214,18 @@ Route::middleware('auth:web')->group(function () {
                 Route::put('/{id}', 'update')->name('update');
             });
         });
-    });
 
+        Route::middleware(['UserTypeCheck:University'])->group(function () {
+            Route::group([
+                'as' => 'backend.university.',
+                'prefix' => '/university/{username}',
+                'controller' => UniversityController::class,
+            ], function () {
+                Route::get('/program-create}', 'createProgram')->name('program-create');
+                Route::post('/program-create}', 'storeProgram')->name('program-store');
+            });
+        });
+    });
 
     Route::middleware(['UserTypeCheck:Student,Admin'])->group(function () {
         Route::view('/test', 'pages.test')->name('test');
