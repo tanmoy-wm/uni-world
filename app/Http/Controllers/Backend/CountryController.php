@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\Backend\StoreCountryRequest;
+use App\Services\Backend\CountryService;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 
@@ -11,6 +13,20 @@ use Illuminate\View\View;
 
 class CountryController extends Controller
 {
+    public function __construct(public CountryService $service)
+    {
+    }
+
+    public function create(): View
+    {
+        return $this->service->create();
+    }
+
+    public function store(StoreCountryRequest $request): RedirectResponse
+    {
+        return $this->service->store($request);
+    }
+
     public function index(Request $request): View
     {
         $countries = Country::query()->paginate(15);

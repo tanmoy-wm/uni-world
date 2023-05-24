@@ -15,6 +15,8 @@ class Country extends Model
 
     protected $appends = [];
 
+    protected $table = 'countries';
+
     protected $casts = [
         'created_by' => 'int',
         'deleted_by' => 'int',
@@ -23,7 +25,9 @@ class Country extends Model
 
     protected $fillable = [
         'name',
-        'slug',
+        'code',
+        'dial_code',
+        'emoji',
         'is_active',
         'created_by',
         'updated_by',
@@ -57,8 +61,8 @@ class Country extends Model
     protected function name(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => ucwords($value),
-            set: fn ($value) => strtolower($value)
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
         );
     }
     //--------------------- Attributes --------------------//

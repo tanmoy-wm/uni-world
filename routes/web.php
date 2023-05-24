@@ -126,12 +126,25 @@ Route::middleware('auth:web')->group(function () {
                 Route::get('/{id}/trashed', 'trashed')->name('trashed');
             });
 
+            Route::group([
+                'as' => 'countries.',
+                'controller' => CountryController::class,
+                'prefix' => '/countries'
+            ], function () {
+                Route::get('/create', 'create')->name('create');
+                Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::get('/', 'index')->name('index');
+                Route::post('/store', 'store')->name('store');
+                Route::put('/{id}', 'update')->name('update');
+                Route::get('/{id}/trashed', 'trashed')->name('trashed');
+            });
 
 
 
 
-            Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
-            Route::get('/countries/{id}/change-status', [CountryController::class, 'changeStatus'])->name('countries.changeStatus');
+            // Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
+            // Route::get('/countries-create', [CountryController::class, 'create'])->name('countries.create');
 
             Route::group([
                 'as' => 'courses.',
