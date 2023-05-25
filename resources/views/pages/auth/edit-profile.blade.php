@@ -8,7 +8,21 @@
                         src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
                         class="font-weight-bold">{{ $user->name }}</span><span
                         class="text-black-50">{{ $user->email }}</span><span>
-                    </span></div>
+                    </span>
+                </div>
+                @if (Auth::user()->profile_type === 'App\Models\Student')
+                    <ul class="nav">
+                        <li class="nav-item"><a class="nav-link" href="#"> General Info</a></li>
+                        <li class="nav-item"> <a class="nav-link"
+                                href="{{ route('student.profile.education-history') }}">Education History</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('student.profile.test-score') }}">Test Score </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('student.profile.visa-and-permit') }}">Visa
+                                & Study
+                                Permit</a></li>
+                    </ul>
+                @endif
             </div>
 
             <div class="col-md-9 border-right">
@@ -106,8 +120,8 @@
                             @if (Auth::user()->profile_type === 'App\Models\University' || Auth::user()->profile_type === 'App\Models\Agent')
                                 <div class="col-md-12">
                                     <label class="labels">Address</label>
-                                    <input type="text" class="form-control" placeholder="Enter address" name="address"
-                                        value="{{ old('address') ?? $user->address }}" required>
+                                    <input type="text" class="form-control" placeholder="Enter address"
+                                        name="address" value="{{ old('address') ?? $user->address }}" required>
                                 </div>
 
                                 <div class="col-md-12">
