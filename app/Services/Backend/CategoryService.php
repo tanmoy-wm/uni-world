@@ -48,6 +48,8 @@ class CategoryService
     public function index($request): View
     {
         $categories = Category::all();
+
+        
         return view('pages.backend.category.index', compact('categories'));
     }
 

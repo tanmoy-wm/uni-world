@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\SocialLoginController;
+use App\Http\Controllers\Auth\StudentProfileController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CountryController;
@@ -51,13 +52,26 @@ Route::group([
 Route::middleware('auth:web')->group(function () {
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
-    // Route::view('/edit-profile', 'pages.auth.edit-profile')->name('auth.edit-profile');
     Route::get('/profile/edit', [ProfileController::class, 'editProfile'])->name('auth.edit-profile');
     Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('auth.update-profile');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('auth.profile');
     Route::view('/change-password', 'pages.auth.change-password')->name('change-password');
     Route::put('/update-password', [ProfileController::class, 'changePassword'])->name('auth.change-password');
     Route::view('/dashboard', 'pages.backend.dashboard')->name('backend.dashboard');
+
+    Route::group([
+        'as'    => 'student.profile.',
+        'prefix' => '/profile',
+        'controller' => StudentProfileController::class
+    ], function () {
+        Route::get('/education-history', 'educationHistory')->name('education-history');
+        Route::put('/education-history', 'updateEducationHistory')->name('update-education-history');
+        Route::get('/test-score', 'testScore')->name('test-score');
+        Route::put('/test-score', 'updateTestScore')->name('update-test-score');
+        Route::get('/visa-and-permit', 'visaAndPermit')->name('visa-and-permit');
+        Route::put('/visa-and-permit', 'updateVisaAndPermit')->name('update-visa-and-permit');
+        Route::put('/update-eng-test-score', 'updateEnglishTestScore')->name('update-eng-test-score');
+    });
 
     Route::prefix('/backend')->group(function () {
         Route::middleware('UserTypeCheck:Admin')->group(function () {
@@ -140,12 +154,6 @@ Route::middleware('auth:web')->group(function () {
                 Route::get('/{id}/trashed', 'trashed')->name('trashed');
             });
 
-
-
-
-            // Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');
-            // Route::get('/countries-create', [CountryController::class, 'create'])->name('countries.create');
-
             Route::group([
                 'as' => 'courses.',
                 'controller' => CourseController::class,
@@ -158,7 +166,6 @@ Route::middleware('auth:web')->group(function () {
             });
 
             Route::view('/letter-request', 'pages.backend.latter-request.index')->name('letter-request.index');
-
             Route::view('/payments', 'pages.backend.payments.index')->name('payments.index');
 
             Route::prefix('/reports')->group(function () {
