@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleTextarea1">Textarea</label>
@@ -44,8 +44,10 @@
                                 <label class="col-sm-3 col-form-label">Gender</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="is_active" required>
-                                        <option value="active">Active</option>
-                                        <option value="inactive">In Active</option>
+                                        <option value="active" {{ $category->is_active == 1 ? 'selected' : '' }}>Active
+                                        </option>
+                                        <option value="inactive" {{ $category->is_active == 0 ? 'selected' : '' }}>In Active
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -55,10 +57,14 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Parent</label>
                                 <div class="col-sm-9">
+
                                     <select class="form-control" name="parent_id">
                                         <option value="">Select Parent Category</option>
-                                        @forelse ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @forelse ($categories as $category_item)
+                                            <option value="{{ $category_item->id }}"
+                                                {{ $category_item->id == $category->parent_id ? 'selected' : '' }}>
+                                                {{ $category_item->name }}
+                                            </option>
                                         @empty
                                             <option value="">No Parent Category</option>
                                         @endforelse
