@@ -34,7 +34,7 @@ class Student extends Model
         'country',
         'pincode',
         'gender',
-        'marital_status',
+        'marital_status ',
         'passport_number',
         'passport_expiry_date',
         'fast_language',

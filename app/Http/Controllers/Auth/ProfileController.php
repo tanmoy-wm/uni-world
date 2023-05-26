@@ -124,7 +124,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function validateStaff($request, $user)
+    public function validateStaff($request, $user): array
     {
         return $request->validate([
             'first_name'    => ['required', 'string'],
@@ -137,7 +137,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function validateAgent($request, $user)
+    public function validateAgent($request, $user): array
     {
         return $request->validate([
             'first_name'                         => ['required', 'string'],
@@ -162,19 +162,23 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function validateStudent($request, $user)
+    public function validateStudent($request, $user): array
     {
         return $request->validate([
-            'first_name'    => ['required', 'string'],
-            'middle_name'   => ['nullable', 'string'],
-            'last_name'     => ['required', 'string'],
-            'email'         => ['required', 'email:dns,rfc', 'unique:universities,email', 'unique:staffs,email', 'unique:agents,email', 'unique:students,email,' . $user->profile_id, 'unique:users,email,' . $user->id],
-            'country_code'  => ['required', 'string'],
-            'mobile_number' => ['required', 'numeric', 'unique:agents,mobile_number', 'unique:universities,mobile_number', 'unique:universities,alt_mobile_number', 'unique:students,mobile_number,'  . $user->profile_id],
-            'state'         => ['required', 'string'],
-            'country'       => ['required', 'string'],
-            'gender'        => ['nullable', 'string'],
-            'dob'           => ['nullable', 'date_format:Y-m-d'],
+            'first_name'           => ['required', 'string'],
+            'middle_name'          => ['nullable', 'string'],
+            'last_name'            => ['required', 'string'],
+            'email'                => ['required', 'email:dns,rfc', 'unique:universities,email', 'unique:staffs,email', 'unique:agents,email', 'unique:students,email,' . $user->profile_id, 'unique:users,email,' . $user->id],
+            'country_code'         => ['required', 'string'],
+            'mobile_number'        => ['required', 'numeric', 'unique:agents,mobile_number', 'unique:universities,mobile_number', 'unique:universities,alt_mobile_number', 'unique:students,mobile_number,'  . $user->profile_id],
+            'state'                => ['required', 'string'],
+            'country'              => ['required', 'string'],
+            'gender'               => ['required', 'string'],
+            'marital_status'       => ['required', 'string'],
+            'passport_number'      => ['required', 'string'],
+            'passport_expiry_date' => ['required', 'string'],
+            'fast_language'        => ['required', 'string'],
+            'dob'                  => ['required', 'date_format:Y-m-d'],
         ]);
     }
 

@@ -43,7 +43,8 @@
 
                                     <div class="col-md-12 mb-3">
                                         <input type="radio" required class="form-check-input" id="toefl-checked"
-                                            name="english_test_type" value="TOEFL">
+                                            name="english_test_type" value="TOEFL"
+                                            {{ $user->english_test_type === 'TOEFL' ? 'checked' : '' }}>
                                         <label for="toefl-checked">TOEFL</label>
 
                                         <div id="toefl" class="custom-diplay-hidden showall">
@@ -109,7 +110,8 @@
 
                                     <div class="col-md-12 mb-3">
                                         <input type="radio" required class="form-check-input" id="ielts-checked"
-                                            name="english_test_type" value="IELTS">
+                                            name="english_test_type" value="IELTS"
+                                            {{ $user->english_test_type === 'IELTS' ? 'checked' : '' }}>
                                         <label for="ielts-checked">IELTS</label>
 
                                         <div id="ielts" class="custom-diplay-hidden showall">
@@ -175,7 +177,8 @@
 
                                     <div class="col-md-12 mb-3">
                                         <input type="radio" required class="form-check-input" id="pte-checked"
-                                            name="english_test_type" value="PTE">
+                                            name="english_test_type" value="PTE"
+                                            {{ $user->english_test_type === 'PTE' ? 'checked' : '' }}>
                                         <label for="pte-checked">PTE</label>
 
                                         <div id="pte" class="custom-diplay-hidden showall">
@@ -252,7 +255,8 @@
 
                                     <div class="col-md-12 mb-3">
                                         <input type="radio" required class="form-check-input" id="duolingo-checked"
-                                            name="english_test_type" value="Duolingo">
+                                            name="english_test_type" value="Duolingo"
+                                            {{ $user->english_test_type === 'Duolingo' ? 'checked' : '' }}>
                                         <label for="duolingo-checked">Duolingo</label>
 
                                         <div id="duolingo" class="custom-diplay-hidden showall">
@@ -286,14 +290,16 @@
                                     <div class="col-md-12 mb-3">
                                         <input type="radio" required class="form-check-input"
                                             id="i-dont-have-this-checked" name="english_test_type"
-                                            value="I don't have this">
+                                            value="I don't have this"
+                                            {{ $user->english_test_type === 'I don\'t have this' ? 'checked' : '' }}>
                                         <label for="i-dont-have-this-checked">I don't have this</label>
                                     </div>
 
                                     <div class="col-md-12 mb-3">
                                         <input type="radio" required class="form-check-input"
                                             id="not-yet-but-i-will-in-the-future-checked" name="english_test_type"
-                                            value="Not yet, but I will in the future">
+                                            value="Not yet, but I will in the future"
+                                            {{ $user->english_test_type === 'Not yet, but I will in the future' ? 'checked' : '' }}>
                                         <label for="i-dont-have-this-checked">Not yet, but I will in the future
                                         </label>
                                     </div>

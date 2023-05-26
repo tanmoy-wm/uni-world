@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('students', function (Blueprint $table) {
             $table->string('address')->nullable();
             $table->string('city')->index()->nullable();
-            $table->string('marital_status ')->index()->nullable();
+            $table->string('marital_status')->index()->nullable();
             $table->string('passport_number')->nullable();
             $table->date('passport_expiry_date')->nullable();
             $table->string('fast_language')->nullable();
@@ -45,9 +45,6 @@ return new class extends Migration
             $table->string('gre_awa')->nullable();
             $table->string('gre_awa_rank')->nullable();
             $table->date('date_of_gre_exam')->nullable();
-            $table->boolean('refused_a_visa_from_canada_use_uk_nz_au_ireland')->nullable();
-            $table->string('study_permit_or_visa')->nullable();
-            $table->text('study_permit_or_visa_description')->nullable();
             $table->string('english_test_type')->nullable();
             $table->string('toefl_reading_score')->nullable();
             $table->string('toefl_listening_score')->nullable();
@@ -67,6 +64,9 @@ return new class extends Migration
             $table->date('pte_exam_date')->nullable();
             $table->string('duolingo_total_score')->nullable();
             $table->date('duolingo_exam_date')->nullable();
+            $table->boolean('refused_a_visa_from_canada_use_uk_nz_au_ireland')->nullable();
+            $table->string('study_permit_or_visa')->nullable();
+            $table->text('study_permit_or_visa_description')->nullable();
         });
     }
 
