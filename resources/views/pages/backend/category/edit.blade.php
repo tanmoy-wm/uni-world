@@ -62,7 +62,7 @@
                                         <option value="">Select Parent Category</option>
                                         @forelse ($categories as $category_item)
                                             <option value="{{ $category_item->id }}"
-                                                {{ $category_item->id == $category->parent_id ? 'selected' : '' }}>
+                                                {{ $category_item->id === $category->parent_id ? 'selected' : '' }}>
                                                 {{ $category_item->name }}
                                             </option>
                                         @empty
