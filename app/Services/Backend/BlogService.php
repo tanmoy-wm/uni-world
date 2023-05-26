@@ -8,7 +8,9 @@ use App\Models\Blog;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -79,9 +81,12 @@ class BlogService
                 'description' => $validated_request['description'],
                 'external_link' => $validated_request['external_link'] ?? null,
                 'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
+                'thumbnail' => $validated_request['thumbnail'],
                 'created_by' => $created_by,
                 'updated_by' => $created_by,
             ]);
+
+
         } catch (Exception $exception) {
             if (app()->environment('local')) {
                 return redirect()->back()->withErrors($exception->getMessage());
