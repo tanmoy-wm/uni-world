@@ -8,7 +8,9 @@ use App\Models\Blog;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -73,15 +75,37 @@ class BlogService
             $created_by = Auth::id();
             $validated_request = $request->validated();
             $slug = Str::slug($validated_request['title']);
+
+            if ($validated_request['thumbnail']) {
+
+                $path = '/assets/upload/blogs/thumbnails';
+                $file = $validated_request['thumbnail'];
+
+                $extension = Str::after($file->getMimeType(), '/');
+                $file_name = $slug . '-' . now()->timestamp . '.' . $extension;
+                File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+                $uploaded_file = $file->move(public_path($path), $file_name);
+
+
+                $direct_post = 'assets/uploads/blogs';
+                File::isDirectory($direct_post) or File::makeDirectory($direct_post, 0777, true, true);
+                $thumbnail = $data['thumbnail'];
+                $filename = 'blog-thumbnail' . '-' . Carbon::now()->timestamp . '.';
+            }
+
+
             $blog = Blog::create([
                 'title' => $validated_request['title'],
                 'slug' => $slug,
                 'description' => $validated_request['description'],
                 'external_link' => $validated_request['external_link'] ?? null,
                 'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
+                'thumbnail' => $validated_request['thumbnail'],
                 'created_by' => $created_by,
                 'updated_by' => $created_by,
             ]);
+
+
         } catch (Exception $exception) {
             if (app()->environment('local')) {
                 return redirect()->back()->withErrors($exception->getMessage());

@@ -26,6 +26,7 @@ class Blog extends Model
         'description',
         'external_link',
         'is_active',
+        'thumbnail',
         'created_by',
         'updated_by',
         'deleted_by'
