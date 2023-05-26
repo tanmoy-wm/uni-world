@@ -35,7 +35,7 @@
                         completed.</p>
                     <div class="card-body">
                         <div class="p-3 py-5">
-                            <form method="POST" action="{{ route('auth.update-profile') }}">
+                            <form method="POST" action="{{ route('student.profile.update-visa-and-permit') }}">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
@@ -52,7 +52,9 @@
                                                 <div class="col-sm-9">
                                                     <input class="form-check-input" type="radio" id="exampleRadios1"
                                                         value="Yes"
-                                                        name="refused_a_visa_from_canada_use_uk_nz_au_ireland" required />
+                                                        name="refused_a_visa_from_canada_use_uk_nz_au_ireland"
+                                                        {{ $user->refused_a_visa_from_canada_use_uk_nz_au_ireland === 1 ? 'checked' : '' }}
+                                                        required />
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +64,9 @@
                                                 <div class="col-sm-9">
                                                     <input class="form-check-input" type="radio" id="exampleRadios2"
                                                         value="No"
-                                                        name="refused_a_visa_from_canada_use_uk_nz_au_ireland" required />
+                                                        name="refused_a_visa_from_canada_use_uk_nz_au_ireland"
+                                                        {{ $user->refused_a_visa_from_canada_use_uk_nz_au_ireland === 0 ? 'checked' : '' }}
+                                                        required />
                                                 </div>
                                             </div>
                                         </div>
@@ -78,7 +82,9 @@
                                                     <input class="form-check-input" type="radio"
                                                         id="canadian_study_permit"
                                                         value="Canadian Study Permit/ Visitor Visa"
-                                                        name="study_permit_or_visa" required />
+                                                        name="study_permit_or_visa"
+                                                        {{ $user->study_permit_or_visa === 'Canadian Study Permit/ Visitor Visa' ? 'checked' : '' }}
+                                                        required />
                                                 </div>
                                             </div>
                                         </div>
@@ -88,7 +94,9 @@
                                                 <label class="col-sm-3 col-form-label">USA F1 Visa</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-check-input" type="radio" id="usa_study_permit"
-                                                        value="USA F1 Visa" name="study_permit_or_visa" required />
+                                                        value="USA F1 Visa" name="study_permit_or_visa"
+                                                        {{ $user->study_permit_or_visa === 'USA F1 Visa' ? 'checked' : '' }}
+                                                        required />
                                                 </div>
                                             </div>
                                         </div>
@@ -99,6 +107,7 @@
                                                 <div class="col-sm-9">
                                                     <input class="form-check-input" type="radio" id="au_study_permit"
                                                         value="Australian Study Visa" name="study_permit_or_visa"
+                                                        {{ $user->study_permit_or_visa === 'Australian Study Visa' ? 'checked' : '' }}
                                                         required />
                                                 </div>
                                             </div>
@@ -111,7 +120,9 @@
                                                 <div class="col-sm-9">
                                                     <input class="form-check-input" type="radio" id="uk_study_permit"
                                                         value="UK Tier 4 Student/ Short Term Study Visa"
-                                                        name="study_permit_or_visa" required />
+                                                        name="study_permit_or_visa"
+                                                        {{ $user->study_permit_or_visa === 'UK Tier 4 Student/ Short Term Study Visa' ? 'checked' : '' }}
+                                                        required />
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +132,9 @@
                                                 <label class="col-sm-3 col-form-label">Irish Stamp 2</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-check-input" type="radio" id="irish_study_permit"
-                                                        value="Irish Stamp 2" name="study_permit_or_visa" required />
+                                                        value="Irish Stamp 2" name="study_permit_or_visa"
+                                                        {{ $user->study_permit_or_visa === 'Irish Stamp 2' ? 'checked' : '' }}
+                                                        required />
                                                 </div>
                                             </div>
                                         </div>
@@ -131,7 +144,9 @@
                                                 <label class="col-sm-3 col-form-label">I don't have this</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-check-input" type="radio" id="none"
-                                                        value="I don't have this" name="study_permit_or_visa" required />
+                                                        value="I don't have this" name="study_permit_or_visa"
+                                                        {{ $user->study_permit_or_visa === 'I don\'t have this' ? 'checked' : '' }}
+                                                        required />
                                                 </div>
                                             </div>
                                         </div>
@@ -143,7 +158,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group row">
                                                 <textarea class="form-control" id="study_permit_or_visa_description" rows="3"
-                                                    name="study_permit_or_visa_description" required></textarea>
+                                                    name="study_permit_or_visa_description">{{ $user->study_permit_or_visa_description }}</textarea>
                                             </div>
                                         </div>
                                     </div>

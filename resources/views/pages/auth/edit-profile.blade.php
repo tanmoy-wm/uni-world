@@ -82,7 +82,9 @@
                                 <label class="labels">Country Code</label>
                                 <select class="form-control" name="country_code" required>
                                     @forelse ($countries as $country)
-                                        <option value="{{ $country->dial_code }}">{{ $country->name }}
+                                        <option value="{{ $country->dial_code }}"
+                                            {{ $country->dial_code == $user->country_code ? 'selected' : '' }}>
+                                            {{ $country->name }}
                                             {{ $country->dial_code }}</option>
                                     @empty
                                         <option value="">No Country Code Found</option>
@@ -102,7 +104,9 @@
                                     <label class="labels">Alternative Country Code</label>
                                     <select class="form-control" name="alt_country_code" required>
                                         @forelse ($countries as $country)
-                                            <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                            <option value="{{ $country->dial_code }}"
+                                                {{ $country->dial_code == $user->alt_country_code ? 'selected' : '' }}>
+                                                {{ $country->dial_code }}</option>
                                         @empty
                                             <option value="">No Country Code Found</option>
                                         @endforelse
@@ -143,11 +147,59 @@
                                     <label class="labels">Student Source Country</label>
                                     <select class="form-control" name="student_source_country" required>
                                         @forelse ($countries as $country)
-                                            <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                            <option value="{{ $country->name }}"
+                                                {{ $country->name == $user->student_source_country ? 'selected' : '' }}>
+                                                {{ $country->name }}</option>
                                         @empty
                                             <option value="">No Country Found</option>
                                         @endforelse
                                     </select>
+                                </div>
+                            @endif
+
+                            @if (Auth::user()->profile_type === 'App\Models\Student')
+                                <div class="col-md-12 mb-3">
+                                    <label class="labels">Passport Number</label>
+                                    <input type="text" class="form-control" placeholder="Enter your passport number"
+                                        name="passport_number"
+                                        value="{{ old('passport_number') ?? $user->passport_number }}" required>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label class="labels">Passport Expiry Date</label>
+                                    <input type="date" class="form-control"
+                                        placeholder="Enter your passport expiry date" name="passport_expiry_date"
+                                        value="{{ old('passport_expiry_date') ?? $user->passport_expiry_date }}" required>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label class="labels">Marital Status</label>
+                                    <select class="form-control" name="marital_status" required>
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label class="labels">Gender</label>
+                                    <select class="form-control" name="gender" required>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label class="labels">Date of Birth</label>
+                                    <input type="date" class="form-control" placeholder="Enter your date of birth"
+                                        name="dob" value="{{ old('dob') ?? $user->dob }}" required>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label class="labels">Fast Language</label>
+                                    <input type="text" class="form-control" placeholder="Enter your fast language"
+                                        name="fast_language" value="{{ old('fast_language') ?? $user->fast_language }}"
+                                        required>
                                 </div>
                             @endif
 
@@ -161,20 +213,15 @@
                                 <label class="labels">Country</label>
                                 <select class="form-control" name="country" required>
                                     @forelse ($countries as $country)
-                                        <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                        <option value="{{ $country->name }}"
+                                            {{ $country->name == $user->country ? 'selected' : '' }}>{{ $country->name }}
+                                        </option>
                                     @empty
                                         <option value="">No Country Found</option>
                                     @endforelse
                                 </select>
                             </div>
                         </div>
-
-                        {{-- <div class="row mt-3">
-                        <div class="col-md-6"><label class="labels">Country</label><input type="text"
-                                class="form-control" placeholder="country" value=""></div>
-                        <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
-                                class="form-control" value="" placeholder="state"></div>
-                        </div> --}}
 
                         <div class="mt-5 text-end">
                             <button class="btn btn-primary profile-button" type="submit">

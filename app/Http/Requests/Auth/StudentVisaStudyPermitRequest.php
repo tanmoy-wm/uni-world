@@ -16,7 +16,7 @@ class StudentVisaStudyPermitRequest extends FormRequest
         return [
             'refused_a_visa_from_canada_use_uk_nz_au_ireland' => ['required', 'string'],
             'study_permit_or_visa'                            => ['required', 'string'],
-            'study_permit_or_visa_description'                => ['string', 'required'],
+            'study_permit_or_visa_description'                => ['string', 'nullable'],
         ];
     }
 }
