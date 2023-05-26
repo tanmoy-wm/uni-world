@@ -10,6 +10,7 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/programs', [FrontendController::class, 'getPrograms'])->name('frontend.programs');
     Route::view('/program/{id}', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
     Route::get('/university/{username}', [FrontendController::class, 'universityShow'])->name('frontend.university-show');
+    Route::view('/student/my-applications', 'pages.frontend.auth.student.application.index')->name('my-application');
 });
 
 Route::prefix('/fe')->group(function () {
