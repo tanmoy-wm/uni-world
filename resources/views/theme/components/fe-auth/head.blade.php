@@ -16,4 +16,14 @@
     rel="stylesheet">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
+<style>
+    .custom-diplay-hidden {
+        display: none;
+    }
+
+    .custom-display-show {
+        display: block;
+    }
+</style>
+
 @vite('resources/js/app.js')
