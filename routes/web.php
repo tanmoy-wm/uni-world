@@ -57,7 +57,7 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/profile', [ProfileController::class, 'profile'])->name('auth.profile');
     Route::view('/change-password', 'pages.auth.change-password')->name('change-password');
     Route::put('/update-password', [ProfileController::class, 'changePassword'])->name('auth.change-password');
-    Route::view('/dashboard', 'pages.backend.dashboard')->name('backend.dashboard');
+    Route::view('/dashboard/{username?}', 'pages.backend.dashboard')->name('backend.dashboard');
 
     Route::prefix('/backend')->group(function () {
         Route::middleware('UserTypeCheck:Admin')->group(function () {
@@ -199,20 +199,6 @@ Route::middleware('auth:web')->group(function () {
                 Route::put('/{id}', 'update')->name('update');
             });
 
-
-            Route::group([
-                'as' => 'universities.',
-                'controller' => UniversityController::class,
-                'prefix' => '/universities'
-            ], function () {
-                Route::get('/create', 'create')->name('create');
-                Route::get('/{id}/edit', 'edit')->name('edit');
-                Route::get('/', 'index')->name('index');
-                Route::post('/store', 'store')->name('store');
-                Route::get('/{id}/trashed', 'trashed')->name('trashed');
-                Route::put('/{id}', 'update')->name('update');
-            });
-
             Route::group([
                 'as' => 'programs.',
                 'controller' => ProgramController::class,
@@ -226,16 +212,35 @@ Route::middleware('auth:web')->group(function () {
                 Route::get('/{id}/trashed', 'trashed')->name('trashed');
                 Route::put('/{id}', 'update')->name('update');
             });
+
+            Route::group([
+                'as' => 'universities.',
+                'controller' => UniversityController::class,
+                'prefix' => '/university'
+            ], function () {
+                Route::get('/create', 'create')->name('create');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::get('/', 'index')->name('index');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/{id}/trashed', 'trashed')->name('trashed');
+                Route::put('/{id}', 'update')->name('update');
+            });
         });
 
         Route::middleware(['UserTypeCheck:University'])->group(function () {
             Route::group([
-                'as' => 'backend.university.',
-                'prefix' => '/university/{username}',
+                'as' => 'university.',
                 'controller' => UniversityController::class,
+                'prefix' => '/university/{username}'
             ], function () {
-                Route::get('/program-create}', 'createProgram')->name('program-create');
-                Route::post('/program-create}', 'storeProgram')->name('program-store');
+                Route::get('/programs-index', 'programsIndex')->name('programs-index');
+                Route::get('/create-program', 'createProgram')->name('create-program');
+                Route::post('/store-program', 'storeProgram')->name('program-store');
+                Route::get('/programs-edit/{id}', 'programsEdit')->name('programs-edit');
+                Route::put('/{id}/update-program', 'updtedProgram')->name('program-update');
+                Route::get('/{id}/change-status', 'changeStatus')->name('change-status');
+
+
             });
         });
     });

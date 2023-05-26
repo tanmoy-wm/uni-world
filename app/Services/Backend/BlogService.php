@@ -73,7 +73,6 @@ class BlogService
             $created_by = Auth::id();
             $validated_request = $request->validated();
             $slug = Str::slug($validated_request['title']);
-
             $blog = Blog::create([
                 'title' => $validated_request['title'],
                 'slug' => $slug,
