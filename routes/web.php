@@ -19,8 +19,7 @@ use App\Http\Controllers\Backend\Users\AgentController;
 use App\Http\Controllers\Backend\Users\StaffController;
 use App\Http\Controllers\Backend\Users\StudentController;
 use App\Http\Controllers\Backend\Users\UniversityController;
-
-
+use App\Models\GeneralSetting;
 
 /*
 |--------------------------------------------------------------------------
@@ -190,7 +189,14 @@ Route::middleware('auth:web')->group(function () {
             });
 
             Route::prefix('/settings')->group(function () {
-                Route::view('/general', 'pages.backend.settings.general.index')->name('general.index');
+                Route::group([
+                    'as' => 'settings.general.',
+                    'controller' => GeneralSetting::class,
+                    'prefix' => '/general'
+                ], function () {
+                    Route::view('/', 'pages.backend.settings.general.index')->name('general.index');
+                    Route::post('/store', 'store')->name('store');
+                });
             });
 
             Route::group([
