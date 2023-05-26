@@ -20,11 +20,11 @@ class LoginController extends Controller
             } elseif (Auth::user()->profile_type === 'App\Models\Student') {
                 return redirect()->route('frontend.programs');
             } elseif (Auth::user()->profile_type === 'App\Models\Agent') {
-                return redirect()->route('backend.dashboard');
+                return redirect()->route('frontend.programs');
             } elseif (Auth::user()->profile_type === 'App\Models\University') {
-                return redirect()->route('backend.dashboard');
+                return redirect()->route('frontend.programs');
             } elseif (Auth::user()->profile_type === 'App\Models\Staff') {
-                return redirect()->route('backend.dashboard');
+                return redirect()->route('frontend.programs');
             }
         } else {
             return back()->withErrors(['password' => 'Wrong Credentials']);

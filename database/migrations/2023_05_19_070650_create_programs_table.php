@@ -22,8 +22,8 @@ return new class extends Migration {
             $table->string('minimum_language_test_score')->nullable();
             $table->string('cost_of_living');
             $table->string('program_level');
-            $table->dateTime('application_open_date');
-            $table->dateTime('application_deadline');
+            $table->date('application_open_date');
+            $table->date('application_deadline');
             $table->boolean('is_active')->index();
             $table->longText('meta')->nullable();
 

@@ -17,40 +17,22 @@ class UpdateUniversityCourseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'                       => ['required', 'string', 'max:255'],
-            'description'                 => ['required', 'string'],
-            'duration'                    => ['required', 'string'],
-            'apply_fees'                  => ['required', 'string'],
-            'gross_fees'                  => ['required', 'string'],
-            'total_sem'                   => ['nullable', 'string'],
-            'minimum_qualification'       => ['required', 'string'],
-            'minimum_gpa'                 => ['required', 'string'],
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'duration' => ['required', 'string'],
+            'apply_fees' => ['required', 'string'],
+            'gross_fees' => ['required', 'string'],
+            'total_sem' => ['required', 'numeric'],
+            'minimum_qualification' => ['required', 'string'],
+            'minimum_gpa' => ['required', 'string'],
             'minimum_language_test_score' => ['nullable', 'string'],
-            'cost_of_living'              => ['required', 'string'],
-            'program_level'               => ['required', 'string'],
-            'application_open_date'       => ['required', 'date_format:Y-m-d'],
-            'application_deadline'        => ['required', 'date_format:Y-m-d'],
-            'category_id'                 => ['required', 'exists:categories,id'],
-            'university_id'               => ['required', 'exists:universities,id'],
-            'is_active'                   => ['required', 'string'],
-        ];
-    }
-
-    public function failedValidation(Validator $validator): JsonResponse
-    {
-        throw new HttpResponseException(response()->json([
-            'success'  => false,
-            'errorMsg' => 'Validation Errors.',
-            'messages' => $validator->errors()->all(),
-        ]), 422);
-    }
-
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'Name field is required.',
-            'slug.required' => 'Slug field is required.',
-            'slug.unique'   => 'Sorry, this Slug is already Exists.',
+            'cost_of_living' => ['required', 'string'],
+            'program_level' => ['required', 'string'],
+            'application_open_date' => ['required', 'date_format:Y-m-d'],
+            'application_deadline' => ['required', 'date_format:Y-m-d'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'university_id' => ['required', 'exists:universities,id'],
+            'is_active' => ['required', 'string'],
         ];
     }
 }

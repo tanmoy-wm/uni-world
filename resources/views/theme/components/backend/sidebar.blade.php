@@ -3,7 +3,6 @@
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-
                     <img src="{{ asset('assets/images/faces/face1.jpg') }}" alt="profile">
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
@@ -14,15 +13,16 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admins.dashboard') }}">
-                <span class="menu-title">Dashboard</span>
-                <i class="mdi mdi-home menu-icon"></i>
-            </a>
-        </li>
 
         @if (auth()->user()->profile_type === 'App\Models\Admin')
             <div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admins.dashboard') }}">
+                        <span class="menu-title">Dashboard</span>
+                        <i class="mdi mdi-home menu-icon"></i>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('students.index') }}">
                         <span class="menu-title">Student</span>
@@ -149,7 +149,15 @@
                 <div>
                     <li class="nav-item">
                         <a class="nav-link"
-                            href="{{ route('backend.university.program-create', ['username' => Auth::user()->profile->username]) }}">
+                            href="{{ route('backend.dashboard', ['username' => Auth::user()->profile->username]) }}">
+                            <span class="menu-title">Dashboard</span>
+                            <i class="mdi mdi-home menu-icon"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="{{ route('university.programs-index', ['username' => auth()->user()->profile->username]) }}">
                             <span class="menu-title">Programs</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
