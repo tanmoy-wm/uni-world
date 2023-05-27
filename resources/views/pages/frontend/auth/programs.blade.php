@@ -1211,10 +1211,10 @@
                     <div class="course-left-wrap">
                         <div class="course-tab-list nav pt-40 pb-25 mb-35">
                             <a class="active" href="#course-details-1" data-toggle="tab">
-                                <h4>Programs <span>(11500+)</span></h4>
+                                <h4>Programs <span>({{ $programs->count() }})</span></h4>
                             </a>
                             <a href="#course-details-2" data-toggle="tab" class="">
-                                <h4>Schools <span>(1200+)</span></h4>
+                                <h4>Schools <span>({{ $universities->count() }})</span></h4>
                             </a>
                         </div>
                         <div class="course-tab-relevance sub-cour-two-right">
@@ -1267,7 +1267,8 @@
                                             </div>
                                             <div class="col-lg-3 p-0">
                                                 <div class="sub-course-btn-left">
-                                                    <a class="sub-start-btn-applica" href="javascript:;">Start
+                                                    <a class="sub-start-btn-applica"
+                                                        href="{{ route('frontend.apply') }}">Start
                                                         Application</a>
                                                     <a class="sub-program-det-border-btn"
                                                         href="{{ route('frontend.programs.show', ['id' => $program->id]) }}">Program

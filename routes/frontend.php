@@ -16,6 +16,7 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'getDashboard'])->name('auth.dashboard');
     Route::post('/agent/student/store', [AgentController::class, 'storeStudent'])->name('agent.student.store');
     Route::get('/agent/student/create', [AgentController::class, 'createStudent'])->name('agent.student.create');
+    Route::view('/apply', 'pages.frontend.auth.apply')->name('frontend.apply');
 });
 
 Route::prefix('/fe')->group(function () {
