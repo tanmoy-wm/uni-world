@@ -58,7 +58,6 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/profile', [ProfileController::class, 'profile'])->name('auth.profile');
     Route::view('/change-password', 'pages.auth.change-password')->name('change-password');
     Route::put('/update-password', [ProfileController::class, 'changePassword'])->name('auth.change-password');
-    Route::view('/dashboard/{username?}', 'pages.backend.dashboard')->name('backend.dashboard');
 
     Route::group([
         'as'    => 'student.profile.',
@@ -247,8 +246,6 @@ Route::middleware('auth:web')->group(function () {
                 Route::get('/programs-edit/{id}', 'programsEdit')->name('programs-edit');
                 Route::put('/{id}/update-program', 'updtedProgram')->name('program-update');
                 Route::get('/{id}/change-status', 'changeStatus')->name('change-status');
-
-
             });
         });
     });

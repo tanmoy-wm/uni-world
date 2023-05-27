@@ -5,13 +5,17 @@ namespace App\Services\Backend\Users;
 use App\Http\Actions\CreateUserAction;
 use App\Http\Actions\UpdateUserAction;
 use App\Http\Requests\Backend\Users\StoreAgentRequest;
+use App\Http\Requests\Backend\Users\StoreStudentRequest;
+use App\Mail\UserWelcomeMail;
 use App\Models\Agent;
 use App\Models\Country;
+use App\Models\Student;
+
 use Exception;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -23,6 +27,12 @@ class AgentService
         return view('pages.backend.users.agent.create', compact('countries'));
     }
 
+    public function createStudent(): View
+    {
+        $countries = Country::all();
+        return view('pages.frontend.auth.dashboard.create-student', compact('countries'));
+    }
+
     public function destroy($id)
     {
         # code...
@@ -30,9 +40,16 @@ class AgentService
 
     public function edit($id): View
     {
-        $agent = Agent::query()->findOrFail($id);
+        $students = Agent::query()->findOrFail($id);
         $countries = Country::all();
-        return view('pages.backend.users.agent.edit', compact('agent', 'countries'));
+        return view('pages.backend.users.agent.edit', compact('students', 'countries'));
+    }
+
+    public function getStudents(): View
+    {
+        $students = Auth::user()->profile->students()->latest()->get();
+        $countries = Country::all();
+        return view('pages.frontend.auth.agent.student.index', compact('students', 'countries'));
     }
 
     public function index($request): View
@@ -97,6 +114,42 @@ class AgentService
         }
 
         return redirect()->route('agents.index');
+    }
+    public function storeStudent(StoreStudentRequest $request): RedirectResponse
+    {
+        try {
+            $validated_request = $request->validated();
+            DB::transaction(function () use ($validated_request) {
+                $data = Student::create([
+                    'first_name' => $validated_request['first_name'],
+                    'middle_name' => $validated_request['middle_name'] ?? null,
+                    'last_name' => $validated_request['last_name'],
+                    'email' => $validated_request['email'],
+                    'country_code' => $validated_request['country_code'],
+                    'mobile_number' => $validated_request['mobile_number'],
+                    'state' => $validated_request['state'] ?? null,
+                    'country' => $validated_request['country'],
+                    'dob' => $validated_request['dob'],
+                    'passport_number' => $validated_request['passport_number'] ?? null,
+                    'status' => $validated_request['status'],
+                    'referral_source' => $validated_request['referral_source'],
+                    'agent_accept_terms_and_service_behalf_of_student',
+                    'agent_id' => Auth::user()->profile->id,
+                    'assigned_to' => $validated_request['assigned_to'] ?? null,
+                    'country_of_interest' => $validated_request['country_of_interest'],
+                    'service_of_interest' => $validated_request['service_of_interest'],
+                ]);
+
+                $password = Str::random(8);
+
+                CreateUserAction::execute($data, $password);
+                Mail::to($data->email)->send((new UserWelcomeMail($data, $password))->afterCommit());
+            });
+        } catch (Exception $exception) {
+            return redirect()->back()->withErrors($exception->getMessage());
+        }
+
+        return redirect()->route('auth.dashboard');
     }
 
     public function trashed($id): RedirectResponse

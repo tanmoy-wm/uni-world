@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Backend\Users\UniversityController;
+use App\Http\Controllers\Backend\Users\AgentController;
+use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -10,8 +11,11 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/programs', [FrontendController::class, 'getPrograms'])->name('frontend.programs');
     Route::view('/program/{id}', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
     Route::get('/university/{username}', [FrontendController::class, 'universityShow'])->name('frontend.university-show');
-    Route::view('/student/my-applications', 'pages.frontend.auth.student.application.index')->name('my-application');
-    Route::view('/student/my-student', 'pages.frontend.auth.agent.applications.index')->name('my-student');
+    Route::view('/student/my-applications', 'pages.frontend.auth.application.index')->name('my-application');
+    Route::get('/agent/my-students', [AgentController::class, 'getStudents'])->name('agent.student');
+    Route::get('/dashboard', [DashboardController::class, 'getDashboard'])->name('auth.dashboard');
+    Route::post('/agent/student/store', [AgentController::class, 'storeStudent'])->name('agent.student.store');
+    Route::get('/agent/student/create', [AgentController::class, 'createStudent'])->name('agent.student.create');
 });
 
 Route::prefix('/fe')->group(function () {

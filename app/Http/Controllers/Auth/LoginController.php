@@ -18,13 +18,13 @@ class LoginController extends Controller
             if (Auth::user()->profile_type === 'App\Models\Admin') {
                 return redirect()->route('admins.dashboard');
             } elseif (Auth::user()->profile_type === 'App\Models\Student') {
-                return redirect()->route('frontend.programs');
+                return redirect()->route('auth.dashboard');
             } elseif (Auth::user()->profile_type === 'App\Models\Agent') {
-                return redirect()->route('frontend.programs');
+                return redirect()->route('auth.dashboard');
             } elseif (Auth::user()->profile_type === 'App\Models\University') {
-                return redirect()->route('frontend.programs');
+                return redirect()->route('auth.dashboard');
             } elseif (Auth::user()->profile_type === 'App\Models\Staff') {
-                return redirect()->route('frontend.programs');
+                return redirect()->route('auth.dashboard');
             }
         } else {
             return back()->withErrors(['password' => 'Wrong Credentials']);

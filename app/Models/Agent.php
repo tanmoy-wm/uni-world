@@ -64,6 +64,11 @@ class Agent extends Model
         return $this->hasMany(Staff::class, 'agent_id');
     }
 
+    public function students(): HasMany
+    {
+        return $this->hasMany(Student::class, 'agent_id');
+    }
+
     public function updatedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');

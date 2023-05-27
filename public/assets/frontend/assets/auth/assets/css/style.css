@@ -5685,3 +5685,142 @@ a.sub-content-univer-price-btn:hover{
 .addNewProgramBtnArea .addNewProgramBtn{
 	font-size:13px;
 }
+.dashboard_card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
+    box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
+    margin: 0 0 24px 0;
+    border: 0;
+    border-radius: 8px;
+}
+.dashboard_card_body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    padding: 15px;
+    background-color: rgba(0,0,0,0);
+}
+.analytics_card_body {  
+    padding: 25px 20px;
+}
+.dash-widget-header {
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    margin: 0 0 0px 0;
+}
+.dash-widget-header .dash-widget-icon {
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    height: 60px;
+    text-align: center;
+    width: 60px;
+    border-radius: 10px;
+}
+.dash-widget-header .dash-count {
+    margin-left: 15px;
+}
+.dash-widget-header .dash-count .dash-counts{}
+.dash-widget-header .dash-count .dash-counts p {
+    font-weight: 600;
+    font-size: 25px;
+	line-height:31px;
+    color: #000000;
+    margin: 0 0 0px 0;
+}
+.dash-widget-header .dash-count .dash-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #878A99;
+}
+
+.dashboardHeadingSec .addNewStudentBtn{
+	display:inline-block;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 10px 20px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.08);
+    font-size: 14px;	
+	    background: #5d4bdc;
+    border: 1px solid #5d4bdc;
+    color: #ffffff;
+}
+.dashSideBar{}
+.dashSideBarWidget{
+	background-color:#fff;
+	border-radius: 8px;
+	box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
+	margin: 0 0 24px 0;
+
+}
+.dashSideBarWidgetHeader{
+	padding:15px 15px;
+	border-bottom:1px solid #eee;
+}
+.dashSideBarWidgetHeader .title{}
+.dashSideBarWidgetBody{
+	padding:15px 15px;
+}
+.dashSideBarList{
+	padding:0px;
+	margin:0px;
+}
+.dashSideBarList li{
+	list-style-type:none;
+	margin-bottom:10px;
+}
+.dashSideBarList li:last-child{	
+	margin-bottom:0px;
+}
+.dashSideBarList li a{
+    font-size: 13px;
+    display: inline-block;
+	color:#000;
+}
+.dashSideBarList li a .icon{
+	margin-right:10px;
+} 
+.dashSideBarList li a .txt{} 
+.dashSideBarList li a .new{
+	margin-left: auto;	
+} 
+.dashSideBarList li a:hover{
+	color:#5d4bdc;
+}
+.dashSideBarList-1 li a{
+    display: flex;	
+}
+.dashSideBarList-1 li a .icon{} 
+.dashSideBarList-1 li a .txt{} 
+.dashSideBarList-1 li a .new{}
+.dashTableArea .dataTables_wrapper{
+	font-size:13px;
+}
+.dashTableArea table{}
+.dashTableArea table tr th,
+.dashTableArea table tr td{
+	font-size:13px;
+}
+.dashTableArea table tr th{
+	font-weight:600;
+	color:#000;
+}
+.dashTableArea table tr td{} 

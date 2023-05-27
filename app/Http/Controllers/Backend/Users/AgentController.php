@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Users\StoreAgentRequest;
+use App\Http\Requests\Backend\Users\StoreStudentRequest;
 use App\Http\Requests\Backend\Users\UpdateAgentRequest;
 use App\Services\Backend\Users\AgentService;
 
@@ -23,6 +24,11 @@ class AgentController extends Controller
         return $this->service->create($request);
     }
 
+    public function createStudent(Request $request): View
+    {
+        return $this->service->createStudent();
+    }
+
     public function destroy($id)
     {
         return $this->service->destroy($id);
@@ -31,6 +37,11 @@ class AgentController extends Controller
     public function edit($id): View
     {
         return $this->service->edit($id);
+    }
+
+    public function getStudents(): View
+    {
+        return $this->service->getStudents();
     }
 
     public function index(Request $request): View
@@ -52,6 +63,11 @@ class AgentController extends Controller
     public function store(StoreAgentRequest $request): RedirectResponse
     {
         return $this->service->store($request);
+    }
+
+    public function storeStudent(StoreStudentRequest $request): RedirectResponse
+    {
+        return $this->service->storeStudent($request);
     }
 
     public function trashed($id): RedirectResponse

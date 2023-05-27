@@ -2,7 +2,7 @@
     <div class="leftTopNavbar">
         <span class="backMenu"><i class="fa-sharp fa-regular fa-arrow-left"></i></span>
         <ul class="topNavMenuList">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ route('auth.dashboard') }}">Home</a></li>
             <li><span>Postgraduate Diploma - Nuclear Decommissioning and Waste Management, University of Birmingham -
                     Edgbaston</span></li>
         </ul>
@@ -14,7 +14,8 @@
             <li class="topNavUserItem">
                 <a href="#" class="topNavUserLink">
                     <span class="avatarImage">
-                        <img src="assets/images/blue-dp.jpeg" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/frontend/assets/auth/assets/images/blue-dp.jpeg') }}"
+                            class="img-fluid" alt="">
                     </span>
                 </a>
             </li>

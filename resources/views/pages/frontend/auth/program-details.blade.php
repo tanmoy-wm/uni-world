@@ -1,4 +1,4 @@
-@extends('layouts.fe-guest')
+@extends('layouts.fe-auth')
 @section('content')
     <!-- Courses Details -->
     <section class="sub-new-awolc-bg">

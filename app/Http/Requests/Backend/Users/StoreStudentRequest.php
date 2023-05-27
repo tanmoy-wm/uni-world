@@ -20,17 +20,16 @@ class StoreStudentRequest extends FormRequest
             'email'         => ['required', 'string', 'unique:users,email', 'unique:admins,email', 'unique:students,email', 'max:255'],
             'country_code'  => ['required', 'string', 'max:10'],
             'mobile_number' => ['required', 'digits:10'],
-            'state'         => ['required', 'string', 'max:255'],
+            'state'         => ['nullable', 'string', 'max:255'],
             'country'       => ['required', 'string', 'max:255'],
             'dob'           => ['required', 'date_format:Y-m-d'],
-            'password'      => ['required', 'string', 'min:8', 'max:16', 'confirmed'],
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'Name field is required.',
+            'password'      => ['nullable', 'string', 'min:8', 'max:16', 'confirmed'],
+            'status'        => ['required', 'string'],
+            'referral_source' => ['required', ''],
+            'agent_accept_terms_and_service_behalf_of_student' => ['nullable', 'string'],
+            'assigned_to'         => ['nullable', 'exists:agents,id'],
+            'country_of_interest' => ['required', 'string'],
+            'service_of_interest' => ['required', 'string'],
         ];
     }
 }

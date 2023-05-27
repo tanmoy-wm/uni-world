@@ -34,7 +34,7 @@ class Student extends Model
         'country',
         'pincode',
         'gender',
-        'marital_status ',
+        'marital_status',
         'passport_number',
         'passport_expiry_date',
         'fast_language',
@@ -88,6 +88,13 @@ class Student extends Model
         'duolingo_total_score',
         'duolingo_exam_date',
         'is_active',
+        'status',
+        'agent_accept_terms_and_service_behalf_of_student',
+        'agent_id',
+        'assigned_to',
+        'referral_source',
+        'country_of_interest',
+        'service_of_interest',
         'meta',
         'created_by',
         'updated_by',
@@ -95,6 +102,11 @@ class Student extends Model
     ];
 
     //------------------- Relationships -------------------//
+    public function agent(): BelongsTo
+    {
+        return $this->belongsTo(Agent::class, 'agent_id');
+    }
+
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
@@ -103,6 +115,11 @@ class Student extends Model
     public function deletedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'deleted_by');
+    }
+
+    public function staff(): BelongsTo
+    {
+        return $this->belongsTo(Staff::class, 'assigned_to');
     }
 
     public function updatedBy(): BelongsTo

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -38,6 +39,11 @@ class Staff extends Model
     ];
 
     //------------------- Relationships -------------------//
+    public function agent(): BelongsTo
+    {
+        return $this->belongsTo(Agent::class, 'agent_id');
+    }
+
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
@@ -48,9 +54,9 @@ class Staff extends Model
         return $this->belongsTo(User::class, 'deleted_by');
     }
 
-    public function agent(): BelongsTo
+    public function students(): HasMany
     {
-        return $this->belongsTo(Agent::class, 'agent_id');
+        return $this->hasMany(Student::class, 'assigned_to');
     }
 
     public function updatedBy(): BelongsTo
