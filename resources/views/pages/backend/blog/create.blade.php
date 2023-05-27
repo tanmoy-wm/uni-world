@@ -52,7 +52,14 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Thumbnails</label>
+                                <div class="col-sm-9">
+                                    <input type="file" name="thumbnails">
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                     <div class="row">
@@ -61,7 +68,6 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Description</label>
                                 <div class="col-sm-9">
-
                                     <textarea class="ckeditor form-control" rows="4" name="description"></textarea>
                                 </div>
                             </div>

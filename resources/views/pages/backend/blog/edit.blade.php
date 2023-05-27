@@ -18,7 +18,6 @@
                     @if ($errors->any())
                         @include('theme.components.backend.errors', ['errors' => $errors])
                     @endif
-
                     <p class="card-description"></p>
                     <div class="row">
                         <div class="col-md-6">
@@ -48,7 +47,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Description</label>
                                 <div class="col-sm-9">
-                                    <textarea class="ckeditor form-control" rows="4" name="description" rows="4"> {{ $blog->description }}</textarea>
+                                    <textarea class="ckeditor form-control" rows="4" name="description" rows="4"></textarea>
 
                                 </div>
                             </div>
@@ -62,8 +61,10 @@
                                 <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="is_active" required>
-                                        <option value="active">Active</option>
-                                        <option value="inactive">In Active</option>
+                                        <option {{ $blog->is_active === 1 ? 'selected' : '' }} value="active">Active
+                                        </option>
+                                        <option {{ $blog->is_active === 0 ? 'selected' : '' }} value="inactive">In Active
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -73,6 +74,7 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button type="submit" class="btn btn-gradient-primary">Submit</button>
                     </div>
+
                 </form>
             </div>
         </div>

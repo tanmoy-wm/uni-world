@@ -14,6 +14,8 @@ use Illuminate\View\View;
 
 class StudentController extends Controller
 {
+
+
     public function __construct(public StudentService $service)
     {
     }

@@ -11,6 +11,7 @@ Route::middleware('auth:web')->group(function () {
     Route::view('/program/{id}', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
     Route::get('/university/{username}', [FrontendController::class, 'universityShow'])->name('frontend.university-show');
     Route::view('/student/my-applications', 'pages.frontend.auth.student.application.index')->name('my-application');
+    Route::view('/student/my-student', 'pages.frontend.auth.agent.applications.index')->name('my-student');
 });
 
 Route::prefix('/fe')->group(function () {

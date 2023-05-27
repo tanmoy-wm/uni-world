@@ -21,6 +21,12 @@
                                     <span class="title">Programs & Schools</span>
                                 </a>
                             </li>
+                             <li>
+                                <a href="{{route('my-student')}}">
+                                    <span class="icon"><i class="fa-regular fa-magnifying-glass"></i></span>
+                                    <span class="title">Student</span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="#">
                                     <span class="icon"><i class="fa-regular fa-circle-user"></i></span>

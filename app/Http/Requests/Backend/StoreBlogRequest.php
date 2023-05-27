@@ -21,6 +21,7 @@ class StoreBlogRequest extends FormRequest
             'description' => ['required'],
             'is_active' => ['required', 'string'],
             'external_link' => ['nullable', 'url'],
+            'thumbnail' => ['requires'],
         ];
     }
 

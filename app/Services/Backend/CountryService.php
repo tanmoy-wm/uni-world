@@ -27,11 +27,17 @@ class CountryService
         if (!$country = Country::withTrashed()->find($id)) {
             return $this->handleError([], 'Country Not Found.', 404);
         }
-
         $country->forceDeleted();
-
         return $this->handleResponse([], '', 200);
     }
+
+    public function programsEdit(): View
+    {
+        $Country = Country::all();
+        return view('pages.backend.Country.create');
+    }
+
+
 
     public function index($request): JsonResponse
     {
@@ -65,11 +71,12 @@ class CountryService
         if (!$country->withTrashed()->find($id)) {
             return $this->handleError([], 'Country Not Found.', 404);
         }
-
         $data = $country->with(['createdBy', 'deletedBy', 'updatedBy'])->first();
 
         return $this->handleResponse($data, '', 200);
     }
+
+
 
     public function store(StoreCountryRequest $request): RedirectResponse
     {
@@ -115,7 +122,6 @@ class CountryService
         ];
 
         $trashed_country = tap($country)->update($data);
-
         return $this->handleResponse($trashed_country, 'Country Trashed Successfully.', 200);
     }
 
@@ -124,12 +130,10 @@ class CountryService
         if (!$country = Country::withTrashed()->find($id)) {
             return $this->handleError([], 'Country Not Found.', 404);
         }
-
         try {
             $validated_request = $request->validated();
             $updated_by = Auth::id();
             $slug = Str::slug($validated_request['slug']);
-
             $data = [
                 'name' => $validated_request['name'],
                 'slug' => $slug,
