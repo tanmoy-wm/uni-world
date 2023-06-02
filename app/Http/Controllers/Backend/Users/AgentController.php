@@ -29,6 +29,11 @@ class AgentController extends Controller
         return $this->service->createStudent();
     }
 
+    public function dashboard()
+    {
+        return $this->service->dashboard();
+    }
+
     public function destroy($id)
     {
         return $this->service->destroy($id);

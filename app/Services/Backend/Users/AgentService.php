@@ -33,6 +33,15 @@ class AgentService
         return view('pages.frontend.auth.dashboard.create-student', compact('countries'));
     }
 
+    public function dashboard()
+    {
+        $agent =  Auth::user()->profile;
+
+        $countries = Country::all();
+
+        return view('pages.frontend.auth.agent.dashboard', compact('agent', 'countries'));
+    }
+
     public function destroy($id)
     {
         # code...
@@ -117,6 +126,7 @@ class AgentService
     }
     public function storeStudent(StoreStudentRequest $request): RedirectResponse
     {
+        dd(1);
         try {
             $validated_request = $request->validated();
             DB::transaction(function () use ($validated_request) {

@@ -24,12 +24,12 @@ class StoreStudentRequest extends FormRequest
             'country'       => ['required', 'string', 'max:255'],
             'dob'           => ['required', 'date_format:Y-m-d'],
             'password'      => ['nullable', 'string', 'min:8', 'max:16', 'confirmed'],
-            'status'        => ['required', 'string'],
-            'referral_source' => ['required', ''],
+            'status'        => ['nullable', 'string'],
+            'referral_source' => ['nullable', 'string'],
             'agent_accept_terms_and_service_behalf_of_student' => ['nullable', 'string'],
             'assigned_to'         => ['nullable', 'exists:agents,id'],
-            'country_of_interest' => ['required', 'string'],
-            'service_of_interest' => ['required', 'string'],
+            'country_of_interest' => ['nullable', 'string'],
+            'service_of_interest' => ['nullable', 'string'],
         ];
     }
 }

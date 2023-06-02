@@ -14,9 +14,19 @@ Route::middleware('auth:web')->group(function () {
     Route::view('/student/my-applications', 'pages.frontend.auth.application.index')->name('my-application');
     Route::get('/agent/my-students', [AgentController::class, 'getStudents'])->name('agent.student');
     Route::get('/dashboard', [DashboardController::class, 'getDashboard'])->name('auth.dashboard');
-    Route::post('/agent/student/store', [AgentController::class, 'storeStudent'])->name('agent.student.store');
-    Route::get('/agent/student/create', [AgentController::class, 'createStudent'])->name('agent.student.create');
+    // Route::post('/agent/student/store', [AgentController::class, 'storeStudent'])->name('agent.student.store');
+
     Route::view('/apply', 'pages.frontend.auth.apply')->name('frontend.apply');
+
+    Route::group([
+        'as' => 'frontend.agent.',
+        'controller' => AgentController::class,
+        'prefix' => '/agent'
+    ], function () {
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
+        Route::get('/student/create',  'createStudent')->name('student.create');
+        Route::post('/store', 'storeStudent')->name('student.store');
+    });
 });
 
 Route::prefix('/fe')->group(function () {
