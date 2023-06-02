@@ -81,7 +81,7 @@ class BlogService
                 'description' => $validated_request['description'],
                 'external_link' => $validated_request['external_link'] ?? null,
                 'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
-                'thumbnail' => $validated_request['thumbnail'],
+                'thumbnail' => $validated_request['thumbnail'] ?? null,
                 'created_by' => $created_by,
                 'updated_by' => $created_by,
             ]);
