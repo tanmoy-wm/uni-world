@@ -32,10 +32,10 @@
                             </div>
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Sign in to continue.</h6>
-                            <form class="pt-3" action="" method='POST'>
+                            <form class="pt-3" action="{{ route('auth.admin.login') }}" method='POST'>
                                 @csrf
                                 @if ($errors->any())
-                                   @include('theme.components.backend.errors', ['errors' => $errors])
+                                    @include('theme.components.backend.errors', ['errors' => $errors])
                                 @endif
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"

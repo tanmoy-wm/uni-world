@@ -36,7 +36,8 @@ use App\Http\Controllers\Backend\Users\UniversityController;
 Route::view('/', 'welcome')->name('welcome');
 Route::view('/landing', 'landing')->name('welcome');
 
-Route::view('/backend/login', 'pages.auth.login')->name('.backend.login');
+Route::view('/backend/login', 'pages.auth.login')->name('backend.login');
+Route::post('/backend/login', [LoginController::class, 'adminLogin'])->name('auth.admin.login');
 Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
 
 Route::group([
