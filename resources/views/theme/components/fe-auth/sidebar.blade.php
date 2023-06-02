@@ -19,12 +19,21 @@
                                 </li>
                             @endif
 
-                            <li>
-                                <a href="{{ route('auth.dashboard') }}">
-                                    <span class="icon"><i class="fa-regular fa-house-chimney"></i></span>
-                                    <span class="title">Home</span>
-                                </a>
-                            </li>
+                            @if (Auth::user()->profile_type === 'App\Models\Agent')
+                                <li>
+                                    <a href="{{ route('frontend.agent.dashboard') }}">
+                                        <span class="icon"><i class="fa-solid fa-gauge-high"></i></i></span>
+                                        <span class="title">Home</span>
+                                    </a>
+                                </li>
+                            @else
+                                <li>
+                                    <a href="{{ route('auth.dashboard') }}">
+                                        <span class="icon"><i class="fa-regular fa-house-chimney"></i></span>
+                                        <span class="title">Home</span>
+                                    </a>
+                                </li>
+                            @endif
 
                             <li>
                                 <a href="{{ route('frontend.programs') }}">
