@@ -62,8 +62,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Total Sems</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="total_sems"
-                                        value="{{ old('total_sems') ?? $program->total_sems }}" />
+                                    <input type="text" class="form-control" name="total_sem"
+                                        value="{{ old('total_sem') ?? $program->total_sem }}" />
                                 </div>
                             </div>
                         </div>
