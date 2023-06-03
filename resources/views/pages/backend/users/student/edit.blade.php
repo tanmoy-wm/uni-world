@@ -94,8 +94,9 @@
                                 <div class="col-sm-9">
                                     <select class="form-control" name="country_code" required>
                                         @forelse ($countries as $country)
-                                            <option value="{{ $country->dial_code }}">{{ $country->name }}
-                                                {{ $country->dial_code }}</option>
+                                            <option value="{{ $country->dial_code }}"
+                                                {{ $student->country_code === $country->dial_code ? 'selected' : '' }}>
+                                                {{ $country->name }} {{ $country->dial_code }}</option>
                                         @empty
                                             <option value="">No Country Found</option>
                                         @endforelse
@@ -136,7 +137,9 @@
                                 <div class="col-sm-9">
                                     <select class="form-control" name="country" required>
                                         @forelse ($countries as $country)
-                                            <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                            <option value="{{ $country->name }}"
+                                                {{ $student->country === $country->name ? 'selected' : '' }}>
+                                                {{ $country->name }}</option>
                                         @empty
                                             <option value="">No Country Found</option>
                                         @endforelse

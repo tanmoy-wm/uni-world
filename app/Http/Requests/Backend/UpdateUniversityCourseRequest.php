@@ -22,7 +22,7 @@ class UpdateUniversityCourseRequest extends FormRequest
             'duration' => ['required', 'string'],
             'apply_fees' => ['required', 'string'],
             'gross_fees' => ['required', 'string'],
-            'total_sem' => ['required', 'numeric'],
+            'total_sems' => ['required', 'string'],
             'minimum_qualification' => ['required', 'string'],
             'minimum_gpa' => ['required', 'string'],
             'minimum_language_test_score' => ['nullable', 'string'],
