@@ -26,6 +26,13 @@
                                         <span class="title">Home</span>
                                     </a>
                                 </li>
+                            @elseif (Auth::user()->profile_type === 'App\Models\Student')
+                                <li>
+                                    <a href="{{ route('frontend.student.home') }}">
+                                        <span class="icon"><i class="fa-solid fa-gauge-high"></i></i></span>
+                                        <span class="title">Home</span>
+                                    </a>
+                                </li>
                             @else
                                 <li>
                                     <a href="{{ route('auth.dashboard') }}">
