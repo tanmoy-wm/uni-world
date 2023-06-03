@@ -8,7 +8,8 @@
                 </h4>
                 <hr>
                 <div class="card-body">
-                    <form class="form-sample" id="createStudent" action="{{ route('agent.student.store') }}" method="POST">
+                    <form class="form-sample" id="createStudent" action="{{ route('frontend.agent.student-store') }}"
+                        method="POST">
                         @csrf
                         @if ($errors->any())
                             @include('theme.components.backend.errors', ['errors' => $errors])

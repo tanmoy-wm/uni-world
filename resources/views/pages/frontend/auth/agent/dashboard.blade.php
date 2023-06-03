@@ -197,8 +197,6 @@
 
 
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -214,13 +212,18 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body">
-                    <form class="form-sample" id="createStudent" action="{{ route('frontend.agent.student.store') }}"
-                        method="POST">
+                    <form class="form-sample" id="addStudentModalForm"
+                        action="{{ route('frontend.agent.student-store') }}" method="POST">
                         @csrf
                         @if ($errors->any())
                             @include('theme.components.backend.errors', ['errors' => $errors])
                         @endif
+
+                        <div class="alert alert-success" id="success-alert" role="alert" style="display: none">
+                            A simple success alert—check it out!
+                        </div>
                         <h5>Personal Information</h5>
                         @csrf
                         <div class="form-group">
@@ -246,7 +249,7 @@
 
                         <div class="form-group">
                             <label for="dob" class="col-form-label">Country of Citizenship</label>
-                            <select class="form-control" name="country " required>
+                            <select class="form-control" name="country" required>
                                 @forelse ($countries as $country)
                                     <option value="{{ $country->name }}">{{ $country->name }}
                                     </option>
@@ -352,13 +355,12 @@
 
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary ml-2">Save </button>
+                            <button type="submit" class="btn btn-primary ml-2">Save</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
     {{-- end create student modal --}}
 @endsection
