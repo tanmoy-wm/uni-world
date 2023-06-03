@@ -19,7 +19,7 @@ class StoreStudentRequest extends FormRequest
             'last_name'     => ['required', 'string', 'max:255'],
             'email'         => ['required', 'string', 'unique:users,email', 'unique:admins,email', 'unique:students,email', 'max:255'],
             'country_code'  => ['required', 'string', 'max:10'],
-            'mobile_number' => ['required', 'digits:10'],
+            'mobile_number' => ['required'],
             'state'         => ['nullable', 'string', 'max:255'],
             'country'       => ['required', 'string', 'max:255'],
             'dob'           => ['required', 'date_format:Y-m-d'],
