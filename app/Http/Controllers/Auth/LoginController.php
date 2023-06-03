@@ -23,7 +23,7 @@ class LoginController extends Controller
 
                 return redirect()->route('backend.login');
             } elseif (Auth::user()->profile_type === 'App\Models\Student') {
-                return redirect()->route('auth.dashboard');
+                return redirect()->route('frontend.student.home');
             } elseif (Auth::user()->profile_type === 'App\Models\Agent') {
                 return redirect()->route('frontend.agent.dashboard');
             } elseif (Auth::user()->profile_type === 'App\Models\University') {

@@ -1,18 +1,20 @@
 <?php
 
 use App\Http\Controllers\Backend\Users\AgentController;
+use App\Http\Controllers\Backend\Users\StudentController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/login', 'pages.frontend.public.login')->name('login');
+Route::view('/student/dashboard', 'pages.frontend.auth.student.dashboard')->name('student.dashboard');
 Route::middleware('auth:web')->group(function () {
     Route::get('/programs', [FrontendController::class, 'getPrograms'])->name('frontend.programs');
     Route::view('/program/{id}', 'pages.frontend.auth.see-program-details')->name('frontend.see-program-details');
     Route::get('/university/{username}', [FrontendController::class, 'universityShow'])->name('frontend.university-show');
     Route::view('/student/my-applications', 'pages.frontend.auth.application.index')->name('my-application');
-    Route::get('/agent/my-students', [AgentController::class, 'getStudents'])->name('agent.student');
+
     Route::get('/dashboard', [DashboardController::class, 'getDashboard'])->name('auth.dashboard');
     // Route::post('/agent/student/store', [AgentController::class, 'storeStudent'])->name('agent.student.store');
 
@@ -24,8 +26,17 @@ Route::middleware('auth:web')->group(function () {
         'prefix' => '/agent'
     ], function () {
         Route::get('/dashboard', 'dashboard')->name('dashboard');
-        Route::get('/student/create',  'createStudent')->name('student.create');
-        Route::post('/store', 'storeStudent')->name('student.store');
+        Route::get('/student/create',  'createStudent')->name('student-create');
+        Route::post('/store', 'storeStudent')->name('student-store');
+        Route::get('/my-students', 'getStudents')->name('my-student');
+    });
+
+    Route::group([
+        'as'         => 'frontend.student.',
+        'controller' => StudentController::class,
+        'prefix'     => '/student'
+    ], function () {
+        Route::get('/', 'home')->name('home');
     });
 });
 
