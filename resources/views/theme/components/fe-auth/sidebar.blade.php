@@ -42,12 +42,14 @@
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="{{ route('agent.student') }}">
-                                    <span class="icon"><i class="fa-solid fa-graduation-cap"></i></i></span>
-                                    <span class="title">Students</span>
-                                </a>
-                            </li>
+                            @if (Auth::user()->profile_type === 'App\Models\Agent')
+                                <li>
+                                    <a href="{{ route('frontend.agent.my-student') }}">
+                                        <span class="icon"><i class="fa-solid fa-graduation-cap"></i></i></span>
+                                        <span class="title">Students</span>
+                                    </a>
+                                </li>
+                            @endif
 
                             <li>
                                 <a href="{{ route('auth.profile') }}">

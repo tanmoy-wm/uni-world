@@ -39,6 +39,12 @@ class StudentService
         return view('pages.backend.users.student.edit', compact('student', 'countries'));
     }
 
+    public function home(): View
+    {
+        $countries = Country::all();
+        return view('pages.frontend.auth.student.home', compact('countries'));
+    }
+
     public function index($request): View
     {
         $students = Student::all();

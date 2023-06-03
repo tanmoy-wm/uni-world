@@ -4479,8 +4479,8 @@ a.sub-content-univer-price-btn:hover{
     top: 0;
     left: 0;
     height: 100%;
-    background-color: #fff;
-    color: #000;   
+    background-color: #5d4bdc;
+    color: #fff;   
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
 	z-index:2;
 	border-right: 1px solid rgba(0, 0, 0, 0.12);
@@ -4525,6 +4525,7 @@ a.sub-content-univer-price-btn:hover{
     transition: all 200ms linear 0s;
     background-color: transparent;
     color: rgb(96, 106, 132);
+	color:#fff;
 }
 .dasboardMenuWrap li a .icon{
 	font-size:20px;
@@ -4547,6 +4548,21 @@ a.sub-content-univer-price-btn:hover{
 	width:280px;
 }
 .dashboardMenuArea:hover .dasboardMenuWrap li a .title{
+	display:block;
+}
+
+.appStepAccordianHeader{
+	padding:12px 0;
+	cursor:pointer;
+}
+.appStepAccordianItem.active .appStepAccordianHeader .arrow i:before{
+	content: "\f106";
+}
+.appStepAccordianBody{
+	display:none;
+}
+
+.appStepAccordianItem.active .appStepAccordianBody{
 	display:block;
 }
 
@@ -4960,6 +4976,96 @@ a.sub-content-univer-price-btn:hover{
 .mdCheckbox input[type=checkbox]:disabled:checked + label:before {
   background: rgba(0, 0, 0, 0.26);
 }
+
+
+
+
+
+
+
+
+.mdradiobox {
+  position: relative;  
+  text-align: left;
+}
+
+.mdradiobox label {
+  cursor: pointer;
+  display: inline;
+  line-height: 1.25em;
+  vertical-align: top;
+  clear: both;
+  padding-left: 1px;
+}
+.mdradiobox label:not(:empty) {
+  padding-left: 0.75em;
+}
+.mdradiobox label:before, .mdradiobox label:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.mdradiobox label:before {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2px solid #5d4bdc; 
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius:50%;  
+ }
+.mdradiobox input[type=radio] {
+  outline: 0;
+  visibility: hidden;
+  width: 1.25em;
+  margin: 0;
+  display: block;
+  float: left;
+  font-size: inherit;
+}
+.mdradiobox input[type=radio]:checked + label:before {
+  background: #5d4bdc;
+  /*border: none;*/
+}
+.mdradiobox input[type=radio]:checked + label:after {
+    /* transform: translate(0.25em, 0.3365384615em) rotate(-45deg); */
+    width: 10px;
+    height: 10px;
+    /* border: 2px solid #fff; */
+    border-top-style: none;
+    border-right-style: none;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 5px;
+    top: 5px;
+    border-radius: 50%;
+}
+.mdradiobox input[type=radio]:disabled + label:before {
+  border-color: rgba(0, 0, 0, 0.26);
+}
+.mdradiobox input[type=radio]:disabled:checked + label:before {
+  background: rgba(0, 0, 0, 0.26);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .dasboardAppHeader .status{
     color: rgb(66, 139, 202);
@@ -5824,3 +5930,185 @@ a.sub-content-univer-price-btn:hover{
 	color:#000;
 }
 .dashTableArea table tr td{} 
+
+.dashBeforeApplySec{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 30px;	
+	background-color: transparent;
+	box-shadow:none;
+}
+.dashBeforeApplyAreainner .rowBox{	
+	padding:0px;	
+}
+.dashBeforeApplyAreainner .columnBox{
+	list-style-type:none;	
+	margin-bottom:15px;
+}
+.dashBeforeApplyAreainner .dashBeforeApplyBox .dashBeforeApplyLink{
+    display: block;
+    width: 100%;   
+    border: 1px solid rgb(210, 214, 225);  
+    color: rgb(96, 106, 132);
+    background-color: rgb(245, 246, 248);
+    padding: 15px 10px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.08);	
+}
+.dashBeforeApplyAreainner .dashBeforeApplyBox .dashBeforeApplyLink .icon{
+	margin-right:5px;
+}
+.dashBeforeApplyAreainner .dashBeforeApplyBox .dashBeforeApplyLink:hover{
+	background-color: #2c17c3;
+    border: 1px solid #2c17c3;
+    color: #fff;
+}
+.dashBeforeApplyAreainner .dashBeforeApplyBox.complete .dashBeforeApplyLink{
+	background-color: transparent;
+    border: 1px solid #ddd;
+    color: #000;
+}
+.applyStepAccordian{}
+.applyStepAccordian .applyStepAccordianItem{
+	border:1px solid #ddd;
+	border-radius:6px;
+	margin-bottom:20px;
+}
+.applyStepAccordianHeader {
+	padding:15px 15px;
+}
+.applyStepAccordianHeader .title {}
+.applyStepAccordianHeader .info {}
+.applyStepAccordianHeader .arrow {}
+.applyStepAccordianHeader .arrow i{}
+
+.applyStepAccordianBody{
+	padding:15px 15px;
+	border-top:1px solid #ddd;
+	display:none;
+}
+.applyStepAccordian .applyStepAccordianItem.active .applyStepAccordianBody{
+	display:block;
+}
+.applyStepAccordian .applyStepAccordianItem.active .applyStepAccordianHeader .arrow i:before{
+    content: "\f106";	
+}
+.applyStepAccordian .applyStepAccordianItem.disable .applyStepAccordianHeader .arrow{
+    display:none;	
+}
+.applyStepAccordian .applyStepAccordianItem.disable{
+    color: rgb(164, 172, 194);	
+}
+.myAdviserAreainner{
+	    box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),
+		0px 3px 4px 0px rgba(0,0,0,0.14),
+		0px 1px 8px 0px rgba(0,0,0,0.12);
+		padding:20px 20px;
+		border-radius:6px;
+}
+.myAdviserAreainner .myAdviserBox{
+	border-right:1px solid #ddd;	
+}
+.myAdviserinner{
+	padding:10px 20px;
+}
+.themeSidebar {
+    background-color: #F4F9FF;
+    padding: 20px 20px;
+    border-radius: 8px;
+    position: sticky;
+    top: 120px;
+    margin-bottom: 30px;
+}
+.themeSidebar nav {
+}
+.themeSidebar nav ul {
+    padding:0px;
+	margin:0px;
+	padding-left:20px;
+}
+.themeSidebar nav ul li {
+    list-style-type: decimal;
+}
+.themeSidebar nav ul li a {
+    padding: 5px 0px;
+    display: block;
+    color: #000;
+    background-color: transparent;  
+    border-radius: 10px;
+	font-size:14px;
+}
+.themeSidebar nav ul li:last-child {
+}
+.themeSidebar nav ul ul{
+	padding-left:30px;
+}
+.themeSidebar nav ul ul li{
+	list-style-type:disc;
+}
+.contentSec{
+	padding:40px 0;
+}
+.applyBoardSec{    
+    background-position: 50% 50%;
+    background-size: cover;
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+    height: 100vh;	
+	overflow-x:scroll;
+	padding:30px 15px;
+}
+.applyBoardCard{
+	width:100%;
+	max-width:700px;
+	margin:0 auto;	
+}
+.applyBoardCardBody{
+	padding:30px 30px;;
+}
+.applyBoardModal {
+	padding-right:0px !important;	
+}
+.applyBoardModalDiolog{
+    max-width: 100%;
+    margin: 0;	
+}
+.applyBoardModalContent{
+	border-radius:0px;
+	border:0;
+	min-height:100vh
+}
+.progressBarArea .progress {   
+    height: 3px;
+}
+.applyBoardCardBody .mdCheckboxArea{}
+.applyBoardCardBody .mdCheckboxArea{}
+.applyStepSecHeader{
+	
+}
+.applyStepBtnArea .applyStepBtn{
+    display: inline-block;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 15px 15px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.08);
+    font-size: 16px;
+    background: #5d4bdc;
+    border: 1px solid #5d4bdc;
+    color: #ffffff;	
+	width:100%;
+}
+.applyStepBtnArea .applyStepBtn2{
+	display: inline-block;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 15px 15px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.08);
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid #5d4bdc;
+    color: #5d4bdc;	
+	width:100%;
+}

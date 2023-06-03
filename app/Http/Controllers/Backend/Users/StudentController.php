@@ -35,6 +35,11 @@ class StudentController extends Controller
         return $this->service->edit($id);
     }
 
+    public function home(): View
+    {
+        return $this->service->home();
+    }
+
     public function index(Request $request): View
     {
         return $this->service->index($request);

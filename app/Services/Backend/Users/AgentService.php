@@ -124,9 +124,9 @@ class AgentService
 
         return redirect()->route('agents.index');
     }
-    public function storeStudent(StoreStudentRequest $request): RedirectResponse
+    public function storeStudent(StoreStudentRequest $request)
     {
-        dd(1);
+        // dd(1);
         try {
             $validated_request = $request->validated();
             DB::transaction(function () use ($validated_request) {
@@ -143,11 +143,11 @@ class AgentService
                     'passport_number' => $validated_request['passport_number'] ?? null,
                     'status' => $validated_request['status'],
                     'referral_source' => $validated_request['referral_source'],
-                    'agent_accept_terms_and_service_behalf_of_student',
+                    'agent_accept_terms_and_service_behalf_of_student' => true,
                     'agent_id' => Auth::user()->profile->id,
                     'assigned_to' => $validated_request['assigned_to'] ?? null,
-                    'country_of_interest' => $validated_request['country_of_interest'],
-                    'service_of_interest' => $validated_request['service_of_interest'],
+                    'country_of_interest' => $validated_request['country_of_interest'] ?? null,
+                    'service_of_interest' => $validated_request['service_of_interest'] ?? null,
                 ]);
 
                 $password = Str::random(8);
@@ -159,7 +159,7 @@ class AgentService
             return redirect()->back()->withErrors($exception->getMessage());
         }
 
-        return redirect()->route('auth.dashboard');
+        return response()->json(['success' => true], 201);
     }
 
     public function trashed($id): RedirectResponse

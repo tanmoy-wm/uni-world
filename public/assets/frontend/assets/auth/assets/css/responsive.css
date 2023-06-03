@@ -567,8 +567,21 @@
     width: 100%;
     padding: 15px 0 0 0;
 }
-
-
+.dashBeforeApplySec {
+   padding:0px;
+}
+.applyStepAccordianHeader .title {
+    font-size: 18px;
+}
+.applyStepAccordianBody .headerContent h5.title{
+	font-size:16px;
+}
+.applyStepAccordianBody .headerContent .content{
+ -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;	
+	font-size:14px;
+}
 
 }
 
