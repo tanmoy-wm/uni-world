@@ -29,13 +29,13 @@
                         </li>
 
                         <li class="col-lg-4 col-md-4 col-sm-6 col-12 columnBox dashBeforeApplyBox complete">
-                            <a href="#" class="dashBeforeApplyLink">
+                            <a href="{{ route('frontend.programs') }}" class="dashBeforeApplyLink">
                                 <span class="icon"><i class="fa-regular fa-arrow-right"></i></span>
                                 <span class="text">Choose a Program</span>
                             </a>
                         </li>
                         <li class="col-lg-4 col-md-4 col-sm-6 col-12 columnBox dashBeforeApplyBox">
-                            <a href="#" class="dashBeforeApplyLink ">
+                            <a href="{{ route('auth.edit-profile') }}" class="dashBeforeApplyLink ">
                                 <span class="icon"><i class="fa-regular fa-arrow-right"></i></span>
                                 <span class="text">Complete Profile</span>
                             </a>
@@ -1893,7 +1893,7 @@
                                         </a>
                                     </li>
                                     <li class="d-flex align-items-center mb-0" style="list-style-type:none;">
-                                        <a href="#" style="">
+                                        <a href="{{ route('frontend.blog') }}" style="">
                                             <span class="icon mr-2"><i class="fa-regular fa-newspaper"></i></span>
                                             <span class="txt">Blog</span>
                                         </a>
