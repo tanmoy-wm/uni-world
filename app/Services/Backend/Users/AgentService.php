@@ -49,9 +49,9 @@ class AgentService
 
     public function edit($id): View
     {
-        $students = Agent::query()->findOrFail($id);
+        $agent = Agent::query()->findOrFail($id);
         $countries = Country::all();
-        return view('pages.backend.users.agent.edit', compact('students', 'countries'));
+        return view('pages.backend.users.agent.edit', compact('agent', 'countries'));
     }
 
     public function getStudents(): View

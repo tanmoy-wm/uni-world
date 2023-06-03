@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Backend\Users;
 
+use App\Models\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -9,9 +10,21 @@ use Illuminate\Http\JsonResponse;
 
 class UpdateStudentRequest extends FormRequest
 {
+    public function __construct(public $ignore_id = null)
+    {
+
+    }
+
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function prepareForValidation()
+    {
+        $this->ignore_id = User::query()->where('profile_type', 'App\Models\Student')
+                                ->where('profile_id', $this->id)->first();
+
     }
 
     public function rules(): array
@@ -33,8 +46,8 @@ class UpdateStudentRequest extends FormRequest
                 'required',
                 'email:rfc,dns',
                 'unique:students,email,' . $this->route('id'),
-                'unique:users,email,' . $this->route('id'),
-                'unique:admins,email,' . $this->route('id'),
+                'unique:users,email,' . $this->ignore_id->id,
+                'unique:admins,email',
                 'max:255'
             ],
         ];
