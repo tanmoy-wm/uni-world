@@ -2,9 +2,15 @@
     <div class="leftTopNavbar">
         <span class="backMenu"><i class="fa-sharp fa-regular fa-arrow-left"></i></span>
         <ul class="topNavMenuList">
-            <li><a href="{{ route('auth.dashboard') }}">Home</a></li>
-            <li><span>Postgraduate Diploma - Nuclear Decommissioning and Waste Management, University of Birmingham -
-                    Edgbaston</span></li>
+            @if (Auth::user()->profile_type === 'App\Models\Agent')
+                <li><a href="{{ route('frontend.agent.dashboard') }}">Home</a></li>
+            @elseif (Auth::user()->profile_type === 'App\Models\Student')
+                <li><a href="{{ route('frontend.student.home') }}">Home</a></li>
+            @else
+                <li><a href="{{ route('auth.dashboard') }}">Home</a></li>
+            @endif
+            {{-- <li><span>Postgraduate Diploma - Nuclear Decommissioning and Waste Management, University of Birmingham -
+                    Edgbaston</span></li> --}}
         </ul>
     </div>
     <div class="rightTopNavbar">
