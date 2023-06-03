@@ -13,4 +13,11 @@ class AdminController extends Controller
     public function __construct(public AdminService $service)
     {
     }
+
+    public function dashboard()
+    {
+        return $this->service->dashboard();
+    }
+
+
 }

@@ -81,7 +81,8 @@ Route::middleware('auth:web')->group(function () {
                 'controller' => AdminController::class,
                 'prefix' => '/admins'
             ], function () {
-                Route::view('/', 'pages.admin.dashboard')->name('dashboard');
+                // Route::view('/', 'pages.admin.dashboard')->name('dashboard');
+                Route::get('/', 'dashboard')->name('dashboard');
             });
 
             Route::group([
