@@ -70,7 +70,7 @@ class AgentController extends Controller
         return $this->service->store($request);
     }
 
-    public function storeStudent(StoreStudentRequest $request): RedirectResponse
+    public function storeStudent(StoreStudentRequest $request)
     {
         return $this->service->storeStudent($request);
     }
