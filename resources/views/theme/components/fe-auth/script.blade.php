@@ -48,9 +48,160 @@
     });
 </script>
 
+<script>
+    $(document).ready(function() {
+        $('#step-1-next').click(function(e) {
+            $('#step-1').hide();
+            $('#step-2').show();
+        });
 
 {{-- <script type="text/javascript">
     function form_submit() {
         document.getElementById("createStudent").submit();
     }
 </script> --}}
+
+        $('#step-3-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').show();
+        });
+
+        $('#step-4-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').show();
+        });
+
+        $('#step-5-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').hide();
+            $('#step-6').show();
+        });
+
+        $('#step-6-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').hide();
+            $('#step-6').hide();
+            $('#step-7').show();
+        });
+
+        $('#step-7-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').hide();
+            $('#step-6').hide();
+            $('#step-7').hide();
+            $('#step-8').show();
+        });
+
+        $('#step-8-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').hide();
+            $('#step-6').hide();
+            $('#step-7').hide();
+            $('#step-8').hide();
+            $('#step-9').show();
+        });
+
+        $('#step-9-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').hide();
+            $('#step-6').hide();
+            $('#step-7').hide();
+            $('#step-8').hide();
+            $('#step-9').hide();
+            $('#step-10').show();
+        });
+
+        $('#step-10-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').hide();
+            $('#step-6').hide();
+            $('#step-7').hide();
+            $('#step-8').hide();
+            $('#step-9').hide();
+            $('#step-10').hide();
+            $('#step-11').show();
+        });
+
+        $('#step-11-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').hide();
+            $('#step-6').hide();
+            $('#step-7').hide();
+            $('#step-8').hide();
+            $('#step-9').hide();
+            $('#step-10').hide();
+            $('#step-11').hide();
+            $('#step-12').show();
+        });
+
+        $('#step-12-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').hide();
+            $('#step-6').hide();
+            $('#step-7').hide();
+            $('#step-8').hide();
+            $('#step-9').hide();
+            $('#step-10').hide();
+            $('#step-11').hide();
+            $('#step-12').hide();
+            $('#step-13').show();
+        });
+
+        $('#step-13-next').click(function(e) {
+            e.preventDefault();
+            $('#step-1').hide();
+            $('#step-2').hide();
+            $('#step-3').hide();
+            $('#step-4').hide();
+            $('#step-5').hide();
+            $('#step-6').hide();
+            $('#step-7').hide();
+            $('#step-8').hide();
+            $('#step-9').hide();
+            $('#step-10').hide();
+            $('#step-11').hide();
+            $('#step-12').hide();
+            $('#step-13').hide();
+            $('#step-14').show();
+        });
+    });
+</script>
