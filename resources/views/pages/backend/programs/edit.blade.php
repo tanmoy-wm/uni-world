@@ -37,7 +37,10 @@
                                     <select class="form-control" name="category_id" required>
                                         <option value="active">Select a Category</option>
                                         @forelse ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}"
+                                                {{ $program->category_id == $category->id ? 'selected' : '' }}>
+                                                {{ $category->name }}</option>
+
                                         @empty
                                             <option value="active">No Category Found</option>
                                         @endforelse
