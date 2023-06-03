@@ -108,8 +108,8 @@
                                         <div class="applyStepSec" style="display: none;" id="step-2">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-2-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -162,8 +162,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-3">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-3-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -904,8 +904,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-4">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-4-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1138,8 +1138,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-5">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-5-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1194,8 +1194,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-6">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-6-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1224,8 +1224,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-7">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-7-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1262,8 +1262,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-8">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-8-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1302,8 +1302,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-9">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-9-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1377,8 +1377,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-10">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-10-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1456,8 +1456,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-11">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-11-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1533,8 +1533,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-12">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-12-back"><i class="fa-regular fa-arrow-left"></i>
                                                 </div>
 
                                                 <button type="button" class="close" data-dismiss="modal"><i
@@ -1576,8 +1576,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-13">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-13-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1655,8 +1655,8 @@
                                         <div class="applyStepSec" style="display:none;" id="step-14">
                                             <div
                                                 class="d-flex justify-content-between align-items-center applyStepSecHeader mb-4">
-                                                <div class="bacck" style="font-size:20px;"><i
-                                                        class="fa-regular fa-arrow-left"></i></div>
+                                                <div class="bacck" style="font-size:20px; cursor: pointer;"
+                                                    id="step-14-back"><i class="fa-regular fa-arrow-left"></i></div>
                                                 <button type="button" class="close" data-dismiss="modal"><i
                                                         class="fa-regular fa-xmark"></i></button>
                                             </div>
@@ -1701,7 +1701,8 @@
 
                                                 <div class="applyStepBtnArea">
                                                     <button type="botton" class="applyStepBtn" data-toggle="modal"
-                                                        data-target="#lastStepModal" id="step-14-next">Next</button>
+                                                        data-target="#lastStepModal" id="step-14-next">Explore
+                                                        Programs</button>
                                                 </div>
                                             </div>
 
@@ -1724,16 +1725,46 @@
                                                                 for
                                                                 other programs in your cart.</p>
                                                             <div class="applyStepBtnArea">
-                                                                <button type="botton" class="applyStepBtn2 mb-3">Show
-                                                                    Result Only</button>
-                                                                <button type="botton" class="applyStepBtn">Save &
+                                                                <a href="{{ route('frontend.programs') }}"
+                                                                    class="applyStepBtn2 mb-3 text-center">Show
+                                                                    Result Only</a>
+                                                                <a href="{{ route('frontend.programs') }}"
+                                                                    class="applyStepBtn text-center">Save &
                                                                     Show
-                                                                    Result</button>
+                                                                    Result
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            {{-- final modal --}}
+                                            {{-- <div class="modal fade" id="final-modal" tabindex="-1" role="dialog"
+                                                aria-labelledby="final-modal-center-title" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal
+                                                                title</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ...
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save
+                                                                changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> --}}
+                                            {{-- final modal --}}
                                         </div>
                                         <!--<div class="applyStepSec"></div>-->
                                     </div>
