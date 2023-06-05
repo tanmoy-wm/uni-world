@@ -74,29 +74,30 @@
                                                     <div class="mdCheckboxArea mb-4">
                                                         <div class="mdCheckbox mb-3">
                                                             <input id="i1" type="checkbox" value="usa"
-                                                                name="">
+                                                                name="preferred_countries[]" class="country-checkbox"
+                                                                required>
                                                             <label for="i1">USA</label>
                                                         </div>
                                                         <div class="mdCheckbox mb-3">
-                                                            <input id="i2" type="checkbox" value="canada">
+                                                            <input id="i2" type="checkbox" value="canada"
+                                                                name="preferred_countries[]" class="country-checkbox">
                                                             <label for="i2">Canada</label>
                                                         </div>
                                                         <div class="mdCheckbox mb-3">
                                                             <input id="i3" value="united-kingdom" type="checkbox"
-                                                                name="">
+                                                                name="preferred_countries[]" class="country-checkbox">
                                                             <label for="i3">United Kingdom</label>
                                                         </div>
                                                         <div class="mdCheckbox mb-3">
                                                             <input id="i4" type="checkbox" value="australia"
-                                                                name="">
+                                                                name="preferred_countries[]" class="country-checkbox">
                                                             <label for="i4">Australia</label>
                                                         </div>
                                                         <div class="mdCheckbox">
                                                             <input id="i5" type="checkbox" value="ireland"
-                                                                name="">
+                                                                name="preferred_countries[]" class="country-checkbox">
                                                             <label for="i5">Ireland</label>
                                                         </div>
-
                                                     </div>
                                                     <div class="applyStepBtnArea">
                                                         <button id="step-1-next" class="applyStepBtn">Next</button>
@@ -127,30 +128,40 @@
                                                     </h4>
                                                     <div class="mdCheckboxArea mb-4">
                                                         <div class="mdCheckbox mb-3">
-                                                            <input id="i6" type="checkbox">
+                                                            <input id="i6" type="checkbox"
+                                                                class="applying_education_levels"
+                                                                name="applying_education_levels[]">
                                                             <label for="i6">Primary / Elementary School</label>
                                                         </div>
                                                         <div class="mdCheckbox mb-3">
-                                                            <input id="i7" type="checkbox">
+                                                            <input id="i7" type="checkbox"
+                                                                class="applying_education_levels"
+                                                                name="applying_education_levels[]">
                                                             <label for="i7">Secondary School</label>
                                                         </div>
                                                         <div class="mdCheckbox mb-3">
-                                                            <input id="i8" type="checkbox">
+                                                            <input id="i8" type="checkbox"
+                                                                class="applying_education_levels"
+                                                                name="applying_education_levels[]">
                                                             <label for="i8">Bachelor's Degree / College Diploma /
                                                                 Undergraduate</label>
                                                         </div>
                                                         <div class="mdCheckbox mb-3">
-                                                            <input id="i9" type="checkbox">
+                                                            <input id="i9" type="checkbox"
+                                                                class="applying_education_levels"
+                                                                name="applying_education_levels[]">
                                                             <label for="i9">Master's Degree /
                                                                 Post-graduate</label>
                                                         </div>
                                                         <div class="mdCheckbox">
-                                                            <input id="i10" type="checkbox">
+                                                            <input id="i10" type="checkbox"
+                                                                class="applying_education_levels"
+                                                                name="applying_education_levels[]">
                                                             <label for="i10">English as a Second Language
                                                                 (ESL)</label>
                                                         </div>
-
                                                     </div>
+
                                                     <div class="applyStepBtnArea">
                                                         <button type="botton" id="step-2-next"
                                                             class="applyStepBtn">Next</button>
@@ -199,7 +210,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i11" type="checkbox">
+                                                                                    <input id="i11" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i11">Aero Space,
                                                                                         Aviation and Pilot
                                                                                         Technology</label>
@@ -209,7 +222,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i12" type="checkbox">
+                                                                                    <input id="i12" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i12">Agriculture</label>
                                                                                 </div>
@@ -218,7 +233,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i13" type="checkbox">
+                                                                                    <input id="i13" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i13">Architecture</label>
                                                                                 </div>
@@ -227,7 +244,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i14" type="checkbox">
+                                                                                    <input id="i14" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i14">Biomedical
                                                                                         Engineering</label>
                                                                                 </div>
@@ -236,7 +255,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i15" type="checkbox">
+                                                                                    <input id="i15" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i15">Chemical
                                                                                         Engineering</label>
                                                                                 </div>
@@ -245,7 +266,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i16" type="checkbox">
+                                                                                    <input id="i16" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i16">Civil
                                                                                         Engineering,
                                                                                         Construction</label>
@@ -254,7 +277,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i17" type="checkbox">
+                                                                                    <input id="i17" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i17">Electrical
                                                                                         Engineering</label>
                                                                                 </div>
@@ -263,7 +288,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i18" type="checkbox">
+                                                                                    <input id="i18" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i18">Electronic</label>
                                                                                 </div>
@@ -272,7 +299,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox">
-                                                                                    <input id="i19" type="checkbox">
+                                                                                    <input id="i19" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i19">Environmental
                                                                                         Engineering</label>
                                                                                 </div>
@@ -280,7 +309,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i20" type="checkbox">
+                                                                                    <input id="i20" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i20">Game Design,
                                                                                         Game
                                                                                         Animation, Game Creation</label>
@@ -290,7 +321,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i21" type="checkbox">
+                                                                                    <input id="i21" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i21">Industrial</label>
                                                                                 </div>
@@ -299,7 +332,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox">
-                                                                                    <input id="i22" type="checkbox">
+                                                                                    <input id="i22" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i22">Material
                                                                                         Engineering</label>
                                                                                 </div>
@@ -308,7 +343,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i23" type="checkbox">
+                                                                                    <input id="i23" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i23">Mechanical,
                                                                                         Manufacturing, Robotic
                                                                                         Engineering</label>
@@ -318,7 +355,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i24" type="checkbox">
+                                                                                    <input id="i24" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i24">Radiography</label>
                                                                                 </div>
@@ -327,7 +366,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i25" type="checkbox">
+                                                                                    <input id="i25" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i25">Technology,
                                                                                         Software, Computer, IT</label>
                                                                                 </div>
@@ -354,14 +395,18 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i26" type="checkbox">
+                                                                                    <input id="i26" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i11">Astronomy</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i27" type="checkbox">
+                                                                                    <input id="i27" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i27">Biochemistry</label>
                                                                                 </div>
@@ -369,21 +414,27 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i28" type="checkbox">
+                                                                                    <input id="i28" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i28">Biology</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i29" type="checkbox">
+                                                                                    <input id="i29" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i29">Chemistry</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i30" type="checkbox">
+                                                                                    <input id="i30" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i30">Computer
                                                                                         Science</label>
                                                                                 </div>
@@ -391,12 +442,15 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i31" type="checkbox">
+                                                                                    <input id="i31" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i31">Dental</label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div
-                                                                                class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
+                                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox"
+                                                                                class="preferred_stream"
+                                                                                name="preferred_stream[]">
                                                                                 <div class="mdCheckbox mb-3">
                                                                                     <input id="i32" type="checkbox">
                                                                                     <label for="i32">Environmental,
@@ -406,7 +460,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i33" type="checkbox">
+                                                                                    <input id="i33" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i33">Food,
                                                                                         Nutrition,
                                                                                         Exercise</label>
@@ -415,21 +471,27 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i34" type="checkbox">
+                                                                                    <input id="i34" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i34">General</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i35" type="checkbox">
+                                                                                    <input id="i35" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i35">Geology</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i36" type="checkbox">
+                                                                                    <input id="i36" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i36">Humanitarian
                                                                                         Sciences</label>
                                                                                 </div>
@@ -437,7 +499,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i37" type="checkbox">
+                                                                                    <input id="i37" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i37">Mathematics</label>
                                                                                 </div>
@@ -445,21 +509,27 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i38" type="checkbox">
+                                                                                    <input id="i38" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i38">Optometry</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i39" type="checkbox">
+                                                                                    <input id="i39" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i39">Pharmacy</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i40" type="checkbox">
+                                                                                    <input id="i40" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i40">Physics</label>
                                                                                 </div>
                                                                             </div>
@@ -467,7 +537,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i41" type="checkbox">
+                                                                                    <input id="i41" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i41">Political</label>
                                                                                 </div>
                                                                             </div>
@@ -475,7 +547,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i42" type="checkbox">
+                                                                                    <input id="i42" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i42">Psychology,
                                                                                         Philosophy, Therapy</label>
                                                                                 </div>
@@ -484,7 +558,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i43" type="checkbox">
+                                                                                    <input id="i43" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i43">Veterinarian</label>
                                                                                 </div>
@@ -511,14 +587,18 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i44" type="checkbox">
+                                                                                    <input id="i44" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i44">Animation</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i45" type="checkbox">
+                                                                                    <input id="i45" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i45">Anthropology</label>
                                                                                 </div>
@@ -526,7 +606,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i46" type="checkbox">
+                                                                                    <input id="i46" type="checkbox"
+                                                                                        lass="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i46">Communication</label>
                                                                                 </div>
@@ -534,7 +616,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i47" type="checkbox">
+                                                                                    <input id="i47" type="checkbox"
+                                                                                        lass="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i47">English
                                                                                         Literature</label>
                                                                                 </div>
@@ -542,7 +626,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i48" type="checkbox">
+                                                                                    <input id="i48" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i48">Fashion,
                                                                                         Esthetics</label>
                                                                                 </div>
@@ -550,7 +636,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i49" type="checkbox">
+                                                                                    <input id="i49" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i49">Fine
                                                                                         Arts</label>
                                                                                 </div>
@@ -558,7 +646,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i50" type="checkbox">
+                                                                                    <input id="i50" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i50">Food and
                                                                                         Culinary</label>
                                                                                 </div>
@@ -566,7 +656,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i51" type="checkbox">
+                                                                                    <input id="i51" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i51">Gender
                                                                                         Studies</label>
                                                                                 </div>
@@ -574,21 +666,27 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i52" type="checkbox">
+                                                                                    <input id="i52" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i52">General</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i53" type="checkbox">
+                                                                                    <input id="i53" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i53">Geology</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i54" type="checkbox">
+                                                                                    <input id="i54" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i54">Global
                                                                                         Studies</label>
                                                                                 </div>
@@ -596,7 +694,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i55" type="checkbox">
+                                                                                    <input id="i55" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i55">Graphic
                                                                                         Design,
                                                                                         Interior Design</label>
@@ -605,14 +705,18 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i56" type="checkbox">
+                                                                                    <input id="i56" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i56">History</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i57" type="checkbox">
+                                                                                    <input id="i57" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i57">Journalism</label>
                                                                                 </div>
@@ -620,14 +724,18 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i58" type="checkbox">
+                                                                                    <input id="i58" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i58">Languages</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i59" type="checkbox">
+                                                                                    <input id="i59" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i59">Liberal
                                                                                         Arts</label>
                                                                                 </div>
@@ -635,7 +743,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i60" type="checkbox">
+                                                                                    <input id="i60" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i60">Media,
                                                                                         Photography, Film, Theatre,
                                                                                         Performance</label>
@@ -644,7 +754,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i61" type="checkbox">
+                                                                                    <input id="i61" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i61">Music,
                                                                                         Audio</label>
                                                                                 </div>
@@ -652,7 +764,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i62" type="checkbox">
+                                                                                    <input id="i62" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i62">Planning
                                                                                         (Urban)</label>
                                                                                 </div>
@@ -660,14 +774,18 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i63" type="checkbox">
+                                                                                    <input id="i63" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i63">Religion</label>
                                                                                 </div>
                                                                             </div>
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i64" type="checkbox">
+                                                                                    <input id="i64" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i64">Sociology</label>
                                                                                 </div>
                                                                             </div>
@@ -697,7 +815,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i65" type="checkbox">
+                                                                                    <input id="i65" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i65">Accounting</label>
                                                                                 </div>
@@ -705,7 +825,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i66" type="checkbox">
+                                                                                    <input id="i66" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label
                                                                                         for="i66">Entrepreneurship</label>
                                                                                 </div>
@@ -713,7 +835,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i67" type="checkbox">
+                                                                                    <input id="i67" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i67">Finance,
                                                                                         Economics</label>
                                                                                 </div>
@@ -721,7 +845,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i68" type="checkbox">
+                                                                                    <input id="i68" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i68">Hospitality
                                                                                         and
                                                                                         Tourism, Recreation</label>
@@ -730,7 +856,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i69" type="checkbox">
+                                                                                    <input id="i69" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i69">Human
                                                                                         Resources</label>
                                                                                 </div>
@@ -738,7 +866,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i70" type="checkbox">
+                                                                                    <input id="i70" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i70">International
                                                                                         Business</label>
                                                                                 </div>
@@ -746,7 +876,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i71" type="checkbox">
+                                                                                    <input id="i71" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i71">Management,
                                                                                         Administration, General</label>
                                                                                 </div>
@@ -754,7 +886,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i72" type="checkbox">
+                                                                                    <input id="i72" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i72">Marketing,
                                                                                         Analyst, Advertising</label>
                                                                                 </div>
@@ -762,7 +896,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i73" type="checkbox">
+                                                                                    <input id="i73" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i73">Public
                                                                                         Relation</label>
                                                                                 </div>
@@ -770,12 +906,13 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i74" type="checkbox">
+                                                                                    <input id="i74" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i74">Supply
                                                                                         Chain</label>
                                                                                 </div>
                                                                             </div>
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -789,35 +926,45 @@
                                                                     <span class="arrow"><i
                                                                             class="fa-regular fa-chevron-down"></i></span>
                                                                 </div>
+
                                                                 <div class="appStepAccordianBody">
                                                                     <div class="mdCheckboxArea mb-4">
                                                                         <div class="mb-3"><a href="#"
                                                                                 class="btn"
                                                                                 style="color:#5d4bdc;">Sellect All</a>
                                                                         </div>
+
                                                                         <div class="row rowBox">
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i75" type="checkbox">
+                                                                                    <input id="i75" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i75">Community,
                                                                                         Social
                                                                                         Service</label>
                                                                                 </div>
                                                                             </div>
+
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i76" type="checkbox">
+                                                                                    <input id="i76" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i76">Law,
                                                                                         Politics,
                                                                                         Police, Security</label>
                                                                                 </div>
                                                                             </div>
+
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i77" type="checkbox">
+                                                                                    <input id="i77" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i77">Teaching,
                                                                                         Early
                                                                                         Development, Child Care</label>
@@ -843,17 +990,16 @@
                                                                                 style="color:#5d4bdc;">Sellect All</a>
                                                                         </div>
                                                                         <div class="row rowBox">
-
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i78" type="checkbox">
+                                                                                    <input id="i78" type="checkbox"
+                                                                                        class="preferred_stream"
+                                                                                        name="preferred_stream[]">
                                                                                     <label for="i78">English for
                                                                                         Academic Studies</label>
                                                                                 </div>
                                                                             </div>
-
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -881,7 +1027,9 @@
                                                                         <div
                                                                             class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                             <div class="mdCheckbox mb-3">
-                                                                                <input id="i79" type="checkbox">
+                                                                                <input id="i79" type="checkbox"
+                                                                                    class="preferred_stream"
+                                                                                    name="preferred_stream[]">
                                                                                 <label for="i79">Health Sciences,
                                                                                     Medicine, Nursing, Paramedic and
                                                                                     Kinesiology</label>
@@ -939,7 +1087,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i80" type="checkbox">
+                                                                                    <input id="i80" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i80">June
                                                                                         2023</label>
                                                                                 </div>
@@ -948,7 +1098,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i81" type="checkbox">
+                                                                                    <input id="i81" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i81">July
                                                                                         2023</label>
                                                                                 </div>
@@ -957,7 +1109,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i82" type="checkbox">
+                                                                                    <input id="i82" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i82">August
                                                                                         2023</label>
                                                                                 </div>
@@ -966,7 +1120,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i83" type="checkbox">
+                                                                                    <input id="i83" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i83">September
                                                                                         2023</label>
                                                                                 </div>
@@ -975,7 +1131,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i84" type="checkbox">
+                                                                                    <input id="i84" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i84">October
                                                                                         2023</label>
                                                                                 </div>
@@ -984,7 +1142,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i85" type="checkbox">
+                                                                                    <input id="i85" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i85">November
                                                                                         2023</label>
                                                                                 </div>
@@ -992,7 +1152,9 @@
 
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
-                                                                                <div class="mdCheckbox mb-3">
+                                                                                <div class="mdCheckbox mb-3"
+                                                                                    class="preferred_month_of_starting"
+                                                                                    name="preferred_month_of_starting[]">
                                                                                     <input id="i86" type="checkbox">
                                                                                     <label for="i86">December
                                                                                         2023</label>
@@ -1021,7 +1183,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i87" type="checkbox">
+                                                                                    <input id="i87" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i87">January
                                                                                         2024</label>
                                                                                 </div>
@@ -1030,7 +1194,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i88" type="checkbox">
+                                                                                    <input id="i88" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i88">February
                                                                                         2024</label>
                                                                                 </div>
@@ -1039,7 +1205,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i89" type="checkbox">
+                                                                                    <input id="i89" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i89">March
                                                                                         2024</label>
                                                                                 </div>
@@ -1048,7 +1216,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i90" type="checkbox">
+                                                                                    <input id="i90" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i90">April
                                                                                         2024</label>
                                                                                 </div>
@@ -1057,7 +1227,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i91" type="checkbox">
+                                                                                    <input id="i91" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i91">May
                                                                                         2024</label>
                                                                                 </div>
@@ -1066,7 +1238,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i92" type="checkbox">
+                                                                                    <input id="i92" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i92">June
                                                                                         2024</label>
                                                                                 </div>
@@ -1075,7 +1249,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i93" type="checkbox">
+                                                                                    <input id="i93" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i93">July
                                                                                         2024</label>
                                                                                 </div>
@@ -1083,7 +1259,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i94" type="checkbox">
+                                                                                    <input id="i94" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i94">August
                                                                                         2024</label>
                                                                                 </div>
@@ -1091,7 +1269,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i95" type="checkbox">
+                                                                                    <input id="i95" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i95">September
                                                                                         2024</label>
                                                                                 </div>
@@ -1099,7 +1279,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i96" type="checkbox">
+                                                                                    <input id="i96" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i96">October
                                                                                         2024</label>
                                                                                 </div>
@@ -1107,7 +1289,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i97" type="checkbox">
+                                                                                    <input id="i97" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i97">November
                                                                                         2024</label>
                                                                                 </div>
@@ -1115,7 +1299,9 @@
                                                                             <div
                                                                                 class="col-lg-6 col-md-6 col-sm-6 col-12 columnBox">
                                                                                 <div class="mdCheckbox mb-3">
-                                                                                    <input id="i98" type="checkbox">
+                                                                                    <input id="i98" type="checkbox"
+                                                                                        class="preferred_month_of_starting"
+                                                                                        name="preferred_month_of_starting[]">
                                                                                     <label for="i98">December
                                                                                         2024</label>
                                                                                 </div>
@@ -1155,33 +1341,35 @@
                                                     <div class="row rowBox">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                             <div class="mdradiobox mb-3">
-                                                                <input id="ir1" type="radio" name="radio1">
+                                                                <input id="ir1" type="radio" name="budget"
+                                                                    class="budget">
                                                                 <label for="ir1">Up to ~$10,000 USD</label>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                             <div class="mdradiobox mb-3">
-                                                                <input id="ir2" type="radio" name="radio1">
+                                                                <input id="ir2" type="radio" name="budget"
+                                                                    class="budget">
                                                                 <label for="ir2">Up to ~$20,000 USD</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                             <div class="mdradiobox mb-3">
-                                                                <input id="ir3" type="radio" name="radio1">
+                                                                <input id="ir3" type="radio" name="budget"
+                                                                    class="budget">
                                                                 <label for="ir3">Up to ~$30,000 USD</label>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                             <div class="mdradiobox mb-3">
-                                                                <input id="ir4" type="radio" name="radio1">
+                                                                <input id="ir4" type="radio" name="budget"
+                                                                    class="budget">
                                                                 <label for="ir4">No limit</label>
                                                             </div>
                                                         </div>
-
                                                     </div>
-
                                                 </div>
 
                                                 <div class="applyStepBtnArea">
@@ -1203,12 +1391,12 @@
                                                 <h6 class="mb-3">Preferences</h6>
                                                 <div class="progress">
                                                     <div class="progress-bar" style="width:40%"></div>
-                                                </div> -->
+                                                </div>
                                             </div>
 
                                             <div class="applyStepSecinner">
                                                 <div class="form-group">
-                                                    <h4 class="mb-4">You're doing great Sneha!</h4>
+                                                    <h4 class="mb-4">You're doing great {{ Auth::user()->name }}!</h4>
                                                     <p>Next, we will ask you 6 - 8 questions to check your eligibility.
                                                     </p>
 
@@ -1241,7 +1429,10 @@
                                                 <div class="form-group">
                                                     <h4 class="mb-4">What is your nationality?</h4>
                                                     <div class="form-group">
-                                                        <select class="form-control" name="nationality">
+                                                        <select class="form-control" name="nationality"
+                                                            id="nationality" required>
+                                                            <option value="">Select your Nationality
+                                                            </option>
                                                             @forelse ($countries as $country)
                                                                 <option value="{{ $country->name }}">{{ $country->name }}
                                                                 </option>
@@ -1280,7 +1471,10 @@
                                                 <div class="form-group">
                                                     <h4 class="mb-4">What is your country of residence?</h4>
                                                     <div class="form-group">
-                                                        <select class="form-control" name="">
+                                                        <select class="form-control" name="current_country"
+                                                            id="current_country" required>
+                                                            <option value="">Select your country of residence
+                                                            </option>
                                                             @forelse ($countries as $country)
                                                                 <option value="{{ $country->name }}">{{ $country->name }}
                                                                 </option>
@@ -1321,7 +1515,8 @@
                                                 <div class="form-group">
                                                     <h4 class="mb-4">What is your state of residence?</h4>
                                                     <div class="form-group">
-                                                        <select name="state" id="state" class="form-control">
+                                                        <select name="state" id="state" class="form-control"
+                                                            required>
                                                             <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                             <option value="Andaman and Nicobar Islands">Andaman and
                                                                 Nicobar Islands</option>
@@ -1398,14 +1593,18 @@
                                                         <div class="row rowBox">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                                 <div class="mdCheckbox mb-3">
-                                                                    <input id="i98" type="checkbox">
+                                                                    <input id="i98" type="checkbox"
+                                                                        class="december-2024" name="permit_or_visa[]"
+                                                                        class="permit_or_visa">
                                                                     <label for="i98">December 2024</label>
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                                 <div class="mdCheckbox mb-3">
-                                                                    <input id="i99" type="checkbox">
+                                                                    <input id="i99" type="checkbox"
+                                                                        value="canadian-study-permit-or-visitor-visa"
+                                                                        name="permit_or_visa[]" class="permit_or_visa">
                                                                     <label for="i99">Canadian Study Permit or
                                                                         Visitor
                                                                         Visa</label>
@@ -1414,7 +1613,9 @@
 
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                                 <div class="mdCheckbox mb-3">
-                                                                    <input id="i100" type="checkbox">
+                                                                    <input id="i100" type="checkbox"
+                                                                        value="uk-student-visa-tier-4-or-short-term-study-visa"
+                                                                        name="permit_or_visa[]" class="permit_or_visa">
                                                                     <label for="i100">UK Student Visa (Tier 4) or
                                                                         Short Term Study Visa</label>
                                                                 </div>
@@ -1422,7 +1623,9 @@
 
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                                 <div class="mdCheckbox mb-3">
-                                                                    <input id="i101" type="checkbox">
+                                                                    <input id="i101" type="checkbox"
+                                                                        value="au-student-visa" name="permit_or_visa[]"
+                                                                        class="permit_or_visa">
                                                                     <label for="i101">Australian Student
                                                                         Visa</label>
                                                                 </div>
@@ -1430,7 +1633,8 @@
 
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                                 <div class="mdCheckbox mb-3">
-                                                                    <input id="i102" type="checkbox">
+                                                                    <input id="i102" type="checkbox"
+                                                                        name="permit_or_visa[]" class="permit_or_visa">
                                                                     <label for="i102">Australian Student
                                                                         Visa</label>
                                                                 </div>
@@ -1438,7 +1642,8 @@
 
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                                 <div class="mdCheckbox mb-3">
-                                                                    <input id="i103" type="checkbox">
+                                                                    <input id="i103" type="checkbox"
+                                                                        name="permit_or_visa[]" class="permit_or_visa">
                                                                     <label for="i103"> don't have this</label>
                                                                 </div>
                                                             </div>
@@ -1476,14 +1681,16 @@
                                                     <div class="row rowBox">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                             <div class="mdradiobox mb-3">
-                                                                <input id="ir5" type="radio" name="radio2">
+                                                                <input id="ir5" type="radio" required
+                                                                    name="education_status" class="education_status">
                                                                 <label for="ir5">I have graduated</label>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                             <div class="mdradiobox mb-3">
-                                                                <input id="ir6" type="radio" name="radio2">
+                                                                <input id="ir6" type="radio"
+                                                                    name="education_status" class="education_status">
                                                                 <label for="ir6">I am still studying</label>
                                                             </div>
                                                         </div>
@@ -1492,7 +1699,9 @@
 
                                                 <div class="form-group">
                                                     <label class="mb-2">Country of education</label>
-                                                    <select class="form-control" name="">
+                                                    <select class="form-control" id="country_of_education"
+                                                        name="country_of_education">
+                                                        <option value="">Select Country of education</option>
                                                         @forelse ($countries as $country)
                                                             <option value="{{ $country->name }}">{{ $country->name }}
                                                             </option>
@@ -1504,22 +1713,28 @@
 
                                                 <div class="form-group">
                                                     <label class="mb-2">Education level</label>
-                                                    <select class="form-control">
-                                                        <option>Primary</option>
-                                                        <option>Secondary</option>
-                                                        <option>Undergraduate</option>
-                                                        <option>Postgraduate</option>
+                                                    <select class="form-control" id="highest_level_of_education"
+                                                        name="highest_level_of_education" required>
+                                                        <option value="Primary">Primary</option>
+                                                        <option value="Secondary">Secondary</option>
+                                                        <option value="Undergraduate">Undergraduate</option>
+                                                        <option value="Postgraduate">Postgraduate</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label class="mb-2">Degree</label>
-                                                    <select class="form-control">
-                                                        <option>1-Year Post Secondary Certificate</option>
-                                                        <option>2-Year Undergraduate Diploma</option>
-                                                        <option>3-Year Undergraduate Advance Diploma</option>
-                                                        <option>3-Year Bachelors Degree</option>
-                                                        <option>4-Year Bachelors Degree</option>
+                                                    <select class="form-control" name="degree" id="degree">
+                                                        <option value="1-Year Post Secondary Certificate">1-Year Post
+                                                            Secondary Certificate</option>
+                                                        <option value="2-Year Undergraduate Diploma">2-Year Undergraduate
+                                                            Diploma</option>
+                                                        <option value="3-Year Undergraduate Advance Diploma">3-Year
+                                                            Undergraduate Advance Diploma</option>
+                                                        <option value="3-Year Bachelors Degree">3-Year Bachelors Degree
+                                                        </option>
+                                                        <option value="4-Year Bachelors Degree">4-Year Bachelors Degree
+                                                        </option>
                                                     </select>
                                                 </div>
 
@@ -1552,16 +1767,19 @@
                                                 <h4 class="mb-4">What is your most recent overall grade?</h4>
                                                 <div class="form-group">
                                                     <label class="mb-2">Grading Scheme</label>
-                                                    <select class="form-control">
-                                                        <option>Post Secondary (Diploma) Grade Point 10 Scale</option>
-                                                        <option>Post Secondary (Diploma) Percentage Scale 0-100</option>
-                                                        <option>Other</option>
+                                                    <select class="form-control" name="grading_scheme" required>
+                                                        <option value="Post Secondary (Diploma) Grade Point 10 Scale">Post
+                                                            Secondary (Diploma) Grade Point 10 Scale</option>
+                                                        <option value="Post Secondary (Diploma) Percentage Scale 0-100">
+                                                            Post Secondary (Diploma) Percentage Scale 0-100</option>
+                                                        <option value="Other">Other</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label class="mb-2">Grading Avarage</label>
-                                                    <input type="number" class="form-control" value="0">
+                                                    <input type="number" name="grade_average" class="form-control"
+                                                        required value="0">
                                                     <small>This grade will be converted to the school’s grading
                                                         system.</small>
                                                 </div>
@@ -1678,21 +1896,26 @@
                                                     <div class="row rowBox">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                             <div class="mdCheckbox  mb-3">
-                                                                <input id="ic1" type="checkbox">
+                                                                <input id="ic1" type="checkbox" value="GMAT"
+                                                                    name="english_test_type" class="english_test_type">
                                                                 <label for="ic1">GMAT</label>
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox"
+                                                            name="english_test_type" class="english_test_type">
                                                             <div class="mdCheckbox  mb-3">
-                                                                <input id="ic2" type="checkbox">
+                                                                <input id="ic2" type="checkbox" value="GRE"
+                                                                    name="english_test_type" class="english_test_type">
                                                                 <label for="ic2">GRE</label>
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox"
+                                                            name="english_test_type" class="english_test_type">
                                                             <div class="mdCheckbox  mb-3">
-                                                                <input id="ic3" type="checkbox">
+                                                                <input id="ic3" type="checkbox" value="none"
+                                                                    name="english_test_type" class="english_test_type">
                                                                 <label for="ic3">I don't have this</label>
                                                             </div>
                                                         </div>
@@ -1738,48 +1961,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            {{-- final modal --}}
-                                            {{-- <div class="modal fade" id="final-modal" tabindex="-1" role="dialog"
-                                                aria-labelledby="final-modal-center-title" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal
-                                                                title</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            ...
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save
-                                                                changes</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> --}}
-                                            {{-- final modal --}}
                                         </div>
-                                        <!--<div class="applyStepSec"></div>-->
                                     </div>
                                 </form>
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
-
             </div>
-
 
             <div class="pb-4 dashApplyArea">
                 <div class="dashApplyHeaderArea mb-4">
@@ -1870,10 +2059,6 @@
                             <div class="applyStepAccordianBody">
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -1889,9 +2074,6 @@
                 </div>
                 <div class="myAdviserAreainner">
                     <div class="row rowBox">
-
-
-
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-flex align-items-center columnBox myAdviserBox">
                             <div class="myAdviserinner">
                                 <h5 class="d-flex align-items-center mb-0">
