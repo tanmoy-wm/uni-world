@@ -9,6 +9,8 @@
     integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
 <script>
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
@@ -45,11 +47,149 @@
                 }
             });
         });
+
+        $('#step-1-next').attr('disabled', true);
+
+        $('.country-checkbox').change(function() {
+            var countryIsChecked = $('.country-checkbox').is(':checked');
+
+            if (countryIsChecked) {
+                $('#step-1-next').attr('disabled', false);
+            } else {
+                $('#step-1-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-2-next').attr('disabled', true);
+
+        $('.applying_education_levels').change(function() {
+            var eduLevelIsChecked = $('.applying_education_levels').is(':checked');
+            if (eduLevelIsChecked) {
+                $('#step-2-next').attr('disabled', false);
+            } else {
+                $('#step-2-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-3-next').attr('disabled', true);
+
+        $('.preferred_stream').change(function() {
+            var eduLevelIsChecked = $('.preferred_stream').is(':checked');
+            if (eduLevelIsChecked) {
+                $('#step-3-next').attr('disabled', false);
+            } else {
+                $('#step-3-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-4-next').attr('disabled', true);
+
+        $('.preferred_month_of_starting').change(function() {
+            var preferredIsChecked = $('.preferred_month_of_starting').is(':checked');
+            if (preferredIsChecked) {
+                $('#step-4-next').attr('disabled', false);
+            } else {
+                $('#step-4-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-5-next').attr('disabled', true);
+
+        $('.budget').change(function() {
+            var budgetIsChecked = $('.budget').is(':checked');
+            if (budgetIsChecked) {
+                $('#step-5-next').attr('disabled', false);
+            } else {
+                $('#step-5-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-10-next').attr('disabled', true);
+
+        $('.permit_or_visa').change(function() {
+            var visaIsChecked = $('.permit_or_visa').is(':checked');
+            if (visaIsChecked) {
+                $('#step-10-next').attr('disabled', false);
+            } else {
+                $('#step-10-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-14-next').attr('disabled', true);
+
+        $('.english_test_type').change(function() {
+            var engTestIsChecked = $('.english_test_type').is(':checked');
+            if (engTestIsChecked) {
+                $('#step-14-next').attr('disabled', false);
+            } else {
+                $('#step-14-next').attr('disabled', true);
+            }
+        });
     });
 </script>
 
 <script>
     $(document).ready(function() {
+        var selectElement = $('#current_country');
+
+        selectElement.on('change', function() {
+            var currentCountry = selectElement.val();
+
+            $('#step-8-next').click(function(e) {
+                e.preventDefault();
+                if (currentCountry == 'India') {
+                    $('#step-1').hide();
+                    $('#step-2').hide();
+                    $('#step-3').hide();
+                    $('#step-4').hide();
+                    $('#step-5').hide();
+                    $('#step-6').hide();
+                    $('#step-7').hide();
+                    $('#step-8').hide();
+                    $('#step-9').show();
+                    $('#step-10').hide();
+                } else {
+                    $('#step-1').hide();
+                    $('#step-2').hide();
+                    $('#step-3').hide();
+                    $('#step-4').hide();
+                    $('#step-5').hide();
+                    $('#step-6').hide();
+                    $('#step-7').hide();
+                    $('#step-8').hide();
+                    $('#step-9').hide();
+                    $('#step-10').show();
+                }
+            });
+
+            $('#step-10-back').click(function(e) {
+                e.preventDefault();
+                if (currentCountry == 'India') {
+                    $('#step-1').hide();
+                    $('#step-2').hide();
+                    $('#step-3').hide();
+                    $('#step-4').hide();
+                    $('#step-5').hide();
+                    $('#step-6').hide();
+                    $('#step-7').hide();
+                    $('#step-8').hide();
+                    $('#step-9').show();
+                    $('#step-10').hide();
+                } else {
+                    $('#step-1').hide();
+                    $('#step-2').hide();
+                    $('#step-3').hide();
+                    $('#step-4').hide();
+                    $('#step-5').hide();
+                    $('#step-6').hide();
+                    $('#step-7').hide();
+                    $('#step-8').show();
+                    $('#step-9').hide();
+                    $('#step-10').hide();
+                }
+            });
+        });
+
         $('#step-1-next').click(function(e) {
             $('#step-1').hide();
             $('#step-2').show();
@@ -109,19 +249,6 @@
             $('#step-6').hide();
             $('#step-7').hide();
             $('#step-8').show();
-        });
-
-        $('#step-8-next').click(function(e) {
-            e.preventDefault();
-            $('#step-1').hide();
-            $('#step-2').hide();
-            $('#step-3').hide();
-            $('#step-4').hide();
-            $('#step-5').hide();
-            $('#step-6').hide();
-            $('#step-7').hide();
-            $('#step-8').hide();
-            $('#step-9').show();
         });
 
         $('#step-9-next').click(function(e) {
@@ -299,19 +426,7 @@
             $('#step-9').hide();
         });
 
-        $('#step-10-back').click(function(e) {
-            e.preventDefault();
-            $('#step-1').hide();
-            $('#step-2').hide();
-            $('#step-3').hide();
-            $('#step-4').hide();
-            $('#step-5').hide();
-            $('#step-6').hide();
-            $('#step-7').hide();
-            $('#step-8').hide();
-            $('#step-9').show();
-            $('#step-10').hide();
-        });
+
 
         $('#step-11-back').click(function(e) {
             e.preventDefault();
@@ -378,5 +493,7 @@
             $('#step-13').show();
             $('#step-14').hide();
         });
+
+
     });
 </script>
