@@ -120,7 +120,7 @@ Route::middleware('auth:web')->group(function () {
                 'prefix' => '/blogs'
             ], function () {
                 Route::get('/create', 'create')->name('create');
-                // Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
+                Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
                 Route::get('/{id}/edit', 'edit')->name('edit');
                 Route::get('/', 'index')->name('index');
                 Route::post('/store', 'store')->name('store');
@@ -134,11 +134,11 @@ Route::middleware('auth:web')->group(function () {
                 'prefix' => '/press'
             ], function () {
                 Route::get('/create', 'create')->name('create');
-                // Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
+                Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
                 Route::get('/{id}/edit', 'edit')->name('edit');
                 Route::get('/', 'index')->name('index');
                 Route::post('/store', 'store')->name('store');
-                Route::put('/{id}', 'update')->name('update');
+                Route::put('/{id}/update', 'update')->name('update');
                 Route::get('/{id}/trashed', 'trashed')->name('trashed');
             });
 

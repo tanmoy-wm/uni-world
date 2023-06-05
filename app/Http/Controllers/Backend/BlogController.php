@@ -55,7 +55,7 @@ class BlogController extends Controller
         return $this->service->store($request);
     }
 
-   
+
     public function trashed($id): RedirectResponse
     {
         return $this->service->trashed($id);
@@ -66,4 +66,8 @@ class BlogController extends Controller
         return $this->service->update($request, $id);
     }
 
+    public function changeStatus($id): RedirectResponse
+    {
+        return $this->service->changeStatus($id);
+    }
 }
