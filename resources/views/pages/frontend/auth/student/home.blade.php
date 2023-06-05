@@ -1690,7 +1690,8 @@
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                             <div class="mdradiobox mb-3">
                                                                 <input id="ir6" type="radio"
-                                                                    name="education_status" class="education_status">
+                                                                    name="education_status" class="education_status"
+                                                                    checked>
                                                                 <label for="ir6">I am still studying</label>
                                                             </div>
                                                         </div>
@@ -1843,7 +1844,8 @@
 
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 columnBox">
                                                             <div class="mdradiobox mb-3">
-                                                                <input id="ir11" type="radio" name="radio3">
+                                                                <input id="ir11" type="radio" name="radio3"
+                                                                    checked>
                                                                 <label for="ir11">I don't have this</label>
                                                             </div>
                                                         </div>
