@@ -32,8 +32,8 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleTextarea1">Textarea</label>
-                                <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                                <label for="description">Textarea</label>
+                                <textarea class="form-control" id="description" rows="4" name="description">{{ $category->description }}</textarea>
                             </div>
                         </div>
                     </div>

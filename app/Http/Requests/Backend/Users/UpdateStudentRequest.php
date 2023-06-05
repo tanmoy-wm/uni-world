@@ -39,7 +39,6 @@ class UpdateStudentRequest extends FormRequest
             'dob'           => ['required', 'date_format:Y-m-d'],
             'mobile_number' => [
                 'required',
-                'digits:10',
                 'unique:students,mobile_number,' . $this->route('id'),
             ],
             'email' => [

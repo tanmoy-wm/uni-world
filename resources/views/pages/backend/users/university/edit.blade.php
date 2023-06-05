@@ -44,7 +44,7 @@
                                 <label class="col-sm-3 col-form-label">User Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="username" class="form-control"
-                                        {{ old('username') ?? $university->username }} required />
+                                        value ="{{ old('username') ?? $university->username }}" required />
                                 </div>
                             </div>
                         </div>

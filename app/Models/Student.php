@@ -143,6 +143,14 @@ class Student extends Model
         );
     }
 
+    protected function gender(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => ucwords($value),
+            set: fn ($value) => strtolower($value)
+        );
+    }
+
     protected function middleName(): Attribute
     {
         return new Attribute(
