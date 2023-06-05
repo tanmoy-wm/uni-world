@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::table('students', function (Blueprint $table) {
             $table->string('status')->nullable();
             $table->string('referral_source')->nullable();
-            $table->string('country_of_interest')->nullable();
             $table->string('service_of_interest')->nullable();
             $table->boolean('agent_accept_terms_and_service_behalf_of_student')->nullable();
 

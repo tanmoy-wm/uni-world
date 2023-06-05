@@ -44,6 +44,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials, $remember_token)) {
             if (Auth::user()->profile_type === 'App\Models\Admin') {
                 return redirect()->route('admins.dashboard');
+            } else {
+                Auth::guard('web')->logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                return redirect()->route('auth.login');
             }
         } else {
             return back()->withErrors(['password' => 'Wrong Credentials']);
