@@ -49,7 +49,7 @@ class CategoryService
     {
         $categories = Category::all();
 
-        
+
         return view('pages.backend.category.index', compact('categories'));
     }
 

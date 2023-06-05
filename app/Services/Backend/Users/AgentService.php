@@ -23,13 +23,13 @@ class AgentService
 {
     public function create(): View
     {
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.agent.create', compact('countries'));
     }
 
     public function createStudent(): View
     {
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.frontend.auth.dashboard.create-student', compact('countries'));
     }
 
@@ -37,7 +37,7 @@ class AgentService
     {
         $agent =  Auth::user()->profile;
 
-        $countries = Country::all();
+        $countries = Country::active()->get();
 
         return view('pages.frontend.auth.agent.dashboard', compact('agent', 'countries'));
     }
@@ -50,14 +50,14 @@ class AgentService
     public function edit($id): View
     {
         $agent = Agent::query()->findOrFail($id);
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.agent.edit', compact('agent', 'countries'));
     }
 
     public function getStudents(): View
     {
         $students = Auth::user()->profile->students()->latest()->get();
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.frontend.auth.agent.student.index', compact('students', 'countries'));
     }
 

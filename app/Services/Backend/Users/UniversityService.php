@@ -25,14 +25,14 @@ class UniversityService
 {
     public function create($request)
     {
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.university.create', compact('countries'));
     }
 
     public function createProgram($request)
     {
-        $countries = Country::all();
-        $categories = Category::all();
+        $countries = Country::active()->get();
+        $categories = Category::active()->get();
 
         return view('pages.backend.users.university.create-program', compact('countries', 'categories'));
     }
@@ -45,7 +45,7 @@ class UniversityService
     public function edit($id): View
     {
         $university = University::query()->findOrFail($id);
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.university.edit', compact('university', 'countries'));
 
     }
@@ -66,7 +66,7 @@ class UniversityService
     {
 
         $program = Program::query()->findOrFail($id);
-        $categories = Category::all();
+        $categories = Category::active()->get();
 
         return view('pages.backend.users.university.edit-program', compact('program', 'categories'));
     }

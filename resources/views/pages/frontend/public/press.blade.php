@@ -146,7 +146,8 @@
                                                 <div class="col-lg-6">
                                                     <div class="sub-coverage-box">
                                                         <h5><span>NOV 2022</span>{{ $presses->title }} </h5>
-                                                        <p>{{ $presses->description }} </p>
+                                                        {{-- <pre>{{ $presses->description }} </pre> --}}
+                                                        <p>{!! $presses->description !!}</p>
                                                     </div>
                                                 </div>
                                             @endforeach
