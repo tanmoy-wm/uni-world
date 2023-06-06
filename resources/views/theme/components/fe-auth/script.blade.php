@@ -120,6 +120,31 @@
                 $('#step-14-next').attr('disabled', true);
             }
         });
+
+        $('#preferences-form').submit(function(e) {
+            e.preventDefault();
+            $('#submit-modal').attr('disabled', true);
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function(response) {
+                    console.log(response);
+                    if (response.success == true) {
+                        // $('#success-alert').show();
+                        $('#preferences-form').attr('enabled', true);
+                        $('#addStudentModalForm')[0].reset()
+                        $('#btnSubmitStudent').attr('enabled', true);
+                    }
+                },
+                error: function(error) {
+                    // $('#error-alert').html(erorr.responseJSON.message);
+                    console.log(error);
+                    // $('#error-alert').show();
+                    $('#submit-modal').attr('disabled', false);
+                }
+            });
+        });
     });
 </script>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\Student\StoreStudentPreferencesRequest;
 use App\Http\Requests\Backend\Users\StoreStudentRequest;
 use App\Http\Requests\Backend\Users\UpdateStudentRequest;
 use App\Services\Backend\Users\StudentService;
@@ -58,6 +59,11 @@ class StudentController extends Controller
     public function store(StoreStudentRequest $request): RedirectResponse
     {
         return $this->service->store($request);
+    }
+
+    public function storePreference(StoreStudentPreferencesRequest $request)
+    {
+        return $this->service->storePreference($request);
     }
 
     public function trashed($id): RedirectResponse
