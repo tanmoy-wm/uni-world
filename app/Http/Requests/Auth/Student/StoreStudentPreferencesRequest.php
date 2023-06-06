@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\JsonResponse;
 
-class StoreStudentPreferncesRequest extends FormRequest
+class StoreStudentPreferencesRequest extends FormRequest
 {
     public function authorize(): bool
     {

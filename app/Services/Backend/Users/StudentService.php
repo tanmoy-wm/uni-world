@@ -4,6 +4,7 @@ namespace App\Services\Backend\Users;
 
 use App\Http\Actions\CreateUserAction;
 use App\Http\Actions\UpdateUserAction;
+use App\Http\Requests\Auth\Student\StoreStudentPreferencesRequest;
 use App\Http\Requests\Backend\Users\StoreStudentRequest;
 use App\Mail\UserWelcomeMail;
 use App\Models\Country;
@@ -11,6 +12,7 @@ use App\Models\Student;
 
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
@@ -86,6 +88,37 @@ class StudentService
             return redirect()->back()->withErrors($exception->getMessage());
         }
         return redirect()->route('students.index');
+    }
+
+    public function storePreference(StoreStudentPreferencesRequest $request)
+    {
+        dd($request->validated());
+        try {
+            $validated_request = $request->validated();
+            DB::transaction(function () use ($validated_request) {
+                $student = Auth::user()->profile;
+                $data = $student->update([
+                    'preferred_countries'         => $validated_request['preferred_countries'],
+                    'applying_education_levels'   => $validated_request['applying_education_levels'],
+                    'preferred_stream'            => $validated_request['preferred_stream'],
+                    'preferred_month_of_starting' => $validated_request['preferred_month_of_starting'],
+                    'budget'                      => $validated_request['budget'],
+                    'nationality'                 => $validated_request['nationality'],
+                    'current_country'             => $validated_request['current_country'],
+                    'standardized_tests_taken'    => $validated_request['standardized_tests_taken'],
+                    'education_status'            => $validated_request['education_status'],
+                    'education_level'             => $validated_request['education_level'],
+                    'degree'                      => $validated_request['degree'],
+                    'english_test_type'           => $validated_request['english_test_type'],
+                ]);
+            });
+        } catch (Exception $exception) {
+            $error = [];
+            $error['message'] = $exception->getMessage();
+            $error['trace'] = $exception->getTrace();
+            return response()->json($error, 500);
+        }
+        return response()->json(['message' => 'Preferences saved successfully'], 200);
     }
 
     public function trashed($id): RedirectResponse

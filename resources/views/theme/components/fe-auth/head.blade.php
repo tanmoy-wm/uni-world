@@ -8,8 +8,6 @@
 <link rel="stylesheet" href="{{ asset('assets/frontend/assets/auth/assets/css/style.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('assets/frontend/assets/css/style-timeline.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('assets/frontend/assets/auth/assets/css/responsive.css') }}" rel="stylesheet">
-{{-- <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" /> --}}
-
 <link rel="shortcut icon" href="{{ asset('assets/images/uniwolc-favicon.svg') }}" />
 
 <link
@@ -20,6 +18,6 @@
 
 <style>
     .custom__bg {
-        
+
     }
 </style>
