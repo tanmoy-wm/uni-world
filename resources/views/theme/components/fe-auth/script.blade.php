@@ -35,15 +35,113 @@
                         $('#btnSubmitStudent').attr('enabled', true);
                     }
                 },
-                url: "{{ route('agent.student.store') }}",
-                data: formData,
-                success: () => window.location.assign("{{ route('auth.dashboard') }}"),
-                error: (response) => {
-                    if (response.status === 422) {
-                        console.console.log(response);
-                    } else {
-                        window.location.reload();
+                error: function(error) {
+                    $('#error-alert').html(erorr.responseJSON.message);
+                    $('#error-alert').show();
+                    $('#btnSubmitStudent').attr('enabled', true);
+                }
+            });
+        });
+
+        $('#step-1-next').attr('disabled', true);
+
+        $('.country-checkbox').change(function() {
+            var countryIsChecked = $('.country-checkbox').is(':checked');
+
+            if (countryIsChecked) {
+                $('#step-1-next').attr('disabled', false);
+            } else {
+                $('#step-1-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-2-next').attr('disabled', true);
+
+        $('.applying_education_levels').change(function() {
+            var eduLevelIsChecked = $('.applying_education_levels').is(':checked');
+            if (eduLevelIsChecked) {
+                $('#step-2-next').attr('disabled', false);
+            } else {
+                $('#step-2-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-3-next').attr('disabled', true);
+
+        $('.preferred_stream').change(function() {
+            var eduLevelIsChecked = $('.preferred_stream').is(':checked');
+            if (eduLevelIsChecked) {
+                $('#step-3-next').attr('disabled', false);
+            } else {
+                $('#step-3-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-4-next').attr('disabled', true);
+
+        $('.preferred_month_of_starting').change(function() {
+            var preferredIsChecked = $('.preferred_month_of_starting').is(':checked');
+            if (preferredIsChecked) {
+                $('#step-4-next').attr('disabled', false);
+            } else {
+                $('#step-4-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-5-next').attr('disabled', true);
+
+        $('.budget').change(function() {
+            var budgetIsChecked = $('.budget').is(':checked');
+            if (budgetIsChecked) {
+                $('#step-5-next').attr('disabled', false);
+            } else {
+                $('#step-5-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-10-next').attr('disabled', true);
+
+        $('.permit_or_visa').change(function() {
+            var visaIsChecked = $('.permit_or_visa').is(':checked');
+            if (visaIsChecked) {
+                $('#step-10-next').attr('disabled', false);
+            } else {
+                $('#step-10-next').attr('disabled', true);
+            }
+        });
+
+        $('#step-14-next').attr('disabled', true);
+
+        $('.english_test_type').change(function() {
+            var engTestIsChecked = $('.english_test_type').is(':checked');
+            if (engTestIsChecked) {
+                $('#step-14-next').attr('disabled', false);
+            } else {
+                $('#step-14-next').attr('disabled', true);
+            }
+        });
+
+        $('#preferences-form').submit(function(e) {
+            e.preventDefault();
+            $('#submit-modal').attr('disabled', true);
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function(response) {
+                    console.log(response);
+                    if (response.success == true) {
+                        // $('#success-alert').show();
+                        $('#preferences-form').attr('enabled', true);
+                        $('#addStudentModalForm')[0].reset()
+                        $('#btnSubmitStudent').attr('enabled', true);
                     }
+                },
+                error: function(error) {
+                    // $('#error-alert').html(erorr.responseJSON.message);
+                    console.log(error);
+                    // $('#error-alert').show();
+                    $('#submit-modal').attr('disabled', false);
                 }
             });
         });
