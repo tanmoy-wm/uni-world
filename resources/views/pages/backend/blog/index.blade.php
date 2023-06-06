@@ -23,7 +23,7 @@
                     <thead>
                         <tr>
                             <th> # </th>
-                            <th> Name </th>
+                            <th> Status </th>
                             <th> Active Status </th>
                             <th> Actions </th>
                         </tr>
@@ -33,7 +33,19 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $blog->title }} </td>
-                                <td>{{ $blog->is_active }}</td>
+                                <td>
+
+
+                                    @if ($blog->is_active === 1)
+                                        <a href="{{ route('blogs.changeStatus', ['id' => $blog->id]) }}">
+                                            <lable class="badge badge-success">ACTIVE</lable>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('blogs.changeStatus', ['id' => $blog->id]) }}">
+                                            <lable class="badge badge-danger">INACTIVE</lable>
+                                        </a>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('blogs.edit', ['id' => $blog->id]) }}">
                                         <button class="btn btn-primary btn-icon" type="button">

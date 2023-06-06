@@ -24,6 +24,7 @@ class Press extends Model
         'title',
         'description',
         'given_organization',
+        'coverage_type',
         'award_name',
         'is_active',
         'created_by',

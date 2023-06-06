@@ -19,7 +19,7 @@ class StudentService
 {
     public function create(): View
     {
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.student.create', compact('countries'));
     }
 
@@ -35,7 +35,7 @@ class StudentService
     public function edit($id): View
     {
         $student = Student::query()->findOrFail($id);
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.student.edit', compact('student', 'countries'));
     }
 

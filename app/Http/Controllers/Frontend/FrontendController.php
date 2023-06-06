@@ -16,32 +16,33 @@ class FrontendController extends Controller
 
     public function createStudent(): View
     {
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.frontend.public.student-register', compact('countries'));
     }
 
     public function createAgent(): View
     {
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.frontend.public.agent-register', compact('countries'));
     }
 
     public function createUniversity(): View
     {
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.frontend.public.university-register', compact('countries'));
     }
 
     public function getBlogs()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::active()->get();
         return view('pages.frontend.public.blog', compact('blogs'));
     }
 
-    public function getPrees()
+    public function getPrees($coverage_type)
     {
-        $press = Press::all();
-        return view('pages.frontend.public.press', compact('press'));
+        echo @$_GET['filter'];
+        $presses = Press::query()->where('coverage_type', 'like', '%'.$coverage_type.'%')->get();
+        return view('pages.frontend.public.press', compact('presses', ));
     }
 
     public function getProgram($id)

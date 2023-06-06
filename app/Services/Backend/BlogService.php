@@ -135,4 +135,16 @@ class BlogService
 
         return redirect()->route('blogs.index');
     }
+
+    public function changeStatus($id): RedirectResponse
+    {
+        $blog = Blog::query()->findOrFail($id);
+
+        return redirect()->route('blogs.index')->with([
+            'success' => $blog->update([
+                'is_active' => $blog->is_active === 1 ? 0 : 1,
+            ]),
+            'message' => $blog->is_active === 1 ? 'Blog Deactivated Successfully.' : 'Blag Activated Successfully.',
+        ]);
+    }
 }

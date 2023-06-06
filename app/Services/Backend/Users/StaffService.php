@@ -23,7 +23,7 @@ class StaffService
     public function create(): View
     {
         $agents = Agent::all();
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.staff.create', compact('agents', 'countries'));
     }
 
@@ -36,7 +36,7 @@ class StaffService
     {
         $staff = Staff::query()->findOrFail($id);
         $agents = Agent::all();
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.staff.edit', compact('staff', 'agents', 'countries'));
     }
 

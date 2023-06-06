@@ -37,7 +37,10 @@
                                     <select class="form-control" name="category_id" required>
                                         <option value="active">Select a Category</option>
                                         @forelse ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}"
+                                                {{ $program->category_id == $category->id ? 'selected' : '' }}>
+                                                {{ $category->name }}</option>
+
                                         @empty
                                             <option value="active">No Category Found</option>
                                         @endforelse
@@ -89,7 +92,8 @@
                                     <select class="form-control" name="university_id" required>
                                         <option value="active">Select an University</option>
                                         @forelse ($universities as $university)
-                                            <option value="{{ $university->id }}">{{ $university->name }}</option>
+                                            <option value="{{ $university->id }}" {{ $university->name === $university->name ? 'selected' : ''}}>
+                                                {{ $university->name }}</option>
                                         @empty
                                             <option value="active">No University Found</option>
                                         @endforelse
@@ -204,7 +208,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="col-sm-3 col-form-label" for="exampleTextarea1">Description</label>
-                                <textarea class="form-control" id="exampleTextarea1" name="description" rows="4"></textarea>
+                                <textarea class="form-control" id="description" name="description" rows="4">{{ $program->description }}</textarea>
                             </div>
                         </div>
                     </div>

@@ -12,8 +12,9 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Create Press</h4>
-                <form class="form-sample" action={{ route('press.store') }} method="POST">
+                <form class="form-sample" action={{ route('press.update', ['id' => $press->id]) }} method="POST">
                     @csrf
+                    @method('PUT')
                     @if ($errors->any())
                         @include('theme.components.backend.errors', ['errors' => $errors])
                     @endif
@@ -23,7 +24,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Title</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="title" value="" required />
+                                    <input type="text" class="form-control" name="title" value="{{ $press->title }}" required />
                                 </div>
                             </div>
                         </div>
@@ -31,7 +32,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label"> Given Organization </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="given_organization" value=""
+                                    <input type="text" class="form-control" name="given_organization" value="{{ $press->given_organization }}"
                                         required />
                                 </div>
                             </div>
@@ -43,7 +44,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Award Name </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="award_name" value="" required />
+                                    <input type="text" class="form-control" name="award_name" value="{{ $press->award_name }}" required />
                                 </div>
                             </div>
                         </div>
@@ -68,8 +69,9 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Description</label>
                                 <div class="col-sm-9">
-
-                                    <textarea class="ckeditor form-control" rows="4" name="description"></textarea>
+                                    <textarea class="ckeditor form-control" rows="4" name="description">{{ $press->description }}</textarea>
+                                    {{-- <label for="description">Textarea</label>
+                                <textarea class="form-control" id="description" rows="4" name="description">{{ $category->description }}</textarea> --}}
                                 </div>
                             </div>
                         </div>

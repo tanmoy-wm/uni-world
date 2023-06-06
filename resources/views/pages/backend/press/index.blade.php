@@ -23,27 +23,39 @@
                     <thead>
                         <tr>
                             <th> # </th>
-                            <th> Name </th>
+                            <th> Status </th>
                             <th> Active Status </th>
                             <th> Actions </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($press as $presses)
+                        @forelse ($presses as $press)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $presses->title }} </td>
-                                <td>{{ $presses->is_active }}</td>
+                                <td>{{ $press->title }} </td>
                                 <td>
-                                    <a href="{{ route('press.edit', ['id' => $presses->id]) }}">
+
+
+                                    @if ($press->is_active === 1)
+                                        <a href="{{ route('press.changeStatus', ['id' => $press->id]) }}">
+                                            <lable class="badge badge-success">ACTIVE</lable>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('press.changeStatus', ['id' => $press->id]) }}">
+                                            <lable class="badge badge-danger">INACTIVE</lable>
+                                        </a>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ route('press.edit', ['id' => $press->id]) }}">
                                         <button class="btn btn-primary btn-icon" type="button">
                                             <i class="mdi mdi-pencil"></i>
                                         </button>
                                     </a>
 
-                                    <a href="{{ route('press.trashed', ['id' => $presses->id]) }}"
+                                    <a href="{{ route('press.trashed', ['id' => $press->id]) }}"
                                         onclick="confirmDelete(event)">
-                                        <button class="btn btn-danger btn-icon btndata" id="{{ $presses->id }}"
+                                        <button class="btn btn-danger btn-icon btndata" id="{{ $press->id }}"
                                             type="button">
                                             <i class="mdi mdi-delete"></i>
                                         </button>

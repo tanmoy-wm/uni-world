@@ -18,7 +18,7 @@ class CountryService
 {
     public function create(): View
     {
-        $Country = Country::all();
+        $Country = Country::active()->get();
         return view('pages.backend.Country.create');
     }
 
@@ -33,7 +33,7 @@ class CountryService
 
     public function programsEdit(): View
     {
-        $Country = Country::all();
+        $Country = Country::active()->get();
         return view('pages.backend.Country.create');
     }
 

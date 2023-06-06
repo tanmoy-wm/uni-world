@@ -20,7 +20,8 @@ class UpdatePressRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required'],
             'given_organization' => ['nullable'],
-            'award_name' => ['nullable'],
+            'coverage_type' => ['required'],
+            'award_name' => ['required_if:coverage_type,award'],
             'is_active' => ['required', 'string'],
         ];
     }

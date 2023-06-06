@@ -124,16 +124,13 @@
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs nav-justified nav-tabs-dropdown open" role="tablist">
                                     <li role="presentation" class="active">
-                                        <a href="#01Featured" aria-controls="01Featured" role="tab" data-toggle="tab"
-                                            class="active show" aria-selected="true">Featured</a>
+                                        <a href="{{ url('press/featured') }}">Featured</a>
                                     </li>
                                     <li role="presentation">
-                                        <a href="#02Awards" aria-controls="02Awards" role="tab" data-toggle="tab"
-                                            class="" aria-selected="false">Awards</a>
+                                        <a href="{{ url('press/award') }}">Awards</a>
                                     </li>
                                     <li role="presentation">
-                                        <a href="#03Leadership" aria-controls="03Leadership" role="tab"
-                                            data-toggle="tab" class="" aria-selected="false">Leadership</a>
+                                        <a href="{{ url('press/leadership') }}">Leadership</a>
                                     </li>
                                 </ul>
                                 <!-- Tab panes -->
@@ -142,12 +139,17 @@
                                     <!-- Featured -->
                                     <div role="tabpanel" class="tab-pane active show" id="01Featured">
                                         <div class="row">
-                                            @foreach ($press as $presses)
+                                            @foreach ($presses as $press)
                                                 <div class="col-lg-6">
                                                     <div class="sub-coverage-box">
-                                                        <h5><span>NOV 2022</span>{{ $presses->title }} </h5>
-                                                        <p>{{ $presses->description }} </p>
+                                                        <h5>{{ $press->title }} </h5>
+                                                        <p>{!! $press->description !!}</p>
+                                                        <hr>
+                                                        <h6><span class="text-muted m-3 text-small">
+                                                                {{ \Carbon\Carbon::parse($press->created_at)->format('d F Y') }}</span>
+                                                        </h6>
                                                     </div>
+                                                    <p></p>
                                                 </div>
                                             @endforeach
                                         </div>
@@ -157,120 +159,85 @@
                                     <!-- Awards -->
                                     <div role="tabpanel" class="tab-pane" id="02Awards">
                                         <div class="row">
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>OCT 2022</span> TIMES OF INDIA</h5>
-                                                    <p>Canada Addresses Labour Shortage: International Students Allowed To
-                                                        Work Unrestricted Hours</p>
+                                            @foreach ($presses as $press)
+                                                <div class="col-lg-6">
+                                                    <div class="sub-coverage-box">
+                                                        <h5><span>{{ $press->award_name }}</span>{{ $press->award }}
+                                                        </h5>
+                                                        <p>{!! $press->award !!}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>NOV 2022</span> BNN BLOOMBERG</h5>
-                                                    <p>We Want To Empower Students To Make The Right Choice: Uniwolc Massi
-                                                        Basiri</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>JULY 2022</span> HEPI</h5>
-                                                    <p>How International Students Can Help Bridge The Uk’s Skills Gap</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>MAR 2022</span> THE RECORD</h5>
-                                                    <p>Our Program Is Designed To Benefit International Students</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>MAR 2022</span> BETAKIT</h5>
-                                                    <p>Uniwolc Makes First Acquisition, Grabbing Panda Portal To Train
-                                                        Recruiters</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>FEB 2022</span> FINANCIAL POST</h5>
-                                                    <p>New Tool Helps Canadian Higher Education Institutions Navigate The
-                                                        Global Talent Competition</p>
-                                                </div>
-                                            </div>
-
+                                            @endforeach
                                         </div>
-                                    </div>
-                                    <!-- Awards End -->
+                                        <!-- Awards End -->
 
-                                    <!-- Leadership -->
-                                    <div role="tabpanel" class="tab-pane" id="03Leadership">
-                                        <div class="row">
+                                        <!-- Leadership -->
+                                        <div role="tabpanel" class="tab-pane" id="03Leadership">
+                                            <div class="row">
 
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>JULY 2022</span> HEPI</h5>
-                                                    <p>How International Students Can Help Bridge The Uk’s Skills Gap</p>
+                                                <div class="col-lg-6">
+                                                    <div class="sub-coverage-box">
+                                                        <h5><span>JULY 2022</span> HEPI</h5>
+                                                        <p>How International Students Can Help Bridge The Uk’s Skills Gap
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>OCT 2022</span> TIMES OF INDIA</h5>
-                                                    <p>Canada Addresses Labour Shortage: International Students Allowed To
-                                                        Work Unrestricted Hours</p>
+                                                <div class="col-lg-6">
+                                                    <div class="sub-coverage-box">
+                                                        <h5><span>OCT 2022</span> TIMES OF INDIA</h5>
+                                                        <p>Canada Addresses Labour Shortage: International Students Allowed
+                                                            To
+                                                            Work Unrestricted Hours</p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>NOV 2022</span> BNN BLOOMBERG</h5>
-                                                    <p>We Want To Empower Students To Make The Right Choice: Uniwolc Massi
-                                                        Basiri</p>
+                                                <div class="col-lg-6">
+                                                    <div class="sub-coverage-box">
+                                                        <h5><span>NOV 2022</span> BNN BLOOMBERG</h5>
+                                                        <p>We Want To Empower Students To Make The Right Choice: Uniwolc
+                                                            Massi
+                                                            Basiri</p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>MAR 2022</span> THE RECORD</h5>
-                                                    <p>Our Program Is Designed To Benefit International Students</p>
+                                                <div class="col-lg-6">
+                                                    <div class="sub-coverage-box">
+                                                        <h5><span>MAR 2022</span> THE RECORD</h5>
+                                                        <p>Our Program Is Designed To Benefit International Students</p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>MAR 2022</span> BETAKIT</h5>
-                                                    <p>Uniwolc Makes First Acquisition, Grabbing Panda Portal To Train
-                                                        Recruiters</p>
+                                                <div class="col-lg-6">
+                                                    <div class="sub-coverage-box">
+                                                        <h5><span>MAR 2022</span> BETAKIT</h5>
+                                                        <p>Uniwolc Makes First Acquisition, Grabbing Panda Portal To Train
+                                                            Recruiters</p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="sub-coverage-box">
-                                                    <h5><span>FEB 2022</span> FINANCIAL POST</h5>
-                                                    <p>New Tool Helps Canadian Higher Education Institutions Navigate The
-                                                        Global Talent Competition</p>
+                                                <div class="col-lg-6">
+                                                    <div class="sub-coverage-box">
+                                                        <h5><span>FEB 2022</span> FINANCIAL POST</h5>
+                                                        <p>New Tool Helps Canadian Higher Education Institutions Navigate
+                                                            The
+                                                            Global Talent Competition</p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- Leadership End -->
+                                        <!-- Leadership End -->
 
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
-
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
     </section>
     <!-- Coverage End -->
 

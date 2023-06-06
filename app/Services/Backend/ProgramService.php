@@ -31,7 +31,7 @@ class ProgramService
 
     public function create(): View
     {
-        $categories = Category::all();
+        $categories = Category::active()->get();
         $universities = University::all();
 
         return view('pages.backend.programs.create', compact('universities', 'categories'));
@@ -44,7 +44,7 @@ class ProgramService
 
     public function edit($id): View
     {
-        $categories = Category::all();
+        $categories = Category::active()->get();
         $universities = University::all();
         $program = Program::query()->findOrFail($id);
 

@@ -63,15 +63,19 @@
                         </div>
                     </div>
 
+                    {{ $student->gender }}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Gender</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="gender" required>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="others">Others</option>
+                                        <option value="Male" {{ $student->gender === 'Male' ? 'selected' : '' }}>Male
+                                        </option>
+                                        <option value="female" {{ $student->gender === 'Female' ? 'selected' : '' }}>Female
+                                        </option>
+                                        <option value="others" {{ $student->gender === 'Others' ? 'selected' : '' }}>Others
+                                        </option>
                                     </select>
                                 </div>
                             </div>

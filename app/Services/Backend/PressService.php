@@ -26,8 +26,8 @@ class PressService
 
     public function index(): View
     {
-        $press = Press::all();
-        return view('pages.backend.press.index', compact('press'));
+        $presses = Press::all();
+        return view('pages.backend.press.index', compact('presses'));
     }
 
     public function create(): View
@@ -69,7 +69,8 @@ class PressService
                 'title' => $validated_request['title'],
                 'description' => $validated_request['description'],
                 'given_organization' => $validated_request['given_organization'],
-                'award_name' => $validated_request['award_name'],
+                'coverage_type' => $validated_request['coverage_type'],
+                'award_name' => $validated_request['award_name'] ?? null,
                 'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
                 'created_by' => $created_by,
                 'updated_by' => $created_by,
@@ -94,28 +95,53 @@ class PressService
     }
 
 
-    public function update($request, $id): JsonResponse
+    public function update($request, $id)
     {
-        if (!$press = Press::withTrashed()->find($id)) {
-            return $this->handleError([], 'Press Not Found.', 404);
-        }
+        $press = Press::query()->findOrFail($id);
+
         try {
             $validated_request = $request->validated();
             $updated_by = Auth::id();
-            $slug = Str::slug($validated_request['slug']);
+            $slug = Str::slug($validated_request['title']);
 
             $data = [
-                'name' => $validated_request['name'],
-                'slug' => $slug,
-                'is_active' => $validated_request['is_active'],
+                'title' => $validated_request['title'],
+                'description' => $validated_request['description'],
+                'given_organization' => $validated_request['given_organization'],
+                'award_name' => $validated_request['award_name'],
+                'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
                 'updated_by' => $updated_by,
             ];
 
-            $updated_press = tap($press)->update($data);
+            $press->update($data);
         } catch (Exception $exception) {
-            return $this->handleException($exception);
+            if (app()->environment('local')) {
+                return redirect()->back()->withErrors($exception->getMessage());
+            } else {
+                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            }
         }
 
-        return $this->handleResponse($updated_press, 'Press Updated Successfully.', 200);
+        return redirect()->route('press.index');
+    }
+
+    public function edit($id): View
+
+   {
+        $press = Press::query()->findOrFail($id);
+        $presses = Press::all();
+        return view('pages.backend.press.edit', compact('press', 'presses'));
+    }
+
+    public function changeStatus($id): RedirectResponse
+    {
+        $press = Press::query()->findOrFail($id);
+
+        return redirect()->route('press.index')->with([
+            'success' => $press->update([
+                'is_active' => $press->is_active === 1 ? 0 : 1,
+            ]),
+            'message' => $press->is_active === 1 ? 'Press Deactivated Successfully.' : 'Press Activated Successfully.',
+        ]);
     }
 }
