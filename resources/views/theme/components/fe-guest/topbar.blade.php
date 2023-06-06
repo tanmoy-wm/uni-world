@@ -44,7 +44,7 @@
                                 <a class="dropdown-item" href="{{ route('frontend.our-solutions') }}">Our Solutions</a>
                                 <a class="dropdown-item" href="{{ route('frontend.our-story') }}">Our Story</a>
                                 <a class="dropdown-item" href="{{ route('frontend.careers') }}">Careers</a>
-                                <a class="dropdown-item" href="{{ route('frontend.getPrees') }}">Press</a>
+                                <a class="dropdown-item" href="{{ route('frontend.getPrees', ['coverage_type' => 'featured']) }}">Press</a>
                                 <a class="dropdown-item" href="{{ route('frontend.life') }}">Life</a>
                                 <a class="dropdown-item" href="{{ route('frontend.leaderships') }}">Leadership</a>
                                 <a class="dropdown-item" href="{{ route('frontend.contact-us') }}">Contact</a>

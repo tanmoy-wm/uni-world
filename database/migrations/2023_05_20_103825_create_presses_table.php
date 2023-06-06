@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->string('title', 255)->index();
             $table->longText('description');
             $table->string('given_organization', 255)->index();
-            $table->string('award_name', 255)->index();
             $table->boolean('is_active')->index();
             $table->longText('meta')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
