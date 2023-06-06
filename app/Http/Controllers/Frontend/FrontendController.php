@@ -38,11 +38,11 @@ class FrontendController extends Controller
         return view('pages.frontend.public.blog', compact('blogs'));
     }
 
-    public function getPrees()
+    public function getPrees($coverage_type)
     {
-        $press = Press::all();
-        // $awards = $press->award->get();
-        return view('pages.frontend.public.press', compact('press', ));
+        echo @$_GET['filter'];
+        $presses = Press::query()->where('coverage_type', 'like', '%'.$coverage_type.'%')->get();
+        return view('pages.frontend.public.press', compact('presses', ));
     }
 
     public function getProgram($id)

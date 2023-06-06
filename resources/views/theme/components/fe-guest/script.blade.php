@@ -54,3 +54,20 @@
     });
 </script>
 <!-- Modal Video End -->
+
+{{-- <script>
+    var $coverage_type = 'ocverage_type';
+
+$.ajax({
+  url: '/press/{coverage_type?}',
+  type: 'GET',
+  data: {$coverage_type : ocverage_type },
+  success: function(response) {
+    // Handle the response from the server
+  },
+  error: function(xhr) {
+    // Handle any errors
+  }
+});
+
+</script> --}}

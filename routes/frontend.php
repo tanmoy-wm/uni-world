@@ -96,7 +96,7 @@ Route::group([
     Route::get('/agent-register', 'createAgent')->name('agent-register');
     Route::get('/university-register', 'createUniversity')->name('university-register');
     Route::get('/blogs', 'getBlogs')->name('getBlogs');
-    Route::get('/press', 'getPrees')->name('getPrees');
+    Route::get('/press/{coverage_type?}', 'getPrees')->name('getPrees');
     Route::get('/program-details/{id}', 'getProgram')->name('programs.show');
 });
 
