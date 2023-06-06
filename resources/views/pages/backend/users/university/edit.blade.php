@@ -151,7 +151,7 @@
                                 <label class="col-sm-3 col-form-label">State </label>
                                 <div class="col-sm-9">
                                     <input type="text" name="state" class="form-control"
-                                        {{ old('state') ?? $university->state }} required />
+                                        value ="{{ old('state') ?? $university->state }}" required />
                                 </div>
                             </div>
                         </div>
