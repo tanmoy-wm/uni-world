@@ -29,7 +29,7 @@
                         <li><a href="{{ route('frontend.our-story') }}">Our Story</a></li>
                         <li><a href="{{ route('frontend.careers') }}">Careers</a></li>
                         <li><a href="{{ route('frontend.getBlogs') }}">Blog</a></li>
-                        <li><a href="{{ route('frontend.getPrees', ['coverage_type' => 'featured']c) }}">Press</a></li>
+                        <li><a href="{{ route('frontend.getPrees', ['coverage_type' => 'featured']) }}">Press</a></li>
                         <li><a href="{{ route('frontend.life') }}">Life</a></li>
                         <li><a href="{{ route('frontend.leaderships') }}">Leadership</a></li>
                         <li><a href="{{ route('frontend.contact-us') }}">Contact</a></li>
