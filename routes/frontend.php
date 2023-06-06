@@ -37,6 +37,7 @@ Route::middleware('auth:web')->group(function () {
         'prefix'     => '/student'
     ], function () {
         Route::get('/', 'home')->name('home');
+        Route::post('/preference/store', 'storePreference')->name('preference-store');
     });
 });
 

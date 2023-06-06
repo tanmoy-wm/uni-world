@@ -51,7 +51,9 @@
                         style="background-image: url('{{ url('/assets/frontend/assets/auth/assets/images/bg3.jpg') }}');">
                         <div class="dashboard_card applyBoardCard custom__bg">
                             <div class="dashboard_card_body applyBoardCardBody">
-                                <form id="preferences-form" action="" nethod="POST">
+                                <form id="preferences-form" action="{{ route('frontend.student.preference-store') }}"
+                                    nethod="POST">
+                                    @csrf
                                     <div class="applyStepArea">
                                         <div class="applyStepSec" id="step-1">
                                             <div
@@ -74,10 +76,11 @@
                                                     <div class="mdCheckboxArea mb-4">
                                                         <div class="mdCheckbox mb-3">
                                                             <input id="i1" type="checkbox" value="usa"
-                                                                name="preferred_countries[]" class="country-checkbox"
-                                                                required>
+                                                                name="preferred_countries[]" class="country-checkbox">
                                                             <label for="i1">USA</label>
                                                         </div>
+
+
                                                         <div class="mdCheckbox mb-3">
                                                             <input id="i2" type="checkbox" value="canada"
                                                                 name="preferred_countries[]" class="country-checkbox">
@@ -789,8 +792,6 @@
                                                                                     <label for="i64">Sociology</label>
                                                                                 </div>
                                                                             </div>
-
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1925,42 +1926,12 @@
                                                 </div>
 
                                                 <div class="applyStepBtnArea">
-                                                    <button type="botton" class="applyStepBtn" data-toggle="modal"
+                                                    {{-- <button type="submit" class="applyStepBtn" data-toggle="modal"
                                                         data-target="#lastStepModal" id="step-14-next">Explore
-                                                        Programs</button>
-                                                </div>
-                                            </div>
+                                                        Programs</button> --}}
 
-                                            <!-- The Modal -->
-                                            <div class="modal lastStepModal" id="lastStepModal">
-                                                <div class="modal-dialog lastStepModalDiolog">
-                                                    <div class="modal-content lastStepModalContent">
-
-                                                        <!-- Modal Header -->
-                                                        <div class="modal-header lastStepModalHeader">
-                                                            <h4 class="modal-title">Save changes to your profile?</h4>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal"><i
-                                                                    class="fa-regular fa-xmark"></i></button>
-                                                        </div>
-
-                                                        <!-- Modal body -->
-                                                        <div class="modal-body lastStepModalBody">
-                                                            <p class="mb-3">This will also change your eligibility
-                                                                for
-                                                                other programs in your cart.</p>
-                                                            <div class="applyStepBtnArea">
-                                                                <a href="{{ route('frontend.programs') }}"
-                                                                    class="applyStepBtn2 mb-3 text-center">Show
-                                                                    Result Only</a>
-                                                                <a href="{{ route('frontend.programs') }}"
-                                                                    class="applyStepBtn text-center">Save &
-                                                                    Show
-                                                                    Result
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <button type="submit" id="submit-modal"
+                                                        class="applyStepBtn">Submit</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -2120,5 +2091,36 @@
                 </div>
             </div>
         </div>
+
+        <!-- The Final Explore Modal Start -->
+        <div class="modal lastStepModal" id="lastStepModal">
+            <div class="modal-dialog lastStepModalDiolog">
+                <div class="modal-content lastStepModalContent">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header lastStepModalHeader">
+                        <h4 class="modal-title">Save changes to your profile?</h4>
+                        <button type="button" class="close" data-dismiss="modal"><i
+                                class="fa-regular fa-xmark"></i></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body lastStepModalBody">
+                        <p class="mb-3">This will also change your eligibility
+                            for
+                            other programs in your cart.</p>
+                        <div class="applyStepBtnArea">
+                            <a href="{{ route('frontend.programs') }}" class="applyStepBtn2 mb-3 text-center">Show
+                                Result Only</a>
+                            <a href="{{ route('frontend.programs') }}" class="applyStepBtn text-center">Save &
+                                Show
+                                Result
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- The Final Explore Modal End -->
     </div>
 @endsection
