@@ -115,7 +115,7 @@ class PressService
             ];
 
             $press->update($data);
-        } catch (Exception $exception) {
+        }catch (Exception $exception) {
             if (app()->environment('local')) {
                 return redirect()->back()->withErrors($exception->getMessage());
             } else {

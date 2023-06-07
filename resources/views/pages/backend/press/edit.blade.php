@@ -24,7 +24,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Title</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="title" value="{{ $press->title }}" required />
+                                    <input type="text" class="form-control" name="title" value="{{ $press->title }}"
+                                        required />
                                 </div>
                             </div>
                         </div>
@@ -32,8 +33,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label"> Given Organization </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="given_organization" value="{{ $press->given_organization }}"
-                                        required />
+                                    <input type="text" class="form-control" name="given_organization"
+                                        value="{{ $press->given_organization }}" required />
                                 </div>
                             </div>
                         </div>
@@ -41,23 +42,29 @@
 
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label"> Coverage Type</label>
+                            <label class="col-sm-3 col-form-label">Coverage Type</label>
                             <div class="col-sm-9">
+
+
                                 <select class="form-control" name="coverage_type" id="coverage_type" required>
-                                    <option value="featured">Featured</option>
-                                    <option value="award">Award</option>
-                                    <option value="leadership">Leadership</option>
+                                    <option {{ $press->coverage_type === 'featured' ? 'selected' : '' }}
+                                        value="featured">Featured</option>
+                                    <option {{ $press->coverage_type === 'award' ? 'selected' : '' }}
+                                         value="award">Award</option>
+                                    <option {{ $press->coverage_type === 'leadership' ? 'selected' : '' }}
+                                        value="leadership">Leadership</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="row">
+
+                    <div class="row">  
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Award Name </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="award_name" value="{{ $press->award_name }}" required />
+                                    <input type="text" id="award_name" class="form-control" name="award_name"
+                                        value="{{ $press->award_name }}" required />
                                 </div>
                             </div>
                         </div>
