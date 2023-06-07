@@ -11,7 +11,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">New Agent</h4>
+                <h4 class="card-title">Update Agent</h4>
                 <br>
                 <form class="form-sample" action="{{ route('agents.update', ['id' => $agent->id]) }}" method="POST"
                     enctype="multipart/form-data">
