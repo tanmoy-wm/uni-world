@@ -36,7 +36,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $staff->first_name }}</td>
                                 <td>{{ $staff->email }}</td>
-                                <td>+{{ $staff->country_code }} {{ $staff->mobile_number }}</td>
+                                <td>{{ $staff->full_mobile_number }}</td>
                                 <td>{{ $staff->agent->name }}</td>
                                 <td>
                                     <a href="{{ route('staffs.edit', ['id' => $staff->id]) }}">

@@ -38,89 +38,23 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="main-universities-blog">
-                        <div class="sub-img-universities">
-                            <img src="{{ asset('assets/frontend/assets/images/blogs/02-blog.png') }}" alt="" />
-                        </div>
-                        <div class="sub-content-universities">
-                            <h3><a href="javascript:;">Quiz: What Length Program Should You Choose For Study Abroad In
-                                    Canada?</a></h3>
-                            <p>DECEMBER 12, 2022</p>
-                            <a href="javascript:;">Read More</a>
+                @forelse ($blogs as $blog)
+                    <div class="col-lg-4">
+                        <div class="main-universities-blog">
+                            <div class="sub-img-universities">
+                                <img src="{{ asset('assets/frontend/assets/images/blogs/02-blog.png') }}" alt="" />
+                            </div>
+                            <div class="sub-content-universities">
+                                <h3><a href="javascript:;">{{ $blog->title }}</a></h3>
+                                <p>{{ $blog->created_at->diffForHumans() }}</p>
+                                <a href="javascript:;">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @empty
+                    <h2>No Data Found</h2>
+                @endforelse
 
-                <div class="col-lg-4">
-                    <div class="main-universities-blog">
-                        <div class="sub-img-universities">
-                            <img src="{{ asset('assets/frontend/assets/images/blogs/02-blog.png') }}" alt="" />
-                        </div>
-                        <div class="sub-content-universities">
-                            <h3><a href="javascript:;">Quiz: What Length Program Should You Choose For Study Abroad In
-                                    Canada?</a></h3>
-                            <p>DECEMBER 12, 2022</p>
-                            <a href="javascript:;">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="main-universities-blog">
-                        <div class="sub-img-universities">
-                            <img src="{{ asset('assets/frontend/assets/images/blogs/02-blog.png') }}" alt="" />
-                        </div>
-                        <div class="sub-content-universities">
-                            <h3><a href="javascript:;">Quiz: What Length Program Should You Choose For Study Abroad In
-                                    Canada?</a></h3>
-                            <p>DECEMBER 12, 2022</p>
-                            <a href="javascript:;">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="main-universities-blog">
-                        <div class="sub-img-universities">
-                            <img src="{{ asset('assets/frontend/assets/images/blogs/02-blog.png') }}" alt="" />
-                        </div>
-                        <div class="sub-content-universities">
-                            <h3><a href="javascript:;">Quiz: What Length Program Should You Choose For Study Abroad In
-                                    Canada?</a></h3>
-                            <p>DECEMBER 12, 2022</p>
-                            <a href="javascript:;">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="main-universities-blog">
-                        <div class="sub-img-universities">
-                            <img src="{{ asset('assets/frontend/assets/images/blogs/02-blog.png') }}" alt="" />
-                        </div>
-                        <div class="sub-content-universities">
-                            <h3><a href="javascript:;">Quiz: What Length Program Should You Choose For Study Abroad In
-                                    Canada?</a></h3>
-                            <p>DECEMBER 12, 2022</p>
-                            <a href="javascript:;">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="main-universities-blog">
-                        <div class="sub-img-universities">
-                            <img src="{{ asset('assets/frontend/assets/images/blogs/02-blog.png') }}" alt="" />
-                        </div>
-                        <div class="sub-content-universities">
-                            <h3><a href="javascript:;">Quiz: What Length Program Should You Choose For Study Abroad In
-                                    Canada?</a></h3>
-                            <p>DECEMBER 12, 2022</p>
-                            <a href="javascript:;">Read More</a>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="col-lg-12">
                     <div class="sub-explore-btn">

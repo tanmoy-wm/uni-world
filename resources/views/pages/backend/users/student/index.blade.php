@@ -36,7 +36,7 @@
                             <tr>
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->email }}</td>
-                                <td class="text-danger"> {{ $student->mobile_number }}</td>
+                                <td> {{ $student->full_mobile_number }}</td>
                                 <td>{{ $student->country }}</td>
                                 <td>
                                     <a href="{{ route('students.edit', ['id' => $student->id]) }}">

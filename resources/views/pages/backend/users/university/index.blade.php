@@ -19,60 +19,62 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th> # </th>
-                            <th> Name </th>
-                            <th> Username </th>
-                            <th> Email </th>
-                            <th> Mobile Number </th>
-                            <th> Status </th>
-                            <th> Country </th>
-                            <th> Actions </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($universities as $university)
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead>
                             <tr>
-                                <td> {{ $loop->iteration }} </td>
-                                <td> {{ $university->name }} </td>
-                                <td> {{ $university->username }} </td>
-                                <td> {{ $university->email }} </td>
-                                <td> +{{ $university->country_code }} {{ $university->mobile_number }} </td>
-                                <td>
-                                    @if ($university->status === 'pending')
-                                        <label class="badge badge-warning">Pending</label>
-                                    @elseif ($university->status === 'active')
-                                        <label class="badge badge-success">Active</label>
-                                    @elseif ($university->status === 'active')
-                                        <label class="badge badge-danger">Inactive</label>
-                                    @endif
-                                </td>
-                                <td> {{ $university->country }} </td>
-                                <td>
-                                    <a href="{{ route('universities.edit', ['id' => $university->id]) }}">
-                                        <button class="btn btn-primary btn-icon" type="button">
-                                            <i class="mdi mdi-pencil"></i>
-                                        </button>
-                                    </a>
+                                <th> # </th>
+                                <th> Name </th>
+                                <th> Username </th>
+                                <th> Email </th>
+                                <th> Mobile Number </th>
+                                <th> Status </th>
+                                <th> Country </th>
+                                <th> Actions </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($universities as $university)
+                                <tr>
+                                    <td> {{ $loop->iteration }} </td>
+                                    <td> {{ $university->name }} </td>
+                                    <td> {{ $university->username }} </td>
+                                    <td> {{ $university->email }} </td>
+                                    <td> {{ $university->full_mobile_number }} </td>
+                                    <td>
+                                        @if ($university->status === 'pending')
+                                            <label class="badge badge-warning">Pending</label>
+                                        @elseif ($university->status === 'active')
+                                            <label class="badge badge-success">Active</label>
+                                        @elseif ($university->status === 'active')
+                                            <label class="badge badge-danger">Inactive</label>
+                                        @endif
+                                    </td>
+                                    <td> {{ $university->country }} </td>
+                                    <td>
+                                        <a href="{{ route('universities.edit', ['id' => $university->id]) }}">
+                                            <button class="btn btn-primary btn-icon" type="button">
+                                                <i class="mdi mdi-pencil"></i>
+                                            </button>
+                                        </a>
 
-                                    <a href="{{ route('universities.trashed', ['id' => $university->id]) }}"
-                                        onclick="confirmDelete(event)">
-                                        <button class="btn btn-danger btn-icon btndata" id="{{ $university->id }}"
-                                            type="button">
-                                            <i class="mdi mdi-delete"></i>
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="6" class="text-center"> No Universities Found </td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                                        <a href="{{ route('universities.trashed', ['id' => $university->id]) }}"
+                                            onclick="confirmDelete(event)">
+                                            <button class="btn btn-danger btn-icon btndata" id="{{ $university->id }}"
+                                                type="button">
+                                                <i class="mdi mdi-delete"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6" class="text-center"> No Universities Found </td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

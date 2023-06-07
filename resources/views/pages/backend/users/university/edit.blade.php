@@ -44,7 +44,7 @@
                                 <label class="col-sm-3 col-form-label">User Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="username" class="form-control"
-                                        {{ old('username') ?? $university->username }} required />
+                                        value ="{{ old('username') ?? $university->username }}" required />
                                 </div>
                             </div>
                         </div>
@@ -68,9 +68,11 @@
                                 <div class="col-sm-9">
                                     <select class="form-control" name="country_code" required>
                                         @forelse ($countries as $country)
-                                            <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                        <option value="{{ $country->dial_code }}"
+                                            {{ $university->country_code === $country->dial_code ? 'selected' : '' }}>
+                                            {{ $country->name }}{{ $country->dial_code }}</option>
                                         @empty
-                                            <option value="">No Country Found</option>
+                                            <option value="">No Country Code Found</option>
                                         @endforelse
                                     </select>
                                 </div>
@@ -95,7 +97,11 @@
                                 <div class="col-sm-9">
                                     <select class="form-control" name="alt_country_code" required>
                                         @forelse ($countries as $country)
-                                            <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                        <option value="{{ $country->dial_code }}"
+                                            {{ $university->country_code === $country->dial_code ? 'selected' : '' }}>
+                                            {{ $country->name }}
+                                            {{ $country->dial_code }}</option>
+
                                         @empty
                                             <option value="">No Country Found</option>
                                         @endforelse
@@ -109,7 +115,8 @@
                                 <label class="col-sm-3 col-form-label">Alternative Mobile Number</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="number" name="alt_mobile_number"
-                                        value="{{ old('alt_mobile_number') ?? $university->alt_mobile_number }}" required />
+                                        value="{{ old('alt_mobile_number') ?? $university->alt_mobile_number }}"
+                                        required />
                                 </div>
                             </div>
                         </div>
@@ -144,7 +151,7 @@
                                 <label class="col-sm-3 col-form-label">State </label>
                                 <div class="col-sm-9">
                                     <input type="text" name="state" class="form-control"
-                                        {{ old('state') ?? $university->state }} required />
+                                        value ="{{ old('state') ?? $university->state }}" required />
                                 </div>
                             </div>
                         </div>
@@ -179,7 +186,9 @@
                                 <div class="col-sm-9">
                                     <select name="country" class="form-control " required>
                                         @forelse ($countries as $country)
-                                            <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                            <option value="{{ $country->name }}"
+                                                {{ $university->country === $country->name ? 'selected' : '' }}>
+                                                {{ $country->name }}</option>
                                         @empty
                                             <option value="">No Country Found</option>
                                         @endforelse

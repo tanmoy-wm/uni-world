@@ -113,9 +113,11 @@
                                 <div class="col-sm-9">
                                     <select class="form-control" name="country_code" required>
                                         @forelse ($countries as $country)
-                                            <option value="{{ $country->dial_code }}">{{ $country->dial_code }}</option>
+                                            <option value="{{ $country->dial_code }}"> {{ $country->name }}
+                                                {{ $country->dial_code }}
+                                            </option>
                                         @empty
-                                            <option value="">No Country Found</option>
+                                            <option value="">No Country Code Found</option>
                                         @endforelse
                                     </select>
                                 </div>
@@ -203,6 +205,79 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Preferred Contact Method </label>
+                                <div class="col-sm-9">
+                                    <select name="preferred_contact_method" class="form-control" required>
+
+                                        <option value="{{ $country->name }}">Yes</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Preferred Contact Method Number</label>
+                                <div class="col-sm-9">
+                                    <input name="preferred_contact_method_number"
+                                        value="{{ old('preferred_contact_method_number') }}" type="text"
+                                        class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">How Did You Find
+                                    About Uniwolc </label>
+                                <div class="col-sm-9">
+                                    <input name="how_did_you_find_about_uniwolc"
+                                        value="{{ old('how_did_you_find_about_uniwolc') }}" type="text"
+                                        class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">In Which Year You Start Recruiting</label>
+                                <div class="col-sm-9">
+                                    <input name="in_which_year_you_start_recruiting"
+                                        value="{{ old('in_which_year_you_start_recruiting') }}" type="text"
+                                        class="form-control" required />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Provided Service </label>
+                                <div class="col-sm-9">
+                                    <select name="provided_service" class="form-control" required>
+
+                                        <option value="{{ $country->name }}">Yes</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">

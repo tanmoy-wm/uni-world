@@ -6,15 +6,15 @@
                 <i class="mdi mdi-home"></i>
             </span> Country
         </h3>
-        {{-- <nav aria-label="breadcrumb">
+        <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a href="{{ route('categories.create') }}" class="btn btn-gradient-primary btn-icon-text">
-                        <i class="mdi mdi-account-multiple-plus"></i> Add Category </a>
+                    <a href="{{ route('countries.create') }}" class="btn btn-gradient-primary btn-icon-text">
+                        <i class="mdi mdi-account-multiple-plus"></i> Add Country </a>
                     <!-- <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i> -->
                 </li>
             </ul>
-        </nav> --}}
+        </nav>
     </div>
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
@@ -26,6 +26,7 @@
                             <th> Name </th>
                             <th> Code </th>
                             <th> Dail Code </th>
+                            <th> Status </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,17 @@
                                 <td>{{ $country->name }}</td>
                                 <td>{{ $country->code }}</td>
                                 <td>{{ $country->dial_code }}</td>
+                                <td>
+                                    @if ($country->is_active === 1)
+                                        <a href="{{ route('countries.changeStatus', ['id' => $country->id]) }}">
+                                            <lable class="badge badge-success">ACTIVE</lable>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('countries.changeStatus', ['id' => $country->id]) }}">
+                                            <lable class="badge badge-danger">INACTIVE</lable>
+                                        </a>
+                                    @endif
+                                </td>
                             </tr>
                         @empty
                             <tr>

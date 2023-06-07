@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\HasActive;
+
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasActive, HasFactory, SoftDeletes;
 
     protected $appends = [];
 
@@ -45,6 +47,11 @@ class Category extends Model
     public function parent(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'parent_id');
+    }
+
+    public function programs(): HasMany
+    {
+        return $this->hasMany(Program::class, 'category_id');
     }
 
     public function updatedBy(): BelongsTo

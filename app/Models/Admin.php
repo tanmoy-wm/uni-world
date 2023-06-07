@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Admin extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $appends = ['name'];
 
@@ -57,24 +57,24 @@ class Admin extends Model
     protected function firstName(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => ucwords($value),
-            set: fn ($value) => strtolower($value)
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
         );
     }
 
     protected function middleName(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => ucwords($value),
-            set: fn ($value) => strtolower($value)
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
         );
     }
 
     protected function lastName(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => ucwords($value),
-            set: fn ($value) => strtolower($value)
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
         );
     }
 

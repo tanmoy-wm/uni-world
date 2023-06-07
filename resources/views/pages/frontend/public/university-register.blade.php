@@ -16,7 +16,7 @@
                         <h4>Register</h4>
                     </div>
                     <div class="sub-login-form">
-                        <form class="form-sample" action={{ route('universities.store') }} method="POST">
+                        <form class="form-sample" action="{{ route('university-registration') }}" method="POST">
                             @csrf
                             @if ($errors->any())
                                 @include('theme.components.backend.errors', ['errors' => $errors])
@@ -193,6 +193,53 @@
                                         </div>
                                     </div>
                                     <input type="text" name="website" class="form-control" placeholder="Enter Website">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa-solid fa-globe"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="instagram" class="form-control" placeholder="Enter Instagram">
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa-solid fa-globe"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="facebook" class="form-control" placeholder="Enter facebook">
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa-solid fa-globe"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="twitter" class="form-control" placeholder="Enter Twitter">
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa-solid fa-globe"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="linkedin" class="form-control" placeholder="Enter Linkedin">
                                 </div>
                             </div>
 

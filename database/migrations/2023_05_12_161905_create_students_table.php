@@ -14,10 +14,10 @@ return new class extends Migration
             $table->string('middle_name', 255)->index()->nullable();
             $table->string('last_name', 255)->index();
             $table->string('email', 255)->unique()->index();
-            $table->string('country_code')->index();
-            $table->string('mobile_number')->unique()->index();
-            $table->string('state')->index();
-            $table->string('country')->index();
+            $table->string('country_code')->index()->nullable();
+            $table->string('mobile_number')->unique()->index()->nullable();
+            $table->string('state')->index()->nullable();
+            $table->string('country')->index()->nullable();
             $table->string('gender')->index()->nullable();
             $table->date('dob')->nullable();
             $table->longText('meta')->nullable();

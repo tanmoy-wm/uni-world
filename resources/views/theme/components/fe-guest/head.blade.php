@@ -14,3 +14,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     rel="stylesheet">
+<link rel="shortcut icon" href="{{ asset('assets/images/uniwolc-favicon.svg') }}" />
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+@vite('resources/js/app.js')

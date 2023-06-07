@@ -60,6 +60,7 @@ class CategoryController extends Controller
 
     public function trashed($id): RedirectResponse
     {
+
         return $this->service->trashed($id);
     }
 

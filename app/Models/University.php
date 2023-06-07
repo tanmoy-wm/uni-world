@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,7 +14,10 @@ class University extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $appends = [];
+    protected $appends = [
+        'full_mobile_number',
+        'full_address'
+    ];
 
     protected $casts = [
         'created_by' => 'int',
@@ -36,6 +40,10 @@ class University extends Model
         'country',
         'pincode',
         'status',
+        'dli_number',
+        'institution_type',
+        'founded_year',
+        'why_your_institution',
         'website',
         'linkedin',
         'facebook',
@@ -48,6 +56,11 @@ class University extends Model
     ];
 
     //------------------- Relationships -------------------//
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'country');
+    }
+
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
@@ -56,6 +69,16 @@ class University extends Model
     public function deletedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'deleted_by');
+    }
+
+    public function features(): HasMany
+    {
+        return $this->hasMany(UniversityFeature::class, 'university_id');
+    }
+
+    public function programs(): HasMany
+    {
+        return $this->hasMany(Program::class, 'university_id');
     }
 
     public function updatedBy(): BelongsTo
@@ -71,6 +94,21 @@ class University extends Model
 
 
     //--------------------- Attributes --------------------//
+    public function getFullAddressAttribute(): string
+    {
+        return $this->address . ', ' . $this->city . ', ' . $this->state . ', ' . $this->country . ',' . $this->pincode;
+    }
+
+    public function getFullAltMobileNumberAttribute(): string
+    {
+        return $this->alt_country_code . ' ' . $this->alt_mobile_number;
+    }
+
+    public function getFullMobileNumberAttribute(): string
+    {
+        return $this->country_code . ' ' . $this->mobile_number;
+    }
+
     protected function name(): Attribute
     {
         return new Attribute(
@@ -79,13 +117,13 @@ class University extends Model
         );
     }
 
-    // protected function username(): Attribute
-    // {
-    //     return new Attribute(
-    //         get: fn ($value) => strtolower($value),
-    //         set: fn ($value) => strtolower($value)
-    //     );
-    // }
+    protected function username(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => strtolower($value),
+            set: fn ($value) => strtolower($value)
+        );
+    }
 
     protected function setUsernameAttribute($value)
     {

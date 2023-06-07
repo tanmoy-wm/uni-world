@@ -14,7 +14,7 @@ class Agent extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $appends = ['name'];
+    protected $appends = ['full_mobile_number', 'name'];
 
     protected $casts = [
         'created_by' => 'int',
@@ -37,6 +37,12 @@ class Agent extends Model
         'student_source_country',
         'business_certificate',
         'business_logo',
+        'preferred_contact_method',
+        'preferred_contact_method_number',
+        'how_did_you_find_about_uniwolc',
+        'in_which_year_you_start_recruiting',
+        'provided_service',
+        'meta',
         'created_by',
         'deleted_by',
         'updated_by',
@@ -56,6 +62,11 @@ class Agent extends Model
     public function staff(): HasMany
     {
         return $this->hasMany(Staff::class, 'agent_id');
+    }
+
+    public function students(): HasMany
+    {
+        return $this->hasMany(Student::class, 'agent_id');
     }
 
     public function updatedBy(): BelongsTo
@@ -100,6 +111,11 @@ class Agent extends Model
         }
 
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function getFullMobileNumberAttribute(): string
+    {
+        return $this->country_code . ' ' . $this->mobile_number;
     }
     //--------------------- Attributes --------------------//
 

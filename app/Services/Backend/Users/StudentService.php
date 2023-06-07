@@ -19,7 +19,7 @@ class StudentService
 {
     public function create(): View
     {
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.student.create', compact('countries'));
     }
 
@@ -35,7 +35,7 @@ class StudentService
     public function edit($id): View
     {
         $student = Student::query()->findOrFail($id);
-        $countries = Country::all();
+        $countries = Country::active()->get();
         return view('pages.backend.users.student.edit', compact('student', 'countries'));
     }
 
@@ -60,19 +60,17 @@ class StudentService
     {
         try {
             $validated_request = $request->validated();
-
-            dd($validated_request);
             DB::transaction(function () use ($validated_request) {
                 $data = Student::create([
-                    'first_name'    => $validated_request['first_name'],
-                    'middle_name'   => $validated_request['middle_name'],
-                    'last_name'     => $validated_request['last_name'],
-                    'email'         => $validated_request['email'],
-                    'country_code'  => $validated_request['country_code'],
+                    'first_name' => $validated_request['first_name'],
+                    'middle_name' => $validated_request['middle_name'],
+                    'last_name' => $validated_request['last_name'],
+                    'email' => $validated_request['email'],
+                    'country_code' => $validated_request['country_code'],
                     'mobile_number' => $validated_request['mobile_number'],
-                    'state'         => $validated_request['state'],
-                    'country'       => $validated_request['country'],
-                    'dob'           => $validated_request['dob'],
+                    'state' => $validated_request['state'],
+                    'country' => $validated_request['country'],
+                    'dob' => $validated_request['dob'],
                 ]);
 
                 CreateUserAction::execute($data, $validated_request['password']);
@@ -104,15 +102,15 @@ class StudentService
                 $validated_request = $request->validated();
 
                 $data = [
-                    'first_name'    => $validated_request['first_name'],
-                    'middle_name'   => $validated_request['middle_name'],
-                    'last_name'     => $validated_request['last_name'],
-                    'email'         => $validated_request['email'],
-                    'country_code'  => $validated_request['country_code'],
+                    'first_name' => $validated_request['first_name'],
+                    'middle_name' => $validated_request['middle_name'],
+                    'last_name' => $validated_request['last_name'],
+                    'email' => $validated_request['email'],
+                    'country_code' => $validated_request['country_code'],
                     'mobile_number' => $validated_request['mobile_number'],
-                    'state'         => $validated_request['state'],
-                    'country'       => $validated_request['country'],
-                    'dob'           => $validated_request['dob'],
+                    'state' => $validated_request['state'],
+                    'country' => $validated_request['country'],
+                    'dob' => $validated_request['dob'],
                 ];
 
                 $student->update($data);

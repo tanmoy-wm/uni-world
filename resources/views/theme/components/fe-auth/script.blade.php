@@ -1,58 +1,44 @@
-<!-- Header Menu -->
-<script src="{{ asset('assets/frontend/assets/js/jquery-3.2.1.slim.min.js') }}"></script>
-<script src="{{ asset('assets/frontend/assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/frontend/assets/js/our-partners.js') }}"></script>
-<script src="{{ asset('assets/frontend/assets/js/range-slider.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
+</script>
 
-<script>
-    $(document).ready(function() {
-        // executes when HTML-Document is loaded and DOM is ready
-
-        // breakpoint and up
-        $(window).resize(function() {
-            if ($(window).width() >= 980) {
-
-                // when you hover a toggle show its dropdown menu
-                $(".navbar .dropdown-toggle").hover(function() {
-                    $(this).parent().toggleClass("show");
-                    $(this).parent().find(".dropdown-menu").toggleClass("show");
-                });
-
-                // hide the menu when the mouse leaves the dropdown
-                $(".navbar .dropdown-menu").mouseleave(function() {
-                    $(this).removeClass("show");
-                });
-
-                // do something here
-            }
+{{-- <script>
+    $(function() {
+        $('#createStudent').submit(function(e) {
+            cosole.log("Hello");
+            e.preventDefault();
+            let formData = $(this).serializeArray();
+            $(".invalid-feedback").children("strong").text("");
+            $("#createStudent input").removeClass("is-invalid");
+            $.ajax({
+                method: "POST",
+                headers: {
+                    Accept: "application/json"
+                },
+                url: "{{ route('agent.student.store') }}",
+                data: formData,
+                success: () => window.location.assign("{{ route('auth.dashboard') }}"),
+                error: (response) => {
+                    if (response.status === 422) {
+                        console.console.log(response);
+                    } else {
+                        window.location.reload();
+                    }
+                }
+            })
         });
-    });
-</script>
-<!-- Header Menu End -->
+    })
+</script> --}}
 
-<!-- New on Awolc Tab -->
-<script>
-    $('.nav-tabs-dropdown')
-        .on("click", "li:not('.active') a", function(event) {
-            $(this).closest('ul').removeClass("open");
-        })
-        .on("click", "li.active a", function(event) {
-            $(this).closest('ul').toggleClass("open");
-        });
-</script>
-<!-- New on Awolc Tab End -->
 
-<!-- dropdown menu btn -->
-<script>
-    $('.dropdown-toggle').dropdown()
-</script>
-<!-- dropdown menu btn end -->
-
-<!-- Modal Video -->
-<script language="JavaScript">
-    $(".VideoPopup").on('hidden.bs.modal', function(e) {
-        $(".VideoPopup iframe").attr("src", $(".VideoPopup iframe").attr("src"));
-    });
-</script>
-<!-- Modal Video End -->
+{{-- <script type="text/javascript">
+    function form_submit() {
+        document.getElementById("createStudent").submit();
+    }
+</script> --}}

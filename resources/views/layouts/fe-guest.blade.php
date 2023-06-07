@@ -7,14 +7,7 @@
 
 <body>
     @include('theme.components.fe-guest.topbar')
-    <section class="sub-login-bg">
-        <div class="container">
-            <div class="row">
-                @yield('content')
-            </div>
-        </div>
-    </section>
-
+    @yield('content')
     @include('theme.components.fe-guest.footer')
     @include('theme.components.fe-guest.script')
 </body>

@@ -13,7 +13,7 @@ class Student extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $appends = ['name'];
+    protected $appends = ['full_mobile_number', 'name'];
 
     protected $casts = [
         'created_by' => 'int',
@@ -28,11 +28,73 @@ class Student extends Model
         'email',
         'country_code',
         'mobile_number',
-        'country',
-        'gender',
-        'dob',
+        'address',
+        'city',
         'state',
+        'country',
+        'pincode',
+        'gender',
+        'marital_status',
+        'passport_number',
+        'passport_expiry_date',
+        'fast_language',
+        'country_of_education',
+        'highest_level_of_education',
+        'grading_scheme',
+        'grade_average',
+        'is_gmat',
+        'gmat_total_score',
+        'gmat_rank',
+        'gmat_verbal',
+        'gmat_verbal_rank',
+        'gmat_quantitative',
+        'gmat_quantitative_rank',
+        'gmat_awa',
+        'gmat_awa_rank',
+        'date_of_gmat_exam',
+        'is_gre',
+        'gre_total_score',
+        'gre_rank',
+        'gre_verbal',
+        'gre_verbal_rank',
+        'gre_quantitative',
+        'gre_quantitative_rank',
+        'gre_awa',
+        'gre_awa_rank',
+        'date_of_gre_exam',
+        'refused_a_visa_from_canada_use_uk_nz_au_ireland',
+        'study_permit_or_visa',
+        'study_permit_or_visa_description',
+        'dob',
+        'english_test_type',
+        'toefl_reading_score',
+        'toefl_listening_score',
+        'toefl_writing_score',
+        'toefl_speaking_score',
+        'toefl_total_score',
+        'toefl_exam_date',
+        'ielts_reading_score',
+        'ielts_listening_score',
+        'ielts_writing_score',
+        'ielts_speaking_score',
+        'ielts_total_score',
+        'ielts_exam_date',
+        'pte_reading_score',
+        'pte_listening_score',
+        'pte_writing_score',
+        'pte_speaking_score',
+        'pte_total_score',
+        'pte_exam_date',
+        'duolingo_total_score',
+        'duolingo_exam_date',
         'is_active',
+        'status',
+        'agent_accept_terms_and_service_behalf_of_student',
+        'agent_id',
+        'assigned_to',
+        'referral_source',
+        'country_of_interest',
+        'service_of_interest',
         'meta',
         'created_by',
         'updated_by',
@@ -40,6 +102,11 @@ class Student extends Model
     ];
 
     //------------------- Relationships -------------------//
+    public function agent(): BelongsTo
+    {
+        return $this->belongsTo(Agent::class, 'agent_id');
+    }
+
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
@@ -48,6 +115,11 @@ class Student extends Model
     public function deletedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'deleted_by');
+    }
+
+    public function staff(): BelongsTo
+    {
+        return $this->belongsTo(Staff::class, 'assigned_to');
     }
 
     public function updatedBy(): BelongsTo
@@ -70,6 +142,15 @@ class Student extends Model
             set: fn ($value) => strtolower($value)
         );
     }
+
+    protected function gender(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => ucwords($value),
+            set: fn ($value) => strtolower($value)
+        );
+    }
+
     protected function middleName(): Attribute
     {
         return new Attribute(
@@ -77,6 +158,7 @@ class Student extends Model
             set: fn ($value) => strtolower($value)
         );
     }
+
     protected function lastName(): Attribute
     {
         return new Attribute(
@@ -92,6 +174,11 @@ class Student extends Model
         }
 
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function getFullMobileNumberAttribute(): string
+    {
+        return $this->country_code . ' ' . $this->mobile_number;
     }
     //--------------------- Attributes --------------------//
 }

@@ -34,6 +34,10 @@ class CourseController extends Controller
         return $this->service->show($id);
     }
 
+    public function store(StoreBlogRequest $request): RedirectResponse
+    {
+        return $this->service->store($request);
+    }
     public function store(Request $request): RedirectResponse
     {
         return $this->service->store($request);
