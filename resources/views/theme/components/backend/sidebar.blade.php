@@ -75,12 +75,12 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('applications.index') }}">
                         <span class="menu-title">Applications</span>
                         <i class="mdi mdi-table-large menu-icon"></i>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('payments.index') }}">
                         <span class="menu-title">Payments</span>
@@ -93,6 +93,27 @@
                         <i class="mdi mdi-table-large menu-icon"></i>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#settings" aria-expanded="false"
+                        aria-controls="settings">
+                        <span class="menu-title">Appications</span>
+                        <i class="menu-arrow"></i>
+                        <i class="fa-regular fa-gear"></i>
+                    </a>
+
+                    <div class="collapse" id="settings">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="#">No. Of Applications</a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="#">No. Of Pending Applications</a></li>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">No. Of Rejected Applications</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+
 
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#settings" aria-expanded="false"
