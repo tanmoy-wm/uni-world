@@ -24,21 +24,5 @@ class UpdateBlogRequest extends FormRequest
         ];
     }
 
-    public function failedValidation(Validator $validator): JsonResponse
-    {
-        throw new HttpResponseException(response()->json([
-            'success' => false,
-            'errorMsg' => 'Validation Errors.',
-            'messages' => $validator->errors()->all(),
-        ]), 422);
-    }
 
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'Name field is required.',
-            'slug.required' => 'Slug field is required.',
-            'slug.unique' => 'Sorry, this Slug is already Exists.',
-        ];
-    }
 }

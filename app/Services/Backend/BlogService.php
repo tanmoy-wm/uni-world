@@ -114,7 +114,6 @@ class BlogService
             $validated_request = $request->validated();
             $updated_by = Auth::id();
             $slug = Str::slug($validated_request['title']);
-
             $data = [
                 'title' => $validated_request['title'],
                 'slug' => $slug,
@@ -134,10 +133,48 @@ class BlogService
         }
 
         return redirect()->route('blogs.index');
+
+
+        $press = Blog::query()->findOrFail($id);
+
+        try {
+            $validated_request = $request->validated();
+            $updated_by = Auth::id();
+            $slug = Str::slug($validated_request['title']);
+
+            $data = [
+                'title' => $validated_request['title'],
+                'description' => $validated_request['description'],
+                'given_organization' => $validated_request['given_organization'],
+                'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
+                'updated_by' => $updated_by,
+            ];
+
+            $press->update($data);
+        } catch (Exception $exception) {
+            if (app()->environment('local')) {
+                return redirect()->back()->withErrors($exception->getMessage());
+            } else {
+                return redirect()->back()->withErrors('Something went wrong. Please try again later.');
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public function changeStatus($id): RedirectResponse
     {
+
         $blog = Blog::query()->findOrFail($id);
 
         return redirect()->route('blogs.index')->with([
