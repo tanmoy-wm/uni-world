@@ -11,7 +11,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Create Press</h4>
+                <h4 class="card-title">Update Press</h4>
                 <form class="form-sample" action={{ route('press.update', ['id' => $press->id]) }} method="POST">
                     @csrf
                     @method('PUT')
@@ -39,6 +39,19 @@
                         </div>
                     </div>
 
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label"> Coverage Type</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="coverage_type" id="coverage_type" required>
+                                    <option value="featured">Featured</option>
+                                    <option value="award">Award</option>
+                                    <option value="leadership">Leadership</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">

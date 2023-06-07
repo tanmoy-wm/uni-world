@@ -108,7 +108,8 @@ class PressService
                 'title' => $validated_request['title'],
                 'description' => $validated_request['description'],
                 'given_organization' => $validated_request['given_organization'],
-                'award_name' => $validated_request['award_name'],
+                'coverage_type' => $validated_request['coverage_type'],
+                'award_name' => $validated_request['award_name'] ?? null,
                 'is_active' => $validated_request['is_active'] === 'active' ? 1 : 0,
                 'updated_by' => $updated_by,
             ];

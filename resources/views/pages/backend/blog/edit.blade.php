@@ -11,7 +11,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Create Blogs</h4>
+                <h4 class="card-title">Update Blogs</h4>
                 <form class="form-sample" action="{{ route('blogs.update', ['id' => $blog->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -40,21 +40,6 @@
                         </div>
 
                     </div>
-
-                    <div class="row">
-
-                        <div class="col-md-12">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Description</label>
-                                <div class="col-sm-9">
-                                    <textarea class="ckeditor form-control" rows="4" name="description" rows="4"></textarea>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
@@ -66,6 +51,19 @@
                                         <option {{ $blog->is_active === 0 ? 'selected' : '' }} value="inactive">In Active
                                         </option>
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Description</label>
+                                <div class="col-sm-9">
+                                    <textarea class="ckeditor form-control" rows="4" name="description" required>
+                                            {{ $blog->description }}
+                                        </textarea>
                                 </div>
                             </div>
                         </div>
