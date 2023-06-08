@@ -42,7 +42,7 @@ class StaffService
 
     public function index($request): View
     {
-        $staffs = Staff::query()->with('agent')->get();
+        $staffs = Staff::query()->with('agent')->latest()->get();
         // dd($staffs);
         return view('pages.backend.users.staff.index', compact('staffs'));
     }
