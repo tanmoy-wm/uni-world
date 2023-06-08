@@ -27,7 +27,7 @@ class BlogService
 
     public function index(): View
     {
-        $blogs = Blog::all();
+        $blogs = Blog::latest()->get();
         return view('pages.backend.blog.index', compact('blogs'));
     }
 

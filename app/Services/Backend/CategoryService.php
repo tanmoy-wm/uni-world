@@ -47,7 +47,7 @@ class CategoryService
 
     public function index($request): View
     {
-        $categories = Category::all();
+        $categories = Category::latest()->get();
 
 
         return view('pages.backend.category.index', compact('categories'));
