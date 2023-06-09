@@ -123,6 +123,15 @@
 
         $('#preferences-form').submit(function(e) {
             e.preventDefault();
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            });
+
+            alert('hello');
+
             $('#submit-modal').attr('disabled', true);
             $.ajax({
                 type: 'POST',
@@ -317,12 +326,6 @@
             $('#step-1').hide();
             $('#step-2').show();
         });
-
-{{-- <script type="text/javascript">
-    function form_submit() {
-        document.getElementById("createStudent").submit();
-    }
-</script> --}}
 
         $('#step-3-next').click(function(e) {
             e.preventDefault();

@@ -24,6 +24,4 @@ class StoreBlogRequest extends FormRequest
             'thumbnail' => ['requires'],
         ];
     }
-
-
 }
