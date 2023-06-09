@@ -159,17 +159,6 @@ class BlogService
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
     }
 
     public function changeStatus($id): RedirectResponse
