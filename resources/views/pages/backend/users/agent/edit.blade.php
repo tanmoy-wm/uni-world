@@ -11,7 +11,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">New Agent</h4>
+                <h4 class="card-title">Edit Agent</h4>
                 <br>
                 <form class="form-sample" action="{{ route('agents.update', ['id' => $agent->id]) }}" method="POST"
                     enctype="multipart/form-data">
@@ -61,8 +61,7 @@
                                 <label class="col-sm-3 col-form-label">Owner Middle Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="middle_name"
-                                        value="{{ old('middle_name') ?? $agent->middle_name }}" class="form-control"
-                                        required />
+                                        value="{{ old('middle_name') ?? $agent->middle_name }}" class="form-control"/>
                                 </div>
                             </div>
                         </div>

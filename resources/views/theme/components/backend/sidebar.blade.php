@@ -75,12 +75,12 @@
                     </a>
                 </li>
 
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ route('applications.index') }}">
-                        <span class="menu-title">Applications</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pages.index') }}">
+                        <span class="menu-title">Pages</span>
                         <i class="mdi mdi-table-large menu-icon"></i>
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('payments.index') }}">
                         <span class="menu-title">Payments</span>

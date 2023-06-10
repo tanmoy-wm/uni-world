@@ -63,7 +63,7 @@ class AgentService
 
     public function index($request): View
     {
-        $agents = Agent::all();
+        $agents = Agent::latest()->get();
         return view('pages.backend.users.agent.index', compact('agents'));
     }
 

@@ -52,7 +52,7 @@ class UniversityService
 
     public function index($request): View
     {
-        $universities = University::all();
+        $universities = University::latest()->get();
         return view('pages.backend.users.university.index', ['universities' => $universities]);
     }
 

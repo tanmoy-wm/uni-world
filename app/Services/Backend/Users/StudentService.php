@@ -41,7 +41,7 @@ class StudentService
 
     public function index($request): View
     {
-        $students = Student::all();
+        $students = Student::latest()->get();
         return view('pages.backend.users.student.index', compact('students'));
     }
 

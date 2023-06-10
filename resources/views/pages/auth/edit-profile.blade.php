@@ -62,13 +62,13 @@
                                 <div class="col-md-12 mb-3">
                                     <label class="labels">Middle Name</label>
                                     <input type="text" class="form-control" placeholder="Middle Name" name="middle_name"
-                                        value="{{ old('middle_name') ?? $user->middle_name }}" required>
+                                        value="{{ old('middle_name') ?? $user->middle_name }}">
                                 </div>
 
                                 <div class="col-md-12 mb-3">
                                     <label class="labels">Last Name</label><input type="text" class="form-control"
                                         name="last_name" placeholder="surname"
-                                        value="{{ old('middle_name') ?? $user->middle_name }}" required>
+                                        value="{{ old('last_name') ?? $user->last_name }}" required>
                                 </div>
                             @endif
 
@@ -162,14 +162,14 @@
                                     <label class="labels">Passport Number</label>
                                     <input type="text" class="form-control" placeholder="Enter your passport number"
                                         name="passport_number"
-                                        value="{{ old('passport_number') ?? $user->passport_number }}" required>
+                                        value="{{ old('passport_number') ?? $user->passport_number }}">
                                 </div>
 
                                 <div class="col-md-12 mb-3">
                                     <label class="labels">Passport Expiry Date</label>
                                     <input type="date" class="form-control"
                                         placeholder="Enter your passport expiry date" name="passport_expiry_date"
-                                        value="{{ old('passport_expiry_date') ?? $user->passport_expiry_date }}" required>
+                                        value="{{ old('passport_expiry_date') ?? $user->passport_expiry_date }}">
                                 </div>
 
                                 <div class="col-md-12 mb-3">
@@ -198,8 +198,7 @@
                                 <div class="col-md-12 mb-3">
                                     <label class="labels">Fast Language</label>
                                     <input type="text" class="form-control" placeholder="Enter your fast language"
-                                        name="fast_language" value="{{ old('fast_language') ?? $user->fast_language }}"
-                                        required>
+                                        name="fast_language" value="{{ old('fast_language') ?? $user->fast_language }}">
                                 </div>
                             @endif
 

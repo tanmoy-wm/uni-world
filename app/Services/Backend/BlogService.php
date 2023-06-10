@@ -27,7 +27,7 @@ class BlogService
 
     public function index(): View
     {
-        $blogs = Blog::all();
+        $blogs = Blog::latest()->get();
         return view('pages.backend.blog.index', compact('blogs'));
     }
 
@@ -158,17 +158,6 @@ class BlogService
                 return redirect()->back()->withErrors('Something went wrong. Please try again later.');
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
     }
 

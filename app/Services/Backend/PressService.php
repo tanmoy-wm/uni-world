@@ -26,7 +26,7 @@ class PressService
 
     public function index(): View
     {
-        $presses = Press::all();
+        $presses = Press::latest()->get();
         return view('pages.backend.press.index', compact('presses'));
     }
 

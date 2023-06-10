@@ -55,7 +55,7 @@ class ProgramService
     {
         $programs = Program::query()
             ->with(['category', 'university',])
-            ->get();
+            ->latest()->get();
 
         return view('pages.backend.programs.index', compact('programs'));
     }

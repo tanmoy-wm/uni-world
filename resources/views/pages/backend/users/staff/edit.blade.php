@@ -61,8 +61,7 @@
                                 <label class="col-sm-3 col-form-label">Middle Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="middle_name"
-                                        value="{{ old('middle_name') ?? $staff->middle_name }}" class="form-control"
-                                        required />
+                                        value="{{ old('middle_name') ?? $staff->middle_name }}" class="form-control"/>
                                 </div>
                             </div>
                         </div>

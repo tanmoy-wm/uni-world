@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\University\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Backend\Users\AgentController;
+use App\Http\Controllers\Backend\Users\PageController;
 use App\Http\Controllers\Backend\Users\StaffController;
 use App\Http\Controllers\Backend\Users\StudentController;
 use App\Http\Controllers\Backend\Users\UniversityController;
@@ -132,6 +133,20 @@ Route::middleware('auth:web')->group(function () {
                 'as' => 'press.',
                 'controller' => PressController::class,
                 'prefix' => '/press'
+            ], function () {
+                Route::get('/create', 'create')->name('create');
+                Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::get('/', 'index')->name('index');
+                Route::post('/store', 'store')->name('store');
+                Route::put('/{id}/update', 'update')->name('update');
+                Route::get('/{id}/trashed', 'trashed')->name('trashed');
+            });
+
+            Route::group([
+                'as' => 'pages.',
+                'controller' => PageController::class,
+                'prefix' => '/pages'
             ], function () {
                 Route::get('/create', 'create')->name('create');
                 Route::get('/{id}/change-status', 'changeStatus')->name('changeStatus');
