@@ -44,7 +44,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Meta Title</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="meta_title" value="" required />
+                                    <input type="text" class="form-control" name="meta_title" value="{{ $page->meta_title }}" required />
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Key Word</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="key_word" value="" required />
+                                    <input type="text" class="form-control" name="key_word" value="{{ $page->key_word }}" required />
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="col-sm-3 col-form-label" for="exampleTextarea1">Meta Description</label>
-                                <textarea class="form-control" id="exampleTextarea1" name="meta_description" rows="4"></textarea>
+                                <textarea class="form-control" id="exampleTextarea1" name="meta_description" rows="4" >{{ $page->meta_description }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -73,8 +73,10 @@
                                 <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="is_active" required>
-                                        <option value="active">Active</option>
-                                        <option value="inactive">In Active</option>
+                                        <option {{ $page->is_active === 1 ? 'selected' : '' }} value="active">Active
+                                        </option>
+                                        <option {{ $page->is_active === 0 ? 'selected' : '' }} value="inactive">In Active
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -83,7 +85,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Thumbnails</label>
                                 <div class="col-sm-9">
-                                    <input type="file" name="thumbnail">
+                                    <input type="file" name="thumbnail" value="{{ $page->thumbnail }}">
                                 </div>
                             </div>
                         </div>
@@ -95,7 +97,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Description</label>
                                 <div class="col-sm-9">
-                                    <textarea class="ckeditor form-control" rows="4" name="description"></textarea>
+                                    <textarea class="ckeditor form-control" rows="4" name="description" >{{ $page->description }}</textarea>
                                 </div>
                             </div>
                         </div>
